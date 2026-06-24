@@ -8,63 +8,63 @@
 
 ## 1. Einleitung (max. 500 Zeichen)
 
-MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Einweg-Bodensensoren in der Landwirtschaft. Das Problem: Tausende Sensoren in Precision-Farming-Netzwerken sind nach Gebrauch nicht rückholbar. Konventionelle Knopfzellen verbleiben im Boden, Recyclingquoten liegen unter fünf Prozent. MykoVolt nutzt lebende Pilzkulturen als Biokatalysator: Die Zelle ist trocken lagerbar, vor Ort mit Wasser aktivierbar und nach Gebrauch biologisch abbaubar (organische Komponenten). Ziel ist eine Nische, in der Nachhaltigkeit den Preis rechtfertigt.
+MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensensoren. Problem: Tausende Sensoren werden für Saison-Monitoring oder Ad-hoc-Einsätze (Drohnenabwurf, Katastrophenmonitoring) ausgebracht — Rückholung ist unwirtschaftlich. Knopfzellen verbleiben im Boden, Recyclingquoten unter fünf Prozent. MykoVolt nutzt lebende Pilzkulturen als Biokatalysator: trocken lagerbar, vor Ort aktivierbar, nach Gebrauch biologisch abbaubar (organische Komponenten).
 
 ---
 
-**Zeichenzahl Abschnitt 1:** ~488 Zeichen ✓
+**Zeichenzahl Abschnitt 1:** ~471 Zeichen ✓
 
 ---
 
 ## 2. Wertangebot / Value Proposition (max. 1000 Zeichen)
 
-**Zielgruppe:** Betreiber von Bodensensor-Netzwerken im Precision Farming und forstwirtschaftlichem Umweltmonitoring — prioritär Betriebe mit ESG-Verpflichtungen oder in ökologisch sensiblen Gebieten (Schutzgebiete, Wasserschutz, Bio-Anbau).
+**Zielgruppe:** Betreiber temporärer Bodensensor-Netzwerke im Saison-Monitoring und Ad-hoc-Einsatz (Forschung, Umweltkatastrophen, Drohnenausbringung) — prioritär Bio-Betriebe ohne Fungizideinsatz und Behörden in sensiblen Gebieten.
 
-**Problem:** Bestehende Sensoren nutzen Lithium-Knopfzellen (0,20–0,50 €), die bei tausenden Knotenpunkten im Feld verbleiben. Die EU-Batterieverordnung (2023/1542) verschärft Entsorgungsauflagen; Rückholung verteilter Sensoren ist unwirtschaftlich. Weder günstigere Knopfzellen noch höhere Recyclingquoten lösen das strukturelle Problem.
+**Problem:** Bestehende Sensoren nutzen Lithium-Knopfzellen (0,20–0,50 €). Bei temporären Messkampagnen in unwegsamem Gelände oder nach Umweltkatastrophen ist Rückholung unwirtschaftlich — Knopfzellen verbleiben im Ökosystem. Recyclingquoten unter fünf Prozent. Batterieverordnung (2023/1542) verschärft Auflagen — aber keine etablierte Batterie ist biologisch abbaubar.
 
-**USP von MykoVolt:** Pilz-basierte MFC, die vollständig aus nachwachsenden Rohstoffen (Cellulose, Zucker, Bienenwachs) besteht. Trocken lagerbar, vor Ort mit Wasser aktivierbar. Nach Gebrauch werden die organischen Bestandteile von den Pilzen selbst kompostiert; verbleibende Kohlenstoffpartikel sind inert und nicht toxisch. Der Preis von 8–15 € pro Einheit ist 2–4× höher als eine Knopfzelle — aber die Kosten für Rückholung/Entsorgung (geschätzt 5–20 € pro Sensor) entfallen vollständig. In regulierten Märkten ist das wirtschaftlich.
+**USP von MykoVolt:** Pilz-basierte MFC aus nachwachsenden Rohstoffen (Cellulose, Biochar aus regionaler Holzpyrolyse statt Carbon Black, pflanzliches Wachs). Trocken lagerbar, vor Ort aktivierbar, nach Gebrauch vollständig kompostierbar. Preis 8–15 € — nicht als Knopfzellen-Ersatz für Dauerbetrieb, sondern als kosteneffiziente Lösung für Saison-Monitoring und Ad-hoc-Einsätze, bei denen Rückholung teurer oder unmöglich ist. In sensiblen Gebieten die einzig nachhaltige Option.
 
 ---
 
-**Zeichenzahl Abschnitt 2:** ~996 Zeichen ✓
+**Zeichenzahl Abschnitt 2:** ~852 Zeichen ✓
 
 ---
 
 ## 3. Geschäftsmodell-Logik / Business Model Canvas (max. 2000 Zeichen)
 
-**Kundensegmente:** (a) Primär: AgrarTech-Dienstleister und Großbetriebe mit >500 IoT-Sensoren im Precision Farming; (b) Forst- und Umweltbehörden mit Monitoringsystemen in Wasserschutz- und Naturschutzgebieten; (c) Sekundär (ab Jahr 4): Hersteller biodegradierbarer Einweg-Sensoren für Umweltforschung.
+**Kundensegmente:** (a) Bio-Betriebe mit Saison-Sensorik (fungizidfrei) und AgrarTech-Dienstleister; (b) Forst- und Umweltbehörden in Wasserschutz- und Naturschutzgebieten; (c) Sekundär (ab Jahr 4): Hersteller biodegradierbarer Einweg-Sensoren.
 
-**Kanäle:** Direktvertrieb B2B über Pilotprojekte mit Agrar-Verbünden (z. B. regionalen Landwirtschaftskammern). Demonstrationsprojekte auf Versuchsfeldern. Konferenzen (Agritechnica, Sensor+Test). Spätere OEM-Partnerschaften mit Sensorherstellern als Co-Pilot ab Jahr 3–4.
+**Kanäle:** Direktvertrieb B2B über Pilotprojekte mit Agrarverbünden. Demonstrationsprojekte auf Versuchsfeldern. Konferenzen (Agritechnica, Sensor+Test). OEM-Partnerschaften ab Jahr 3–4.
 
-**Kundenbeziehungen:** Co-Development mit Pilotkunden — Spezifikation und Feldtest gemeinsam. Technischer Support für Integration und Betriebs-Monitoring (die Zelle hat eine definierte Betriebsdauer von Tagen bis Wochen, keine Nachversorgung — nach Erschöpfung wird die gesamte Einheit getauscht und kompostiert).
+**Kundenbeziehungen:** Co-Development mit Pilotkunden. Support für Integration. Betriebsdauer Tage–Wochen — gesamte Einheit wird getauscht.
 
-**Einnahmequellen:** (1) Verkauf von Batterie-Einheiten (8–15 €/Stück, Zielpreis bei >50.000 Stück: 3–5 €); (2) Forschungsförderung (EXIST, BMBF, Horizon Europe) als Überbrückungsfinanzierung bis Marktreife; (3) Datenanalyse-Dienstleistungen (Monitoring-Daten aus den Sensornetzwerken) als wiederkehrendes Add-on ab Jahr 4.
+**Einnahmequellen:** (1) Batterie-Verkauf (8–15 €, Ziel 3–5 € bei >50.000 Stück); (2) Forschungsförderung (EXIST, BMBF); (3) Datenanalyse als Add-on ab Jahr 4.
 
-**Schlüsselressourcen:** Biologisches Forschungslabor (Universitätspartner), 3D-Drucker für Prototypen, elektrochemisches Messequipment. IP: Know-how zur Tintenformulierung und Pilz-Stammkombination (Eigenentwicklung).
+**Schlüsselressourcen:** Biologisches Forschungslabor (Universität), 3D-Drucker, elektrochemisches Equipment. IP: Tintenformulierung + Stammkombination + Druckprozess (nicht publiziert — schwer imitierbar).
 
-**Schlüsselaktivitäten:** (a) Stamm-Selektion und Tintenoptimierung im Lab (Projektzeitraum 24 Monate); (b) iterative Feldtests mit Agrarpartnern; (c) IP-Aufbau; (d) Fertigungsskalierung.
+**Schlüsselaktivitäten:** (a) Stamm-Selektion und Tintenoptimierung (24 Monate); (b) iterative Feldtests; (c) IP-Aufbau; (d) Fertigungsskalierung.
 
-**Schlüsselpartner:** (1) Universität/Hochschule (Labornutzung, Grundlagenforschung); (2) agrarwissenschaftliche Versuchsstationen (Feldzugang, Praxistests); (3) Cellulose-Lieferanten aus der regionalen Holzindustrie; (4) ggf. Empa (Technologielizenz — Option, keine Voraussetzung).
+**Schlüsselpartner:** (1) Universität (Labornutzung); (2) agrarwissenschaftliche Versuchsstationen; (3) Cellulose-Lieferanten (Holzindustrie); (4) Pyrolyse-Betriebe (Biochar aus Holzabfällen); (5) ggf. Empa (Option).
 
-**Wettbewerber & Marktpositionierung:** BeFC (FR) vermarktet enzymatische Papier-Batterien, Bactery AB (SE) entwickelt bakterielle MFCs, MycelioTronics (JKU Linz) nutzt Myzel als Batterieseparator. Kein Wettbewerber kombiniert 3D-Druck + Pilz-Stoffwechsel + biologische Abbaubarkeit. MykoVolt positioniert sich nicht im Preiswettbewerb mit Knopfzellen, sondern als Nischenlösung für Anwendungen, in denen Rückholung unmöglich und Nachhaltigkeit zertifizierungspflichtig ist.
+**Wettbewerber:** BeFC (enzymatische Papier-Batterie), Bactery AB (bakterielle MFC), MycelioTronics (Myzel-Separator). Substitute: Solar-Bodensensoren. MykoVolt zielt nicht auf Preiswettbewerb mit Knopfzellen, sondern auf Einsätze ohne Rückholmöglichkeit.
 
-**Kostenstruktur:** Dominant in der Entwicklungsphase: Personal (2–3 WiMi/Werkverträge, 80–120 k€/Jahr) und Labormaterialien. In der Pilotfertigung: Materialkosten (Cellulose, Carbon, Enzyme, Nährmedien) schätzungsweise 2–4 € pro Zelle bei Kleinserien (1.000–10.000 Stück). 3D-Druck als Prototypenverfahren; für Skalierung über 50.000 Stück muss ein biokompatibles Massenfertigungsverfahren entwickelt werden (z. B. Siebdruck auf Cellulosevlies — erhält Zellvitabilität, im Lab bereits demonstriert). Stückkostenziel: 3–5 € im relevanten Volumen (5–10× teurer als Knopfzelle, aber mit Entsorgungskostenvorteil).
+**Kostenstruktur:** Dominant: Personal (2–3 WiMi, 80–120 k€/Jahr) und Labormaterialien. Materialkosten (Cellulose, Biochar, Enzyme) ~2–4 €/Zelle (Kleinserie). 3D-Druck für Prototypen; Skalierung via Siebdruck. Stückkostenziel: 3–5 €.
 
 ---
 
-**Zeichenzahl Abschnitt 3:** ~1996 Zeichen ✓
+**Zeichenzahl Abschnitt 3:** ~1785 Zeichen ✓
 
 ---
 
 ## 4. Kreativität & Umsetzbarkeit (max. 500 Zeichen)
 
-**Innovationsgrad:** Erste Pilz-MFC, die Höchstleistungsstämme in 3D-druckbare Cellulosetinten integriert. Fundament: Reyes 2024 (12,5 µW/cm², *T. pubescens*), Sukri 2021 (1,9 W/m², *P. chrysosporium* im Flüssigreaktor). Innovation ist der Transfer ins Druckdesign — experimentell noch offen, realistische Zielspanne: 5–15× über Reyes (~60–190 µW/cm²). Werbewirksame Claims erst nach eigener Messung.
+**Innovationsgrad:** Erste Pilz-MFC in 3D-druckbarer Cellulosetinte. Basis: Reyes (12,5 µW/cm²), Sukri (1,9 W/m²). Ziel: 5–15× Steigerung (~60–190 µW/cm²). Claims erst nach Messung.
 
-**Umsetzbarkeit:** Offene Risiken transparent adressiert: (1) Pilz-Stoffwechsel temperaturabhängig — erster Einsatz auf frostfreie Perioden (10–30 °C) beschränkt; (2) angestrebte ~100 µW/cm² erfordern Kondensator-Zwischenspeicher für gepulste LoRa-Sender — Machbarkeit im Power-Budget nachzuweisen; (3) Markt-These muss durch Kundeninterviews mit AgrarTech-Betrieben validiert werden. Pfad: Jahr 1–2 Lab (TRL 2→4), Jahr 2–3 Prototyp (TRL 5–6), Jahr 3–4 Pilot (TRL 7). IP unabhängig von Empa durch eigenständige Stammentwicklung.
+**Umsetzbarkeit:** Offene Risiken: (1) Bakterien-Konkurrenz im Boden verbraucht Zucker — Schutzstrategie nötig; (2) Pilz-Stoffwechsel nur 10–30 °C; (3) ~100 µW/cm² für LoRa reicht nur mit Kondensator. Kill-Kriterium J1: >50 µW/cm² über 14 d. Pfad: TRL 2→7 in 3–4 J. Team: 3 Pers. (Biotech, MatWiss., EE). IP autark.
 
 ---
 
-**Zeichenzahl Abschnitt 4:** ~497 Zeichen ✓
+**Zeichenzahl Abschnitt 4:** ~496 Zeichen ✓
 
 ---
 
