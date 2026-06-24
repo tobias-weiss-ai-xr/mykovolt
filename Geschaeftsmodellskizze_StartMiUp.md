@@ -36,7 +36,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Einweg-Bodensensoren
 
 **Kanäle:** Direktvertrieb B2B über Pilotprojekte mit Agrar-Verbünden (z. B. regionalen Landwirtschaftskammern). Demonstrationsprojekte auf Versuchsfeldern. Konferenzen (Agritechnica, Sensor+Test). Spätere OEM-Partnerschaften mit Sensorherstellern als Co-Pilot ab Jahr 3–4.
 
-**Kundenbeziehungen:** Co-Development mit Pilotkunden — Spezifikation und Feldtest gemeinsam. Technischer Support während der Betriebsdauer (Monitoring Pilzaktivität, Nährstoffnachversorgung).
+**Kundenbeziehungen:** Co-Development mit Pilotkunden — Spezifikation und Feldtest gemeinsam. Technischer Support für Integration und Betriebs-Monitoring (die Zelle hat eine definierte Betriebsdauer von Tagen bis Wochen, keine Nachversorgung — nach Erschöpfung wird die gesamte Einheit getauscht und kompostiert).
 
 **Einnahmequellen:** (1) Verkauf von Batterie-Einheiten (8–15 €/Stück, Zielpreis bei >50.000 Stück: 3–5 €); (2) Forschungsförderung (EXIST, BMBF, Horizon Europe) als Überbrückungsfinanzierung bis Marktreife; (3) Datenanalyse-Dienstleistungen (Monitoring-Daten aus den Sensornetzwerken) als wiederkehrendes Add-on ab Jahr 4.
 
@@ -48,7 +48,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Einweg-Bodensensoren
 
 **Wettbewerber & Marktpositionierung:** BeFC (FR) vermarktet enzymatische Papier-Batterien, Bactery AB (SE) entwickelt bakterielle MFCs, MycelioTronics (JKU Linz) nutzt Myzel als Batterieseparator. Kein Wettbewerber kombiniert 3D-Druck + Pilz-Stoffwechsel + biologische Abbaubarkeit. MykoVolt positioniert sich nicht im Preiswettbewerb mit Knopfzellen, sondern als Nischenlösung für Anwendungen, in denen Rückholung unmöglich und Nachhaltigkeit zertifizierungspflichtig ist.
 
-**Kostenstruktur:** Dominant in der Entwicklungsphase: Personal (2–3 WiMi/Werkverträge, 80–120 k€/Jahr) und Labormaterialien. In der Pilotfertigung: Materialkosten (Cellulose, Carbon, Enzyme, Nährmedien) schätzungsweise 2–4 € pro Zelle bei Kleinserien (1.000–10.000 Stück). 3D-Druck als Prototypenverfahren; für Skalierung über 50.000 Stück wird ein kostengünstigeres Verfahren (Prägen/Folientechnik) entwickelt. Stückkostenziel: 3–5 € im relevanten Volumen (5–10× teurer als Knopfzelle, aber mit Entsorgungskostenvorteil).
+**Kostenstruktur:** Dominant in der Entwicklungsphase: Personal (2–3 WiMi/Werkverträge, 80–120 k€/Jahr) und Labormaterialien. In der Pilotfertigung: Materialkosten (Cellulose, Carbon, Enzyme, Nährmedien) schätzungsweise 2–4 € pro Zelle bei Kleinserien (1.000–10.000 Stück). 3D-Druck als Prototypenverfahren; für Skalierung über 50.000 Stück muss ein biokompatibles Massenfertigungsverfahren entwickelt werden (z. B. Siebdruck auf Cellulosevlies — erhält Zellvitabilität, im Lab bereits demonstriert). Stückkostenziel: 3–5 € im relevanten Volumen (5–10× teurer als Knopfzelle, aber mit Entsorgungskostenvorteil).
 
 ---
 
@@ -58,9 +58,9 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Einweg-Bodensensoren
 
 ## 4. Kreativität & Umsetzbarkeit (max. 500 Zeichen)
 
-**Innovationsgrad:** Erste Pilz-MFC, die lebende Höchstleistungsstämme in 3D-druckbare Cellulosetinten integriert. Das wissenschaftliche Fundament ist gelegt (Reyes et al. 2024: 12,5 µW/cm² mit *T. pubescens*; Sukri et al. 2021: 1,9 W/m² mit *P. chrysosporium* in konventionellem Reaktor). MykoVolts Innovation ist der Transfer der Höchstleistungsstämme ins Druckdesign — dieser Transfer muss experimentell validiert werden, die Zielleistung liegt zwischen beiden Werten. Werbewirksame Claims werden erst nach eigener Messung formuliert.
+**Innovationsgrad:** Erste Pilz-MFC, die Höchstleistungsstämme in 3D-druckbare Cellulosetinten integriert. Fundament: Reyes 2024 (12,5 µW/cm², *T. pubescens*), Sukri 2021 (1,9 W/m², *P. chrysosporium* im Flüssigreaktor). Innovation ist der Transfer ins Druckdesign — experimentell noch offen, realistische Zielspanne: 5–15× über Reyes (~60–190 µW/cm²). Werbewirksame Claims erst nach eigener Messung.
 
-**Umsetzbarkeit:** Realistischer Pfad: Jahr 1–2 Lab-Validierung (TRL 2→4), Jahr 2–3 Feldprototyp (TRL 5–6), Jahr 3–4 Pilotkunden (TRL 7). Exakte IP-Klärung mit Empa und eigenständige Stammentwicklung an der Universität sind vorausgesetzt. Der adressierbare Nischenmarkt (Agrar-Bodensensoren in regulierten/geschützten Gebieten) ist ausreichend für einen ersten Markteintritt.
+**Umsetzbarkeit:** Offene Risiken transparent adressiert: (1) Pilz-Stoffwechsel temperaturabhängig — erster Einsatz auf frostfreie Perioden (10–30 °C) beschränkt; (2) angestrebte ~100 µW/cm² erfordern Kondensator-Zwischenspeicher für gepulste LoRa-Sender — Machbarkeit im Power-Budget nachzuweisen; (3) Markt-These muss durch Kundeninterviews mit AgrarTech-Betrieben validiert werden. Pfad: Jahr 1–2 Lab (TRL 2→4), Jahr 2–3 Prototyp (TRL 5–6), Jahr 3–4 Pilot (TRL 7). IP unabhängig von Empa durch eigenständige Stammentwicklung.
 
 ---
 
