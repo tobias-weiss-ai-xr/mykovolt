@@ -18,15 +18,15 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 ## 2. Wertangebot / Value Proposition (max. 1000 Zeichen)
 
-**Zielgruppe:** Betreiber temporärer Bodensensor-Netzwerke im Saison-Monitoring und Ad-hoc-Einsatz (Forschung, Umweltkatastrophen, Drohnenausbringung) — prioritär Bio-Betriebe ohne Fungizideinsatz und Behörden in sensiblen Gebieten.
+**Zielgruppe:** Betreiber temporärer Bodensensorik in Saison-Monitoring und Ad-hoc-Einsatz (Forschung, Katastrophen, Drohnen) — prioritär Bio-Betriebe ohne Fungizideinsatz und Behörden in sensiblen Gebieten.
 
-**Problem:** Bestehende Sensoren nutzen Lithium-Knopfzellen (0,20–0,50 €). Bei temporären Messkampagnen in unwegsamem Gelände oder nach Umweltkatastrophen ist Rückholung unwirtschaftlich — Knopfzellen verbleiben im Ökosystem. Recyclingquoten unter fünf Prozent. Batterieverordnung (2023/1542) verschärft Auflagen — aber keine etablierte Batterie ist biologisch abbaubar.
+**Problem:** Bestehende Sensoren nutzen Lithium-Knopfzellen (0,20–0,50 €). Bei temporären Messkampagnen im Feld oder nach Umweltkatastrophen ist Rückholung unwirtschaftlich — Knopfzellen verbleiben im Ökosystem. Recyclingquoten unter fünf Prozent. Batterieverordnung verschärft Auflagen; ob MFCs erfasst sind, ist offen — MykoVolt positioniert sich proaktiv als abbaubare Alternative.
 
-**USP von MykoVolt:** Pilz-basierte MFC aus nachwachsenden Rohstoffen (Cellulose, Biochar aus regionaler Holzpyrolyse statt Carbon Black, pflanzliches Wachs). Trocken lagerbar, vor Ort aktivierbar, nach Gebrauch vollständig kompostierbar. Preis 8–15 € — nicht als Knopfzellen-Ersatz für Dauerbetrieb, sondern als kosteneffiziente Lösung für Saison-Monitoring und Ad-hoc-Einsätze, bei denen Rückholung teurer oder unmöglich ist. In sensiblen Gebieten die einzig nachhaltige Option.
+**USP von MykoVolt:** Pilz-basierte MFC aus Cellulose, Biochar, Carnaubawachs — trocken lagerbar (≥6 Mte.), vor Ort aktivierbar. Organische Bestandteile biologisch abbaubar; Biochar als Bodenverbesserer. Lieferung als Developer Kit; ab Jahr 3 OEM-Komponente. Preis 8–15 € — für Saison-Monitoring ohne Rückholmöglichkeit.
 
 ---
 
-**Zeichenzahl Abschnitt 2:** ~852 Zeichen ✓
+**Zeichenzahl Abschnitt 2:** ~974 Zeichen ✓
 
 ---
 
@@ -40,11 +40,11 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 **Einnahmequellen:** (1) Batterie-Verkauf (8–15 €, Ziel 3–5 € bei >50.000 Stück); (2) Forschungsförderung (EXIST, BMBF); (3) Datenanalyse als Add-on ab Jahr 4.
 
-**Schlüsselressourcen:** Biologisches Forschungslabor (Universität), 3D-Drucker, elektrochemisches Equipment. IP: Tintenformulierung + Stammkombination + Druckprozess (nicht publiziert — schwer imitierbar).
+**Schlüsselressourcen:** Biologisches Forschungslabor (Universität), 3D-Drucker, elektrochemisches Equipment. IP: Tintenformulierung + Stammkombination + Druckprozess (nicht publiziert, autark — keine Drittabhängigkeit).
 
 **Schlüsselaktivitäten:** (a) Stamm-Selektion und Tintenoptimierung (24 Monate); (b) iterative Feldtests; (c) IP-Aufbau; (d) Fertigungsskalierung.
 
-**Schlüsselpartner:** (1) Universität (Labornutzung); (2) agrarwissenschaftliche Versuchsstationen; (3) Cellulose-Lieferanten (Holzindustrie); (4) Pyrolyse-Betriebe (Biochar aus Holzabfällen); (5) ggf. Empa (Option).
+**Schlüsselpartner:** (1) Universität (Labornutzung); (2) agrarwissenschaftliche Versuchsstationen; (3) Cellulose-Lieferanten (Holzindustrie); (4) Pyrolyse-Betriebe (Biochar aus Holzabfällen).
 
 **Wettbewerber:** BeFC (enzymatische Papier-Batterie), Bactery AB (bakterielle MFC), MycelioTronics (Myzel-Separator). Substitute: Solar-Bodensensoren. MykoVolt zielt nicht auf Preiswettbewerb mit Knopfzellen, sondern auf Einsätze ohne Rückholmöglichkeit.
 
@@ -52,7 +52,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 ---
 
-**Zeichenzahl Abschnitt 3:** ~1785 Zeichen ✓
+**Zeichenzahl Abschnitt 3:** ~1775 Zeichen ✓
 
 ---
 
@@ -60,11 +60,11 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 **Innovationsgrad:** Erste Pilz-MFC in 3D-druckbarer Cellulosetinte. Basis: Reyes (12,5 µW/cm²), Sukri (1,9 W/m²). Ziel: 5–15× Steigerung (~60–190 µW/cm²). Claims erst nach Messung.
 
-**Umsetzbarkeit:** Offene Risiken: (1) Bakterien-Konkurrenz im Boden verbraucht Zucker — Schutzstrategie nötig; (2) Pilz-Stoffwechsel nur 10–30 °C; (3) ~100 µW/cm² für LoRa reicht nur mit Kondensator. Kill-Kriterium J1: >50 µW/cm² über 14 d. Pfad: TRL 2→7 in 3–4 J. Team: 3 Pers. (Biotech, MatWiss., EE). IP autark.
+**Umsetzbarkeit:** Offene Risiken: (1) Bakterien-Konkurrenz im Boden — Schutz nötig; (2) Pilz nur 10–30 °C; (3) ~100 µW/cm² für LoRa nur mit Kondensator; (4) Scherstress beim 3D-Druck (Zellviabilität). Kill J1: >50 µW/cm² über 14 d. Pfad: TRL 2→7 in 3–4 J. Team: 3 (Biotech, MatWiss., EE).
 
 ---
 
-**Zeichenzahl Abschnitt 4:** ~496 Zeichen ✓
+**Zeichenzahl Abschnitt 4:** ~471 Zeichen ✓
 
 ---
 
