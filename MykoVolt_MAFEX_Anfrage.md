@@ -16,6 +16,8 @@ Parallel dazu habe ich im Rahmen des StartMiUp-Businessplan-Wettbewerbs eine Ges
 
 Kurz zur Technologie: MykoVolt nutzt lebende Weißfäule-Pilze (*Phanerochaete chrysosporium*) in einer Cellulose-basierten Drucktinte als Biokatalysator. Die Zelle ist trocken lagerbar, vor Ort aktivierbar und nach Gebrauch biologisch abbaubar. Zielanwendung sind Saison-Monitoring und Ad-hoc-Messungen in der Land- und Forstwirtschaft, bei denen Rückholung konventioneller Knopfzellen unwirtschaftlich ist.
 
+**Einordnung in die Marburger Forschungslandschaft:** SYNMIKRO (Zentrum für Synthetische Mikrobiologie) arbeitet hoch relevant — aber an synthetischer Mikrobiologie für Bioproduktion (Chemikalien, Medikamente, CO₂-Verwertung), nicht an mikrobiellen Brennstoffzellen oder Pilz-Batterien. MykoVolt wäre in Marburg kein Duplikat, sondern Neuland. Gleichzeitig hat SYNMIKRO genau die Pilzbiologie-Expertise (Myzel-Kultivierung, Stammcharakterisierung, Fermentation), die für den PoC wertvoll wäre. Eine Kooperation wäre also komplementär.
+
 Wir befinden uns in der **Konzeptphase (TRL 2)** und möchten einen ersten Proof-of-Concept umsetzen (Stamm-Kultivierung, Tintenformulierung, 3D-Druck, elektrochemische Messung). Dafür suchen wir Partner für Laborzugang und biowissenschaftliche Begleitung.
 
 **Meine Frage:** Wäre MAFEX ein geeigneter Rahmen, um einen Test gemeinsam zu starten — etwa als außer Konkurrenz laufendes Projekt oder als studienbegleitende Initiative? Konkret stellen wir uns vor:
@@ -39,14 +41,14 @@ contextual-intelligence.org
 
 ## Anlage
 
-- `Geschaeftsmodellskizze_StartMiUp.pdf` (2 S., Business Model Canvas)
-- `Anlage_PoC_MykoVolt.md` (PoC-Plan mit Zeitplan und Budget)
+- `MykoVolt_Geschaeftsmodellskizze.pdf` (2 S., Business Model Canvas)
+- `MykoVolt_PoC.md` (PoC-Plan mit Zeitplan und Budget)
 
 ---
 
 ## Checklist vor Versand
 
 - [ ] Persönliche Anrede prüfen (ggf. Titel: Prof. Dr. / Dr. Rötz?)
-- [ ] Anlagen tatsächlich anhängen (Geschaeftsmodellskizze.pdf + Anlage_PoC_MykoVolt.md)
+- [ ] Anlagen tatsächlich anhängen (MykoVolt_Geschaeftsmodellskizze.pdf + MykoVolt_PoC.md)
 - [ ] Absender-E-Mail-Adresse ergänzen (oberhalb von "Beste Grüße")
 - [ ] ggf. Unterschrift digital oder handschriftlich

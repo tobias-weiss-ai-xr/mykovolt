@@ -44,7 +44,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 **Schlüsselaktivitäten:** (a) Stamm-Selektion und Tintenoptimierung (24 Monate); (b) iterative Feldtests; (c) IP-Aufbau; (d) Fertigungsskalierung.
 
-**Schlüsselpartner:** (1) Universität (Labornutzung); (2) agrarwissenschaftliche Versuchsstationen; (3) Cellulose-Lieferanten (Holzindustrie); (4) Pyrolyse-Betriebe (Biochar aus Holzabfällen).
+**Schlüsselpartner:** (1) Universität (Labornutzung); (2) agrarwissenschaftliche Versuchsstationen; (3) Cellulose-Lieferanten (Holzindustrie); (4) Pyrolyse-Betriebe (Biochar aus Holzabfällen); (5) SYNMIKRO Marburg (Pilzbiologie-Infrastruktur, Myzel-Kultivierung).
 
 **Wettbewerber:** BeFC (enzymatische Papier-Batterie), Bactery AB (bakterielle MFC), MycelioTronics (Myzel-Separator). Substitute: Solar-Bodensensoren. MykoVolt zielt nicht auf Preiswettbewerb mit Knopfzellen, sondern auf Einsätze ohne Rückholmöglichkeit.
 
@@ -52,7 +52,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für temporäre Bodensens
 
 ---
 
-**Zeichenzahl Abschnitt 3:** ~1775 Zeichen ✓
+**Zeichenzahl Abschnitt 3:** ~1846 Zeichen ✓
 
 ---
 

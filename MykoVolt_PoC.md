@@ -108,7 +108,13 @@ Integration der MykoVolt-Zelle in ein funktionsfähiges Sensor-Kit (Developer Ki
 
 ---
 
-## 7. Nächste Schritte
+## 7. Lokale Kooperationsmöglichkeit: SYNMIKRO Marburg
+
+SYNMIKRO (Zentrum für Synthetische Mikrobiologie, Uni Marburg + MPI Terrestrische Mikrobiologie) forscht **nicht** an Pilz-Batterien oder mikrobiellen Brennstoffzellen — MykoVolt wäre in Marburg kein Duplikat. SYNMIKRO verfügt aber über exzellente Infrastruktur in Pilzbiologie (Myzel-Kultivierung, Stammcharakterisierung, Bioreaktoren), die für den PoC genutzt werden könnte. Eine Kooperation wäre komplementär: SYNMIKRO bringt die Mikrobiologie, MykoVolt die elektrochemische und drucktechnische Anwendung.
+
+---
+
+## 8. Nächste Schritte
 
 1. DSMZ-Katalog: *P. chrysosporium* DSM 1556 Verfügbarkeit prüfen
 2. Uni-Labor: Biodrucker- und Potentiostat-Zugang klären
