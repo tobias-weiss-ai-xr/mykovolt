@@ -1,9 +1,9 @@
-# LinkedIn Pitch Video — Skript
+# LinkedIn Pitch Video — Skript (konservativ)
 
 > **Zielplattform:** LinkedIn (Video-Post oder Company Page)
-> **Zieldauer:** 60–75 Sekunden (~160 Wörter gesprochen)
-> **Ton:** Authentisch, konkret, kein Buzzword-Brei. Fachpublikum (Investoren, AgrTech, Sustainability).
-> **Format:** Talking-Head mit B-Roll-Einspielern (Pilz-Labor, Sensor im Feld, 3D-Druck)
+> **Zieldauer:** 60–75 Sekunden
+> **Ton:** Authentisch, konkret, wissenschaftlich präzise. Keine übertriebenen Claims.
+> **Format:** Talking-Head mit B-Roll (Pilz-Labor, Sensor im Feld, 3D-Druck)
 
 ---
 
@@ -11,125 +11,102 @@
 
 ### 🎬 SZENE 1 — HOOK (0:00–0:08)
 
-**Visuell:** Nahaufnahme Pilzmyzel auf Petrischale, dann harte Cut zum Sprecher.
+**Visuell:** Nahaufnahme Pilzmyzel auf Petrischale, dann Cut zum Sprecher.
 
 **Sprecher (Kamera):**
-> „Wusstest du, dass ein Pilz Strom erzeugen kann? Nicht als Gag — als gemessene Spannung. Und wir bauen daraus ein Unternehmen."
+> „Ein Pilz, der Strom produziert? Klingt absurd — ist aber gemessene Wissenschaft. Und könnte eine Nische füllen, die keine Lithium-Batterie kann."
 
 ---
 
 ### 🎬 SZENE 2 — PROBLEM (0:08–0:22)
 
-**Visuell:** Drohnenshot über Maisfeld mit hunderten kleinen Sensoren. Overlay-Zahl: „Millionen giftige Batterien pro Jahr in Böden."
+**Visuell:** Drohnenshot über Maisfeld. Overlay: „Tausende Sensoren – keine Rückholung."
 
 **Sprecher (Voiceover):**
-> „Jedes Jahr versinken Millionen von Sensoren in unseren Böden — mit Lithium-Batterien, die nicht recycelt werden. In der Landwirtschaft, im Umweltmonitoring, überall. Sie bleiben. Sie vergiften. Niemand holt sie zurück."
+> „Präzisionslandwirtschaft setzt auf tausende verteilte Bodensensoren. Problem: Nach der Ernte sind sie nicht rückholbar. Die Knopfzellen bleiben im Boden. Die EU-Batterieverordnung wird das zum Kostenproblem machen — für Betriebe, die heute noch keine Antwort haben."
 
 ---
 
 ### 🎬 SZENE 3 — LÖSUNG (0:22–0:42)
 
-**Visuell:** 3D-Drucker druckt Pilz-Elektrode. Zeitraffer Pilzwachstum. Labor-Messgerät zeigt 500 mV.
+**Visuell:** 3D-Drucker druckt Pilz-Elektrode. Zeitraffer Pilzwachstum. Messgerät zeigt 500 mV.
 
-**Sprecher (Kamera, dann Voiceover):**
-> „Unsere Lösung: Eine Batterie aus Pilzen. 3D-gedruckt aus Cellulose, angetrieben von lebenden Pilzkulturen. Sie erzeugt Strom aus Zucker und Wasser — und wenn sie fertig ist, kompostiert sie sich selbst. Null Gift, null Recyclingaufwand, null Rückhollogistik.
-
-> Vor Ort aktivierbar: Trocken lagern, Wasser drauf, läuft."
+**Sprecher (Kamera):**
+> „Unsere Idee: Eine 3D-gedruckte Brennstoffzelle aus Cellulose, angetrieben von lebenden Pilzkulturen. Sie wandelt Zucker in Strom um — Niedrigspannung, aber stabil über Tage. Und nach Gebrauch wird das organische Material von den Pilzen selbst abgebaut. Die Kohlenstoffelektroden bleiben als inertes Material zurück — nicht kompostierbar, aber nicht toxisch. Der Punkt ist: Kein Recycling nötig, weil gar kein giftiger Abfall entsteht."
 
 ---
 
-### 🎬 SZENE 4 — TRAKTION & MARKT (0:42–0:55)
+### 🎬 SZENE 4 — AKTUELLER STAND (0:42–0:55)
 
-**Visuell:** Schnelle Charts: Bio-Batterie-Markt $96 Mrd. → $230 Mrd. (2035). Logo-Strip: Empa, Universitätspartner.
+**Visuell:** Logo Empa, Diagramm Leistungsdichte, Zitat Reyes 2024.
 
 **Sprecher (Voiceover):**
-> „Die Wissenschaft ist validiert — Empa Schweiz hat 2024 den Proof-of-Concept geliefert. Der Markt für Bio-Batterien wächst auf 230 Milliarden Dollar bis 2035. Wir bringen die Technologie aus dem Labor ins Feld."
+> „Der Proof-of-Concept kommt von der Empa in der Schweiz (Reyes et al. 2024). 300–600 mV, 12 Mikrowatt pro Quadratzentimeter. Genug für einen Temperatursensor. Wir arbeiten daran, leistungsstärkere Pilzstämme in das 3D-Druck-Design zu integrieren — das ist der nächste Schritt. Der breitere Bio-Batterie-Markt wird bis 2035 auf über 200 Milliarden Dollar geschätzt. Aber wir konzentrieren uns erstmal auf eine Nische: Agrarsensoren in regulierten Gebieten."
 
 ---
 
 ### 🎬 SZENE 5 — CALL TO ACTION (0:55–1:05)
 
-**Visuell:** Sprecher im Labor, lächelnd. Text-Overlay: „Pilot-Partner gesucht" + „Investoren gesucht".
+**Visuell:** Sprecher im Labor. Text-Overlay: „Forschungspartner gesucht" + „Pilotkunden ab 2028".
 
 **Sprecher (Kamera):**
-> „Wir suchen Pilot-Kunden aus der AgrarTech und Investoren, die an der Schnittstelle von Biotech und Circular Economy bauen wollen. Schreib mir — oder kommentier. Lasst uns Pilze zu Strom machen."
+> „Wir suchen Forschungspartner aus der Agrarwissenschaft und Sensorhersteller, die eine biologisch abbaubare Alternative für ihre Sensornetzwerke entwickeln wollen. Erste Feldtests sind ab 2028 realistisch. Wer Interesse hat: Schreib mir."
 
 ---
 
 ### 🎬 SZENE 6 — LOGO (1:05–1:08)
 
-**Visuell:** MykoVolt Logo + „Pilz-Strom. Für die Erde." + Website-Platzhalter.
+**Visuell:** MykoVolt Logo + „Biologisch abbaubare Energie für die Landwirtschaft."
 
 ---
 
-## Production Notes
+## Änderungen zur Vorversion (konservative Korrekturen)
 
-| Element | Spezifikation |
-|---------|---------------|
-| **Länge** | 60–75 Sekunden (LinkedIn sweet spot: <90 s für max. Retention) |
-| **Format** | 9:16 vertikal (LinkedIn Mobile) UND 1:1 quadratisch für Feed |
-| **Auflösung** | 1080p min., 4K ideal für B-Roll |
-| **Untertitel** | Pflicht! 85 % der LinkedIn-Videos laufen lautlos → hardcoded burned-in captions |
-| **Musik** | Dezent, elektronisch-organischer Hybrid (z. B. Infinity ambience, keine Chart-Musik wegen Rechten) |
-| **Erste 3 Sekunden** | Muss motion + Text haben — sonst wird weggeswipet |
-| **Text-Overlay-Font** | Groß, fett, kontrastreich (weiß auf schwarz, gelber Accent für Zahlen) |
-| **Hashtags (Post)** | `#Biotech #CircularEconomy #AgrTech #Sustainability #BioBattery #DeepTech #StartupGermany` |
-| **Tagging** | Empa, Gebert Rüf Stiftung, StartMiUp, bekannte AgrTech-Influencer |
+| Vorher | Nachher | Grund |
+|--------|---------|-------|
+| „Null Gift" | „Kohlenstoffpartikel inert, nicht toxisch" | Carbon Black ist nicht biologisch abbaubar |
+| „Vollständig biologisch abbaubar" | „Organische Komponenten kompostierbar" | Präzise Trennung |
+| „Der Markt: $230 Mrd." | „Breiterer Bio-Batterie-Markt… aber wir fokussieren Nische" | Markt ist nicht direkt adressierbar |
+| „Piloten ab 2026" | „Erste Feldtests ab 2028" | Realistische TRL-Entwicklung |
+| „Millionen Batterien vergiften Böden" | „Tausende Sensoren… Knopfzellen bleiben im Boden" | Keine Panikmache, sachlich |
+| „Wissenschaft validiert" | „Proof-of-Concept von Empa" | Validierung bezieht sich auf Baseline, nicht auf MykoVolts modifizierten Ansatz |
+| „Wir bringen sie ins Feld" | „Wir arbeiten daran… das ist der nächste Schritt" | Entwicklungspipeline statt Fertigbehauptung |
 
-## Varianten
-
-### Variante A — Investor-Pitch (länger, 90 s)
-
-Ersetze Szene 4 mit:
-
-> „Unser Moat: KI-gesteuerte Stamm-Selektion. Wir nutzen Machine Learning, um aus Millionen Pilzstämmen die elektrogensten in Monaten statt Jahren zu identifizieren. Das ist unser IP-Vorteil — nicht die Batterie, sondern die R&D-Pipeline dahinter."
-
-### Variante B — Kunden-Pitch (kürzer, 45 s)
-
-Ersetze Szene 5 mit:
-
-> „Du betreibst Bodensensoren? Wir liefern die Batterie, die nach Gebrauch verschwindet. Piloten ab 2026. Melde dich."
-
-### Variante C — Recruiting
-
-Ersetze Szene 5 mit:
-
-> „Wir suchen Biotechnologen, Materialwissenschaftler und ML-Engineers, die Pilze zu Strom machen wollen. Join us."
+---
 
 ## Hook-Alternativen (A/B-Test)
 
-1. „Wusstest du, dass ein Pilz Strom erzeugen kann?" (Neugier)
-2. „Jedes Jahr vergiften Millionen Batterien unsere Böden." (Schmerz)
-3. „Stell dir vor, deine Batterie wäre aus Pilzen." (Visionär)
-4. „Das hier ist eine Batterie. Sie wächst. Und sie stirbt, wenn sie fertig ist." (Provokant)
-
-**Empfehlung:** Variante 4 für LinkedIn (höchste Engagement-Rate durch Rätsel-Charakter).
-
-## LinkedIn-Post-Text (Begleittext zum Video)
-
-> Pilze, die Strom machen. 🍄⚡
->
-> Klingt wie Sci-Fi — ist aber gemessene Realität. Wir bei MykoVolt entwickeln die erste vollständig biologisch abbaubare Batterie für IoT-Sensoren in Landwirtschaft und Umweltmonitoring.
->
-> Das Problem: Millionen konventioneller Batterien verseuchen jährlich Böden und Gewässer, weil verteilte Sensoren nicht rückholbar sind.
->
-> Unsere Lösung: 3D-gedruckte Pilz-Brennstoffzellen aus Cellulose. Trocken lagerbar, vor Ort mit Wasser aktivierbar, und am Ende kompostieren sie sich selbst.
->
-> Die Wissenschaft steht (Empa 2024). Der Markt wächst auf $230 Mrd. bis 2035. Jetzt bringen wir sie ins Feld.
->
-> 🔍 Wir suchen:
-> → Pilot-Kunden aus AgrTech & Umweltmonitoring
-> → Investoren an der Biotech × Circular Economy-Schnittstelle
->
-> Schreib mir oder kommentier — lasst uns Pilze zu Strom machen. 🌱
->
-> #Biotech #CircularEconomy #AgrTech #Sustainability #BioBattery #DeepTech #StartupGermany
+1. „Ein Pilz, der Strom produziert?" (wissenschaftlich neugierig)
+2. „Dein Sensor im Acker — nach der Ernte holt ihn keiner zurück." (Problem-zentriert)
+3. „Was, wenn eine Batterie sich selbst kompostiert?" (Visionär)
+4. „Lithium-Knopfzellen bleiben für Jahrhunderte im Boden. Muss das sein?" (Provokant)
 
 ---
 
-## Disclaimer
+## LinkedIn-Post-Text (konservativ)
 
-- „MykoVolt" ist ein Arbeitsname — vor Publikation Markenschutz prüfen (DPMA/EUIPO)
-- Vor Veröffentlichung: Empa-IP-Status klären (Reyes-Paper, eventuelle Patente)
-- Keine Leistungsversprechen ohne verifizierte eigene Messdaten — ggf. „gemäß veröffentlichter Forschung" formulieren
-- Bei Videoaufnahme im Universitätslabor: Fotografiererecht und Nutzung klären
+> Pilze als Stromquelle — klingt absurd, ist aber gemessene Wissenschaft. 🍄⚡
+>
+> Wir entwickeln eine 3D-gedruckte Brennstoffzelle aus Cellulose, angetrieben von lebenden Pilzkulturen. Sie wandelt Zucker in Niederspannungsstrom um — für Tage. Die organischen Bestandteile kompostieren nach Gebrauch.
+>
+> Die Nische: Präzisionslandwirtschaft in ökologisch sensiblen Gebieten, wo tausende Bodensensoren nach der Ernte nicht zurückgeholt werden können. Konventionelle Knopfzellen bleiben — unser Ansatz reduziert den Abfall auf inerten Kohlenstoff.
+>
+> Der Proof-of-Concept kommt von der Empa (2024). Wir arbeiten an leistungsstärkeren Pilzstämmen für das 3D-Druck-Design. Erste Feldpiloten ab 2028.
+>
+> 🔍 Wir suchen:
+> → Forschungspartner aus Agrarwissenschaft & Sensor-Engineering
+> → Pilotbetriebe für Feldtests (ab 2028)
+>
+> Interesse? Schreib mir.
+>
+> #Biotech #CircularEconomy #AgrTech #PrecisionFarming #BioBattery #Sustainability
+
+---
+
+## Disclaimer (aktualisiert)
+
+- „MykoVolt" ist Arbeitsname — vor Publikation Markenschutz prüfen (DPMA/EUIPO)
+- Empa-IP-Status prüfen — falls Patent(e) bestehen, eigene Entwicklungsroute klar abgrenzen
+- **Carbon Black/Graphit** sind nicht biologisch abbaubar → im Pitch klar kommunizieren
+- Keine Leistungsversprechen ohne eigene verifizierte Messdaten
+- Zeitangabe „Feldpiloten ab 2028" konservativ kalkuliert (TRL 2→7 in 3–4 Jahren)

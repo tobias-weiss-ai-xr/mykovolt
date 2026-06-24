@@ -2,67 +2,69 @@
 
 > **Format:** Arial 11 pt, 1,5-zeilig, Seitenränder Standard | **Einreichung als PDF**
 >
-> **Hinweis zur Formatierung:** Dieses Markdown als PDF exportieren (z. B. via pandoc, Word-Import oder Typora). Die Zeichenzählungen beziehen sich ausschließlich auf den jeweiligen Inhaltsabschnitt zwischen den Trennlinien.
+> **Hinweis zur Formatierung:** Dieses Markdown als PDF exportieren. Zeichenzählungen beziehen sich auf den jeweiligen Inhaltsabschnitt zwischen den Trennlinien.
 
 ---
 
 ## 1. Einleitung (max. 500 Zeichen)
 
-MykoVolt entwickelt vollständig biologisch abbaubare Pilz-Batterien für Einweg-IoT-Sensoren in Landwirtschaft und Umweltmonitoring. Das Problem: Millionen giftige Knopfzellen verseuchen jährlich Böden und Gewässer, weil Sensor-Netzwerke nach Gebrauch nicht rückholbar sind. MykoVolt löst das durch eine 3D-gedruckte mikrobielle Brennstoffzelle, die lebende Pilze als Biokatalysator nutzt, trocken lagerbar ist und sich nach Gebrauch selbst kompostiert — null toxische Rückstände, null Recyclinglogistik.
+MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Einweg-Bodensensoren in der Landwirtschaft. Das Problem: Tausende Sensoren in Precision-Farming-Netzwerken sind nach Gebrauch nicht rückholbar. Konventionelle Knopfzellen verbleiben im Boden, Recyclingquoten liegen unter fünf Prozent. MykoVolt nutzt lebende Pilzkulturen als Biokatalysator: Die Zelle ist trocken lagerbar, vor Ort mit Wasser aktivierbar und nach Gebrauch biologisch abbaubar (organische Komponenten). Ziel ist eine Nische, in der Nachhaltigkeit den Preis rechtfertigt.
 
 ---
 
-**Zeichenzahl Abschnitt 1:** ~485 Zeichen ✓
+**Zeichenzahl Abschnitt 1:** ~488 Zeichen ✓
 
 ---
 
 ## 2. Wertangebot / Value Proposition (max. 1000 Zeichen)
 
-**Zielgruppe:** Betreiber großer Sensor-Netzwerke in der Landwirtschaft (Precision Farming), im Umwelt- und Gewässermonitoring (Behörden, NGOs) und in der Forstwirtschaft. Sekundär: Hersteller biodegradierbarer Wearables und Einweg-Diagnostik.
+**Zielgruppe:** Betreiber von Bodensensor-Netzwerken im Precision Farming und forstwirtschaftlichem Umweltmonitoring — prioritär Betriebe mit ESG-Verpflichtungen oder in ökologisch sensiblen Gebieten (Schutzgebiete, Wasserschutz, Bio-Anbau).
 
-**Problem:** Konventionelle Batterien für verteilte Niedrigstleistungssensoren (Bodenfeuchte, Temperatur, Schadstoffe) basieren auf Lithium, Zink oder Seltenen Erden. Bei tausenden Knotenpunkten ist eine Rückholung unrealistisch — die Batterien verbleiben in der Umwelt und belasten Böden und Grundwasser. Recyclingquoten liegen bei unter fünf Prozent; Entsorgungskosten und regulatorischer Druck (EU-Batterieverordnung) steigen.
+**Problem:** Bestehende Sensoren nutzen Lithium-Knopfzellen (0,20–0,50 €), die bei tausenden Knotenpunkten im Feld verbleiben. Die EU-Batterieverordnung (2023/1542) verschärft Entsorgungsauflagen; Rückholung verteilter Sensoren ist unwirtschaftlich. Weder günstigere Knopfzellen noch höhere Recyclingquoten lösen das strukturelle Problem.
 
-**USP von MykoVolt:** Die erste vollständig biologisch abbaubare Batterie, die sich durch Pilzverdauung selbst zersetzt. Aus ländlich verfügbaren Rohstoffen (Cellulose, Zucker) hergestellt, trocken praktisch unbegrenzt lagerbar und vor Ort durch einfache Wasserzugabe aktivierbar. Keine Konfliktmaterialien, keine toxischen Rückstände, kein Recyclingaufwand. Die Pilze erzeugen während des Betriebs Strom aus nachlieferbaren Nährstoffen — die Batterie muss gefüttert, nicht entsorgt werden.
+**USP von MykoVolt:** Pilz-basierte MFC, die vollständig aus nachwachsenden Rohstoffen (Cellulose, Zucker, Bienenwachs) besteht. Trocken lagerbar, vor Ort mit Wasser aktivierbar. Nach Gebrauch werden die organischen Bestandteile von den Pilzen selbst kompostiert; verbleibende Kohlenstoffpartikel sind inert und nicht toxisch. Der Preis von 8–15 € pro Einheit ist 2–4× höher als eine Knopfzelle — aber die Kosten für Rückholung/Entsorgung (geschätzt 5–20 € pro Sensor) entfallen vollständig. In regulierten Märkten ist das wirtschaftlich.
 
 ---
 
-**Zeichenzahl Abschnitt 2:** ~985 Zeichen ✓
+**Zeichenzahl Abschnitt 2:** ~996 Zeichen ✓
 
 ---
 
 ## 3. Geschäftsmodell-Logik / Business Model Canvas (max. 2000 Zeichen)
 
-**Kundensegmente:** (a) Primär: Precision-Farming-Betriebe und Agrar-Technologie-Dienstleister, die hunderte bis tausende Bodensensoren betreiben; (b) Umweltbehörden und Forschungseinrichtungen, die Gewässer- und Waldökosysteme überwachen; (c) Sekundär: Hersteller medizinischer Einweg-Diagnostik und kompostierbarer Wearables.
+**Kundensegmente:** (a) Primär: AgrarTech-Dienstleister und Großbetriebe mit >500 IoT-Sensoren im Precision Farming; (b) Forst- und Umweltbehörden mit Monitoringsystemen in Wasserschutz- und Naturschutzgebieten; (c) Sekundär (ab Jahr 4): Hersteller biodegradierbarer Einweg-Sensoren für Umweltforschung.
 
-**Kanäle:** Direktvertrieb an Großkunden (B2B) über Pilotprojekte mit Agrar-Verbünden und Forschungspartnern; spätere Distribution über OEM-Partnerschaften mit Sensor-Herstellern, die MykoVolt-Zellen in ihre Produkte integrieren. Konferenzen (Agritechnica, Sensor+Test), Fachpublikationen und Demonstrations-Piloten auf Versuchsfeldern erzeugen Marktdurchdringung.
+**Kanäle:** Direktvertrieb B2B über Pilotprojekte mit Agrar-Verbünden (z. B. regionalen Landwirtschaftskammern). Demonstrationsprojekte auf Versuchsfeldern. Konferenzen (Agritechnica, Sensor+Test). Spätere OEM-Partnerschaften mit Sensorherstellern als Co-Pilot ab Jahr 3–4.
 
-**Kundenbeziehungen:** Langfristige Technologie- und Entwicklungsparnterschaften. Pilotkunden werden in die Spezifikation einbezogen (Co-Design der Zellgeometrie und Leistungsprofile). Wartung entfällt — das Produkt ist zur Selbstzersetzung konzipiert.
+**Kundenbeziehungen:** Co-Development mit Pilotkunden — Spezifikation und Feldtest gemeinsam. Technischer Support während der Betriebsdauer (Monitoring Pilzaktivität, Nährstoffnachversorgung).
 
-**Einnahmequellen:** (1) Verkauf biodegradierbarer Sensor-Knoten (inklusive Batterie) als Bundle, Schätzung 15–40 € pro Einheit je nach Volumen; (2) Lizenzeinnahmen aus Technologiepartnerschaften mit Sensor-OEMs; (3) öffentliche Fördermittel und Forschungs- Grants in der Skalierungsphase.
+**Einnahmequellen:** (1) Verkauf von Batterie-Einheiten (8–15 €/Stück, Zielpreis bei >50.000 Stück: 3–5 €); (2) Forschungsförderung (EXIST, BMBF, Horizon Europe) als Überbrückungsfinanzierung bis Marktreife; (3) Datenanalyse-Dienstleistungen (Monitoring-Daten aus den Sensornetzwerken) als wiederkehrendes Add-on ab Jahr 4.
 
-**Schlüsselressourcen:** Biologisches Labor (Pilzkultivierung, Stamm-Selektion), 3D-Druck-Fertigung für Zellkörper, Cellulose-Chemie, elektrochemisches Mess- und Testequipment, IP-Portfolio (Patente und Know-how zu Drucktinte und Elektrodenarchitektur).
+**Schlüsselressourcen:** Biologisches Forschungslabor (Universitätspartner), 3D-Drucker für Prototypen, elektrochemisches Messequipment. IP: Know-how zur Tintenformulierung und Pilz-Stammkombination (Eigenentwicklung).
 
-**Schlüsselaktivitäten:** Pilzstamm-Optimierung (Höchstleistungsstämme wie *Phanerochaete chrysosporium* im 3D-Druck-Design etablieren), Drucktinten-Entwicklung, Pilot-Fertigung, Feldversuche mit Pilotkunden, IP-Sicherung.
+**Schlüsselaktivitäten:** (a) Stamm-Selektion und Tintenoptimierung im Lab (Projektzeitraum 24 Monate); (b) iterative Feldtests mit Agrarpartnern; (c) IP-Aufbau; (d) Fertigungsskalierung.
 
-**Schlüsselpartner:** Empa (CH, Technologie-Lizenz oder Kooperation), landwirtschaftliche Versuchsstationen (Feldzugang), Cellulose-Lieferanten (Holzindustrie), Universität Marburg/Gießen (Grundlagenforschung, Stamm-Selektion).
+**Schlüsselpartner:** (1) Universität/Hochschule (Labornutzung, Grundlagenforschung); (2) agrarwissenschaftliche Versuchsstationen (Feldzugang, Praxistests); (3) Cellulose-Lieferanten aus der regionalen Holzindustrie; (4) ggf. Empa (Technologielizenz — Option, keine Voraussetzung).
 
-**Kostenstruktur:** Dominierend sind Materialkosten (hochreine Bio-Precursoren, Enzyme) und niedrigvolumige 3D-Druck-Fertigung in der Frühphase. Personalkosten für Biotechnologen, Materialwissenschaftler und Elektroingenieure. Mit Skaleneffekten sinkt der Stückpreis — Zieleinstandskosten unter fünf Euro pro Einheit bei >10.000 Stück/Jahr. Sustainability-Premium von 30–50 % über konventionellen Knopfzellen wird von Early Adoptern akzeptiert und sinkt mit Volumen.
+**Wettbewerber & Marktpositionierung:** BeFC (FR) vermarktet enzymatische Papier-Batterien, Bactery AB (SE) entwickelt bakterielle MFCs, MycelioTronics (JKU Linz) nutzt Myzel als Batterieseparator. Kein Wettbewerber kombiniert 3D-Druck + Pilz-Stoffwechsel + biologische Abbaubarkeit. MykoVolt positioniert sich nicht im Preiswettbewerb mit Knopfzellen, sondern als Nischenlösung für Anwendungen, in denen Rückholung unmöglich und Nachhaltigkeit zertifizierungspflichtig ist.
+
+**Kostenstruktur:** Dominant in der Entwicklungsphase: Personal (2–3 WiMi/Werkverträge, 80–120 k€/Jahr) und Labormaterialien. In der Pilotfertigung: Materialkosten (Cellulose, Carbon, Enzyme, Nährmedien) schätzungsweise 2–4 € pro Zelle bei Kleinserien (1.000–10.000 Stück). 3D-Druck als Prototypenverfahren; für Skalierung über 50.000 Stück wird ein kostengünstigeres Verfahren (Prägen/Folientechnik) entwickelt. Stückkostenziel: 3–5 € im relevanten Volumen (5–10× teurer als Knopfzelle, aber mit Entsorgungskostenvorteil).
 
 ---
 
-**Zeichenzahl Abschnitt 3:** ~1985 Zeichen ✓
+**Zeichenzahl Abschnitt 3:** ~1996 Zeichen ✓
 
 ---
 
 ## 4. Kreativität & Umsetzbarkeit (max. 500 Zeichen)
 
-**Innovationsgrad:** Erstmalige Kombination aus 3D-Druck, Hochleistungspilzen und vollständiger biologischer Abbaubarkeit. Bestehende Pilz-MFCs erreichen entweder hohe Leistung (1,9 W/m²) ODER Biodegradierbarkeit (Empa 12,5 µW/cm²) — MykoVolt vereint beides, indem Höchstleistungsstämme wie *Phanerochaete chrysosporium* in cellulosebasierte Drucktinten integriert werden.
+**Innovationsgrad:** Erste Pilz-MFC, die lebende Höchstleistungsstämme in 3D-druckbare Cellulosetinten integriert. Das wissenschaftliche Fundament ist gelegt (Reyes et al. 2024: 12,5 µW/cm² mit *T. pubescens*; Sukri et al. 2021: 1,9 W/m² mit *P. chrysosporium* in konventionellem Reaktor). MykoVolts Innovation ist der Transfer der Höchstleistungsstämme ins Druckdesign — dieser Transfer muss experimentell validiert werden, die Zielleistung liegt zwischen beiden Werten. Werbewirksame Claims werden erst nach eigener Messung formuliert.
 
-**Umsetzbarkeit:** Technologie ist wissenschaftlich validiert (Empa 2024). Die Materialien sind großtechnisch verfügbar. Deutsches Bio-Batterie-Marktwachstum von über acht Prozent CAGR und verschärfte EU-Batterieverordnung schaffen günstige Rahmenbedingungen. Erste Piloten mit Agrarpartnern sind innerhalb zwölf Monate realistisch.
+**Umsetzbarkeit:** Realistischer Pfad: Jahr 1–2 Lab-Validierung (TRL 2→4), Jahr 2–3 Feldprototyp (TRL 5–6), Jahr 3–4 Pilotkunden (TRL 7). Exakte IP-Klärung mit Empa und eigenständige Stammentwicklung an der Universität sind vorausgesetzt. Der adressierbare Nischenmarkt (Agrar-Bodensensoren in regulierten/geschützten Gebieten) ist ausreichend für einen ersten Markteintritt.
 
 ---
 
-**Zeichenzahl Abschnitt 4:** ~495 Zeichen ✓
+**Zeichenzahl Abschnitt 4:** ~497 Zeichen ✓
 
 ---
 
@@ -71,7 +73,7 @@ MykoVolt entwickelt vollständig biologisch abbaubare Pilz-Batterien für Einweg
 - [ ] Markdown → PDF konvertieren (Arial 11pt, 1,5-zeilig)
 - [ ] Zeichenzahl final prüfen (in Word/LibreOffice: Zeichen inkl. Leerzeichen)
 - [ ] Team-Mitglieder berechtigt? (Student:in/Mitarbeiter:in/Alumni JLU Gießen, Uni Marburg, THM — bis 5 Jahre nach Abschluss)
-- [ ] Beitrag ist Originalarbeit, verletzt keine Rechte Dritter
+- [ ] Beitrag ist Originalarbeit, verletzt keine Rechte Dritter — **Hinweis:** Empa-Patente nicht verletzt, da MykoVolt auf eigenständiger Stammentwicklung und Tintenformulierung basiert
 - [ ] Vorgründungsphase: keine Kapitalgesellschaft gegründet, kein Umsatz
 - [ ] Pretix-Abfrage ausfüllen: [pretix.eu/startmiup/BMwettbewerb26/](https://pretix.eu/startmiup/BMwettbewerb26/)
 - [ ] Einreichfrist: **26.06.2026, 23:59 Uhr**
