@@ -12,7 +12,7 @@ Sehr geehrter Herr Rötz,
 
 ich möchte mit **contextual-intelligence.org** am kommenden Wettbewerb an den Start gehen.
 
-Parallel dazu habe ich im Rahmen des StartMiUp-Businessplan-Wettbewerbs eine Geschäftsmodellskizze für **MykoVolt** entwickelt — eine 3D-gedruckte Pilz-Brennstoffzelle für temporäre Bodensensor-Netzwerke. Da das Thema inhaltlich zur Wettbewerbsrichtung passen könnte, aber nicht mein Hauptbeitrag ist, würde ich es gern **außerhalb der Wertung** einbringen.
+Parallel dazu habe ich im Rahmen des StartMiUp-Businessplan-Wettbewerbs eine Geschäftsmodellskizze für **MykoVolt** entwickelt — eine 3D-gedruckte Pilz-Brennstoffzelle für temporäre Bodensensor-Netzwerke. Da das Thema inhaltlich zur Wettbewerbsrichtung passen könnte, aber nicht mein Hauptbeitrag ist, würde ich es gern **außerhalb der Wertung** einbringen. Die Entwicklung erfolgt nebenberuflich, daher wäre eine anschlussfähige Förderperspektive (EXIST, MAFEX-begleitend) ein wichtiger Faktor, um das Thema über die Konzeptphase hinauszutragen.
 
 Kurz zur Technologie: MykoVolt nutzt lebende Weißfäule-Pilze (*Phanerochaete chrysosporium*) in einer Cellulose-basierten Drucktinte als Biokatalysator. Die Zelle ist trocken lagerbar, vor Ort aktivierbar und nach Gebrauch biologisch abbaubar. Zielanwendung sind Saison-Monitoring und Ad-hoc-Messungen in der Land- und Forstwirtschaft, bei denen Rückholung konventioneller Knopfzellen unwirtschaftlich ist.
 
@@ -31,9 +31,9 @@ Könnten wir in den nächsten zwei Wochen einmal kurz telefonieren oder vorbeiko
 
 Beste Grüße
 
-[Dein Name]
-[contextual-intelligence.org]
-[Kontakt]
+Tobias Weiß
+contextual-intelligence.org
+0177 9132333
 
 ---
 
@@ -47,8 +47,6 @@ Beste Grüße
 ## Checklist vor Versand
 
 - [ ] Persönliche Anrede prüfen (ggf. Titel: Prof. Dr. / Dr. Rötz?)
-- [ ] Eigene Position / Rolle bei contextual-intelligence.org ergänzen
-- [ ] Telefonnummer ergänzen
-- [ ] Anlagen tatsächlich anhängen (PDF + PoC-Plan)
-- [ ] EXIST-Bezug ggf. präzisieren
-- [ ] "Außerhalb der Wertung"-Status klarstellen
+- [ ] Anlagen tatsächlich anhängen (Geschaeftsmodellskizze.pdf + Anlage_PoC_MykoVolt.md)
+- [ ] Absender-E-Mail-Adresse ergänzen (oberhalb von "Beste Grüße")
+- [ ] ggf. Unterschrift digital oder handschriftlich
