@@ -274,17 +274,32 @@ Die Pilze werden in eine **cellulosebasierte 3D-Druck-Tinte** eingemischt, die e
 
 ---
 
-## 7. Nächste Schritte für ein Startup
+## 7. AI-Driven Graph Simulation (siehe `simulation/`)
 
-1. **Technologie-Scouting:** *P. chrysosporium* (1,9 W/m²) im 3D-Druck-Design von Reyes reproduzieren → ist die 150×-Steigerung realisierbar?
-2. **IP-Check:** Empa-Patente prüfen; ggf. Lizenz oder eigene Architektur entwickeln
+Eine vollständige KI-Optimierungs-Pipeline wurde implementiert:
+
+| Level | Methode | Ergebnis |
+|-------|---------|----------|
+| 0 | Graph-Modell der e⁻-Transportkette | Bottleneck = Ohmscher Widerstand |
+| 1 | Bayesian Optimization (8 Parameter) | **261 µW/cm²** (20.9× Empa) |
+| 2 | Random Forest Synergy Analysis | Graphit 80.6% Impact, Biol. Parameter <5% |
+| 3 | Evolutionäre Geometrie-Optimierung | **86 µW/cm²** (5.5× Empa-Geometrie) |
+| 4 | E2E-Produktsimulation (Bodenfeuchte-Tag) | 7 Tage @ €0.05/Tag, kompostierbar |
+
+**Kernerkenntnis:** Der Flaschenhals ist der Ohmsche Widerstand der Tinte, nicht die Enzym-Aktivität. R&D sollte zuerst die Leitfähigkeit optimieren, nicht die Biologie. 3D-Druck ist für Scale-Up der falsche Ansatz — Presslinge oder Filmgießen sind 100-1000× effizienter.
+
+## 8. Nächste Schritte für ein Startup
+
+1. **Tinten-Optimierung:** Carbon Black + Graphit-Anteil maximieren (AI sagt 260 µW/cm² voraus)
+2. **Formgebung wechseln:** Vom 3D-Druck zu Pressling/Filmgießen (10.000 statt 1 Zelle/Stunde)
 3. **Pilot-Anwendung:** Landwirtschaftliche Boden-Sensoren (Feuchte + Temperatur) — niedrigste regulatorische Hürde
-4. **Förderung:** BMBF, DBU,EXIST-Forschungstransfer; Horizon Europe (Bio-based Industries)
-5. **Partner:** Empa (CH), JKU Linz (AT MycelioTronics), lokale Landwirtschaftsverbände
+4. **IVD Power Source:** Powered Readout für Schnelltests (Synergie mit CI-Business)
+5. **Förderung:** BMBF, DBU, EXIST-Forschungstransfer; Horizon Europe (Bio-based Industries)
+6. **Partner:** Empa (CH), JKU Linz (AT MycelioTronics), lokale Landwirtschaftsverbände
 
 ---
 
-## 8. Wettbewerbsübersicht (Detailliert)
+## 9. Wettbewerbsübersicht (Detailliert)
 
 | Unternehmen | Land | Technologie | Leistung | Status |
 |-------------|------|-------------|----------|--------|

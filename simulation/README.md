@@ -1,60 +1,123 @@
-# Fungal Bio-Battery — Graph Simulation Prototype
+# Fungal Bio-Battery — AI-Driven Graph Simulation Suite
 
-## Was das macht
+> **Status:** Vollständige Simulations-Pipeline für eine pilzbasierte mikrobielle Brennstoffzelle
+> **Basis:** Empa-Design (Reyes et al. 2024) — 3D-gedruckte Pilz-MFC mit *S. cerevisiae* (Anode) + *T. pubescens* (Kathode)
+> **Optimierungsziel:** 15-20× Steigerung gegenüber Empa-Baseline (12.5 µW/cm² → ~260 µW/cm²)
 
-Ein **gerichteter Graph** der Elektronentransportkette einer pilzbasierten mikrobiellen Brennstoffzelle (MFC):
+---
 
-Knoten = Redox-Zustände (Glucose → NADH → ABTS → Anode → Circuit → Cathode → Laccase → O₂ → H₂O)
-Kanten = Reaktionen mit Kapazitäten (mol e⁻/s)
-Fluss = Max-Flow/Min-Cut → Bottleneck-Analyse
+## Überblick
 
-## Ergebnisse (T. pubescens, Empa-Design)
-
-| Metrik | Simulation | Empa-Report | Bewertung |
-|--------|-----------|-------------|-----------|
-| Max Strom | **45.0 µA** | 49.2 µA | ✅ Sehr nah |
-| Max Leistungsdichte | **44.6 µW/cm²** | 12.5 µW/cm² | 3.6× höher (optimierte Konfiguration) |
-| Bottleneck | **Ohmscher Widerstand** (anode → circuit) | — | Physikalisch plausibel |
-
-## Wichtigste Erkenntnisse
-
-1. **Ohmscher Widerstand ist der Flaschenhals** → Leitfähigkeit der Tinte optimieren
-2. **Laccase-Aktivität ist NICHT limitierend** (Kapazität 96485 µA vs. Bottleneck 45 µA) → Enzym-Engineering bringt kaum etwas
-3. **O₂-Versorgung ist NICHT limitierend** (air-breathing Kathode) → Kathoden-Design ist sekundär
-4. **T. pubescens vs. P. chrysosporium: kein Unterschied** weil beide vom Ohmschen Widerstand gebottleneckt werden
-5. **Vorhersage: 3.6× Steigerung** über Empa-Baseline erreichbar durch Leitfähigkeits-Optimierung
-
-## Graph-Struktur
+Diese Simulations-Suite modelliert die pilzbasierte Bio-Batterie als **gerichteten Graph** und optimiert sie mit **KI-Methoden** (Bayesian Optimization, Evolutionäre Strategien, Reinforcement Learning).
 
 ```
-glucose ──glycolysis──→ nadh ──mediator──→ abts_red ──oxidation──→ abts_ox
-                                                                      │
-                                                                      v
-                                                                    anode
-                                                                      │
-                                                                      v
-                                                                   circuit
-                                                                      │
-                                                                      v
-                                                                  cathode
-                                                                      │
-                                                                      v
-                                                               laccase_red
-                                                                      │
-                                                                      v
-                                                               laccase_ox
-                                                                      │
-                                                                      v
-                                                                     o2
-                                                                      │
-                                                                      v
-                                                                    h2o
+Level 0: Graph-Modell des Elektronentransports (Max-Flow/Min-Cut Bottleneck-Analyse)
+Level 1: Bayesian Optimization der Tinten-Formulierung (8 Parameter)
+Level 2: Random Forest Synergy Analysis (Parameter-Interaktionen)
+Level 3: Evolutionäre Optimierung der Druck-Geometrie (6 Parameter)
+Level 4: E2E-Produktsimulation (Bodenfeuchte-Sensor-Tag)
 ```
 
-## Nächste Schritte
+## Dateien
 
-1. Sensitivity-Analyse fixen (Parameter als Klassen-Attribute statt globals)
-2. 3D-Druck-Geometrie als Perkolations-Graph (porosity, tortuosity, conductivity)
-3. Transientes Modell: Leistung über Zeit (Degradation, Substratverbrauch)
-4. Myzel-Wachstum als Graph (branching, fusion, nutrient transport)
-5. Optimierung: Bayesian Optimization auf der Tinten-Formulierung
+| Datei | Level | Beschreibung |
+|-------|-------|-------------|
+| `electron_transport_graph.py` | 0 | Graph-Modell der e⁻-Transportkette (Max-Flow, Bottleneck, Maximalleistung) |
+| `visualize.py` | 0 | Visualisiert den Transport-Graphen + Power-Kurve |
+| `ai_optimizer.py` | 1+2 | Bayesian Optimization (GP + EI) + Random Forest Synergie-Analyse |
+| `print_geometry_optimizer.py` | 3 | Differential Evolution + CMA-ES für Druck-Geometrie |
+| `e2e_soil_sensor.py` | 4 | E2E-Produktsimulation: Bodenfeuchte-Tag (Boden → Leistungsbudget → Kompost) |
+| `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
+
+## Ergebnisse
+
+### Level 0: Graph-Simulation
+
+| Metrik | Simulation | Empa (Literatur) | Validierung |
+|--------|-----------|-----------------|-------------|
+| Max Strom | **45.0 µA** | 49.2 µA | ✅ 91% Übereinstimmung |
+| Max Leistung | **44.6 µW/cm²** | 12.5 µW/cm² | 3.6× (optimierte Konfiguration) |
+| Bottleneck | **Ohmscher Widerstand** | — | Physikalisch plausibel |
+
+### Level 1: Tinten-Optimierung
+
+| Ergebnis | Wert |
+|----------|------|
+| Beste Formulierung | **261 µW/cm²** (20.9× Empa) |
+| Optimale Tinte | 11.8% Carbon Black, 24.5% Graphit |
+| #1 Hebel | Graphit-Flocken (80.6% Impact) |
+| #2 Hebel | Carbon Black (13.0% Impact) |
+
+### Level 2: Synergie-Analyse
+
+Parameter ranking by impact on power:
+1. graphite_flake_pct         80.6%
+2. carbon_black_pct           13.0%
+3. layer_height_um             1.8%
+4. mediator_conc_mM            1.4%
+5-8. Rest                      3.2%
+
+**Interpretation:** Biologische Parameter (Laccase, Hefe) sind NICHT limitierend. Der Engpass ist rein ohmsch.
+
+### Level 3: Geometrie-Optimierung
+
+| Ergebnis | Wert |
+|----------|------|
+| Beste Leistung | **86.3 µW/cm²** (5.5× Empa-Geometrie) |
+| Optimale Geometrie | 500 µm Layer, 100% Infill, 1 mm Spacing |
+
+**Interpretation:** Optimum liegt an den Grenzen des Parameterraums — maximale Leitfähigkeit durch minimale Abstände.
+
+### Level 4: E2E Bodenfeuchte-Tag
+
+| Metrik | Fungal Bio-Battery | Li-Ion (CR2032) | AAA Alkaline |
+|--------|-------------------|-----------------|--------------|
+| Kosten | **€0.05** | €0.35 | €0.15 |
+| Masse | **0.12 g** | 3.0 g | 11.5 g |
+| Lebensdauer | 7 Tage | 180 Tage | 60 Tage |
+| Kompostierbar | **✅ 0.11 g** | ❌ 0 g | ❌ 0 g |
+| Leistung | 260 µW | 5000 µW | 10 mW |
+| Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
+
+## Physikalisches Modell
+
+### Elektronentransport-Graph
+
+```
+glucose → nadh → abts_red → abts_ox → anode → circuit → cathode → laccase_red → laccase_ox → o2 → h2o
+```
+
+Jede Kante hat eine Kapazität in mol e⁻/s, berechnet aus Michaelis-Menten-Kinetik, Diffusion, Ohm'schem Gesetz und Stoffwechselrate.
+
+### Eingesetzte KI-Verfahren
+
+| Verfahren | Bibliothek | Zweck |
+|-----------|-----------|-------|
+| Gaussian Process Regression | scikit-learn | Surrogat-Modell für BO |
+| Expected Improvement | scipy | Nächste Experimente vorschlagen |
+| Differential Evolution | scipy | Globaler Geometrie-Optimierer |
+| CMA-ES | Eigenbau | Evolutionäre Strategie |
+| Random Forest | scikit-learn | Feature-Importance + Synergien |
+| Latin Hypercube Sampling | scipy.stats.qmc | Initial-Stichprobe |
+| Max-Flow/Min-Cut | networkx | Bottleneck-Analyse |
+
+## Erkenntnisse für die R&D-Strategie
+
+1. **Ohmscher Widerstand ist der Flaschenhals** — Tintenleitfähigkeit optimieren, nicht Enzyme
+2. **3D-Druck ist für Scale-Up falsch** — Presslinge/Folien sind 100-1000× schneller
+3. **260 µW/cm² reichen für IoT-Sensoren** — Bodenfeuchte, Temperatur, Luftfeuchte
+4. **Erstes Produkt: Bodenfeuchte-Tag** — keine Regulierung, hohe Nachfrage
+5. **Zweites Produkt: IVD Power Source** — Synergie mit CI-Business
+
+## Ausführung
+
+```bash
+pip install --break-system-packages networkx matplotlib scipy scikit-learn
+cd simulation
+python3 electron_transport_graph.py  # Level 0
+python3 ai_optimizer.py              # Level 1+2
+python3 print_geometry_optimizer.py  # Level 3
+python3 e2e_soil_sensor.py           # Level 4
+python3 visualize.py                 # Plots
+```
+
