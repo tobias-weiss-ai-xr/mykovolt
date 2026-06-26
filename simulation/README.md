@@ -16,6 +16,9 @@ Level 1: Bayesian Optimization der Tinten-Formulierung (8 Parameter)
 Level 2: Random Forest Synergy Analysis (Parameter-Interaktionen)
 Level 3: Evolutionäre Optimierung der Druck-Geometrie (6 Parameter)
 Level 4: E2E-Produktsimulation (Bodenfeuchte-Sensor-Tag)
+Level 5: Multi-Objective Optimierung (Power/Cost/Lifetime/Compostability)
+Level 6: Physics-Informed GP Degradationsmodell
+Level 7: Uncertainty-Aware Digital Twin (Bootstrap-Ensembles)
 ```
 
 ## Dateien
@@ -27,6 +30,9 @@ Level 4: E2E-Produktsimulation (Bodenfeuchte-Sensor-Tag)
 | `ai_optimizer.py` | 1+2 | Bayesian Optimization (GP + EI) + Random Forest Synergie-Analyse |
 | `print_geometry_optimizer.py` | 3 | Differential Evolution + CMA-ES für Druck-Geometrie |
 | `e2e_soil_sensor.py` | 4 | E2E-Produktsimulation: Bodenfeuchte-Tag (Boden → Leistungsbudget → Kompost) |
+| `multi_objective_optimizer.py` | 5 | Multi-Objective BO (Pareto-Front: Power/Cost/Lifetime/Compostability) |
+| `degradation_model.py` | 6 | Physics-Informed GP: Degradation (Arrhenius + pH + Moisture → Power/OCV/R_int) |
+| `uncertainty_aware_twin.py` | 7 | Bootstrap-Ensemble Digital Twin (95% CI auf alle Vorhersagen) |
 | `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
 
 ## Ergebnisse
@@ -112,12 +118,13 @@ Jede Kante hat eine Kapazität in mol e⁻/s, berechnet aus Michaelis-Menten-Kin
 ## Ausführung
 
 ```bash
-pip install --break-system-packages networkx matplotlib scipy scikit-learn
+pip install --break-system-packages networkx matplotlib scipy scikit-learn pytest
 cd simulation
 python3 electron_transport_graph.py  # Level 0
 python3 ai_optimizer.py              # Level 1+2
 python3 print_geometry_optimizer.py  # Level 3
 python3 e2e_soil_sensor.py           # Level 4
 python3 visualize.py                 # Plots
+pytest tests/                        # Run all 35 tests
 ```
 
