@@ -1,5 +1,14 @@
 # MykoVolt - Biodegradable Fungal Battery for Precision Agriculture
 
+<p align="center">
+  <img src="docs/teaser.svg" alt="MykoVolt — Biodegradable Fungal Bio-Battery for Precision Agriculture" width="100%">
+</p>
+
+<p align="center">
+  <b>Die erste kompostierbare Bodenfeuchte-Sensor-Applikation.</b><br>
+  7 Tage Laufzeit · 90% biologisch abbaubar · €0.15 pro Stück · Zero E-Waste
+</p>
+
 ## Overview
 
 MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Stromversorgung von Bodenfeuchtesensoren in der Präzisionslandwirtschaft. Die Technologie nutzt mikrobiellen Brennstoffzellen (MFC) auf Basis von Weißfäulepilzen (*Trametes pubescens*, *Phanerochaete chrysosporium*), eingebettet in einen kompostierbaren Pressling.
@@ -7,45 +16,129 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 ### Key Innovation
 - **Biologisch abbaubar**: Pilz-basierte Biobatterie + kompostierbares Gehäuse
 - **Wiederverwendbar**: Elektronik-Board (100+ Zyklen)
-- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischer Abbaubarkeit als langfristiges Ziel
+- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischen Abbaubarkeit als langfristiges Ziel
 
-## Project Structure
+## MVP Design
 
-### Core Components
-- **DevKit** (Phase 1, Q4 2026): NFC-basierte Entwicklerplattform für Labore und Maker
-- **Feldpilot** (Phase 2, Q2 2027): LoRa-basierte Feldlösung für landwirtschaftliche Betriebe
+<p align="center">
+  <img src="docs/mvp_design.svg" alt="MykoVolt MVP Design — Exploded cross-section, field deployment, specifications" width="100%">
+</p>
 
-### Main Directories
-- `simulation/` - Simulationen und Tests für Bodenfeuchte-Sensoren
-- `archive/` - Historische Dokumente und Angebote
-- `docs/` - Dokumentation (zukünftig)
+## System Architecture
 
-### Key Files
-- `MykoVolt-mvp-design.md` - Umfassende MVP-Design-Dokumentation
-- `MykoVolt_Angebot_EMC.md` - Angebot für EMC GmbH
-- `MykoVolt_Pitch_Deck.html` - Pitch Deck (interaktiv)
+```mermaid
+flowchart TD
+    subgraph ENV["🌍 Umwelt"]
+        SOIL["Bodenfeuchte\n(Sand/Lehm/Ton)"]
+        TEMP["Temperatur"]
+    end
 
-## Technical Architecture
+    subgraph SENSOR["📐 Sensor-Ebene"]
+        ELEC["Kapazitiver Sensor\n100 kHz Exzitation"]
+        ADC["ADC-Wandler\n12-Bit"]
+    end
 
+    subgraph MCU["🖥️ MCU — STM32L0"]
+        SLEEP["Sleep Mode\n0.4 µA"]
+        ACTIVE["Active Mode\n3 mA @ 1 MHz"]
+        FRAM["FRAM 8 KB\nRing-Puffer"]
+        CONTROL["Energie-Manager\n15 min Intervall"]
+    end
+
+    subgraph BATTERY["🔋 MFC Bio-Batterie"]
+        FUNGUS["Trametes pubescens"]
+        ANODE["Anode (−): Hefe"]
+        CATHODE["Kathode (+): Enzym"]
+        BOOST["Boost 0.45V → 3.3V"]
+    end
+
+    subgraph COMMS["📡 Kommunikation"]
+        NFC["Phase 1: NFC (passiv)"]
+        LORA["Phase 2: LoRa 868 MHz"]
+    end
+
+    subgraph CLOUD["☁️ Cloud"]
+        GW["LoRa-Gateway / NFC-Reader"]
+        DASH["Dashboard\nFeuchte-Karten"]
+    end
+
+    SOIL --> ELEC --> ADC --> ACTIVE --> FRAM
+    CONTROL --> ACTIVE
+    FUNGUS --> ANODE & CATHODE --> BOOST --> MCU
+    ACTIVE --> NFC & LORA --> GW --> DASH
+
+    style ENV fill:#E8F5E9,stroke:#2D6A4F,stroke-width:2px
+    style SENSOR fill:#FFF3E0,stroke:#E65100,stroke-width:2px
+    style MCU fill:#E3F2FD,stroke:#1565C0,stroke-width:2px
+    style BATTERY fill:#F1F8E9,stroke:#558B2F,stroke-width:2px
+    style COMMS fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px
+    style CLOUD fill:#ECEFF1,stroke:#455A64,stroke-width:2px
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    MykoVolt Architecture                    │
-├─────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐    ┌───────────────────────────────┐  │
-│  │   MFC Pressling │    │         Biobatterie           │  │
-│  │  (Trametes spp.)│    │    (Mikrobieller Brennstoffzelle)│  │
-│  └─────────────────┘    └───────────────────────────────┘  │
-│                    ┌─────────────┐                        │
-│                    │   Sensor    │                        │
-│                    │   Board     │                        │
-│                    │ (FRAM Ring  │                        │
-│                    │   Puffer)   │                        │
-│                    └─────────────┘                        │
-│                    ┌─────────────┐                        │
-│                    │   NFC/LoRa   │                        │
-│                    │  Module     │                        │
-│                    └─────────────┘                        │
-└─────────────────────────────────────────────────────────────┘
+
+## Layer Architecture
+
+```mermaid
+flowchart TB
+    subgraph L1["Schicht 1: Außen-Casing"]
+        C1["Kompostierbarer Pressling\nIP67 · 1.5 mm"]
+    end
+    subgraph L2["Schicht 2: Antenne"]
+        C2["NFC Spule / LoRa Modul"]
+    end
+    subgraph L3["Schicht 3: Sensor PCB"]
+        C3["Kapazitiver Sensor"]
+        C4["STM32L0 MCU"]
+        C5["FRAM 8 KB"]
+        C6["Boost Converter"]
+        C3 --- C4 --- C5 --- C6
+    end
+    subgraph L4["Schicht 4: MFC Bio-Batterie"]
+        C7["Anode: Hefe"]
+        C8["Kathode: Trametes"]
+        C9["Cellulose-Elektrolyt"]
+    end
+    subgraph L5["Schicht 5: Boden-Casing"]
+        C10["Feuchtigkeits-Membran"]
+    end
+    L1 --> L2 --> L3 --> L4 --> L5
+    style L1 fill:#A1887F,stroke:#5D4037,color:#fff
+    style L2 fill:#7B1FA2,stroke:#4A148C,color:#fff
+    style L3 fill:#1565C0,stroke:#0D47A1,color:#fff
+    style L4 fill:#558B2F,stroke:#33691E,color:#fff
+    style L5 fill:#795548,stroke:#4E342E,color:#fff
+```
+
+## Data Flow
+
+```mermaid
+sequenceDiagram
+    participant S as Boden
+    participant SE as Sensor
+    participant MCU as STM32L0
+    participant F as FRAM
+    participant B as Bio-Battery
+    participant N as NFC/LoRa
+    participant G as Gateway
+    participant D as Dashboard
+
+    Note over B: 520 µW @ 0.45V → 3.3V Boost
+    B-->>MCU: Dauerhafte Stromversorgung
+
+    loop Alle 15 Minuten
+        S->>SE: Feuchte ändert Dielektrikum
+        SE->>MCU: Kapazitätswert
+        MCU->>MCU: ADC + Temperatur
+        MCU->>F: 12-Byte Eintrag
+        MCU->>MCU: Deep Sleep 0.4 µA
+    end
+
+    alt Phase 1: NFC
+        G->>N: Feld aktivieren
+        N->>G: 672 Einträge
+    else Phase 2: LoRa
+        N->>G: 12-Byte Packet
+    end
+    G->>D: JSON → Dashboard
 ```
 
 ## Technical Specifications
@@ -69,56 +162,138 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 | Energieverbrauch | ~0,60 mWh/Tag (SF12), ~0,09 mWh/Tag (SF7) |
 | Gehäuse | IP67, feldtauglich |
 
-## System Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    MykoVolt System                         │
-├─────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐  ┌───────────────────────────────┐  │
-│  │   MFC Pressling │  │         Biobatterie           │  │
-│  │  (Trametes spp.)│  │    (Mikrobieller Brennstoffzelle)│  │
-│  └─────────────────┘  └───────────────────────────────┘  │
-│           │                       │                       │
-│  ┌────────▼─────────┐    ┌─────────▼────────┐            │
-│  │   Sensor Board   │    │   FRAM Ring      │            │
-│  │   (STM32 MCU)    │    │   Puffer         │            │
-│  └──────────────────┘    └──────────────────┘            │
-│           │                       │                       │
-│  ┌────────▼─────────┐    ┌─────────▼────────┐            │
-│  │   NFC Module     │    │   LoRa Module    │            │
-│  │   (Passive)      │    │   (868 MHz)      │            │
-│  └──────────────────┘    └──────────────────┘            │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ## Technology Stack
 
 ### Hardware Components
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| MCU | STM32 | Sensor Datenverarbeitung und -speicherung |
-| NFC/LoRa | Passives Modul | Datenübertragung zu externen Geräten |
-| FRAM | Ringpuffer | Hochzuverlässige Datenspeicherung |
-| MFC | Pilz-basierte Brennstoffzelle | Energieerzeugung aus organischen Abfällen |
+| MCU | STM32L0 | Sensor Datenverarbeitung und -speicherung |
+| NFC/LoRa | Passive NFC / SX1276 | Datenübertragung zu externen Geräten |
+| FRAM | MB85RC256 (32 KB) | Hochzuverlässige Datenspeicherung |
+| MFC | Trametes pubescens | Energieerzeugung aus organischen Abfällen |
 | Pressling | Kompostierbares Gehäuse | Schutz und biologische Abbaubarkeit |
 
 ### Software Components
 
 | Layer | Technology | Description |
 |-------|------------|-------------|
-| Firmware | STM32 C/C++ | Sensor Datenerfassung und -verarbeitung |
+| Firmware | STM32 HAL C11 | Sensor Datenerfassung und -verarbeitung |
 | Simulation | Python | Bodenfeuchte-Sensor-Simulation |
-| Documentation | Markdown | Projekt-Dokumentation |
-| Build Tools | GitHub Actions | CI/CD Pipeline |
+| Documentation | Markdown + Mermaid | Projekt-Dokumentation und Diagramme |
+
+## Energy Budget
+
+```mermaid
+pie title Energieverbrauch pro Tag (~40.000 µJ)
+    "Sleep (MCU)" : 75.6
+    "ADC Messung" : 14.4
+    "Sensor Exzitation" : 5.0
+    "NFC Kommunikation" : 3.0
+    "Boost Converter" : 2.0
+```
+
+```mermaid
+xychart-beta
+    title "Energiebilanz über 7 Tage (µJ)"
+    x-axis ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5", "Tag 6", "Tag 7"]
+    y-axis "µJ" 0 --> 50000
+    bar [44928, 44029, 43148, 42285, 41440, 40611, 39800]
+    line [40000, 40000, 40000, 40000, 40000, 40000, 40000]
+```
+
+## Product Roadmap
+
+```mermaid
+gantt
+    title MykoVolt Entwicklungs-Roadmap
+    dateFormat YYYY-MM-DD
+    axisFormat %Y-%m
+
+    section Phase 1: DevKit
+        Pressling-Rezeptur           :done, p1a, 2025-04-01, 30d
+        Board-Design Rev A          :done, p1b, 2025-05-01, 30d
+        Prototyp (Funktionsmuster)  :done, p1c, 2025-06-01, 30d
+        L2-Systemtest               :active, p1d, 2025-07-01, 60d
+        EXIST-Einreichung           :p1e, 2025-09-01, 30d
+        DevKit Produktion           :p1f, 2026-01-01, 90d
+        DevKit Verkaufsstart        :p1g, 2026-04-01, 30d
+
+    section Phase 2: Feldpilot
+        Go/No-Go Entscheidung       :p2a, 2026-07-01, 30d
+        LoRa-Integration            :p2b, 2026-08-01, 60d
+        Feldpilot Feldtest          :p2c, 2026-10-01, 90d
+        Skalierung Produktion       :p2d, 2027-01-01, 90d
+        Markteinführung EU          :p2e, 2027-04-01, 60d
+```
+
+## Deployment Lifecycle
+
+```mermaid
+flowchart LR
+    subgraph PROD["🏭 Produktion"]
+        A1["Pilzzucht"] --> A2["Pressling"] --> A3["Elektronik"] --> A4["QA Test"]
+    end
+    subgraph DEPLOY["🌱 Feldeinsatz"]
+        B1["Einsetzen\n8-12 cm tief"] --> B2["Aktivierung\nWasser + Nährstoffe"] --> B3["Betrieb\n7 Tage"] --> B4["NFC/LoRa TX"]
+    end
+    subgraph END["♻️ Lebensende"]
+        C1["Batterie erschöpft"] --> C2["Pressling\nkompostiert\n30-90 Tage"]
+        C1 --> C3["Electronik-Board\ngeborgen\n100+ Wiederverw."]
+    end
+    A4 --> B1
+    B4 --> C1
+    style PROD fill:#E3F2FD,stroke:#1565C0
+    style DEPLOY fill:#F1F8E9,stroke:#558B2F
+    style END fill:#FFF3E0,stroke:#E65100
+```
+
+## Competitive Positioning
+
+```mermaid
+quadrantChart
+    title Wettbewerbspositionierung Bodensensor-Batterien
+    x-axis "Niedrige Kosten" --> "Hohe Kosten"
+    y-axis "Kurzlebig" --> "Langlebig"
+    "MykoVolt Bio-Battery": [0.15, 0.15]
+    "CR2032 Li-Ion": [0.6, 0.85]
+    "AAA Alkaline": [0.35, 0.45]
+    "Li-Po Picolithium": [0.9, 0.65]
+    "EDLC Supercap": [0.4, 0.02]
+```
+
+## Project Structure
+
+### Core Components
+- **DevKit** (Phase 1, Q4 2026): NFC-basierte Entwicklerplattform für Labore und Maker
+- **Feldpilot** (Phase 2, Q2 2027): LoRa-basierte Feldlösung für landwirtschaftliche Betriebe
+
+### Main Directories
+- `simulation/` - Simulationen und Tests für Bodenfeuchte-Sensoren
+- `archive/` - Historische Dokumente und Angebote
+- `docs/` - Dokumentation, Diagramme und Design-Assets
+- `tests/` - Unit- und Integrationstests
+- `competitive/` - Wettbewerbsanalyse-Framework
+- `compliance/` - Regulatorische roadmap
+- `finance/` - Finanzierungsstrategie
+- `marketing/` - Segment-Strategien
+- `ip/` - IP-Schutz-Strategie
+
+### Key Files
+- `docs/diagrams.html` - Vollständiges Diagramm-Suite (12 Mermaid-Diagramme)
+- `docs/mvp_design.svg` - MVP Exploded View & Spezifikationen
+- `docs/teaser.svg` - Teaser-Illustration
+- `MykoVolt-mvp-design.md` - Umfassende MVP-Design-Dokumentation
+- `simulation/e2e_soil_sensor.py` - E2E Sensor-Simulation
 
 ## Current Status
 
 ### Recent Changes
 - ✅ Aktualisierte Remote-Repository-URLs zu `mykovolt` mit originalen Benutzernamen
 - ✅ GitHub-Repository erstellt und gepusht
-- ✅ Codeberg-Repository auf `shrooms` belassen (wie angefordert)
+- ✅ Comprehensive business plan documentation
+- ✅ Competitive intelligence framework
+- ✅ MVP design SVG and Mermaid diagrams
 
 ### Active Development
 - ✅ Simulation von Bodenfeuchte-Sensoren
@@ -135,66 +310,17 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 
 ### Installation
 ```bash
-# Clone the repository
 git clone https://github.com/tobias-weiss-ai-xr/mykovolt.git
-
-# Navigate to project directory
 cd mykovolt
-
-# Install Python dependencies
 pip install -r requirements.txt
-
-# Install STM32 tools (if needed)
-# STM32CubeProgrammer: https://www.st.com/en/development-tools/stm32cube-programmer.html
 ```
 
 ### Running Tests
 ```bash
-# Run simulation tests
 pytest simulation/
-
-# Run unit tests for firmware
-# (requires STM32 development environment)
 ```
 
-## Documentation
-
-### Available Documents
-- `MykoVolt-mvp-design.md` - Vollständige MVP-Design-Dokumentation (536 Zeilen)
-- `MykoVolt_Angebot_EMC.md` - Angebot für EMC GmbH
-- `MykoVolt_Pitch_Deck.html` - Interaktive Pitch Deck
-
-### Future Documentation
-- `docs/` - Technische Dokumentation
-- `docs/api/` - API-Referenz
-- `docs/tutorials/` - Tutorials und Anleitungen
-- `docs/roadmap/` - Projektmeilensteine
-
-## Contributing
-
-### Development Guidelines
-1. **Test-First**: Schreiben Sie Tests vor dem Implementieren von Code
-2. **Energieeffizienz**: Optimieren Sie den Stromverbrauch für Langzeitbetrieb
-3. **Biologische Abbaubarkeit**: Bevorzugen Sie kompostierbare Materialien
-4. **Dokumentation**: Halten Sie README und Code-Dokumentation auf dem neuesten Stand
-
-### Code Style
-- Python: PEP 8
-- C/C++: STM32-Coding-Standards
-- Markdown: Konsistente Formatierung
-
-## Project Metrics
-
-### Performance Indicators
-
-| Metric | Current Value | Target |
-|--------|---------------|--------|
-| Energieeffizienz | 12,5 µW/cm² | >15 µW/cm² |
-| Batterielebensdauer | 14 Tage | >30 Tage |
-| Zyklenlebensdauer | 100+ Zyklen | >200 Zyklen |
-| Datenübertragungsrate | 12 Byte/Eintrag | <10 Byte/Eintrag |
-
-### Development Progress
+## Development Progress
 
 | Phase | Status | Completion |
 |-------|--------|------------|
@@ -210,35 +336,11 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-### Project Team
-- **Website**: [tobias-weiss-ai-xr.github.io/mykovolt](https://tobias-weiss-ai-xr.github.io/mykovolt)
-- **Email**: tobias.weiss.ai.xr@gmail.com
 - **GitHub**: [tobias-weiss-ai-xr/mykovolt](https://github.com/tobias-weiss-ai-xr/mykovolt)
 - **Codeberg**: [graphwiz-ai/mykovolt](https://codeberg.org/graphwiz-ai/mykovolt)
-
-### Social Media
+- **Email**: tobias.weiss.ai.xr@gmail.com
 - **LinkedIn**: [MykoVolt](https://www.linkedin.com/company/mykovolt)
 - **Twitter**: [@MykoVolt](https://twitter.com/MykoVolt)
-
-## Future Roadmap
-
-### Phase 1: DevKit (Q4 2026)
-- [x] Pressling-Rezeptur finalisiert
-- [x] Board-Design Rev A getapet-out
-- [x] Prototyp (Funktionsmuster)
-- [ ] L2-Systemtest bestanden
-- [ ] EXIST-Einreichung
-- [ ] DevKit Produktion Start
-- [ ] DevKit Verkaufsstart
-
-### Phase 2: Feldpilot (Q2 2027)
-- [ ] Go/No-Go Feldpilot
-- [ ] Feldpilot Feldtest
-- [ ] Skalierung der Produktion
-
-## Acknowledgments
-
-Wir danken allen Unterstützern, Partnern und der Forschungsgemeinschaft für die Entwicklung dieser innovativen Technologie.
 
 ---
 
