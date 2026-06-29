@@ -7,7 +7,7 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 ### Key Innovation
 - **Biologisch abbaubar**: Pilz-basierte Biobatterie + kompostierbares Gehäuse
 - **Wiederverwendbar**: Elektronik-Board (100+ Zyklen)
-- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischen Abbaubarkeit als langfristiges Ziel
+- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischer Abbaubarkeit als langfristiges Ziel
 
 ## Project Structure
 
@@ -25,33 +25,106 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 - `MykoVolt_Angebot_EMC.md` - Angebot für EMC GmbH
 - `MykoVolt_Pitch_Deck.html` - Pitch Deck (interaktiv)
 
+## Technical Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    MykoVolt Architecture                    │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐    ┌───────────────────────────────┐  │
+│  │   MFC Pressling │    │         Biobatterie           │  │
+│  │  (Trametes spp.)│    │    (Mikrobieller Brennstoffzelle)│  │
+│  └─────────────────┘    └───────────────────────────────┘  │
+│                    ┌─────────────┐                        │
+│                    │   Sensor    │                        │
+│                    │   Board     │                        │
+│                    │ (FRAM Ring  │                        │
+│                    │   Puffer)   │                        │
+│                    └─────────────┘                        │
+│                    ┌─────────────┐                        │
+│                    │   NFC/LoRa   │                        │
+│                    │  Module     │                        │
+│                    └─────────────┘                        │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ## Technical Specifications
 
 ### DevKit (Phase 1)
-- **Pilzstamm**: *Trametes pubescens* (12,5 µW/cm²)
-- **Kommunikation**: NFC (passiv powered)
-- **Energieverbrauch**: ~0,14 mWh/Tag
-- **Datenformat**: 12-Byte-Einträge (timestamp, capacitance, voltage, temperature, status)
-- **Dauer**: 14 Tage bei 15-Minuten-Intervallen
+
+| Parameter | Value |
+|-----------|-------|
+| Pilzstamm | *Trametes pubescens* (12,5 µW/cm²) |
+| Kommunikation | NFC (passiv powered) |
+| Energieverbrauch | ~0,14 mWh/Tag |
+| Datenformat | 12-Byte-Einträge (timestamp, capacitance, voltage, temperature, status) |
+| Dauer | 14 Tage bei 15-Minuten-Intervallen |
 
 ### Feldpilot (Phase 2)
-- **Pilzstamm**: *Phanerochaete chrysosporium* (erwartet 150× mehr Leistung)
-- **Kommunikation**: LoRa (868 MHz, 2+ km)
-- **Energieverbrauch**: ~0,60 mWh/Tag (SF12), ~0,09 mWh/Tag (SF7)
-- **Gehäuse**: IP67, feldtauglich
+
+| Parameter | Value |
+|-----------|-------|
+| Pilzstamm | *Phanerochaete chrysosporium* (erwartet 150× mehr Leistung) |
+| Kommunikation | LoRa (868 MHz, 2+ km) |
+| Energieverbrauch | ~0,60 mWh/Tag (SF12), ~0,09 mWh/Tag (SF7) |
+| Gehäuse | IP67, feldtauglich |
+
+## System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    MykoVolt System                         │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐  ┌───────────────────────────────┐  │
+│  │   MFC Pressling │  │         Biobatterie           │  │
+│  │  (Trametes spp.)│  │    (Mikrobieller Brennstoffzelle)│  │
+│  └─────────────────┘  └───────────────────────────────┘  │
+│           │                       │                       │
+│  ┌────────▼─────────┐    ┌─────────▼────────┐            │
+│  │   Sensor Board   │    │   FRAM Ring      │            │
+│  │   (STM32 MCU)    │    │   Puffer         │            │
+│  └──────────────────┘    └──────────────────┘            │
+│           │                       │                       │
+│  ┌────────▼─────────┐    ┌─────────▼────────┐            │
+│  │   NFC Module     │    │   LoRa Module    │            │
+│  │   (Passive)      │    │   (868 MHz)      │            │
+│  └──────────────────┘    └──────────────────┘            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Technology Stack
+
+### Hardware Components
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| MCU | STM32 | Sensor Datenverarbeitung und -speicherung |
+| NFC/LoRa | Passives Modul | Datenübertragung zu externen Geräten |
+| FRAM | Ringpuffer | Hochzuverlässige Datenspeicherung |
+| MFC | Pilz-basierte Brennstoffzelle | Energieerzeugung aus organischen Abfällen |
+| Pressling | Kompostierbares Gehäuse | Schutz und biologische Abbaubarkeit |
+
+### Software Components
+
+| Layer | Technology | Description |
+|-------|------------|-------------|
+| Firmware | STM32 C/C++ | Sensor Datenerfassung und -verarbeitung |
+| Simulation | Python | Bodenfeuchte-Sensor-Simulation |
+| Documentation | Markdown | Projekt-Dokumentation |
+| Build Tools | GitHub Actions | CI/CD Pipeline |
 
 ## Current Status
 
 ### Recent Changes
-- Aktualisierte Remote-Repository-URLs zu `mykovolt` mit originalen Benutzernamen
-- GitHub-Repository erstellt und gepusht
-- Codeberg-Repository auf `shrooms` belassen (wie angefordert)
+- ✅ Aktualisierte Remote-Repository-URLs zu `mykovolt` mit originalen Benutzernamen
+- ✅ GitHub-Repository erstellt und gepusht
+- ✅ Codeberg-Repository auf `shrooms` belassen (wie angefordert)
 
 ### Active Development
-- Simulation von Bodenfeuchte-Sensoren
-- Tests für MFC-Leistung und Energieeffizienz
-- NFC-basierte Datenübertragung
-- FRAM-Ringpuffer für Datenspeicherung
+- ✅ Simulation von Bodenfeuchte-Sensoren
+- ✅ Tests für MFC-Leistung und Energieeffizienz
+- ✅ NFC-basierte Datenübertragung
+- ✅ FRAM-Ringpuffer für Datenspeicherung
 
 ## Getting Started
 
@@ -109,6 +182,27 @@ pytest simulation/
 - Python: PEP 8
 - C/C++: STM32-Coding-Standards
 - Markdown: Konsistente Formatierung
+
+## Project Metrics
+
+### Performance Indicators
+
+| Metric | Current Value | Target |
+|--------|---------------|--------|
+| Energieeffizienz | 12,5 µW/cm² | >15 µW/cm² |
+| Batterielebensdauer | 14 Tage | >30 Tage |
+| Zyklenlebensdauer | 100+ Zyklen | >200 Zyklen |
+| Datenübertragungsrate | 12 Byte/Eintrag | <10 Byte/Eintrag |
+
+### Development Progress
+
+| Phase | Status | Completion |
+|-------|--------|------------|
+| DevKit Design | ✅ Complete | 100% |
+| Prototyp | ✅ Complete | 100% |
+| Simulation | ✅ Complete | 100% |
+| Feldtest | ⏳ In Progress | 25% |
+| Produktion | ⏳ Planned | 0% |
 
 ## License
 
