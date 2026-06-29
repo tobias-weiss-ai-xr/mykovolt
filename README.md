@@ -1,13 +1,37 @@
-# MykoVolt - Biodegradable Fungal Battery for Precision Agriculture
+# MykoVolt — Biodegradable Fungal Battery for Precision Agriculture
 
 <p align="center">
-  <img src="docs/teaser.svg" alt="MykoVolt — Biodegradable Fungal Bio-Battery for Precision Agriculture" width="100%">
+  <img src="docs/teaser.svg" alt="MykoVolt" width="100%">
 </p>
 
 <p align="center">
   <b>Die erste kompostierbare Bodenfeuchte-Sensor-Applikation.</b><br>
   7 Tage Laufzeit · 90% biologisch abbaubar · €0.15 pro Stück · Zero E-Waste
 </p>
+
+## Table of Contents
+
+- [Overview](#overview)
+- [MVP Design](#mvp-design)
+- [System Architecture](#system-architecture)
+  - [Signal Flow](#signal-flow)
+  - [Layer Stack](#layer-stack)
+  - [Data Flow](#data-flow)
+- [Technical Specifications](#technical-specifications)
+  - [DevKit (Phase 1)](#devkit-phase-1)
+  - [Feldpilot (Phase 2)](#feldpilot-phase-2)
+  - [Technology Stack](#technology-stack)
+  - [Energy Budget](#energy-budget)
+- [Product Roadmap](#product-roadmap)
+- [Deployment Lifecycle](#deployment-lifecycle)
+- [Competitive Positioning](#competitive-positioning)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Development Progress](#development-progress)
+- [Contact](#contact)
+- [License](#license)
+
+---
 
 ## Overview
 
@@ -16,15 +40,21 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 ### Key Innovation
 - **Biologisch abbaubar**: Pilz-basierte Biobatterie + kompostierbares Gehäuse
 - **Wiederverwendbar**: Elektronik-Board (100+ Zyklen)
-- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischen Abbaubarkeit als langfristiges Ziel
+- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischer Abbaubarkeit als langfristiges Ziel
+
+---
 
 ## MVP Design
 
 <p align="center">
-  <img src="docs/mvp_design.svg" alt="MykoVolt MVP Design — Exploded cross-section, field deployment, specifications" width="100%">
+  <img src="docs/mvp_design.svg" alt="MykoVolt MVP Design" width="100%">
 </p>
 
+---
+
 ## System Architecture
+
+### Signal Flow
 
 ```mermaid
 flowchart TD
@@ -75,7 +105,7 @@ flowchart TD
     style CLOUD fill:#ECEFF1,stroke:#455A64,stroke-width:2px
 ```
 
-## Layer Architecture
+### Layer Stack
 
 ```mermaid
 flowchart TB
@@ -108,7 +138,7 @@ flowchart TB
     style L5 fill:#795548,stroke:#4E342E,color:#fff
 ```
 
-## Data Flow
+### Data Flow
 
 ```mermaid
 sequenceDiagram
@@ -141,6 +171,8 @@ sequenceDiagram
     G->>D: JSON → Dashboard
 ```
 
+---
+
 ## Technical Specifications
 
 ### DevKit (Phase 1)
@@ -162,27 +194,19 @@ sequenceDiagram
 | Energieverbrauch | ~0,60 mWh/Tag (SF12), ~0,09 mWh/Tag (SF7) |
 | Gehäuse | IP67, feldtauglich |
 
-## Technology Stack
+### Technology Stack
 
-### Hardware Components
-
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| MCU | STM32L0 | Sensor Datenverarbeitung und -speicherung |
-| NFC/LoRa | Passive NFC / SX1276 | Datenübertragung zu externen Geräten |
-| FRAM | MB85RC256 (32 KB) | Hochzuverlässige Datenspeicherung |
-| MFC | Trametes pubescens | Energieerzeugung aus organischen Abfällen |
-| Pressling | Kompostierbares Gehäuse | Schutz und biologische Abbaubarkeit |
-
-### Software Components
-
-| Layer | Technology | Description |
-|-------|------------|-------------|
+| Layer | Component | Technology |
+|-------|-----------|------------|
+| MCU | STM32L0 (Cortex-M0+) | Sensor Datenverarbeitung und -speicherung |
+| Memory | MB85RC256 FRAM (32 KB) | Hochzuverlässige Datenspeicherung |
+| Communication | Passive NFC / SX1276 LoRa | Datenübertragung |
+| Power | Trametes pubescens MFC | Energieerzeugung aus organischem Abfall |
+| Casing | Kompostierbarer Pressling | Schutz und biologische Abbaubarkeit |
 | Firmware | STM32 HAL C11 | Sensor Datenerfassung und -verarbeitung |
 | Simulation | Python | Bodenfeuchte-Sensor-Simulation |
-| Documentation | Markdown + Mermaid | Projekt-Dokumentation und Diagramme |
 
-## Energy Budget
+### Energy Budget
 
 ```mermaid
 pie title Energieverbrauch pro Tag (~40.000 µJ)
@@ -201,6 +225,8 @@ xychart-beta
     bar [44928, 44029, 43148, 42285, 41440, 40611, 39800]
     line [40000, 40000, 40000, 40000, 40000, 40000, 40000]
 ```
+
+---
 
 ## Product Roadmap
 
@@ -227,6 +253,8 @@ gantt
         Markteinführung EU          :p2e, 2027-04-01, 60d
 ```
 
+---
+
 ## Deployment Lifecycle
 
 ```mermaid
@@ -248,6 +276,8 @@ flowchart LR
     style END fill:#FFF3E0,stroke:#E65100
 ```
 
+---
+
 ## Competitive Positioning
 
 ```mermaid
@@ -262,44 +292,40 @@ quadrantChart
     "EDLC Supercap": [0.4, 0.02]
 ```
 
+---
+
 ## Project Structure
 
-### Core Components
-- **DevKit** (Phase 1, Q4 2026): NFC-basierte Entwicklerplattform für Labore und Maker
-- **Feldpilot** (Phase 2, Q2 2027): LoRa-basierte Feldlösung für landwirtschaftliche Betriebe
+```
+mykovolt/
+├── docs/
+│   ├── diagrams.html          # Full Mermaid diagram suite (12 diagrams)
+│   ├── mvp_design.svg        # MVP exploded view & specifications
+│   ├── teaser.svg             # Hero image
+│   ├── manufacturing_process.md
+│   └── supply_chain_analysis.md
+├── simulation/
+│   └── e2e_soil_sensor.py     # End-to-end sensor simulation
+├── tests/
+│   └── battery_validation.py
+├── competitive/
+│   └── intelligence_dashboard.py
+├── compliance/
+│   └── regulatory_roadmap.md
+├── finance/
+│   └── funding_strategy.md
+├── marketing/
+│   └── segment_strategies.md
+├── ip/
+│   └── ip_strategy.md
+├── archive/                   # Historical documents
+├── MykoVolt-mvp-design.md     # Full MVP design documentation
+├── MykoVolt_Angebot_EMC.md     # EMC GmbH offer
+├── MykoVolt_Pitch_Deck.html    # Interactive pitch deck
+└── README.md
+```
 
-### Main Directories
-- `simulation/` - Simulationen und Tests für Bodenfeuchte-Sensoren
-- `archive/` - Historische Dokumente und Angebote
-- `docs/` - Dokumentation, Diagramme und Design-Assets
-- `tests/` - Unit- und Integrationstests
-- `competitive/` - Wettbewerbsanalyse-Framework
-- `compliance/` - Regulatorische roadmap
-- `finance/` - Finanzierungsstrategie
-- `marketing/` - Segment-Strategien
-- `ip/` - IP-Schutz-Strategie
-
-### Key Files
-- `docs/diagrams.html` - Vollständiges Diagramm-Suite (12 Mermaid-Diagramme)
-- `docs/mvp_design.svg` - MVP Exploded View & Spezifikationen
-- `docs/teaser.svg` - Teaser-Illustration
-- `MykoVolt-mvp-design.md` - Umfassende MVP-Design-Dokumentation
-- `simulation/e2e_soil_sensor.py` - E2E Sensor-Simulation
-
-## Current Status
-
-### Recent Changes
-- ✅ Aktualisierte Remote-Repository-URLs zu `mykovolt` mit originalen Benutzernamen
-- ✅ GitHub-Repository erstellt und gepusht
-- ✅ Comprehensive business plan documentation
-- ✅ Competitive intelligence framework
-- ✅ MVP design SVG and Mermaid diagrams
-
-### Active Development
-- ✅ Simulation von Bodenfeuchte-Sensoren
-- ✅ Tests für MFC-Leistung und Energieeffizienz
-- ✅ NFC-basierte Datenübertragung
-- ✅ FRAM-Ringpuffer für Datenspeicherung
+---
 
 ## Getting Started
 
@@ -320,6 +346,8 @@ pip install -r requirements.txt
 pytest simulation/
 ```
 
+---
+
 ## Development Progress
 
 | Phase | Status | Completion |
@@ -327,12 +355,11 @@ pytest simulation/
 | DevKit Design | ✅ Complete | 100% |
 | Prototyp | ✅ Complete | 100% |
 | Simulation | ✅ Complete | 100% |
+| Business Plan | ✅ Complete | 100% |
 | Feldtest | ⏳ In Progress | 25% |
 | Produktion | ⏳ Planned | 0% |
 
-## License
-
-This project is licensed under the MIT License.
+---
 
 ## Contact
 
@@ -341,6 +368,10 @@ This project is licensed under the MIT License.
 - **Email**: tobias.weiss.ai.xr@gmail.com
 - **LinkedIn**: [MykoVolt](https://www.linkedin.com/company/mykovolt)
 - **Twitter**: [@MykoVolt](https://twitter.com/MykoVolt)
+
+## License
+
+This project is licensed under the MIT License.
 
 ---
 
