@@ -550,7 +550,7 @@ if __name__ == "__main__":
         viable = "✅" if comp["power_uw"] >= 50 else "❌"
         print(f"   {viable} {comp['name']:25s} "
               f"€{comp['cost']:<6.2f}  {comp['mass_g']:<5.1f}g  "
-              f"{comp['lifetime_days']:3d}d  {'♻️' if comp['compostable'] else '🚫'}  "
+              f"{comp['lifetime_days']:5.0f}d  {'♻️' if comp['compostable'] else '🚫'}  "
               f"{comp['voltage']}V  {comp['power_uw']}µW")
 
     print(f"\n🏆 KEY ADVANTAGE OF FUNGAL BATTERY")
