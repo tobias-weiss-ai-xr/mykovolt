@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <b>Die erste kompostierbare Bodenfeuchte-Sensor-Applikation.</b><br>
-  7 Tage Laufzeit · 90% biologisch abbaubar · €0.15 pro Stück · Zero E-Waste
+  <b>The first compostable soil moisture sensor application.</b><br>
+  7 days runtime · 90% biodegradable · €0.15 per unit · Zero e-waste
 </p>
 
 ## Table of Contents
@@ -19,7 +19,7 @@
   - [Data Flow](#data-flow)
 - [Technical Specifications](#technical-specifications)
   - [DevKit (Phase 1)](#devkit-phase-1)
-  - [Feldpilot (Phase 2)](#feldpilot-phase-2)
+  - [Field Pilot (Phase 2)](#field-pilot-phase-2)
   - [Technology Stack](#technology-stack)
   - [Energy Budget](#energy-budget)
 - [Product Roadmap](#product-roadmap)
@@ -35,12 +35,12 @@
 
 ## Overview
 
-MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Stromversorgung von Bodenfeuchtesensoren in der Präzisionslandwirtschaft. Die Technologie nutzt mikrobiellen Brennstoffzellen (MFC) auf Basis von Weißfäulepilzen (*Trametes pubescens*, *Phanerochaete chrysosporium*), eingebettet in einen kompostierbaren Pressling.
+MykoVolt develops the first commercial, biodegradable fungal bio-battery to power soil moisture sensors in precision agriculture. The technology uses microbial fuel cells (MFC) based on white-rot fungi (*Trametes pubescens*, *Phanerochaete chrysosporium*), embedded in a compostable pellet.
 
 ### Key Innovation
-- **Biologisch abbaubar**: Pilz-basierte Biobatterie + kompostierbares Gehäuse
-- **Wiederverwendbar**: Elektronik-Board (100+ Zyklen)
-- **Hybrider Ansatz**: Sofortiger Markteintritt mit vollständiger biologischer Abbaubarkeit als langfristiges Ziel
+- **Biodegradable**: Fungus-based bio-battery + compostable casing
+- **Reusable**: Electronics board (100+ cycles)
+- **Hybrid approach**: Immediate market entry with full biodegradability as long-term goal
 
 ---
 
@@ -58,38 +58,38 @@ MykoVolt develops the first commercial, biodegradable Pilz-Biobatterie zur Strom
 
 ```mermaid
 flowchart TD
-    subgraph ENV["🌍 Umwelt"]
-        SOIL["Bodenfeuchte\n(Sand/Lehm/Ton)"]
-        TEMP["Temperatur"]
+    subgraph ENV["🌍 Environment"]
+        SOIL["Soil Moisture\n(Sand/Loam/Clay)"]
+        TEMP["Temperature"]
     end
 
-    subgraph SENSOR["📐 Sensor-Ebene"]
-        ELEC["Kapazitiver Sensor\n100 kHz Exzitation"]
-        ADC["ADC-Wandler\n12-Bit"]
+    subgraph SENSOR["📐 Sensor Layer"]
+        ELEC["Capacitive Sensor\n100 kHz Excitation"]
+        ADC["ADC Converter\n12-Bit"]
     end
 
     subgraph MCU["🖥️ MCU — STM32L0"]
         SLEEP["Sleep Mode\n0.4 µA"]
         ACTIVE["Active Mode\n3 mA @ 1 MHz"]
-        FRAM["FRAM 8 KB\nRing-Puffer"]
-        CONTROL["Energie-Manager\n15 min Intervall"]
+        FRAM["FRAM 8 KB\nRing Buffer"]
+        CONTROL["Energy Manager\n15 min Interval"]
     end
 
-    subgraph BATTERY["🔋 MFC Bio-Batterie"]
+    subgraph BATTERY["🔋 MFC Bio-Battery"]
         FUNGUS["Trametes pubescens"]
-        ANODE["Anode (−): Hefe"]
-        CATHODE["Kathode (+): Enzym"]
+        ANODE["Anode (−): Yeast"]
+        CATHODE["Cathode (+): Enzyme"]
         BOOST["Boost 0.45V → 3.3V"]
     end
 
-    subgraph COMMS["📡 Kommunikation"]
-        NFC["Phase 1: NFC (passiv)"]
+    subgraph COMMS["📡 Communication"]
+        NFC["Phase 1: NFC (passive)"]
         LORA["Phase 2: LoRa 868 MHz"]
     end
 
     subgraph CLOUD["☁️ Cloud"]
-        GW["LoRa-Gateway / NFC-Reader"]
-        DASH["Dashboard\nFeuchte-Karten"]
+        GW["LoRa Gateway / NFC Reader"]
+        DASH["Dashboard\nMoisture Maps"]
     end
 
     SOIL --> ELEC --> ADC --> ACTIVE --> FRAM
@@ -109,26 +109,26 @@ flowchart TD
 
 ```mermaid
 flowchart TB
-    subgraph L1["Schicht 1: Außen-Casing"]
-        C1["Kompostierbarer Pressling\nIP67 · 1.5 mm"]
+    subgraph L1["Layer 1: Outer Casing"]
+        C1["Compostable Pellet\nIP67 · 1.5 mm"]
     end
-    subgraph L2["Schicht 2: Antenne"]
-        C2["NFC Spule / LoRa Modul"]
+    subgraph L2["Layer 2: Antenna"]
+        C2["NFC Coil / LoRa Module"]
     end
-    subgraph L3["Schicht 3: Sensor PCB"]
-        C3["Kapazitiver Sensor"]
+    subgraph L3["Layer 3: Sensor PCB"]
+        C3["Capacitive Sensor"]
         C4["STM32L0 MCU"]
         C5["FRAM 8 KB"]
         C6["Boost Converter"]
         C3 --- C4 --- C5 --- C6
     end
-    subgraph L4["Schicht 4: MFC Bio-Batterie"]
-        C7["Anode: Hefe"]
-        C8["Kathode: Trametes"]
-        C9["Cellulose-Elektrolyt"]
+    subgraph L4["Layer 4: MFC Bio-Battery"]
+        C7["Anode: Yeast"]
+        C8["Cathode: Trametes"]
+        C9["Cellulose Electrolyte"]
     end
-    subgraph L5["Schicht 5: Boden-Casing"]
-        C10["Feuchtigkeits-Membran"]
+    subgraph L5["Layer 5: Soil Casing"]
+        C10["Moisture Membrane"]
     end
     L1 --> L2 --> L3 --> L4 --> L5
     style L1 fill:#A1887F,stroke:#5D4037,color:#fff
@@ -142,7 +142,7 @@ flowchart TB
 
 ```mermaid
 sequenceDiagram
-    participant S as Boden
+    participant S as Soil
     participant SE as Sensor
     participant MCU as STM32L0
     participant F as FRAM
@@ -152,21 +152,21 @@ sequenceDiagram
     participant D as Dashboard
 
     Note over B: 520 µW @ 0.45V → 3.3V Boost
-    B-->>MCU: Dauerhafte Stromversorgung
+    B-->>MCU: Continuous power supply
 
-    loop Alle 15 Minuten
-        S->>SE: Feuchte ändert Dielektrikum
-        SE->>MCU: Kapazitätswert
-        MCU->>MCU: ADC + Temperatur
-        MCU->>F: 12-Byte Eintrag
+    loop Every 15 minutes
+        S->>SE: Moisture changes dielectric
+        SE->>MCU: Capacitance value
+        MCU->>MCU: ADC + Temperature
+        MCU->>F: 12-byte entry
         MCU->>MCU: Deep Sleep 0.4 µA
     end
 
     alt Phase 1: NFC
-        G->>N: Feld aktivieren
-        N->>G: 672 Einträge
+        G->>N: Activate field
+        N->>G: 672 entries
     else Phase 2: LoRa
-        N->>G: 12-Byte Packet
+        N->>G: 12-byte packet
     end
     G->>D: JSON → Dashboard
 ```
@@ -179,47 +179,47 @@ sequenceDiagram
 
 | Parameter | Value |
 |-----------|-------|
-| Pilzstamm | *Trametes pubescens* (12,5 µW/cm²) |
-| Kommunikation | NFC (passiv powered) |
-| Energieverbrauch | ~0,14 mWh/Tag |
-| Datenformat | 12-Byte-Einträge (timestamp, capacitance, voltage, temperature, status) |
-| Dauer | 14 Tage bei 15-Minuten-Intervallen |
+| Fungal strain | *Trametes pubescens* (12.5 µW/cm²) |
+| Communication | NFC (passive powered) |
+| Energy consumption | ~0.14 mWh/day |
+| Data format | 12-byte entries (timestamp, capacitance, voltage, temperature, status) |
+| Duration | 14 days at 15-minute intervals |
 
-### Feldpilot (Phase 2)
+### Field Pilot (Phase 2)
 
 | Parameter | Value |
 |-----------|-------|
-| Pilzstamm | *Phanerochaete chrysosporium* (erwartet 150× mehr Leistung) |
-| Kommunikation | LoRa (868 MHz, 2+ km) |
-| Energieverbrauch | ~0,60 mWh/Tag (SF12), ~0,09 mWh/Tag (SF7) |
-| Gehäuse | IP67, feldtauglich |
+| Fungal strain | *Phanerochaete chrysosporium* (expected 150× more power) |
+| Communication | LoRa (868 MHz, 2+ km) |
+| Energy consumption | ~0.60 mWh/day (SF12), ~0.09 mWh/day (SF7) |
+| Casing | IP67, field-ready |
 
 ### Technology Stack
 
 | Layer | Component | Technology |
 |-------|-----------|------------|
-| MCU | STM32L0 (Cortex-M0+) | Sensor Datenverarbeitung und -speicherung |
-| Memory | MB85RC256 FRAM (32 KB) | Hochzuverlässige Datenspeicherung |
-| Communication | Passive NFC / SX1276 LoRa | Datenübertragung |
-| Power | Trametes pubescens MFC | Energieerzeugung aus organischem Abfall |
-| Casing | Kompostierbarer Pressling | Schutz und biologische Abbaubarkeit |
-| Firmware | STM32 HAL C11 | Sensor Datenerfassung und -verarbeitung |
-| Simulation | Python | Bodenfeuchte-Sensor-Simulation |
+| MCU | STM32L0 (Cortex-M0+) | Sensor data processing and storage |
+| Memory | MB85RC256 FRAM (32 KB) | High-reliability data storage |
+| Communication | Passive NFC / SX1276 LoRa | Data transmission |
+| Power | Trametes pubescens MFC | Energy generation from organic waste |
+| Casing | Compostable pellet | Protection and biodegradability |
+| Firmware | STM32 HAL C11 | Sensor data acquisition and processing |
+| Simulation | Python | Soil moisture sensor simulation |
 
 ### Energy Budget
 
 ```mermaid
-pie title Energieverbrauch pro Tag (~40.000 µJ)
+pie title Energy consumption per day (~40,000 µJ)
     "Sleep (MCU)" : 75.6
-    "ADC Messung" : 14.4
-    "Sensor Exzitation" : 5.0
-    "NFC Kommunikation" : 3.0
+    "ADC Measurement" : 14.4
+    "Sensor Excitation" : 5.0
+    "NFC Communication" : 3.0
     "Boost Converter" : 2.0
 ```
 
 ```mermaid
 xychart-beta
-    title "Energiebilanz über 7 Tage (µJ)"
+    title "Energy Balance Over 7 Days (µJ)"
     x-axis ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5", "Tag 6", "Tag 7"]
     y-axis "µJ" 0 --> 50000
     bar [44928, 44029, 43148, 42285, 41440, 40611, 39800]
@@ -232,25 +232,25 @@ xychart-beta
 
 ```mermaid
 gantt
-    title MykoVolt Entwicklungs-Roadmap
+    title MykoVolt Development Roadmap
     dateFormat YYYY-MM-DD
     axisFormat %Y-%m
 
     section Phase 1: DevKit
-        Pressling-Rezeptur           :done, p1a, 2025-04-01, 30d
-        Board-Design Rev A          :done, p1b, 2025-05-01, 30d
-        Prototyp (Funktionsmuster)  :done, p1c, 2025-06-01, 30d
-        L2-Systemtest               :active, p1d, 2025-07-01, 60d
-        EXIST-Einreichung           :p1e, 2025-09-01, 30d
-        DevKit Produktion           :p1f, 2026-01-01, 90d
-        DevKit Verkaufsstart        :p1g, 2026-04-01, 30d
+        Pellet Formulation           :done, p1a, 2025-04-01, 30d
+        Board Design Rev A          :done, p1b, 2025-05-01, 30d
+        Prototype (Functional)      :done, p1c, 2025-06-01, 30d
+        L2 System Test              :active, p1d, 2025-07-01, 60d
+        EXIST Application           :p1e, 2025-09-01, 30d
+        DevKit Production           :p1f, 2026-01-01, 90d
+        DevKit Launch               :p1g, 2026-04-01, 30d
 
-    section Phase 2: Feldpilot
-        Go/No-Go Entscheidung       :p2a, 2026-07-01, 30d
-        LoRa-Integration            :p2b, 2026-08-01, 60d
-        Feldpilot Feldtest          :p2c, 2026-10-01, 90d
-        Skalierung Produktion       :p2d, 2027-01-01, 90d
-        Markteinführung EU          :p2e, 2027-04-01, 60d
+    section Phase 2: Field Pilot
+        Go/No-Go Decision           :p2a, 2026-07-01, 30d
+        LoRa Integration            :p2b, 2026-08-01, 60d
+        Field Pilot Field Test      :p2c, 2026-10-01, 90d
+        Production Scaling          :p2d, 2027-01-01, 90d
+        EU Market Launch            :p2e, 2027-04-01, 60d
 ```
 
 ---
@@ -259,15 +259,15 @@ gantt
 
 ```mermaid
 flowchart LR
-    subgraph PROD["🏭 Produktion"]
-        A1["Pilzzucht"] --> A2["Pressling"] --> A3["Elektronik"] --> A4["QA Test"]
+    subgraph PROD["🏭 Production"]
+        A1["Fungal Cultivation"] --> A2["Pellet"] --> A3["Electronics"] --> A4["QA Test"]
     end
-    subgraph DEPLOY["🌱 Feldeinsatz"]
-        B1["Einsetzen\n8-12 cm tief"] --> B2["Aktivierung\nWasser + Nährstoffe"] --> B3["Betrieb\n7 Tage"] --> B4["NFC/LoRa TX"]
+    subgraph DEPLOY["🌱 Field Deployment"]
+        B1["Insert\n8-12 cm deep"] --> B2["Activation\nWater + Nutrients"] --> B3["Operation\n7 Days"] --> B4["NFC/LoRa TX"]
     end
-    subgraph END["♻️ Lebensende"]
-        C1["Batterie erschöpft"] --> C2["Pressling\nkompostiert\n30-90 Tage"]
-        C1 --> C3["Electronik-Board\ngeborgen\n100+ Wiederverw."]
+    subgraph END["♻️ End of Life"]
+        C1["Battery Depleted"] --> C2["Pellet\ncomposted\n30-90 Days"]
+        C1 --> C3["Electronics Board\nretrieved\n100+ Reuses"]
     end
     A4 --> B1
     B4 --> C1
@@ -282,9 +282,9 @@ flowchart LR
 
 ```mermaid
 quadrantChart
-    title Wettbewerbspositionierung Bodensensor-Batterien
-    x-axis "Niedrige Kosten" --> "Hohe Kosten"
-    y-axis "Kurzlebig" --> "Langlebig"
+    title Soil Sensor Battery Competitive Positioning
+    x-axis "Low Cost" --> "High Cost"
+    y-axis "Short-lived" --> "Long-lasting"
     "MykoVolt Bio-Battery": [0.15, 0.15]
     "CR2032 Li-Ion": [0.6, 0.85]
     "AAA Alkaline": [0.35, 0.45]
@@ -331,8 +331,8 @@ mykovolt/
 
 ### Prerequisites
 - Python 3.8+
-- STM32CubeProgrammer (für NFC-Reader)
-- LoRa-Stack (für Feldpilot)
+- STM32CubeProgrammer (for NFC reader)
+- LoRa stack (for field pilot)
 
 ### Installation
 ```bash
@@ -353,11 +353,11 @@ pytest simulation/
 | Phase | Status | Completion |
 |-------|--------|------------|
 | DevKit Design | ✅ Complete | 100% |
-| Prototyp | ✅ Complete | 100% |
+| Prototype | ✅ Complete | 100% |
 | Simulation | ✅ Complete | 100% |
 | Business Plan | ✅ Complete | 100% |
-| Feldtest | ⏳ In Progress | 25% |
-| Produktion | ⏳ Planned | 0% |
+| Field Test | ⏳ In Progress | 25% |
+| Production | ⏳ Planned | 0% |
 
 ---
 
@@ -375,4 +375,4 @@ This project is licensed under the MIT License.
 
 ---
 
-*Letzte Aktualisierung: $(git log --format="%cd" --date=short -1)*
+*Last updated: $(git log --format="%cd" --date=short -1)*
