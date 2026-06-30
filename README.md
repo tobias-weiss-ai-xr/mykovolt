@@ -1,7 +1,7 @@
 # MykoVolt — Biodegradable Fungal Battery for Precision Agriculture
 
 <p align="center">
-  <img src="docs/teaser.svg" alt="MykoVolt" width="100%">
+  <img src="docs/teaser.png" alt="MykoVolt" width="100%">
 </p>
 
 <p align="center">
