@@ -364,10 +364,7 @@ pytest simulation/
 ## Contact
 
 - **GitHub**: [tobias-weiss-ai-xr/mykovolt](https://github.com/tobias-weiss-ai-xr/mykovolt)
-- **Codeberg**: [graphwiz-ai/mykovolt](https://codeberg.org/graphwiz-ai/mykovolt)
-- **Email**: tobias.weiss.ai.xr@gmail.com
-- **LinkedIn**: [MykoVolt](https://www.linkedin.com/company/mykovolt)
-- **Twitter**: [@MykoVolt](https://twitter.com/MykoVolt)
+- **Email**: tobias@tobias-weiss.org
 
 ## License
 
