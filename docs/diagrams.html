@@ -131,7 +131,7 @@
   <p class="subtitle">MykoVolt in einem Blick — Pilz-Batterie f&uuml;r Pr&auml;zisions-Landwirtschaft</p>
   <div class="image-card">
     <img src="teaser.svg" alt="MykoVolt Teaser — Biodegradable Fungal Bio-Battery for Precision Agriculture">
-    <p class="caption">MykoVolt — Die erste kompostierbare Bodenfeuchte-Sensor-Applikation. 7 Tage Laufzeit, 90% biologisch abbaubar, €0.15 pro St&uuml;ck.</p>
+    <p class="caption">MykoVolt — Die erste kompostierbare Bodenfeuchte-Sensor-Applikation. 7 Tage Laufzeit, 90% biologisch abbaubar, Presslinge ab €0,15.</p>
   </div>
 
   <!-- ══════════════════════════════════════════ -->
@@ -276,7 +276,7 @@ sequenceDiagram
     participant G as Gateway
     participant D as Dashboard
 
-    Note over B: Dauerhafte Stromversorgung\n520 µW @ 0.45V
+    Note over B: Dauerhafte Stromversorgung\n25 µW (TRL 2) / 50 µW (Ziel)
     B-->>MCU: 3.3V (via Boost)
 
     loop Alle 15 Minuten
@@ -339,50 +339,51 @@ gantt
     dateFormat YYYY-MM-DD
     axisFormat %Y-%m
 
+    section Phase 0: Lab Validation
+        Laborkooperation             :crit, p0a, 2026-07-01, 90d
+        Empa 2024 Resultat          :p0b, 2026-10-01, 120d
+        Co-Founder Suche            :p0c, 2026-07-01, 180d
+        EXIST Grant Einreichung     :p0d, 2026-09-01, 90d
+
     section Phase 1: DevKit
-        Pressling-Rezeptur           :done, p1a, 2025-04-01, 30d
-        Board-Design Rev A          :done, p1b, 2025-05-01, 30d
-        Prototyp (Funktionsmuster)  :done, p1c, 2025-06-01, 30d
-        L2-Systemtest               :active, p1d, 2025-07-01, 60d
-        EXIST-Einreichung           :p1e, 2025-09-01, 30d
-        DevKit Produktion           :p1f, 2026-01-01, 90d
-        DevKit Verkaufsstart        :p1g, 2026-04-01, 30d
+        DevKit PCB + Firmware       :p1a, 2027-07-01, 120d
+        DevKit Prototyp 50 St.      :p1b, 2027-11-01, 60d
+        DevKit Produktion 500 St.   :p1c, 2028-01-01, 90d
+        DevKit Verkaufsstart        :milestone, p1d, 2028-04-01, 1d
 
     section Phase 2: Feldpilot
-        Go/No-Go Entscheidung       :p2a, 2026-07-01, 30d
-        LoRa-Integration            :p2b, 2026-08-01, 60d
-        Feldpilot Feldtest          :p2c, 2026-10-01, 90d
-        Skalierung Produktion       :p2d, 2027-01-01, 90d
-        Markteinf&uuml;hrung EU        :p2e, 2027-04-01, 60d
+        Feldpilot Vorbereitung      :crit, p2a, 2029-07-01, 90d
+        Feldtest                    :p2b, 2029-10-01, 180d
+        Zertifizierung              :p2c, 2030-04-01, 180d
   </div>
 
   <!-- ══════════════════════════════════════════ -->
   <!-- BUSINESS MODEL -->
   <!-- ══════════════════════════════════════════ -->
   <h2>Business Model</h2>
-  <p class="subtitle">Gesch&auml;ftsmodell: Hardware-Verkauf + Sensor-as-a-Service</p>
+  <p class="subtitle">Gesch&auml;ftsmodell: DevKit-Verkauf + Verbrauchsmaterial</p>
   <div class="diagram-card mermaid">
 flowchart LR
-    subgraph INPUT["Input-Stra&szlig;e"]
-        WASTE["Landwirtschaftl.\nAbfall (Feedstock)"]
+    subgraph INPUT["Input"]
         FUNG["Trametes\npubescens"]
-        COMP["Elektronik\n(PCB, MCU)"]
+        COMP["Elektronik\n(PCB, MCU, NFC)"]
     end
 
     subgraph PRODUCT["Produkt"]
-        TAG["MykoVolt\nSensor Tag\n€0.15 Herstell"]
+        TAG["MykoVolt\nDevKit\nab €35/St."]
+        REFILL["Pressling\nRefill-Pack\n€10/5 St."]
     end
 
     subgraph MODEL["Gesch&auml;ftsmodell"]
-        DIRECT["Direktverkauf\n€0.50/Stk.\n50% Marge"]
-        SAAS["Sensor-as-a-Service\n€0.05/Tag\nWartung inkl."]
-        B2B["B2B Lizenzen\nAgrar-Techno"]
+        DEVKIT["DevKit-Verkauf\nForschungslabore\n€35/St."]
+        REFILLM["Verbrauchsmaterial\nWiederkehrende\nEinnahmen"]
+        OPEN["Open-Source\nHardware\nCommunity-Aufbau"]
     end
 
-    subgraph CUSTOMER["Kunden"]
-        ORGA["&Ouml;kobetriebe\nPremium"]
-        RES["Forschung\nPilot-Kunden"]
-        AGRI["Gro&szlig;betriebe\nVolumen"]
+    subgraph CUSTOMER["Kunden (Phase 1)"]
+        LABS["MFC-Forschungs-\nlabore"]
+        TEACH["Hochschul-\nlehre"]
+        MAKER["Maker &\nOpen-Source"]
     end
 
     subgraph IMPACT["Impact"]
@@ -391,15 +392,15 @@ flowchart LR
         DATA["Datengetriebene\nLandwirtschaft"]
     end
 
-    WASTE --> TAG
     FUNG --> TAG
     COMP --> TAG
-    TAG --> DIRECT --> ORGA
-    TAG --> SAAS --> AGRI
-    TAG --> B2B --> RES
-    DIRECT --> IMPACT
-    SAAS --> IMPACT
-    B2B --> IMPACT
+    TAG --> DEVKIT --> LABS
+    TAG --> REFILLM --> LABS
+    DEVKIT --> OPEN
+    DEVKIT --> IMPACT
+    REFILLM --> IMPACT
+    OPEN --> TEACH
+    OPEN --> MAKER
 
     style INPUT fill:#E8F5E9,stroke:#2D6A4F
     style PRODUCT fill:#FFF3E0,stroke:#E65100
@@ -418,7 +419,7 @@ quadrantChart
     title Wettbewerbspositionierung
     x-axis "Niedrige Kosten" --> "Hohe Kosten"
     y-axis "Kurzlebig" --> "Langlebig"
-    "MykoVolt Bio-Battery": [0.15, 0.15]
+    "MykoVolt Bio-Battery": [0.15, 0.25]
     "CR2032 Li-Ion": [0.6, 0.85]
     "AAA Alkaline": [0.35, 0.45]
     "Li-Po Picolithium": [0.9, 0.65]

@@ -74,7 +74,7 @@
   <rect x="0" y="0" width="1200" height="100" fill="url(#titleBg)" rx="0"/>
   <text x="60" y="45" fill="white" font-size="32" font-weight="700" letter-spacing="1">MYKOVOLT</text>
   <text x="60" y="75" fill="#A5D6A7" font-size="18" font-weight="400">Biodegradable Fungal Bio-Battery MVP — Soil Moisture Sensor Tag</text>
-  <text x="1140" y="55" fill="#A5D6A7" font-size="13" text-anchor="end">v1.0 | Phase 1 DevKit | Q4 2026</text>
+  <text x="1140" y="55" fill="#A5D6A7" font-size="13" text-anchor="end">v1.0 | Phase 1 DevKit | Q2 2028</text>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
   <!-- SECTION 1: TOP VIEW -->
@@ -261,14 +261,14 @@
     <text x="420" y="900" fill="#33691E" font-size="10" font-weight="600" opacity="0.7">CATHODE (+)</text>
 
     <text x="350" y="870" fill="white" font-size="13" text-anchor="middle" font-weight="700">Layer 4: MFC Bio-Battery</text>
-    <text x="350" y="898" fill="#E8F5E9" font-size="9" text-anchor="middle">Trametes pubescens | 260 µW/cm² | 2 cm²</text>
+    <text x="350" y="898" fill="#E8F5E9" font-size="9" text-anchor="middle">Trametes pubescens | 12.5 µW/cm² baseline | 2 cm²</text>
 
     <!-- Callout -->
     <line x1="510" y1="880" x2="560" y2="880" stroke="#78909C" stroke-width="1" stroke-dasharray="3 2"/>
     <text x="565" y="870" fill="#546E7A" font-size="10" font-weight="600">Fungal microbial fuel cell</text>
     <text x="565" y="883" fill="#78909C" font-size="9">Species: Trametes pubescens</text>
-    <text x="565" y="896" fill="#78909C" font-size="9">Power: 520 µW total (2 cm²)</text>
-    <text x="565" y="909" fill="#78909C" font-size="9">Voltage: 0.45V OCV | 80% DoD</text>
+    <text x="565" y="896" fill="#78909C" font-size="9">Power: 25 µW (2 cm², literature baseline)</text>
+    <text x="565" y="909" fill="#78909C" font-size="9">Voltage: 0.45V OCV | TRL 2 (simulation complete)</text>
   </g>
 
   <line x1="350" y1="915" x2="350" y2="935" stroke="#B0BEC5" stroke-width="1" stroke-dasharray="3 3"/>
@@ -404,8 +404,8 @@
 
     <rect x="0" y="78" width="530" height="24" fill="#E8F5E9"/>
     <text x="15" y="94" fill="#37474F" font-size="10">Bio-Battery Power</text>
-    <text x="250" y="94" fill="#37474F" font-size="10">520 µW (2 cm²)</text>
-    <text x="420" y="94" fill="#78909C" font-size="10">260 µW/cm² @ 0.45V</text>
+    <text x="250" y="94" fill="#37474F" font-size="10">25 µW (2 cm²)</text>
+    <text x="420" y="94" fill="#78909C" font-size="10">12.5 µW/cm² @ 0.45V (literature baseline)</text>
 
     <rect x="0" y="102" width="530" height="24" fill="white"/>
     <text x="15" y="118" fill="#37474F" font-size="10">MCU</text>
@@ -443,9 +443,9 @@
     <text x="420" y="262" fill="#78909C" font-size="10">White-rot fungus</text>
 
     <rect x="0" y="270" width="530" height="24" fill="#E8F5E9"/>
-    <text x="15" y="286" fill="#37474F" font-size="10">Unit Cost</text>
-    <text x="250" y="286" fill="#37474F" font-size="10">€0.15 (high volume)</text>
-    <text x="420" y="286" fill="#78909C" font-size="10">Battery €0.05 + PCB €0.10</text>
+    <text x="15" y="286" fill="#37474F" font-size="10">Unit Cost (Target)</text>
+    <text x="250" y="286" fill="#37474F" font-size="10">DevKit ~€24.55 / pellet €0.15</text>
+    <text x="420" y="286" fill="#78909C" font-size="10">BOM at 500 units / at scale</text>
 
     <rect x="0" y="294" width="530" height="24" rx="0 0 4 4" fill="white"/>
     <text x="15" y="310" fill="#37474F" font-size="10">IP Rating</text>
@@ -464,16 +464,16 @@
     <text x="20" y="55" fill="#37474F" font-size="11" font-weight="600">Supply (Battery)</text>
     <rect x="20" y="62" width="460" height="24" rx="4" fill="#E8F5E9"/>
     <rect x="20" y="62" width="460" height="24" rx="4" fill="#4CAF50" opacity="0.7"/>
-    <text x="250" y="79" fill="white" font-size="11" text-anchor="middle" font-weight="600">44,928 µJ/day (520 µW × 24h)</text>
+    <text x="250" y="79" fill="white" font-size="11" text-anchor="middle" font-weight="600">4,320 mJ/day (50 µW × 24h, target)</text>
 
     <!-- Demand breakdown -->
     <text x="20" y="110" fill="#37474F" font-size="11" font-weight="600">Demand (System)</text>
 
     <rect x="20" y="118" width="350" height="18" rx="3" fill="#BBDEFB"/>
-    <text x="25" y="131" fill="#1565C0" font-size="9">Sleep: 30,240 µJ (0.72 µW × 24h)</text>
+    <text x="25" y="131" fill="#1565C0" font-size="9">Sleep: 30 mJ (0.72 µW × 24h, est.)</text>
 
     <rect x="20" y="140" width="80" height="18" rx="3" fill="#C8E6C9"/>
-    <text x="25" y="153" fill="#2E7D32" font-size="9">ADC: 5,760 µJ</text>
+    <text x="25" y="153" fill="#2E7D32" font-size="9">ADC: 5.8 mJ</text>
 
     <rect x="20" y="162" width="50" height="18" rx="3" fill="#FFE0B2"/>
     <text x="25" y="175" fill="#E65100" font-size="9">Sensor</text>
@@ -483,15 +483,15 @@
 
     <rect x="20" y="206" width="420" height="3" rx="1" fill="#E0E0E0"/>
 
-    <text x="20" y="228" fill="#37474F" font-size="11" font-weight="600">Total Demand: ~40,000 µJ/day</text>
+    <text x="20" y="228" fill="#37474F" font-size="11" font-weight="600">Total Demand: ~40 mJ/day</text>
 
     <!-- Margin -->
     <rect x="20" y="238" width="460" height="28" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
-    <text x="250" y="257" fill="#2E7D32" font-size="12" text-anchor="middle" font-weight="700">Energy Margin: +12.3% (surplus)</text>
+    <text x="250" y="257" fill="#E65100" font-size="12" text-anchor="middle" font-weight="700">TRL 2 baseline insufficient — optimization critical</text>
 
     <!-- Summary -->
-    <text x="20" y="285" fill="#78909C" font-size="10">✓ 7-day target achievable at 15-min intervals</text>
-    <text x="20" y="300" fill="#78909C" font-size="10">✓ Degradation accounted for (2%/day power loss)</text>
+    <text x="20" y="285" fill="#78909C" font-size="10">⚠ Budget requires 25 µW/cm² optimization target (2× Empa baseline)</text>
+    <text x="20" y="300" fill="#78909C" font-size="10">✓ At target: 7-day autonomy achievable; baseline TRL 2 = 12.5 µW/cm²</text>
   </g>
 
   <!-- Footer -->
