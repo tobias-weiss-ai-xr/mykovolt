@@ -59,8 +59,8 @@
   <!-- ═══════════ LEFT SIDE: Text ═══════════ -->
   <text x="80" y="140" fill="#95D5B2" font-size="13" font-weight="600" letter-spacing="4" text-transform="uppercase" opacity="0.8">BIODEGRADABLE ENERGY</text>
 
-  <text x="80" y="210" fill="white" font-size="62" font-weight="800" letter-spacing="-1" line-height="1.05">MykoVolt</text>
-  <text x="80" y="268" fill="#B7E4C7" font-size="62" font-weight="800" letter-spacing="-1" opacity="0.4">MykoVolt</text>
+  <text x="80" y="210" fill="white" font-size="62" font-weight="800" letter-spacing="-1">MykoVolt</text>
+  <text x="80" y="260" fill="#95D5B2" font-size="22" font-weight="400" opacity="0.8">Fungal MFC Soil Sensor Tag</text>
 
   <line x1="80" y1="290" x2="340" y2="290" stroke="#52B788" stroke-width="2" opacity="0.5"/>
 
@@ -82,7 +82,7 @@
 
     <rect x="210" y="0" width="90" height="60" rx="10" fill="#2D6A4F" stroke="#52B788" stroke-width="1" opacity="0.6"/>
     <text x="255" y="28" fill="#D4FC79" font-size="20" font-weight="700" text-anchor="middle">€0.15</text>
-    <text x="255" y="46" fill="#B7E4C7" font-size="10" text-anchor="middle">per Sensor</text>
+    <text x="255" y="46" fill="#B7E4C7" font-size="10" text-anchor="middle">per Pressling</text>
   </g>
 
   <!-- ═══════════ CENTER: Sensor Illustration ═══════════ -->
@@ -169,7 +169,7 @@
       <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
     </path>
   </g>
-  <text x="685" y="245" fill="#74C69D" font-size="10" opacity="0.6">LoRa 868 MHz</text>
+  <text x="685" y="245" fill="#74C69D" font-size="10" opacity="0.6">NFC / Data</text>
 
   <!-- ═══════════ RIGHT SIDE: Features ═══════════ -->
   <g transform="translate(760, 180)">
@@ -179,7 +179,7 @@
       <circle cx="30" cy="26" r="14" fill="#52B788" opacity="0.3"/>
       <text x="30" y="31" fill="#D4FC79" font-size="14" text-anchor="middle">1</text>
       <text x="56" y="22" fill="white" font-size="13" font-weight="600">Fungal Bio-Battery (MFC)</text>
-      <text x="56" y="40" fill="#B7E4C7" font-size="11" opacity="0.7">Trametes pubescens — 520 µW from organic waste</text>
+      <text x="56" y="40" fill="#B7E4C7" font-size="11" opacity="0.7">Trametes pubescens — baseline 12.5 µW/cm² (Empa 2024)</text>
     </g>
 
     <g transform="translate(0, 62)">
