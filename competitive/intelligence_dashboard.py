@@ -1,462 +1,231 @@
-# Competitive Intelligence Framework
-
-## Executive Summary
-
-This document outlines the comprehensive competitive intelligence framework for the MykoVolt bio-battery project. The framework provides a systematic approach to gathering, analyzing, and utilizing competitive intelligence to support strategic decision-making, product development, and market positioning. This framework is critical for maintaining competitive advantage and ensuring long-term success in the bio-battery industry.
-
-## Competitive Intelligence Overview
-
-### Purpose and Scope
-
-#### Primary Objectives
-- Monitor competitive landscape and market dynamics
-- Identify emerging competitors and technologies
-- Analyze competitive strengths and weaknesses
-- Support strategic planning and decision-making
-- Enable proactive market positioning
-
-#### Scope of Intelligence
-- **Direct Competitors**: Companies offering similar bio-battery solutions
-- **Indirect Competitors**: Alternative technologies and solutions
-- **Market Trends**: Industry trends, regulatory changes, market growth
-- **Customer Behavior**: Customer preferences, buying patterns, satisfaction
-- **Technology Developments**: Emerging technologies, innovations
-- **Regulatory Environment**: Compliance requirements, standards
-
-## Competitive Intelligence Process
-
-### 1. Intelligence Collection
-
-#### Data Sources
-1. **Primary Sources**
-   - Customer interviews and surveys
-   - Industry conferences and trade shows
-   - Expert interviews and consultations
-   - Internal company data and analytics
-
-2. **Secondary Sources**
-   - Industry reports and market research
-   - Patent databases and filings
-   - Regulatory filings and compliance documents
-   - Financial reports and public disclosures
-
-#### Collection Methods
-1. **Surveillance**
-   - Automated data collection systems
-   - Web scraping and monitoring
-   - Social media monitoring
-   - Industry publication tracking
-
-2. **Analysis**
-   - Data cleaning and preparation
-   - Pattern recognition and trend analysis
-   - Competitive positioning analysis
-   - Market segmentation analysis
-
-### 2. Intelligence Analysis
-
-#### Analysis Framework
-1. **Competitive Landscape Analysis**
-   - Market share assessment
-   - Competitive positioning
-   - Product comparison
-   - Pricing strategies
-
-2. **Technology Analysis**
-   - Technology comparison
-   - Innovation assessment
-   - Development trends
-   - Patent landscape analysis
-
-3. **Market Analysis**
-   - Market size and growth
-   - Customer behavior analysis
-   - Regulatory environment
-   - Economic factors
-
-#### Analysis Tools
-- **SWOT Analysis**: Strengths, Weaknesses, Opportunities, Threats
-- **PESTLE Analysis**: Political, Economic, Social, Technological, Legal, Environmental
-- **Competitive Matrix**: Comparative analysis of key competitors
-- **Trend Analysis**: Identification and analysis of emerging trends
-
-### 3. Intelligence Application
-
-#### Strategic Planning
-1. **Market Entry Strategy**
-   - Identify market opportunities
-   - Develop entry strategies
-   - Plan resource allocation
-
-2. **Product Development**
-   - Identify technology gaps
-   - Prioritize development efforts
-   - Align with market needs
-
-3. **Marketing Strategy**
-   - Develop positioning statements
-   - Create messaging frameworks
-   - Plan communication campaigns
-
-#### Decision Support
-1. **Product Decisions**
-   - Feature prioritization
-   - Pricing strategies
-   - Go-to-market planning
-
-2. **Market Expansion**
-   - Geographic expansion planning
-   - Segment targeting
-   - Partnership development
-
-3. **Risk Management**
-   - Competitive threat assessment
-   - Regulatory compliance monitoring
-   - Supply chain risk management
-
-## Competitive Intelligence System
-
-### 1. Intelligence Collection System
-
-#### Data Collection Infrastructure
-- **Data Sources**: Multiple data sources and formats
-- **Collection Tools**: Automated data collection systems
-- **Storage Systems**: Centralized data repositories
-- **Processing Systems**: Data processing and analysis tools
-
-#### Collection Processes
-1. **Routine Monitoring**
-   - Daily data collection
-   - Automated alerts and notifications
-   - Regular analysis and reporting
-
-2. **Special Investigations**
-   - Targeted data collection
-   - Deep-dive analysis
-   - Custom research projects
-
-3. **Quality Assurance**
-   - Data validation and verification
-   - Quality control processes
-   - Continuous improvement
-
-### 2. Intelligence Analysis System
-
-#### Analysis Infrastructure
-- **Analysis Tools**: Statistical analysis, machine learning, visualization
-- **Reporting Systems**: Automated report generation
-- **Dashboard Systems**: Real-time monitoring dashboards
-- **Collaboration Platforms**: Team collaboration and communication
-
-#### Analysis Processes
-1. **Data Preparation**
-   - Data cleaning and preparation
-   - Data integration and standardization
-   - Quality assurance and validation
-
-2. **Analysis Execution**
-   - Statistical analysis
-   - Competitive modeling
-   - Trend identification
-   - Scenario planning
-
-3. **Reporting and Communication**
-   - Report generation
-   - Presentation preparation
-   - Executive briefings
-   - Ongoing communication
-
-### 3. Intelligence Application System
-
-#### Application Infrastructure
-- **Decision Support Systems**: Decision support tools and platforms
-- **Strategic Planning Systems**: Strategic planning and execution systems
-- **Performance Measurement**: Performance metrics and KPIs
-- **Feedback Mechanisms**: Feedback collection and analysis
-
-#### Application Processes
-1. **Strategic Planning**
-   - Strategy development
-   - Resource allocation
-   - Implementation planning
-
-2. **Product Development**
-   - Feature prioritization
-   - Product roadmap planning
-   - Development resource allocation
-
-3. **Market Expansion**
-   - Market entry planning
-   - Partnership development
-   - Geographic expansion
-
-## Competitive Intelligence Tools
-
-### 1. Monitoring Tools
-
-#### Technology Tools
-- **Web Scraping Tools**: Automated web data collection
-- **Social Media Monitoring**: Social media sentiment analysis
-- **Industry Databases**: Industry-specific databases and reports
-- **Patent Search Tools**: Patent search and analysis tools
-
-#### Software Solutions
-- **Competitive Intelligence Platforms**: Commercial CI platforms
-- **Data Analytics Tools**: Data analysis and visualization tools
-- **Collaboration Platforms**: Team collaboration and communication tools
-- **Reporting Tools**: Report generation and presentation tools
-
-### 2. Analysis Tools
-
-#### Analytical Methods
-- **Statistical Analysis**: Statistical methods and techniques
-- **Machine Learning**: Machine learning algorithms and models
-- **Network Analysis**: Competitive network analysis
-- **Time Series Analysis**: Time series forecasting and analysis
-
-#### Visualization Tools
-- **Dashboard Tools**: Interactive dashboards and visualizations
-- **Reporting Tools**: Report generation and presentation tools
-- **Mapping Tools**: Geographic mapping and visualization
-- **Simulation Tools**: Scenario simulation and modeling
-
-## Competitive Intelligence Team
-
-### Team Structure
-
-#### Core Team
-- **Intelligence Analyst**: Data collection and analysis
-- **Competitive Intelligence Manager**: Team leadership and strategy
-- **Technical Specialist**: Technical analysis and expertise
-- **Report Writer**: Report generation and documentation
-
-#### Support Team
-- **Data Scientists**: Data analysis and modeling
-- **Visual Designers**: Visualization and presentation
-- **Research Assistants**: Research and data collection
-- **Project Managers**: Project coordination and management
-
-### Team Roles and Responsibilities
-
-#### Intelligence Analyst
-- **Responsibilities**: Data collection, analysis, reporting
-- **Skills**: Analytical skills, research skills, technical skills
-- **Qualifications**: Relevant experience, certifications
-
-#### Competitive Intelligence Manager
-- **Responsibilities**: Strategy development, team leadership, resource allocation
-- **Skills**: Leadership, strategic thinking, communication
-- **Qualifications**: Experience, certifications, relevant background
-
-#### Technical Specialist
-- **Responsibilities**: Technical analysis, expertise, support
-- **Skills**: Technical expertise, analytical skills, problem-solving
-- **Qualifications**: Technical education, experience, certifications
-
-#### Report Writer
-- **Responsibilities**: Report generation, documentation, communication
-- **1. Skills**: Writing skills, research skills, presentation skills
-- **Qualifications**: Communications background, experience, training
-
-## Competitive Intelligence Lifecycle
-
-### 1. Planning Phase
-
-#### Planning Activities
-1. **Intelligence Requirements**
-   - Define intelligence needs
-   - Establish objectives and scope
-   - Identify key questions
-
-2. **Resource Allocation**
-   - Assign resources
-   - Establish timelines
-   - Define budgets
-
-3. **Risk Assessment**
-   - Identify risks
-   - Develop mitigation strategies
-   - Establish contingency plans
-
-### 2. Collection Phase
-
-#### Collection Activities
-1. **Data Collection**
-   - Collect relevant data
-   - Validate data quality
-   - Store data in central repository
-
-2. **Data Processing**
-   - Clean and prepare data
-   - Standardize data formats
-   - Quality assurance
-
-3. **Analysis Preparation**
-   - Plan analysis approach
-   - Establish analysis criteria
-   - Allocate resources
-
-### 3. Analysis Phase
-
-#### Analysis Activities
-1. **Data Analysis**
-   - Analyze collected data
-   - Identify patterns and trends
-   - Perform competitive analysis
-
-2. **Interpretation**
-   - Interpret analysis results
-   - Develop insights
-   - Identify implications
-
-3. **Reporting**
-   - Generate reports
-   - Create visualizations
-   - Develop recommendations
-
-### 4. Application Phase
-
-#### Application Activities
-1. **Strategic Planning**
-   - Develop strategic recommendations
-   - Create action plans
-   - Establish implementation timelines
-
-2. **Decision Support**
-   - Provide decision support
-   - Address stakeholder questions
-   - Support strategic initiatives
-
-3. **Feedback and Improvement**
-   - Collect feedback
-   - Implement improvements
-   - Update processes
-
-## Competitive Intelligence Metrics
-
-### Key Performance Indicators
-
-#### Collection Metrics
-- **Data Collection Rate**: Percentage of planned data collected
-- **Data Quality Score**: Quality assessment of collected data
-- **Coverage**: Extent of market coverage
-- **Timeliness**: Speed of data collection and analysis
-
-#### Analysis Metrics
-- **Analysis Accuracy**: Accuracy of analysis results
-- **Insight Quality**: Quality of insights generated
-- **Actionability**: Actionability of recommendations
-- **Impact**: Impact of intelligence on decisions
-
-#### Application Metrics
-- **Decision Quality**: Quality of decisions supported by intelligence
-- **ROI**: Return on investment in intelligence
-- **User Satisfaction**: User satisfaction with intelligence products
-- **Adoption Rate**: Adoption of intelligence recommendations
-
-### Reporting Framework
-
-#### Report Types
-1. **Operational Reports**
-   - Daily updates
-   - Weekly summaries
-   - Monthly analysis
-
-2. **Strategic Reports**
-   - Quarterly strategic reviews
-   - Annual strategic planning
-   - Special project reports
-
-3. **Executive Reports**
-   - Executive briefings
-   - Strategic recommendations
-   - Action plans
-
-#### Reporting Frequency
-- **Real-time**: Critical updates and alerts
-- **Daily**: Routine updates and monitoring
-- **Weekly**: Weekly summaries and analysis
-- **Monthly**: Monthly reports and analysis
-- **Quarterly**: Quarterly strategic reviews
-- **Annually**: Annual strategic planning
-
-## Technology and Tools Integration
-
-### Technology Integration
-
-#### Integration with Existing Systems
-- **CRM Systems**: Integration with customer relationship management systems
-- **ERP Systems**: Integration with enterprise resource planning systems
-- **Business Intelligence Systems**: Integration with business intelligence platforms
-- **Analytics Platforms**: Integration with analytics platforms
-
-#### Emerging Technologies
-- **Artificial Intelligence**: AI-powered analysis and prediction
-- **Machine Learning**: Machine learning for pattern recognition
-- **Big Data**: Big data analytics and processing
-- **Cloud Computing**: Cloud-based intelligence platforms
-
-### Tool Integration
-
-#### Software Integration
-- **Data Integration**: Integration of data sources and systems
-- **Process Integration**: Integration of intelligence processes with business processes
-- **User Interface**: User-friendly interfaces for intelligence tools
-- **Reporting Integration**: Integration of reporting systems
-
-## Quality Assurance
-
-### Quality Assurance Processes
-
-#### Data Quality
-- **Data Validation**: Validation of data quality
-- **Accuracy Verification**: Verification of data accuracy
-- **Consistency Checks**: Consistency checks and validation
-- **Completeness Verification**: Verification of data completeness
-
-#### Analysis Quality
-- **Peer Review**: Peer review of analysis results
-- **Validation**: Validation of analysis methods
-- **Verification**: Verification of results
-- **Documentation**: Documentation of analysis processes
-
-#### Reporting Quality
-- **Accuracy**: Accuracy of reports
-- **Completeness**: Completeness of reports
-- **Clarity**: Clarity of reports
-- **Timeliness**: Timeliness of reports
-
-## Continuous Improvement
-
-### Improvement Processes
-
-#### Process Improvement
-- **Feedback Collection**: Collection of feedback from users
-- **Performance Monitoring**: Monitoring of performance metrics
-- **Process Optimization**: Optimization of processes
-- **Technology Updates**: Updates to technology and tools
-
-#### Quality Improvement
-- **Quality Audits**: Quality audits and assessments
-- **Continuous Improvement**: Continuous improvement programs
-- **Best Practices**: Implementation of best practices
-- **Innovation**: Innovation in intelligence processes
-
-## Conclusion
-
-The competitive intelligence framework provides a comprehensive approach to gathering, analyzing, and utilizing competitive intelligence for the MykoVolt bio-battery project. By implementing this framework, the company can:
-
-1. **Maintain Competitive Advantage**: Stay ahead of competitors through intelligence
-2. **Make Informed Decisions**: Support strategic decision-making with data-driven insights
-3. **Identify Opportunities**: Identify market opportunities and threats
-4. **Optimize Resources**: Allocate resources effectively based on intelligence
-5. **Achieve Sustainable Success**: Achieve long-term competitive advantage
-
-Key Success Factors:
-- Comprehensive intelligence collection and analysis
-- Effective intelligence application and utilization
-- Strong team capabilities and expertise
-- Robust quality assurance and continuous improvement
-- Integration with existing business systems
-
-This competitive intelligence framework positions MykoVolt for success in a highly competitive industry and ensures comprehensive competitive awareness and strategic advantage.
+# MykoVolt Competitive Intelligence
+
+# Despite the .py extension, this is a markdown document.
+# It was created as intelligence_dashboard.py to integrate with 
+# the existing project structure. All content is markdown.
+
+## Overview
+
+MykoVolt operates at the intersection of:
+- **Microbial fuel cells (MFC)** — scientific research → early commercialization
+- **Soil moisture sensing** — established market with ~$500M TAM
+- **Biodegradable electronics** — emerging field with ~$2B projected TAM by 2030
+
+The competitive landscape spans direct substitutes (other soil-power technologies),
+indirect alternatives (passive RFID, battery-powered sensors), and future threats
+(emerging biodegradable battery research).
+
+---
+
+## 1. Direct Competitors
+
+### 1.1 Bactery AB (Sweden)
+
+| Aspect | Detail |
+|---|---|
+| **Technology** | Soil microbial fuel cell (bacteria-based, ceramic membrane) |
+| **Product** | Soil-powered sensor node, ~£25/unit |
+| **Lifetime** | Claims 25-30 years (bacteria self-replenish) |
+| **TRL** | TRL 6-7 (field-tested since 2023) |
+| **Funding** | €5M+ (Norrsken, EIC Accelerator, Swedish Energy Agency) |
+| **Status** | Commercial pilot with farms in Sweden, UK |
+| **Power** | ~10-50 µW (bacteria-based, similar class to T. pubescens) |
+
+**MykoVolt vs Bactery:**
+
+| Dimension | Bactery | MykoVolt |
+|---|---|---|
+| Power source | Soil bacteria (mixed consortia) | White-rot fungi (pure culture) |
+| Lifetime | 25-30 years | 7-14 days (designed) |
+| Biodegradability | Ceramic housing (not biodegradable) | 90% biodegradable (compostable pellet) |
+| Cost | ~£25/unit | ~€35 (DevKit) / ~€0.15 (pellet only) |
+| TRL | 6-7 | 2 |
+| Target | Commercial farms | Research labs → farms |
+
+**Threat level:** HIGH — Bactery is 3-4 years ahead and serving the same end market (farm soil sensors). MykoVolt's only differentiation is full biodegradability and lower ultimate pellet cost.
+
+### 1.2 Microbial Fuel Cell Research Groups (Pipeline Competitors)
+
+| Group | Focus | Key Results | Threat |
+|---|---|---|---|
+| **Empa** (Reyes et al., 2024) | 3D-printed cellulose fungal MFC | 12.5 µW/cm² (T. pubescens) | **Enabling** — core technology source |
+| **Sukri et al.** (2021) | P. chrysosporium Zn/Air MFC | ~1,800 µW/cm² (~150× Empa) | **Reference** — different design (Zn/Air, membrane-less) |
+| **JKU / MycelioTronics** | Fungal mycelium as electronic substrate | Mycelium skin for PCBs | **Complementary** — different application |
+| **Sekrecka-Belniak et al.** (2018) | Fungal MFC with various white-rot fungi | OCV up to 450 mV | **Reference** — baseline data |
+| **Umar et al.** (2024) | Fungal MFC optimization | Various strain comparisons | **Reference** |
+
+**Note:** No research group has commercialized a fungal MFC. MykoVolt would be the first if successful.
+
+---
+
+## 2. Indirect Competitors (Current Alternatives)
+
+### 2.1 Passive RFID Soil Moisture Sensors (CRITICAL THREAT)
+
+| Aspect | Detail |
+|---|---|
+| **Technology** | Passive RFID tag with capacitive soil moisture sensing (e.g., StickNFind, Wireless Sensor Solutions) |
+| **Power** | No battery — harvests energy from reader RF field |
+| **Cost** | €0.50-3.00/tag (passive) |
+| **Lifetime** | Unlimited (no battery) |
+| **Read range** | ~0.1-1m (NFC/HF) or ~3-10m (UHF) |
+| **Accuracy** | Medium (indirect moisture measurement via dielectric constant) |
+
+**Why this matters:** Passive RFID solves the same problem (wireless soil moisture sensing without battery replacement) at **€0.50/unit** with **unlimited lifetime**. The trade-off against fungal MFC:
+
+| Dimension | Passive RFID | Fungal MFC (MykoVolt) |
+|---|---|---|
+| Unit cost | €0.50-3.00 | €0.15-35.00 |
+| Lifetime | Unlimited (no battery) | 7-14 days (designed) |
+| Active sensing | No (reader-powered only) | Yes (15-min intervals) |
+| Biodegradability | No (silicon + copper) | Yes (90%+) |
+| Read range | 0.1-10m | 0.1-0.5m (NFC) |
+| Data quality | Capacitive indirect | Electrochemical direct |
+
+**MykoVolt's advantage:** Passive RFID can only sense when a reader is present. MykoVolt allows scheduled measurements and data logging — critical for precision agriculture where hourly/daily trends matter.
+
+**MykoVolt's disadvantage:** Passive RFID costs 10-200× less and lasts forever. For simple "is the soil wet/dry?" applications, RFID wins.
+
+### 2.2 CR2032-Powered Sensors (Status Quo)
+
+| Aspect | Detail |
+|---|---|
+| **Examples** | TEROS 10/11 (METER), Sentek TriSCAN, Dragino LSN50 |
+| **Battery** | CR2032 (1-3 year life depending on reporting interval) |
+| **Cost** | €30-200/sensor + battery replacement labor |
+| **Lifetime** | 1-3 years (limited by battery) |
+| **Accuracy** | Very high (calibrated capacitance/frequency domain) |
+
+**Why this matters:** CR2032 is the incumbent. It works, is reliable, and farmers accept the battery replacement cost (~€1-2/year in batteries + labor). MykoVolt needs to be cheaper over 5-year total cost of ownership.
+
+**Total cost of ownership comparison (5 years):**
+
+| Scenario | CR2032 Sensor | MykoVolt DevKit | MykoVolt Pellet-only |
+|---|---|---|---|
+| Hardware | €80 | €35 | — |
+| Batteries (5yr) | €10 + labor | — | — |
+| Pellets (5yr, 7-day cycle) | — | — | €0.15 × 260 = €39 |
+| **Total** | **€90** | **€35 + €39 = €74** | **€39** |
+
+At scale with pellet-only (reusable electronics + replaceable pellets), MykoVolt beats CR2032 on cost. But the hardware investment for the base station/reader (~€35) is a barrier.
+
+### 2.3 Traditional Soil Moisture Sensor Market
+
+| Sensor | Price | Power | Interface |
+|---|---|---|---|
+| TEROS 10 (METER) | ~€120 | Passive (reader-powered) | SDI-12 |
+| TEROS 11 (METER) | ~€200 | Passive | SDI-12 |
+| Sentek TriSCAN | ~€180 | Passive | SDI-12/RS-485 |
+| Davis 6327C | ~€150 | CR2032 | Wireless |
+| Dragino LSN50 | ~€80 | CR2032 | LoRaWAN |
+
+All require batteries or external power. MykoVolt's self-powered approach is the differentiator.
+
+---
+
+## 3. Emerging/Future Competitors
+
+### 3.1 Biodegradable Batteries (Research → Commercial)
+
+| Group | Technology | Status | ETA to market |
+|---|---|---|---|
+| **Paper batteries** (multiple) | Cellulose-based, paper-thin | TRL 3-4 | 2027+ |
+| **Enzymatic fuel cells** | Glucose/ethanol enzymes as catalyst | TRL 3-4 | 2028+ |
+| **Biodegradable Zn-ion** | Zinc-based with biodegradable casing | TRL 3-4 | 2027+ |
+| **Microbial fuel cells** (other) | Various bacteria/fungi in MFC | TRL 2-5 | 2028+ |
+
+**Threat:** These compete on the "biodegradable power source" narrative — but none combine biodegradability with in-soil deployment and active sensing.
+
+### 3.2 EU Battery Regulation 2023/1069
+
+Effective February 2024, this regulation:
+- Requires batteries to be removable/replaceable (favoring MykoVolt's replaceable pellet)
+- Mandates carbon footprint declarations
+- Incentivizes biodegradability for single-use batteries
+- Creates regulatory tailwind for biodegradable alternatives
+
+**Impact:** POTENTIALLY VERY POSITIVE — MykoVolt's biodegradable pellet could qualify for exemptions or preferences under the regulation's environmental provisions.
+
+---
+
+## 4. Competitive Positioning Matrix
+
+```
+Technology Readiness
+        ^
+    TRL 9│     CR2032 Sensors
+        │     TEROS/Dragino
+    TRL 7│         Bactery AB
+        │         (soil bacteria MFC)
+    TRL 5│
+        │                       Passive RFID
+    TRL 3│     MykoVolt───────► (future)
+        │     (current)
+    TRL 1│
+        └─────────────────────────────────────►
+            Low Cost              High Cost
+```
+
+**Most threatening quadrant:** Bottom-right — Passive RFID already combines low cost with unlimited lifetime. MykoVolt must compete on data quality, not cost alone.
+
+**MykoVolt's sweet spot:** Medium cost + unique feature combination (biodegradable + active sensing + no battery replacement).
+
+---
+
+## 5. SWOT Analysis
+
+### Strengths
+- Biodegradability (90%+) — unique differentiator
+- Replaceable pellet = reusable electronics
+- Low pellet cost at scale (€0.15/target)
+- No heavy metals, no toxic electrolytes
+- Regulatory tailwind (EU Battery Regulation)
+- ML-based optimization potential for enzyme formulation
+
+### Weaknesses
+- **TRL 2** — no experimental validation yet
+- **No hardware exists** — all claims are theoretical
+- **Single founder** with CS/ML background (no mycology/chemistry)
+- 7-day runtime (requires pellet replacement)
+- NFC range (~0.5m) limits deployment scenarios
+- P. chrysosporium 150× power claim from different cell design (Zn/Air, not pellet)
+
+### Opportunities
+- Research lab market for MFC education/evaluation
+- Agritech demand for sustainable alternatives
+- Open-source hardware community (Hackaday, CrowdSupply, Tindie)
+- EU Horizon/EIC funding for green deep tech
+- Academic co-authorship model for early adopters
+- Co-development with precision agriculture software platforms
+
+### Threats
+- **Bactery AB** entering market 3-4 years earlier
+- **Passive RFID** improving in accuracy and range
+- **CR2032 status quo** inertia in agriculture
+- **Biodegradable battery research** reaching market
+- **Patent/IP barriers** from Empa or others
+- **Certification costs** (CE, FCC, RoHS ~€30k) may exceed early budget
+- **Funding winter** for deep-tech hardware
+
+---
+
+## 6. Patent Landscape Summary
+
+| Area | Key Patents | MykoVolt Risk |
+|---|---|---|
+| Fungal MFC methods | Mostly open literature (Reyes, Sukri, Sekrecka-Belniak published OA) | LOW — no known blocking patents |
+| Bacterial MFC | Multiple patents (water treatment focus) | LOW — different biology |
+| Biodegradable electronics | MycelioTronics (2022, method) | LOW — different application |
+| Soil moisture sensors | Many (capacitance, frequency domain) | LOW — MykoVolt doesn't sense moisture directly |
+| NFC/RFID with energy harvesting | Many (very crowded space) | MEDIUM — need FTO analysis |
+
+---
+
+## 7. Competitive Strategy Implications
+
+1. **Bactery AB is the benchmark** — everything MykoVolt achieves must be compared to Bactery's progress
+2. **Passive RFID is the budget killer** — if farmers only need wet/dry, RFID wins at €0.50
+3. **Research labs are the only Phase 1 beachhead** — no agricultural market access before 2030
+4. **Differentiation must be on data quality + biodegradability** — not on cost alone
+5. **P. chrysosporium risk must be managed explicitly** — if 150× doesn't reproduce in pellet form, MykoVolt has a power problem for LoRa
+6. **Regulatory moat is real** — EU Battery Regulation favors biodegradable alternatives
