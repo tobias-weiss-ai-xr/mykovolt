@@ -78,12 +78,14 @@ Parameter ranking by impact on power:
 
 | Metrik | Fungal Bio-Battery | Li-Ion (CR2032) | AAA Alkaline |
 |--------|-------------------|-----------------|--------------|
-| Kosten | **€0.05** | €0.35 | €0.15 |
+| Kosten | **€0.15**¹ | €0.35 | €0.15 |
 | Masse | **0.12 g** | 3.0 g | 11.5 g |
 | Lebensdauer | 7 Tage | 180 Tage | 60 Tage |
 | Kompostierbar | **✅ 0.11 g** | ❌ 0 g | ❌ 0 g |
 | Leistung | 260 µW | 5000 µW | 10 mW |
 | Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
+
+> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MykoVolt-mvp-design.md](../MykoVolt-mvp-design.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
 
 ## Physikalisches Modell
 

@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>The first compostable soil moisture sensor application.</b><br>
-  7 days runtime · 90% biodegradable · €0.15 per unit · Zero e-waste
+  7 days runtime · 90% biodegradable · pellets from €0.15 · Zero e-waste
 </p>
 
 ## Table of Contents
@@ -232,25 +232,34 @@ xychart-beta
 
 ```mermaid
 gantt
-    title MykoVolt Development Roadmap
+    title MykoVolt Realistic Development Roadmap
     dateFormat YYYY-MM-DD
     axisFormat %Y-%m
 
-    section Phase 1: DevKit
-        Pellet Formulation           :done, p1a, 2025-04-01, 30d
-        Board Design Rev A          :done, p1b, 2025-05-01, 30d
-        Prototype (Functional)      :done, p1c, 2025-06-01, 30d
-        L2 System Test              :active, p1d, 2025-07-01, 60d
-        EXIST Application           :p1e, 2025-09-01, 30d
-        DevKit Production           :p1f, 2026-01-01, 90d
-        DevKit Launch               :p1g, 2026-04-01, 30d
+    section Phase 0: Lab Validation
+        Reproduce Empa 2024 Result  :active, p0a, 2026-07-01, 90d
+        Pellet Formulation Dev      :p0b, 2026-08-01, 120d
+        Electrochemical Testing     :p0c, 2026-10-01, 90d
+        Scientific Co-Founder Search:p0d, 2026-07-01, 180d
+        EXIST Grant Application     :p0e, 2026-09-01, 90d
 
-    section Phase 2: Field Pilot
-        Go/No-Go Decision           :p2a, 2026-07-01, 30d
-        LoRa Integration            :p2b, 2026-08-01, 60d
-        Field Pilot Field Test      :p2c, 2026-10-01, 90d
-        Production Scaling          :p2d, 2027-01-01, 90d
-        EU Market Launch            :p2e, 2027-04-01, 60d
+    section Phase 1: DevKit (Research Labs)
+        Board Design Rev A          :p1a, 2027-04-01, 60d
+        Prototype (Functional)      :p1b, 2027-06-01, 90d
+        L2 System Test              :p1c, 2027-09-01, 60d
+        DevKit Production           :p1d, 2028-01-01, 90d
+        DevKit Launch               :milestone, p1e, 2028-04-01, 1d
+
+    section Phase 2: Field Pilot (Research)
+        Go/No-Go Decision           :milestone, p2a, 2028-09-01, 1d
+        P. chrysosporium Validation :p2b, 2028-07-01, 180d
+        LoRa Integration            :p2c, 2028-10-01, 90d
+        Field Pilot Field Test      :p2d, 2029-01-01, 180d
+        Production Scaling Decision :milestone, p2e, 2029-07-01, 1d
+
+    section Phase 3: Commercial
+        Pilot Production Line       :p3a, 2029-07-01, 180d
+        EU Market Entry             :p3b, 2030-01-01, 180d
 ```
 
 ---
@@ -350,14 +359,19 @@ pytest simulation/
 
 ## Development Progress
 
-| Phase | Status | Completion |
-|-------|--------|------------|
-| DevKit Design | ✅ Complete | 100% |
-| Prototype | ✅ Complete | 100% |
-| Simulation | ✅ Complete | 100% |
-| Business Plan | ✅ Complete | 100% |
-| Field Test | ⏳ In Progress | 25% |
-| Production | ⏳ Planned | 0% |
+| Phase | Status | Completion | Notes |
+|-------|--------|------------|-------|
+| Desk Research | ✅ Complete | 100% | 92 papers curated, literature survey done |
+| System Simulation | ✅ Complete | 100% | Energy budget, soil model, lifetime model |
+| MVP System Design | ✅ Complete | 100% | Board architecture, firmware spec, test plan |
+| Business Planning | ✅ Complete | 100% | Market analysis, regulatory roadmap, IP strategy |
+| Lab Validation (TRL 2→3) | ⏳ Phase 0 | 0% | First experimental PoC pending — lab access needed |
+| Pellet Formulation | 📝 Planned | 0% | Requires wet-lab collaboration |
+| Board Prototype | 📝 Planned | 0% | Requires validated power specs first |
+| Field Test | 📝 Planned | 0% | Dependent on Phases 0-1 completion |
+| Production | 📝 Planned | 0% | Realistic target: 2029+ |
+
+> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [finance/funding_strategy.md](finance/funding_strategy.md) for the realistic funding pathway and [MykoVolt-mvp-design.md](MykoVolt-mvp-design.md) for the risk register.
 
 ---
 

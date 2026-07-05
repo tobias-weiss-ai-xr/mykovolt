@@ -12,12 +12,15 @@
 
 MykoVolt entwickelt die erste kommerzielle, biologisch abbaubare Pilz-Biobatterie zur Stromversorgung von Bodenfeuchtesensoren in der Präzisionslandwirtschaft. Die Technologie nutzt mikrobiellen Brennstoffzellen (MFC) auf Basis von Weißfäulepilzen (*Trametes pubescens*, *Phanerochaete chrysosporium*), eingebettet in einen kompostierbaren Pressling.
 
-### 1.2 Zwei-Phasen-Strategie
+### 1.2 Zwei-Phasen-Strategie (Realistischer Zeitplan)
 
 | Phase | Produkt | Zeitraum | Kommunikation | Pilzstamm | Zielgruppe |
 |---|---|---|---|---|---|
-| 1 | **DevKit** | Q4 2026 | NFC (ST25DV04K) | *T. pubescens* | Forschungslabore, Universitäten, Maker |
-| 2 | **Feldpilot** | Q2 2027 | LoRa (SX1262) | *P. chrysosporium* | Landwirtschaftliche Betriebe |
+| 0 | **Lab Validation** | Q3 2026–Q2 2027 | – | *T. pubescens* | Reproduce Empa result, formulate pellet |
+| 1 | **DevKit** | Q2 2028 | NFC (ST25DV04K) | *T. pubescens* | Forschungslabore, Universitäten, Maker |
+| 2 | **Feldpilot** | 2029+ | LoRa (SX1262) | *P. chrysosporium* | Forschungsbetriebe (noch keine kommerziellen Farmen) |
+
+> ⚠️ **Realistischeres Timing:** Siehe [Abschnitt 8 — Meilensteine & Risiken](#8-meilensteine--risiken). Der aktuelle Stand (Juli 2026) ist TRL 2 — Simulation und Design abgeschlossen, aber experimentelle Validierung steht noch aus. Ein DevKit-Launch 2026 ist von TRL 2 aus nicht realisierbar. Der obige Zeitplan spiegelt eine realistische 5-7-Jahres-Perspektive wider.
 
 ### 1.3 Pilz-Strategie: Parallelansatz
 
@@ -67,7 +70,7 @@ P. chrysosporium (Phase 2 R&D)
 
 ---
 
-## 2. Phase 1: DevKit (Q4 2026)
+## 2. Phase 1: DevKit (Q2 2028)
 
 ### 2.1 DevKit-Komponenten
 
@@ -440,7 +443,7 @@ Jeder Testtag in Markdown (siehe `docs/testlog/YYYY-MM-DD.md`):
 
 ### 7.4 Go-to-Market
 
-#### Phase 1: DevKit (Q4 2026)
+#### Phase 1: DevKit (Q2 2028)
 
 | Kanal | Zielgruppe | Volumen | Preis |
 |---|---|---|---|
@@ -459,55 +462,145 @@ Jeder Testtag in Markdown (siehe `docs/testlog/YYYY-MM-DD.md`):
 | CAP-gefördert | Über Maschinenringe / Agrarberatung, 50 % Zuschuss | Mittel |
 | Forschungskooperation | SYNMIKRO + Uni Marburg: Gemeinsame Publikation | Mittel |
 
-### 7.5 Finanzierungspfad
+### 7.5 Finanzierungspfad (Realistisch)
+
+Der folgende Pfad ersetzt das bisherige Wunschdenken durch eine realistische Deep-Tech-Finanzierungsstrategie:
 
 ```
-Q3 2026     Q4 2026         Q1 2027         Q2 2027
-│           │               │               │
-Pressling   DevKit          DevKit-         Feldpilot
-Rezeptur    Production      Feedback        Feldtest
-Board-      → 500 Kits      → Auswertung    → Pilotproduktion
-Design      Verkauf         Gate-Entscheid  → 3 Bio-Betriebe
-            starten         Go/No-Go        → CAP-Anträge
-│           │               │               │
-├──── EXIST Einreichung ────┤
-├─────────── Horizon Europe CL6 Antrag ─────────────┤
+Phase 0 (2026-2027): TRL 2→3
+├── EXIST-Gründungsstipendium (Sachmittel ~15-50 k€)
+│   → Laborzugang, Stammkultur, Tintenformulierung, erster PoC
+├── Optional: EIC Pathfinder Open (bis €3 Mio. für Breakthrough Tech)
+└── Ergebnis: Reproduktion Empa-Ergebnis im Labor, Pellet-Rezeptur
+
+Phase 1 (2027-2028): TRL 3→5
+├── EXIST-Forschungstransfer (bis €250 k€, wenn Uni-Kooperation)
+├── BMBF Machbarkeitsphase (KMU-innovativ, ~€200 k€)
+├── DevKit-Verkaufserlös (~€5 k Deckungsbeitrag, 500 Kits)
+└── Ergebnis: Board-Prototyp, DevKit-Produktion, L2-Systemtest
+
+Phase 2 (2029-2030): TRL 5→7
+├── Horizon Europe CL6 / EIC Transition (€2-5 Mio.)
+├── BMBF Verbundprojekt (€1-3 Mio.)
+├── Angel-Runde via Convertible Note (€200-500 k€)
+└── Ergebnis: Feldpilot, P. chrysosporium Validierung, Pilot-Produktion
+
+Phase 3 (2031+): TRL 7→9, Markteintritt
+├── EIC Accelerator (bis €17,5 Mio. Grant + Equity)
+├── Series A (€3-5 Mio., nach TRL 7)
+├── GAP/ELER-Förderung für Landwirte
+└── Ergebnis: Kommerzielle Produktion, EU-Markteintritt Agrar
+
+> **Wichtig:** Jede Finanzierungsstufe setzt die erfolgreiche Validierung der vorherigen voraus. 
+> Die "Valley of Death" zwischen TRL 4 und TRL 7 ist für Hardware-Startups besonders kritisch. 
+> EXIST ist der einzig realistische Einstieg — alle späteren Runden sind vor TRL 4+ nicht erreichbar.
+> Ein Co-Founder mit Mykologie/Chemie-Hintergrund ist Voraussetzung für jede Förderung.
 ```
 
-1. **EXIST-Gründungsstipendium** (Sachmittel ~15 k€) → PoC + DevKit
-2. **DevKit-Verkaufserlös** (~5 k€ Deckung) → Feldpilot-Vorbereitung
-3. **Horizon Europe CL6-2027-FARM2FORK** (€12 Mio. Call) → Feldpilot-Skalierung
-4. **GAP/ELER-Förderung** → Subventionierter Sensorkauf für Landwirte
+### 7.6 Team-Lücke & kritische Einstellungen
+
+| Rolle | Benötigt bis | Grund |
+|---|---|---|
+| **Mykologie/Biotechnologie Co-Founder** | Phase 0 (sofort) | Kernkompetenz für Pellet-Entwicklung, fehlt komplett |
+| **Embedded Hardware Engineer** | Phase 1 | PCB-Design und Firmware |
+| **Elektrochemiker (Potentiostat/MFC)** | Phase 0 | Elektrochemische Charakterisierung |
+| **Agrar-Wissenschaftler** | Phase 2 | Feldtest-Design, Bodenkunde |
+
+> **⚠️ Kritisches Risiko:** Der Gründer (Tobias Weiß) hat CS/ML-Hintergrund — die mykologischen und elektrochemischen Kernkompetenzen sind nicht im Team. Ohne wissenschaftlichen Co-Founder ist weder EXIST noch eine experimentelle Validierung realistisch. Dies ist die #1-Priorität vor jeder weiteren Finanzierungs- oder Produktplanung.
+
+### 7.7 BOM-Preis-Lücke: €0,15 vs. Realität
+
+Die oft kommunizierten €0,15/Stück gelten NUR für den Pressling-Nachsetzer in hoher Stückzahl (50.000+).
+Die tatsächlichen Kosten pro Einheit:
+
+| Komponente | DevKit (500 St.) | Feldpilot (5.000 St.) | Pressling only (50.000 St.) |
+|---|---|---|---|
+| Pressling (3er-Pack) | 1,50 € | 0,50 € | 0,15 € |
+| Sensor-Board (BOM) | 13,55 € | 5,50 € | – |
+| Reader (ST25R3916) | 8,00 € | – | – |
+| Gehäuse | 1,50 € | 0,50 € | 0,10 € |
+| Verpackung + Versand | 3,00 € | 1,50 € | 1,00 € |
+| **COGS gesamt** | **24,55 €** | **7,50 €** | **1,25 €** |
+| **Verkaufspreis** | **35 €** | **15 €** | **5 €** |
+
+> **Fazit:** Die €0,15/Stück sind nur in der Massenproduktion des reinen Presslings erreichbar. Für das DevKit betragen die Gesamtkosten ~€24,55 — die €0,15 sind irreführend, wenn sie auf das Gesamtsystem bezogen werden. Die Kommunikation muss differenzieren: **Pressling-Kosten** vs. **System-Kosten**.
 
 ---
 
 ## 8. Meilensteine & Risiken
 
-### 8.1 Meilensteine
+### 8.1 Realistischer Meilensteinplan
 
-| Datum | Meilenstein | Verantwortlich |
-|---|---|---|
-| 2025-08 | Pressling-Rezeptur finalisiert | Labor |
-| 2025-10 | Board-Design Rev A getaped-out | Elektronik |
-| 2025-12 | Prototyp (Funktionsmuster) | Team |
-| 2026-03 | L2-Systemtest bestanden | QA |
-| 2026-06 | EXIST-Einreichung | Geschäftsführung |
-| 2026-09 | DevKit Produktion Start | Fertigung |
-| 2026-11 | DevKit Verkaufsstart | Vertrieb |
-| 2027-01 | DevKit-Feedback-Auswertung | Produkt |
-| 2027-03 | Go/No-Go Feldpilot | Team |
-| 2027-06 | Feldpilot Feldtest | Feld |
+Der folgende Plan basiert auf einer realistischen Einschätzung ab TRL 2 (Juli 2026):
 
-### 8.2 Risiken & Mitigation
-
-| Risiko | Eintrittswahrsch. | Auswirkung | Mitigation |
+| Datum | Meilenstein | Verantwortlich | Abhängigkeit |
 |---|---|---|---|
-| Pressling-Leistung < 12 µW | Mittel | Hoch | T. pubescens + P. chrysosporium parallel entwickeln |
-| FRAM-Datenverlust durch NFC | Gering | Mittel | CRC-Prüfung, Reader-Bestätigung vor Löschen |
-| LoRa-Reichweite < 1 km | Mittel | Mittel | SF12 als Default, SF7-Optimierung optional |
-| EU Battery Regulation Verbot | Gering | Sehr hoch | Frühzeitig Ausnahmeregelung beantragen |
-| Bactery AB Markteintritt vor uns | Mittel | Hoch | DevKit als Entwickler-Plattform positionieren (kein Wettbewerb) |
-| Enzym (Laccase) Degradation | Mittel | Mittel | Vakuumverpackung, Kühlkette bis Auslieferung |
+| 2026-07 | **Phase 0 Start: Lab Validation** | – | – |
+| 2026-07 | Wissenschaftlichen Co-Founder an Bord holen | GF | Team-Lücke schließen |
+| 2026-09 | Laborkooperation/-zugang geklärt (EMC JLU oder alternativ) | GF | Co-Founder |
+| 2026-12 | Empa 2024-Ergebnis reproduziert (12,5 µW/cm²) | Mykologie | Laborzugang |
+| 2027-02 | Pellet-Rezeptur (Pressling) erste Charge | Mykologie | Reproduktion |
+| 2027-03 | EXIST-Einreichung | GF | Pellet-PoC |
+| 2027-06 | **Gate 1: TRL 3 erreicht** (experimenteller PoC) | Team | Alle obigen |
+| 2027-09 | Board-Design Rev A | Elektronik | Pellet-Spezifikation |
+| 2027-12 | Prototyp (Funktionsmuster) | Team | Board-Design |
+| 2028-03 | L2-Systemtest bestanden | QA | Prototyp |
+| 2028-06 | DevKit Produktion 500 St. | Fertigung | L2 bestanden |
+| 2028-09 | **DevKit Verkaufsstart** | Vertrieb | Produktion |
+| 2029-01 | DevKit-Feedback-Auswertung, Gate 2 Go/No-Go | Team | Verkauf |
+| 2029-06 | P. chrysosporium Pellet-Validierung | Forschung | Phase 0-1 |
+| 2029-09 | LoRa-Integration + Feldpilot Board | Elektronik | P. chr. Validierung |
+| 2029-12 | **Feldpilot Feldtest** (3-5 Forschungsbetriebe) | Team | LoRa + Pellet |
+| 2030-06 | **Gate 3: TRL 7 erreicht** — Produktionsentscheid | GF | Feldtest |
+
+### 8.2 Risiken & Mitigation (Erweitert)
+
+Die folgende Tabelle ersetzt die bisherige vereinfachte Risikobetrachtung durch eine umfassende Analyse:
+
+| # | Risiko | Eintrittswahrsch. | Auswirkung | Mitigation |
+|---|---|---|---|---|
+| R1 | **TRL-Cliff: Kein experimenteller PoC in 12 Monaten** | Mittel | Kritisch | EXIST-Sachmittel + Co-Founder priorisieren; Plan B: stärkere Uni-Kooperation |
+| R2 | **Team-Lücke: Kein Mykologie-Co-Founder gefunden** | Hoch | Kritisch | Netzwerk EMC/JLU-Professoren nutzen; ggf. PhD-Student als Mitgründer |
+| R3 | **P. chrysosporium Leistung in Pressling-Form < Erwartung** | Hoch | Hoch | Sukri 2021 nutzte Zink/Luft-Zelle, nicht Pressling — 150x Steigerung ist unsicher. Phase 2 muss das explizit als Forschungsfrage adressieren |
+| R4 | **BOM-Preis-Lücke: €0,15/Stück nicht erreichbar** | Mittel | Mittel | €0,15 gilt nur für Pressling in 50k+ Menge. Kommunikation differenzieren: System vs. Pressling-Kosten |
+| R5 | **Finanzierungs-Lücke: EXIST abgelehnt** | Mittel | Hoch | Parallelanträge: BMBF KMU-innovativ, EIC Pathfinder; ggf. Stipendium/Teilzeit-Gründung |
+| R6 | **Passive RFID-Sensor als überlegene Alternative** | Hoch | Mittel | RFID hat keine eingebaute Energie für aktive Messungen. MykoVolt ermöglicht 15-Min-Intervalle unabhängig vom Reader |
+| R7 | **Bactery AB Markteintritt vor uns** | Mittel | Hoch | Bactery hat 25-30 Jahre Lebensdauer, aber ~£25/Stück. MykoVolt positioniert sich als günstigere, kompostierbare Alternative + DevKit als Entwickler-Plattform |
+| R8 | **Pressling-Leistung in realem Boden < Labor** | Hoch | Hoch | Boden-pH, Mikroben-Konkurrenz, Temperatur-Extreme beeinflussen Stoffwechsel. Pilot-Tests mit gestaffelten Boden-Typen nötig |
+| R9 | **Enzym (Laccase) Degradation während Lagerung** | Mittel | Mittel | Vakuumverpackung, Kühlkette; Trockenlagerung-Option erforschen |
+| R10 | **EU Battery Regulation 2023/1069 — Pilz-Batterie nicht explizit geregelt** | Gering | Sehr hoch | Frühzeitig Dialog mit EU-Kommission und Normungsgremien suchen; ggf. Ausnahmetatbestand "biologisch abbaubar" |
+| R11 | **FRAM-Datenverlust durch NFC-Readout** | Gering | Mittel | CRC-Prüfung, Reader-Bestätigung vor Löschen |
+| R12 | **Patent-Kollision mit Empa/IP Dritter** | Mittel | Mittel | Frühzeitige FTO-Analyse (Freedom to Operate) einholen; ggf. Lizenzverhandlung mit Empa |
+
+**Top-3-Kritische Risiken (sofort adressieren):**
+1. **R2** — Fehlender wissenschaftlicher Co-Founder (blockiert EXIST und Lab-Zugang)
+2. **R1** — Kein experimenteller PoC innerhalb von 12 Monaten (gefährdet gesamte Finanzierung)
+3. **R3** — P. chrysosporium-Power-Lücke (150x aus Sukri 2021 ist nicht in Pressling-Form reproduziert)
+
+### 8.3 Entscheidungs-Gates
+
+```
+Gate 1 — TRL 3 erreicht (2027-06)
+├── Empa 2024 reproduziert: OCV > 300 mV, Leistung > 12 µW/cm²
+├── Pellet-Rezeptur dokumentiert
+├── Co-Founder an Bord
+├── Labor-/Uni-Kooperation etabliert
+├── EXIST eingereicht (oder alternative Förderung)
+└── Entscheidung: Go → Phase 1 (DevKit) / No-Go → Neuausrichtung oder Pivot
+
+Gate 2 — TRL 5 erreicht (2029-01)
+├── DevKit verkauft (50+ Kits an Forschungslabore)
+├── L2-Systemtest bestanden
+├── Kunden-Feedback ausgewertet
+├── P. chrysosporium in Pressling-Form vorvalidiert
+└── Entscheidung: Go → Phase 2 (Feldpilot) / No-Go → DevKit-only Strategie
+
+Gate 3 — TRL 7 erreicht (2030-06)
+├── Feldpilot in 3-5 Forschungsbetrieben getestet
+├── P. chrysosporium-Leistung in realem Boden validiert
+├── Produktionskosten in spezifikation
+└── Entscheidung: Go → Series A + Produktion / No-Go → Pivot oder Exit
+```
 
 ---
 
