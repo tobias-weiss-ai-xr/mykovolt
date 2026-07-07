@@ -1,8 +1,10 @@
-# Component Redundancy Planning
+# Supply Chain Analysis [TRL 2 — PROVISIONAL]
+
+> **⚠️ This document is forward-looking.** MykoVolt is at TRL 2 (simulation phase, no prototype). Specific component pricing, lead times, and supplier details are preliminary estimates based on Open-Source Bill-of-Materials research. Actual supply chain validation begins at TRL 5+. All costs are in USD as preliminary estimates; final BoM pricing in EUR may differ.
 
 ## Executive Summary
 
-This document outlines the component redundancy strategy for the MykoVolt bio-battery project. The goal is to identify critical components, establish backup suppliers, and develop alternative architectures to ensure project continuity and risk mitigation.
+This document outlines a preliminary component redundancy framework for the MykoVolt bio-battery project. It identifies critical electronic components for the Developer Kit board, establishes backup suppliers, and develops alternative architectures. This is a reference skeleton — the details will be validated during Phase 1 (Lab Validation → Prototype).
 
 ## Critical Components Identified
 
