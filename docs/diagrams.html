@@ -26,22 +26,34 @@
       line-height: 1.6;
     }
     header {
-      background: var(--green-dark);
+      background: linear-gradient(135deg, #0D2818 0%, #1B4332 40%, #2D6A4F 100%);
       color: white;
-      padding: 20px 40px;
+      padding: 28px 40px;
       display: flex;
       align-items: center;
       gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(82,183,136,0.10) 0%, transparent 70%);
+      border-radius: 50%;
     }
     header h1 {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: -0.5px;
     }
     header span {
       font-size: 14px;
       color: var(--green-pale);
-      opacity: 0.8;
+      opacity: 0.85;
     }
     .container {
       max-width: 1200px;
@@ -50,27 +62,33 @@
     }
     h2 {
       font-size: 20px;
-      color: var(--green-mid);
+      color: var(--green-dark);
       font-weight: 700;
-      margin: 48px 0 8px;
-      padding-bottom: 8px;
-      border-bottom: 3px solid var(--green-mid);
+      margin: 48px 0 4px;
+      padding: 0 0 8px 0;
       display: inline-block;
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, var(--green-light), var(--green-pale)) 1;
     }
     h2:first-of-type { margin-top: 20px; }
     .subtitle {
       font-size: 14px;
       color: var(--text-light);
       margin-bottom: 20px;
+      padding-left: 2px;
     }
     .diagram-card {
       background: white;
       border-radius: 12px;
       padding: 32px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
       border: 1px solid var(--border);
       overflow-x: auto;
+      transition: box-shadow 0.2s ease;
+    }
+    .diagram-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10);
     }
     .diagram-card.mermaid {
       display: flex;
@@ -83,21 +101,26 @@
     .image-card {
       background: white;
       border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
       border: 1px solid var(--border);
       text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+    .image-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10);
     }
     .image-card img {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 10px;
     }
     .image-card .caption {
       font-size: 12px;
       color: var(--text-light);
-      margin-top: 8px;
+      margin-top: 10px;
+      padding: 0 20px;
     }
     .grid-2 {
       display: grid;
@@ -105,7 +128,7 @@
       gap: 20px;
     }
     footer {
-      background: var(--green-dark);
+      background: linear-gradient(135deg, #0D2818 0%, #1B4332 40%, #2D6A4F 100%);
       color: var(--green-pale);
       padding: 16px 40px;
       font-size: 12px;
@@ -309,9 +332,9 @@ sequenceDiagram
   <!-- ENERGY BUDGET -->
   <!-- ══════════════════════════════════════════ -->
   <h2>Energy Budget</h2>
-  <p class="subtitle">Energiebilanz pro Tag — Supply vs. Demand mit +12.3% Sicherheitsmarge</p>
+  <p class="subtitle">Energiebilanz pro Tag — TRL-2 Baseline: 12.5 µW/cm², Optimierungsziel: 25 µW/cm²</p>
   <div class="diagram-card mermaid">
-pie title Energieverbrauch pro Tag (~40.000 µJ)
+pie title Energieverbrauch pro Tag (~40 mJ)
     "Sleep (MCU)": 75.6
     "ADC Messung": 14.4
     "Sensor Exzitation": 5.0
@@ -321,11 +344,11 @@ pie title Energieverbrauch pro Tag (~40.000 µJ)
 
   <div class="diagram-card mermaid">
 xychart-beta
-    title "Energiebilanz &uuml;ber 7 Tage (µJ)"
+    title "Energiebilanz &uuml;ber 7 Tage (50 µW Ziel, mJ)"
     x-axis ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5", "Tag 6", "Tag 7"]
-    y-axis "µJ" 0 --> 50000
-    bar [44928, 44029, 43148, 42285, 41440, 40611, 39800]
-    line [40000, 40000, 40000, 40000, 40000, 40000, 40000]
+    y-axis "mJ" 0 --> 5000
+    bar [4320, 4234, 4149, 4066, 3985, 3905, 3827]
+    line [40, 40, 40, 40, 40, 40, 40]
   </div>
 
   <!-- ══════════════════════════════════════════ -->
@@ -450,7 +473,7 @@ flowchart LR
     end
 
     subgraph END["♻️ Lebensende"]
-        C1["Batterie\nerschippt"]
+        C1["Batterie\nerschöpft"]
         C2["Sensor im Boden\nverrottet (30-90 Tage)"]
         C3["Electronik-Board\nwird geborgen\n(100+ Wiederverwendungen)"]
         C4["Pressling\nkompostiert\nZero E-Waste"]
