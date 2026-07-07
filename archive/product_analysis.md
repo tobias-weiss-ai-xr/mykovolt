@@ -1,3 +1,5 @@
+> ⚠️ ARCHIVE — Historical reference. Power numbers updated to reflect TRL-2 baseline (12.5 µW/cm²) with optimization targets. See docs/ for current versions.
+
 # Fungal Bio-Battery — Forming Methods & Product Concepts
 
 > Denkwerkzeug: Welche Herstellungsverfahren jenseits 3D-Druck? Welche Produkte sind end-to-end simulierbar?
@@ -46,11 +48,13 @@ Aktuelle README-Position: "3D-Druck als Kerninnovation" — das ist wissenschaft
 
 | Aspekt | 3D-Druck | Pressling / Folie |
 |--------|----------|-------------------|
-| Kosten pro Zelle | ~€5-10 | **€0.01-0.10** |
+| Kosten pro Zelle | ~€5-10 | **ab €0.15²** |
 | Durchsatz | 1 Zelle/Stunde | **10.000 Zellen/Stunde** |
 | Materialausbeute | ~50% | **>99%** |
 | Anlagenkosten | €10k-100k | **€50k (Tablettenpresse)** |
 | Skalierbarkeit | Handwerklich | **Industriell** |
+
+² Kosten pro Pressling in Massenproduktion (Material + Verarbeitung), konsistent mit MykoVolt-mvp-design.md §7.7.
 
 **Empfehlung:** 3D-Druck für R&D + Prototyping (flexibel, viele Iterationen). Pressling/Folie für Produktion (billig, schnell, skalierbar).
 
@@ -65,7 +69,7 @@ Die folgende Bewertung: wie gut deckt unsere bestehende Simulations-Pipeline (Gr
 | Aspekt | Beschreibung |
 |--------|-------------|
 | **Was** | Biologisch abbaubarer Sensor für Landwirtschaft |
-| **Batterie** | Pilz-Pressling, 260 µW, 72h Dauerbetrieb |
+| **Batterie** | Pilz-Pressling, 25 µW (TRL-2 Baseline; Optimierungsziel >50 µW), 72h Dauerbetrieb |
 | **Sensor** | kapazitiver Bodenfeuchte-Sensor (einfach, passiv) |
 | **Kommunikation** | NFC (gepowert vom Lesegerät) + RTC (von Batterie) |
 | **Lebensdauer** | 7 Tage aktiv → dann Kompost |
@@ -144,7 +148,7 @@ Test-Antigen-Konzentration → Signal-Stärke → Readout-Power → Batterie-Bed
 **Gleis 1: Bodenfeuchte-Tag (Produkt A)**
 - Schnellster Weg zum Produkt
 - Keine Regulierung
-- Unser 260 µW reichen
+- Die angestrebte Leistung von >50 µW reicht (bei optimierter Tinte)
 - Formgebung: Pressling (einfach, sofort produzierbar)
 - Verkauf: an Agrarbetriebe via CI-Vertrieb
 
@@ -167,7 +171,7 @@ Input: Bodenart (Sand/Lehm/Ton) + Feuchte %
     → Sensor-Messzyklus: 1 Hz, 10 µW
       → MCW-Aufwach-Zyklus: STM32L0, 20 mW für 10 ms
         → Leistungsbudget über 7 Tage
-          → Batterie-Dimensionierung: 260 µW verfügbar
+          → Batterie-Dimensionierung: 50 µW Ziel-Leistung (Optimierungsziel)
             → Zyklen-Lebensdauer: 6.720 Messungen
               → Abbau im Boden: Cellulose → 90 Tage
                 → Ausgabe: "1 Pilz-Batterie = 1 Woche Bodensensor"

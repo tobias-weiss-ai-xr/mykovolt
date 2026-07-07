@@ -69,7 +69,7 @@ Integration der MykoVolt-Zelle in ein funktionsfähiges Sensor-Kit (Developer Ki
 **Aufbau:**
 - MykoVolt-Zelle (10 cm² aktive Fläche)
 - 100 µF Kondensator (Zwischenspeicher für gepulsten Betrieb)
-- BLE/LoRa-Modul + µC + Temperatur-/Feuchtesensor
+- BLE/NFC-Modul + µC + Temperatur-/Feuchtesensor
 - PCB + Gehäuse aus biodegradierbarem Material
 
 | Bauteil | Kosten | Lieferant |
@@ -81,7 +81,7 @@ Integration der MykoVolt-Zelle in ein funktionsfähiges Sensor-Kit (Developer Ki
 | PCB + Gehäuse | 2–4 € | JLCPCB/Drucker |
 | **Gesamt PoC-Kit** | **~12–15 €** | |
 
-**Demonstration:** Messung → alle 15 min Daten per LoRa → 7 Tage Laufzeit mit einer Zelle.
+**Demonstration:** Messung → alle 15 min Daten per NFC → 7 Tage Laufzeit mit einer Zelle.
 
 ---
 
@@ -92,7 +92,7 @@ Integration der MykoVolt-Zelle in ein funktionsfähiges Sensor-Kit (Developer Ki
 | P. chrysosporium überlebt Druckprozess + Trocknung | Langzeit-Haltbarkeit >6 Monate |
 | Leistungssteigerung >12,5 µW/cm² | Fungizid-Toleranz im konventionellen Ackerbau |
 | Rehydrierung funktioniert nach Trockenlagerung | Sporenfreisetzung / Biosicherheit |
-| Developer Kit sendet Sensor-Daten per LoRa | Stückkosten <5 € bei Massenfertigung |
+| Developer Kit sendet Sensor-Daten per NFC | Stückkosten <5 € bei Massenfertigung |
 | Boden-Konkurrenz beherrschbar (Lignin-Taktik) | Frost-Toleranz (Winterbetrieb) |
 
 ---
