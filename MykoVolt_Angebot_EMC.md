@@ -52,7 +52,7 @@ Vermittlung zu relevanten Professuren der JLU Gießen (Biologie, Materialwissens
 | Start | Jetzt | Laborzugang klären, DSMZ-Stamm bestellen |
 | PoC 1 | Monat 1–3 | Stammkultur, Tintenformulierung, Druck, elektrochemische Messung |
 | PoC 2 | Monat 3–5 | Boden-Konkurrenzstest (Ackererde) |
-| PoC 3 | Monat 5–9 | Sensor-Kit Prototyp (LoRa-Integration) |
+| PoC 3 | Monat 5–9 | Sensor-Kit Prototyp (NFC/LoRa-Integration) |
 | Antrag | Herbst 2026 | EXIST-Gründungsstipendium einreichen |
 
 ---
