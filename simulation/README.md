@@ -2,7 +2,7 @@
 
 > **Status:** Vollständige Simulations-Pipeline für eine pilzbasierte mikrobielle Brennstoffzelle
 > **Basis:** Empa-Design (Reyes et al. 2024) — 3D-gedruckte Pilz-MFC mit *S. cerevisiae* (Anode) + *T. pubescens* (Kathode)
-> **Optimierungsziel:** 15-20× Steigerung gegenüber Empa-Baseline (12.5 µW/cm² → ~260 µW/cm²)
+> **Simulationsziel (experimentell unbestätigt):** 15-20× Steigerung gegenüber Empa-Baseline (12.5 µW/cm² → ~260 µW/cm²)
 
 ---
 
@@ -82,10 +82,12 @@ Parameter ranking by impact on power:
 | Masse | **0.12 g** | 3.0 g | 11.5 g |
 | Lebensdauer | 7 Tage | 180 Tage | 60 Tage |
 | Kompostierbar | **✅ 0.11 g** | ❌ 0 g | ❌ 0 g |
-| Leistung | 260 µW | 5000 µW | 10 mW |
+| Leistung | 260 µW¹ | 5000 µW | 10 mW |
 | Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
 
 > ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MykoVolt-mvp-design.md](../MykoVolt-mvp-design.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
+>
+> ² Simulationsziel aus Bayesian Optimization (260 µW = 20× Empa-Baseline). Experimentell bislang nur 12.5 µW/cm² (Empa 2024) bestätigt. Der tatsächlich erreichbare Wert hängt von Tintenformulierung und Zellgeometrie ab.
 
 ## Physikalisches Modell
 
@@ -113,7 +115,7 @@ Jede Kante hat eine Kapazität in mol e⁻/s, berechnet aus Michaelis-Menten-Kin
 
 1. **Ohmscher Widerstand ist der Flaschenhals** — Tintenleitfähigkeit optimieren, nicht Enzyme
 2. **3D-Druck ist für Scale-Up falsch** — Presslinge/Folien sind 100-1000× schneller
-3. **260 µW/cm² reichen für IoT-Sensoren** — Bodenfeuchte, Temperatur, Luftfeuchte
+3. **Simulationsziel 260 µW/cm²² reicht für IoT-Sensoren** — Bodenfeuchte, Temperatur, Luftfeuchte
 4. **Erstes Produkt: Bodenfeuchte-Tag** — keine Regulierung, hohe Nachfrage
 5. **Zweites Produkt: IVD Power Source** — Synergie mit CI-Business
 

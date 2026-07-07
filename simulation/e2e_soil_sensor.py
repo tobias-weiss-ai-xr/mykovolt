@@ -6,8 +6,8 @@ Simuliert das gesamte Produkt von der Bodenfeuchte-Messung bis zur Kompostierung
 
   Boden → Sensor → MCU → Battery → Lifetime → Degradation → Cost
     ↑       ↑       ↑       ↑          ↑            ↑          ↑
-    |   kapazitiv  STM32L0  260 µW   7 Tage     90 Tage     €0.05
-    |   1 Hz Messung  0.4µA Standby  Pressling  Cellulose   pro Tag
+    |   kapazitiv  STM32L0  TBD µW  7 Tage     90 Tage     €0.15
+    |   1 Hz Messung  0.4µA Standby  Pressling  Cellulose   pro Tag (Simulationsziel)
 
 Ausgabe:
   - Batterie-Lebensdauer bei gegebener Messfrequenz
@@ -558,7 +558,7 @@ if __name__ == "__main__":
     print(f"   - Lowest cost (€{result.battery_cost_euro:.2f}/unit)")
     print(f"   - Lowest mass ({result.battery_mass_g:.2f}g)")
     print(f"   - No recycling needed (compost with food waste)")
-    print(f"   ⚠️ Needs boost converter (0.45V → 3.3V) → €0.02 BOM cost")
+    print(f"   ⚠️ Needs boost converter (0.45V → 3.3V) → BOM TBD (simulation estimate)")
     print(f"   ⚠️ Shortest lifetime ({result.total_lifetime_days:.0f} days)")
 
     # ── Parameter sweeps ──

@@ -151,7 +151,7 @@ sequenceDiagram
     participant G as Gateway
     participant D as Dashboard
 
-    Note over B: 520 µW @ 0.45V → 3.3V Boost
+    Note over B: TRL 2 baseline: 25 µW @ 0.45V → 3.3V Boost
     B-->>MCU: Continuous power supply
 
     loop Every 15 minutes
@@ -209,7 +209,7 @@ sequenceDiagram
 ### Energy Budget
 
 ```mermaid
-pie title Energy consumption per day (~40,000 µJ)
+pie title Energy consumption per day (~40 mJ)
     "Sleep (MCU)" : 75.6
     "ADC Measurement" : 14.4
     "Sensor Excitation" : 5.0
@@ -219,11 +219,11 @@ pie title Energy consumption per day (~40,000 µJ)
 
 ```mermaid
 xychart-beta
-    title "Energy Balance Over 7 Days (µJ)"
+    title "Supply (50 µW target) vs Demand (mJ/day)"
     x-axis ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5", "Tag 6", "Tag 7"]
-    y-axis "µJ" 0 --> 50000
-    bar [44928, 44029, 43148, 42285, 41440, 40611, 39800]
-    line [40000, 40000, 40000, 40000, 40000, 40000, 40000]
+    y-axis "mJ" 0 --> 5000
+    bar [4320, 4234, 4149, 4066, 3985, 3905, 3827]
+    line [40, 40, 40, 40, 40, 40, 40]
 ```
 
 ---
