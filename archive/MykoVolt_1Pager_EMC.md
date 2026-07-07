@@ -1,3 +1,5 @@
+> ⚠️ ARCHIVE — Historical one-pager. Timeline and pricing updated to reflect current TRL-2 assessment.
+
 # MykoVolt — One-Pager
 
 **Mutterunternehmen:** contextual-intelligence.org | **Gründer:** Tobias Weiß | **Stand:** Juni 2026
@@ -21,7 +23,7 @@ MykoVolt entwickelt mikrobielle Brennstoffzellen auf Basis lebender Pilze in cel
 | Parameter | Wert |
 |---|---|
 | Empa-Baseline (Reyes et al., 2024) | 12,5 µW/cm² |
-| KI-Simulationsoptimum (Bayesian Optimization) | 261 µW/cm² (20,9-fach) |
+| KI-Simulationsoptimum (Bayesian Optimization) | 261 µW/cm² (Simulationsziel, experimentell unbestätigt) |
 | E2E-Sensor-Tag | 7 Tage Betriebszeit @ ca. EUR 0,15 |
 | Gehäuse | Cellulose + Bienenwachs — biologisch abbaubar |
 | Formgebung R&D | 3D-Druck (DIW); Scale-Up: Pressling/Filmgießen |
@@ -59,9 +61,9 @@ Die KI-Simulation identifiziert den ohmschen Widerstand der Tinte als dominieren
 
 | Phase | Zeitraum | Meilenstein |
 |---|---|---|
-| Lab-Validierung | Jahr 1–2 | Tinten-Optimierung, Stamm-Screening via ML, Prototyp > 50 µW/cm² |
-| Feldtests | Jahr 2–3 | Pilotprojekte mit Agrarbetrieben, Bodenfeuchte-Tag |
-| Markteintritt | Jahr 3–4 | Developer Kit (EUR 15–25), OEM-Komponente (Ziel EUR 3–5) |
+| Lab-Validierung | Jahr 1–3 | Tinten-Optimierung, Stamm-Screening via ML, Prototyp > 50 µW/cm² |
+| Feldtests | Jahr 3–5 | Pilotprojekte mit Agrarbetrieben, Bodenfeuchte-Tag |
+| Markteintritt | Jahr 5–7 | Developer Kit (EUR 24–35), OEM-Komponente (Ziel EUR 3–5) |
 
 ---
 

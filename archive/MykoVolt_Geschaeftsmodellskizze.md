@@ -1,5 +1,7 @@
 # Geschäftsmodellskizze — StartMiUp Business Model Wettbewerb 2026
 
+> ⚠️ ARCHIVE — Wettbewerbseinreichung Juni 2026. Preis- und Zeitplanangaben wurden auf TRL-2-Baseline aktualisiert. Siehe MykoVolt-mvp-design.md für aktuelle Planung.
+
 > **Format:** Arial 11 pt, 1,5-zeilig, Seitenränder Standard | **Einreichung als PDF**
 >
 > **Hinweis zur Formatierung:** Dieses Markdown als PDF exportieren. Zeichenzählungen beziehen sich auf den jeweiligen Inhaltsabschnitt zwischen den Trennlinien.
@@ -38,7 +40,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Bodensensoren. Probl
 
 **Kundenbeziehungen:** Co-Development mit Pilotkunden. Technischer Support für Integration. Betriebsdauer Tage–Wochen pro Sensor — gesamte Einheit wird getauscht.
 
-**Einnahmen:** (1) Developer Kit 15–25 € (Zelle + Board); (2) OEM-Komponente ab J3 (Ziel 3–5 €); (3) Forschungsförderung (EXIST, BMBF); (4) Forschungsdaten-Sets (Tintenperformance, Stammcharakteristik) für ML-Gemeinschaft.
+**Einnahmen:** (1) Developer Kit 24–35 € (Zelle + Board); (2) OEM-Komponente ab J3 (Ziel 3–5 €); (3) Forschungsförderung (EXIST, BMBF); (4) Forschungsdaten-Sets (Tintenperformance, Stammcharakteristik) für ML-Gemeinschaft.
 
 **Schlüsselressourcen:** Bio-Lab (SYNMIKRO Marburg), KI-Infrastruktur (GPU-Cluster für Tinten-ML-Optimierung), 3D-Drucker, elektrochemisches Equipment. IP: Tinten + Stamm + Druckprozess + ML-Modelle für FuE.
 
@@ -60,7 +62,7 @@ MykoVolt entwickelt 3D-gedruckte Pilz-Brennstoffzellen für Bodensensoren. Probl
 
 **Innovationsgrad:** Erste Pilz-MFC in 3D-druckbarer Cellulosetinte mit ML-FuE. Basis: Reyes (12,5 µW/cm²), Sukri (1,9 W/m²). 5–15× anvisiert. KI: ML-Stamm-Screening + Data-Driven Tintendesign statt trial-and-error.
 
-**Umsetzbarkeit:** Risiken: (1) Bakterien-Konkurrenz; (2) Pilz 10–30 °C; (3) Scherstress Druck; (4) µW-Limit. Kill J1: >50 µW/cm²/14 d + ML-Pipeline. TRL 2→7, 3–4 J. Team: 3 (Biotech, ML, MatSci). Koop: SYNMIKRO + Uni KI.
+**Umsetzbarkeit:** Risiken: (1) Bakterien-Konkurrenz; (2) Pilz 10–30 °C; (3) Scherstress Druck; (4) µW-Limit. Kill J1: >50 µW/cm²/14 d + ML-Pipeline. TRL 2→7, 5–7 J. Team: 3 (Biotech, ML, MatSci). Koop: SYNMIKRO + Uni KI.
 
 ---
 
