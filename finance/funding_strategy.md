@@ -87,6 +87,16 @@ If no EXIST funding in Phase 0:
 - "Garage mode" with basic potentiostat (€500-1k second-hand) and DIY lab setup
 - Gap funding: €5-10k personal bridge
 
+### Next Steps — Phase 0 Call to Action
+
+| # | Action | Owner | Timeline | Outcome |
+|---|---|---|---|---|
+| 1 | **Approach EMC Gießen** with LOEWE-Exploration proposal — present the concept, JLU's fit as applicant, and MykoVolt's contribution (Verwertungsperspektive, initial data, industry partnership angle) | Founder → EMC | Q3 2026 | EMC agrees to lead Skizze |
+| 2 | **Draft Verwertungsteil** for LOEWE-Exploration application — market potential, exploitation plan, TRL roadmap from exploration into LOEWE 3 | Founder | Q3-Q4 2026 | Application section ready |
+| 3 | **Continue company formation** — co-founder search, EXIST application prep, business registration research | Founder | Ongoing | Phase 1 startup track ready |
+
+**Key principle:** The university track (LOEWE-Exploration) and startup track (EXIST → company formation) run in parallel. Progress on either does not block the other.
+
 ---
 
 ## Phase 1: TRL 3→5 DevKit (2027-2028)
