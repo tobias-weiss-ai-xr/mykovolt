@@ -66,6 +66,8 @@ Phase 0 follows two parallel tracks: **university-led foundational research** (L
 | **Best for** | If collaboration with EMC JLU leads to a joint research project |
 | **Timeline** | ~6 months from application to decision |
 
+**Synergy with LOEWE-Exploration:** If EMC secures LOEWE-Exploration funding, that project becomes the "ongoing university research project" EXIST-Forschungstransfer requires — unlocking this as a follow-up after EXIST Gründungsstipendium.
+
 ### 4. Alternative: EIC Pathfinder Open
 
 | Aspect | Detail |
@@ -125,6 +127,7 @@ If no EXIST funding in Phase 0:
 - Eigenanteil: Need €10k-250k own funds for 10-50% match requirement
 - Formal consortium: Kooperationsvertrag with Hesse partner before application
 - TRL 3: Lab validation first (Phase 0) — LOEWE expects market potential readiness
+  - **Mitigation:** LOEWE-Exploration (Phase 0 university track) funds exactly this validation. If EMC's application succeeds, TRL 3 is delivered by the exploration project at no cost to MykoVolt.
 
 ### Backup: Horizon Europe CL6 (Food, Bioeconomy, Agriculture)
 
@@ -257,7 +260,7 @@ c. ✅ **No company required** — LOEWE-Exploration is university-only, which i
 7. ✅ **Hesse university LOI** — formal Letter of Intent or Kooperationsvertrag with consortium partner
 8. ✅ **TRL 3 validation** — lab PoC with measurable output required (not just simulation)
 
-**Without these, all funding applications above are premature.** Focus Phase 0 energy on closing #1-3 before EXIST. For LOEWE 3, complete #5-7 in Phase 0 after company formation.
+**Without these, all funding applications above are premature.** Focus Phase 0 energy on closing #1-3 before EXIST and initiating the university track (prerequisites a-c) in parallel via EMC. For LOEWE 3, complete #5-7 in Phase 0 after company formation — LOEWE-Exploration should already have delivered #8 (TRL 3) by then.
 
 ---
 
@@ -268,8 +271,8 @@ c. ✅ **No company required** — LOEWE-Exploration is university-only, which i
  │                │                │                │                │
 Phase 0──────────┤                │                │                │
 │ University Track:  │                │                │                │
-│  LOEWE-Explor Apply│ Exploration    │                │                │
-│  (JLU/EMC leads)   │ Decision       │                │                │
+│  LOEWE-Expl (JLU/EMC):            │                │                │
+│  [---------- 2 years ---------]   │                │                │
 │ Startup Track:     │                │                │                │
 │  EXIST Apply       │ EXIST Decision │                │                │
 │  Co-Founder        │ Lab PoC Done   │                │                │
