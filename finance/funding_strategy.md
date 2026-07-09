@@ -17,7 +17,32 @@ MykoVolt is a deep-tech hardware/biotech startup at **TRL 2** (technology concep
 
 ## Phase 0: TRL 2→3 Validation (2026-2027)
 
-### 1. EXIST-Gründungsstipendium (Primary Target)
+Phase 0 follows two parallel tracks: **university-led foundational research** (LOEWE-Exploration) and **startup formation** (EXIST). The university partner validates the science while the founder prepares the company for Phase 1.
+
+### 1. Pre-Stage: LOEWE-Exploration (University-Led Research Track)
+
+| Aspect | Detail |
+|---|---|
+| **Source** | HMWK via LOEWE Förderlinie 5 |
+| **Program** | LOEWE-Exploration |
+| **Amount** | €200k-300k, 2 years |
+| **Eligibility** | Hesse university/research institution (not KMU) — JLU Gießen/EMC applies, MykoVolt as informal partner |
+| **Best for** | High-risk, unconventional research — testing the fungal bio-battery hypothesis before committing to applied development |
+| **Use** | Lab consumables, student researcher salaries, electrochemical test equipment, strain isolation and characterization |
+| **Success rate** | Not published, but smaller applicant pool than Linie 1-2; ~10-15 projects funded per round |
+| **Application** | ~2 rounds per year via HMWK Ausschreibung (next TBD — monitor wissenschaft.hessen.de) |
+
+**Why this fits:**
+- JLU Gießen is the natural applicant — EMC collaboration offer provides ready-made institutional backing
+- Fungal bio-battery is exactly the kind of "unkonventionelle Hypothese" LOEWE-Exploration targets — high risk, high reward, unconventional approach
+- De-risks the technology to TRL 3 before MykoVolt (as a company) spends its own capital
+- Creates a natural consortium bridge into LOEWE 3 (KMU-Verbund) in Phase 1 — same research team, same topic, one TRL level further
+- Several funded projects at JLU and Hochschule Geisenheim sit in adjacent biotech/agriculture (BorUp, Prädator-Hefen) — the evaluators already understand this space
+- Even if the exploration "fails," the negative result is valuable for the company — avoids pursuing a dead end with company funds
+
+**Strategy:** Propose to EMC that they lead a LOEWE-Exploration application with MykoVolt as informal industry collaborator (not formally funded — LOEWE-Exploration is university-only). This funds their lab work on our technology while we focus on company formation, co-founder search, and EXIST.
+
+### 2. EXIST-Gründungsstipendium (Primary Target)
 
 | Aspect | Detail |
 |---|---|
@@ -31,7 +56,7 @@ MykoVolt is a deep-tech hardware/biotech startup at **TRL 2** (technology concep
 
 **Timeline:** Target submission Q4 2026, decision Q1 2027.
 
-### 2. EXIST-Forschungstransfer (Backup)
+### 3. EXIST-Forschungstransfer (Backup)
 
 | Aspect | Detail |
 |---|---|
@@ -41,7 +66,7 @@ MykoVolt is a deep-tech hardware/biotech startup at **TRL 2** (technology concep
 | **Best for** | If collaboration with EMC JLU leads to a joint research project |
 | **Timeline** | ~6 months from application to decision |
 
-### 3. Alternative: EIC Pathfinder Open
+### 4. Alternative: EIC Pathfinder Open
 
 | Aspect | Detail |
 |---|---|
@@ -52,7 +77,7 @@ MykoVolt is a deep-tech hardware/biotech startup at **TRL 2** (technology concep
 
 **Recommendation:** Too early for this in Phase 0. Target for Phase 1-2 once first PoC results exist.
 
-### 4. Bootstrapping
+### 5. Bootstrapping
 
 If no EXIST funding in Phase 0:
 - Part-time consulting/contracting work by founder
@@ -74,6 +99,32 @@ If no EXIST funding in Phase 0:
 | **Best for** | Applied research with clear commercialization path |
 | **Application** | Rolling deadline (quarterly cut-offs) |
 | **Match** | High — MykoVolt fits "Bioökonomie" and "green technologies" focus |
+
+### Primary Alternative: LOEWE 3 (KMU-Verbundvorhaben)
+
+| Aspect | Detail |
+|---|---|
+| **Source** | Hessisches Ministerium für Wissenschaft und Kunst via Hessen Agentur |
+| **Program** | LOEWE Förderlinie 3: KMU-Verbundvorhaben |
+| **Amount** | €100k-500k total grant, 1-3 year duration |
+| **Eligibility** | KMU (registered company, <250 employees) + Hesse university/research institution consortium |
+| **Funding rate** | Up to 50% for KMU (requires 10-50% Eigenanteil), up to 90% for universities |
+| **Requirements** | Innovativer Charakter, clear Verwertungsperspektiven, Kooperationsvertrag, consortium lead in Hesse |
+| **Application** | Rolling deadlines via Hessen Agentur digital portal (2026: 20 Feb, 14 Apr, 26 May, 21 Aug, 16 Oct) |
+| **Fit** | **High** — fits Hesse-based strategy (JLU Gießen collaboration), biotech innovation, regional funding |
+| **Pre-requisites** | Company registration (GmbH), Hesse university LOI, TRL 3 PoC, Eigenanteil (€10k-250k) |
+
+**Why LOEWE 3 fits:**
+- Regional focus: Hesse has strong agricultural research (JLU Gießen, Hochschule Geisenheim)
+- Technology match: Fungal bio-battery fits "Umwelttechnik" and "Biotechnologie" priorities
+- Existing relationship: EMC Gießen collaboration offer can be formalized into consortium
+- Funding scale: €100k-500k aligns with Phase 1 DevKit development needs
+
+**Critical blockers to resolve:**
+- Company formation: Must register as GmbH or sole proprietorship (Phase 0)
+- Eigenanteil: Need €10k-250k own funds for 10-50% match requirement
+- Formal consortium: Kooperationsvertrag with Hesse partner before application
+- TRL 3: Lab validation first (Phase 0) — LOEWE expects market potential readiness
 
 ### Backup: Horizon Europe CL6 (Food, Bioeconomy, Agriculture)
 
@@ -152,8 +203,8 @@ If no EXIST funding in Phase 0:
 
 | Phase | Amount | Source | Dilutive? |
 |---|---|---|---|
-| 0 (2026-27) | €15-50k | EXIST, bootstrapping | No |
-| 1 (2027-28) | €150-400k | BMBF KMU-innovativ, EXIST Transfer | No |
+| 0 (2026-27) | €15-50k startup + €200-300k uni | EXIST, LOEWE-Exploration (university-led), bootstrapping | No |
+| 1 (2027-28) | €150-400k | BMBF KMU-innovativ, LOEWE 3 (KMU-Verbund), EXIST Transfer | No |
 | 2 (2029-30) | €500k-2.5M | EIC Transition, Angel/Convertible | Yes (Angels) |
 | 3 (2031+) | €3-17.5M | Series A, EIC Accelerator | Yes |
 
@@ -164,8 +215,8 @@ If no EXIST funding in Phase 0:
 Deep-tech hardware startups face a critical gap between TRL 4 (lab prototype) and TRL 7 (field demonstrated):
 
 ```
-Funding:    [EXIST]     [BMBF]     [Angel]      [Series A]
-              |           |           |             |
+Funding:    [LOEWE-Expl][EXIST]   [BMBF]      [Angel]      [Series A]
+                 |        |          |            |               |
 TRL:     2---3---4---5---6---7---8---9
               ^^       ^^
           VALLEY OF DEATH (TRL 4-7)
@@ -188,35 +239,54 @@ TRL:     2---3---4---5---6---7---8---9
 
 Before applying for any external funding, MykoVolt must have:
 
+### LOEWE-Exploration prerequisites (university-led, Phase 0):
+
+a. ✅ **University partner willing to lead** — EMC/JLU Gießen must submit as applicant; MykoVolt is informal collaborator
+b. ✅ **Unconventional research angle** — fungal bio-battery fits the "risky, high-reward" profile; frame the application around the open scientific question, not a commercialization plan
+c. ✅ **No company required** — LOEWE-Exploration is university-only, which is why it can start before company formation
+
 1. ✅ **Scientific co-founder** (mycology or electrochemistry) — non-negotiable for EXIST
 2. ✅ **Reproduced Empa 2024 result** — first experimental data point
 3. ✅ **University cooperation agreement** — required for EXIST
 4. ✅ **FTO analysis** — addresses investor due diligence concern
 
-**Without these, all funding applications above are premature.** Focus Phase 0 energy on closing #1-3 before writing grant applications.
+### Additional LOEWE 3 requirements (Phase 1):
+
+5. ✅ **Company registration** — GmbH or sole proprietorship required for KMU eligibility
+6. ✅ **Eigenanteil** — 10-50% own funds required (€10k-250k depending on grant size)
+7. ✅ **Hesse university LOI** — formal Letter of Intent or Kooperationsvertrag with consortium partner
+8. ✅ **TRL 3 validation** — lab PoC with measurable output required (not just simulation)
+
+**Without these, all funding applications above are premature.** Focus Phase 0 energy on closing #1-3 before EXIST. For LOEWE 3, complete #5-7 in Phase 0 after company formation.
 
 ---
 
 ## Funding Timeline Summary
 
 ```
-2026             2027             2028             2029             2030
-│                │                │                │                │
+ 2026             2027             2028             2029             2030
+ │                │                │                │                │
 Phase 0──────────┤                │                │                │
-│ EXIST Apply     │ EXIST Decision  │                │                │
-│ Co-Founder      │ Lab PoC Done    │                │                │
+│ University Track:  │                │                │                │
+│  LOEWE-Explor Apply│ Exploration    │                │                │
+│  (JLU/EMC leads)   │ Decision       │                │                │
+│ Startup Track:     │                │                │                │
+│  EXIST Apply       │ EXIST Decision │                │                │
+│  Co-Founder        │ Lab PoC Done   │                │                │
+│  Company Register  │                │                │                │
 ├─────────────────┤                │                │                │
-                  │ Phase 1─────────┤                │                │
-                  │ BMBF Apply      │ BMBF Decision  │                │
-                  │ DevKit Design   │ DevKit Launch  │                │
-                  ├─────────────────┤                │                │
-                                    │ Phase 2─────────┤                │
-                                    │ Angel Round     │ EIC Transition │
-                                    │ Field Pilot     │                │
-                                    ├─────────────────┤                │
-                                                      │ Phase 3────────┤
-                                                      │ Series A       │
-                                                      │ Commercial     │
+                   │ Phase 1─────────┤                │                │
+                   │ LOEWE 3 Apply   │ LOEWE Decision │                │
+                   │ BMBF Apply      │ BMBF Decision  │                │
+                   │ DevKit Design   │ DevKit Launch  │                │
+                   ├─────────────────┤                │                │
+                                     │ Phase 2─────────┤                │
+                                     │ Angel Round     │ EIC Transition │
+                                     │ Field Pilot     │                │
+                                     ├─────────────────┤                │
+                                                       │ Phase 3────────┤
+                                                       │ Series A       │
+                                                       │ Commercial     │
 ```
 
 > **Note:** This timeline is aspirational and depends on successful execution of each phase. The most likely outcome is a 1-2 year slip on each phase. Plan accordingly with lean operations.
