@@ -274,6 +274,47 @@ c. ✅ **No company required** — LOEWE-Exploration is university-only, which i
 
 ---
 
+## Freedom-to-Operate (FTO) Analysis
+
+A systematic patent search was conducted to identify IP that could block the fungal bio-battery business idea. The search covered fungal MFCs, biodegradable bio-batteries, living fungal electrodes, and mycelium-based energy devices.
+
+### Result: The field is open — no blocking patents found
+
+The core technology space (living fungal MFCs with fungal anode and cathode) is **published prior art, not patented**. This is a favourable FTO position.
+
+### Relevant patents identified (low risk)
+
+| Patent | Claims | Risk to MykoVolt |
+|---|---|---|
+| US9253889B2 — "Method of Growing Electrically Conductive Tissue" | Growing dried mycelium sheets with metal salts as conductive circuit substrates | **Low** — dried, dead mycelium as circuit board, not living fungal MFC |
+| CN114188540A — Mycelium carbon film for lithium-sulfur battery electrodes | Mycelium-derived carbon scaffold as Li-S battery electrode | **Low** — Chinese patent, lithium battery tech, no living organisms |
+| CN103427102A — Algae MFC | Algae (phycomycetes) MFC for wastewater treatment | **Low** — algae, not fungi; wastewater focus |
+
+### Why the field is open
+
+1. **Empa 2024 (Reyes et al.)** — the closest prior art (yeast + white-rot fungus, 3D-printed cellulose electrodes, biodegradable packaging) was published **open access** in ACS Sustainable Chemistry & Engineering. Empa filed no patent. This publication creates solid prior art that prevents others from patenting the core concept.
+2. **Extensive published prior art (2012-2024):** Wu et al. 2012 (white-rot fungus biocathode), Sukri et al. 2021 (*P. chrysosporium* MFC), Danninger et al. 2022 (MycelioTronics), plus multiple reviews on fungal fuel cells — all academic publications, not patents.
+3. **No company has consolidated the space:** Unlike bacterial MFCs (where numerous utility patents exist), fungal MFCs remain in the academic domain.
+
+### Real FTO risks to monitor
+
+- **Mediator formulations:** Specific redox mediators (ABTS, methylene blue, etc.) are standard prior art, but proprietary formulations could be patented
+- **Broad bacterial MFC patents** from the 2000s may claim overly broad coverage — requires review of claims that read on "any microbial fuel cell"
+- **Post-2024 filings:** Empa's Oct 2024 publication is a strong prior-art barrier, but follow-on improvements patented by others could create dependency
+
+### FTO strategy
+
+| Action | Timeline |
+|---|---|
+| Monitor patent filings on fungal MFCs (Google Patents alert) | Ongoing, quarterly |
+| Review broad bacterial MFC patents for claim overlap with fungal implementation | Phase 0 (co-founder) |
+| File defensive patent(s) on MykoVolt-specific innovations **before publishing** | Phase 1 (pre-publication) |
+| Commission professional FTO search before LOEWE 3 application | Phase 0 (post-company formation) |
+
+**FTO verdict:** Green. The core technology is freely usable. IP strategy should focus on defensive filing of MykoVolt-specific improvements, not on freedom from existing patents.
+
+---
+
 ## Funding Timeline Summary
 
 ```
