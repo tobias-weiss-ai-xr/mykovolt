@@ -33,6 +33,8 @@ Level 7: Uncertainty-Aware Digital Twin (Bootstrap-Ensembles)
 | `multi_objective_optimizer.py` | 5 | Multi-Objective BO (Pareto-Front: Power/Cost/Lifetime/Compostability) |
 | `degradation_model.py` | 6 | Physics-Informed GP: Degradation (Arrhenius + pH + Moisture → Power/OCV/R_int) |
 | `uncertainty_aware_twin.py` | 7 | Bootstrap-Ensemble Digital Twin (95% CI auf alle Vorhersagen) |
+| `pressling_viability.py` | 8 | **Pressling-Viability:** O2-Diffusion im Boden, Pressschäden, Monte-Carlo (deckt O2-Problem auf) |
+| `alternatives.py` | 9 | **Alternativen-Vergleich:** Air-Chimney, Mg-Air, Split-MFC, NFC-passiv, Tiefen-Sweep, Gewichtete Entscheidungsmatrix |
 | `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
 
 ## Ergebnisse
@@ -111,13 +113,43 @@ Jede Kante hat eine Kapazität in mol e⁻/s, berechnet aus Michaelis-Menten-Kin
 | Latin Hypercube Sampling | scipy.stats.qmc | Initial-Stichprobe |
 | Max-Flow/Min-Cut | networkx | Bottleneck-Analyse |
 
+## Kritischer Befund: O2-Starvation (pressling_viability.py)
+
+Die Pressling-Simulation hat einen fundamentalen Fehler im ursprünglichen Design aufgedeckt:
+
+> **Die Laccase-Kathode braucht O2. In 10 cm Bodentiefe gibt es praktisch keins.**
+> Millington-Quirk-Diffusionsmodell: O2 < 0.1% in feuchtem Lehm ab 5 cm Tiefe.
+
+### Ergebnisse der Monte-Carlo-Simulation (10.000 Samples)
+
+| Metrik | Wert |
+|--------|------|
+| P(viable für 7 Tage) | **8.7 %** |
+| Mittlere Lebensdauer | 6.0 Tage |
+| Median | 1.0 Tag |
+| Mittlere Leistung | 2.8 µW |
+
+**Konsequenz:** Dual-Path-Strategie beschlossen (siehe MykoVolt-mvp-design.md Section 9).
+
+## Alternativen-Vergleich (alternatives.py)
+
+| Rang | Ansatz | Score | TRL | O2-unabhängig | Bemerkung |
+|------|--------|-------|-----|---------------|-----------|
+| 1 | **Passive NFC** (kein Akku) | 0.800 | 9 | ✅ | DevKit-Start, kein Logging |
+| 2 | **Mg-Air Battery** | 0.784 | 3 | ✅ (Wasserreduktion) | Backup-Pfad, höchste Bio-Abaurate |
+| 3 | Zn-Air Battery | 0.702 | 5 | ❌ | Gleiches O2-Problem |
+| 4 | Shallow Burial (2 cm) | 0.617 | 2 | ❌ | Landwirtschaftlich unpraktisch |
+| 5 | Air-Chimney Pressling | 0.598 | 2 | ❌ (braucht Röhre) | Hauptpfad, Chimney nötig |
+| 6 | Split MFC (Oberflächen-Kathode) | 0.578 | 2 | ❌ | Zu komplex, kein Bio-Draht |
+
 ## Erkenntnisse für die R&D-Strategie
 
 1. **Ohmscher Widerstand ist der Flaschenhals** — Tintenleitfähigkeit optimieren, nicht Enzyme
 2. **3D-Druck ist für Scale-Up falsch** — Presslinge/Folien sind 100-1000× schneller
-3. **Simulationsziel 260 µW/cm²² reicht für IoT-Sensoren** — Bodenfeuchte, Temperatur, Luftfeuchte
-4. **Erstes Produkt: Bodenfeuchte-Tag** — keine Regulierung, hohe Nachfrage
-5. **Zweites Produkt: IVD Power Source** — Synergie mit CI-Business
+3. **O2-Starvation ist der Killer** — Pressling braucht Air-Chimney oder Mg-Air-Backup
+4. **Simulationsziel 260 µW/cm²² reicht für IoT-Sensoren** — aber nur wenn O2-Problem gelöst
+5. **Erstes Produkt: DevKit mit NFC-passiv** — kein Akku nötig, TRL 9, sofort lieferbar
+6. **Zweites Produkt: Feldpilot mit Mg-Air** — höhere Erfolgswahrscheinlichkeit als Pressling
 
 ## Ausführung
 
@@ -128,6 +160,8 @@ python3 electron_transport_graph.py  # Level 0
 python3 ai_optimizer.py              # Level 1+2
 python3 print_geometry_optimizer.py  # Level 3
 python3 e2e_soil_sensor.py           # Level 4
+python3 pressling_viability.py       # Level 8: O2-Starvationsanalyse + Monte-Carlo
+python3 alternatives.py              # Level 9: Dual-Path-Vergleich
 python3 visualize.py                 # Plots
 pytest tests/                        # Run all 35 tests
 ```

@@ -274,6 +274,61 @@ c. ✅ **No company required** — LOEWE-Exploration is university-only, which i
 
 ---
 
+## Dual-Path Impact on Funding
+
+> **Context (July 2026):** Simulation has revealed that the pure pressling cannot function at >5 cm depth due to O2 starvation. The dual-path strategy (Air-Chimney pressling + Mg-air battery) changes the funding landscape in several ways.
+
+### How the Dual-Path Changes the Ask
+
+| Factor | Before Dual-Path | After Dual-Path | Impact |
+|--------|-----------------|-----------------|--------|
+| **Technical risk** | Single point of failure (pressling) | Two independent paths | ✅ Lower overall failure risk |
+| **Phase 0 budget** | ~€15k lab + €50k stipends | +€5k for Mg materials + corrosion testing | ⚠️ Small increase (~10%) |
+| **Co-founder need** | Mycology only | Mycology OR electrochemistry | ✅ Broader candidate pool |
+| **TRL baseline** | TRL 2 (all simulation) | TRL 2-3 (Mg-air has prior art) | ✅ Higher floor for backup |
+| **Story cohesion** | Single "fungal battery" narrative | "Biodegradable battery" umbrella | ⚠️ Need careful messaging |
+
+### Fundraising Message by Path
+
+| Audience | Lead with | Mention as backup |
+|----------|-----------|-------------------|
+| EXIST jury (green biotech) | Air-Chimney Pressling | Mg-Air as "technical derisking" |
+| BMBF Bioökonomie | Both — "bio-based energy storage platform" | Equal weight |
+| LOEWE Exploration | Air-Chimney (academically novel) | Mg-Air as "comparative validation" |
+| EIC (deep tech) | Mg-Air (higher TRL, market ready) | Fungal as "next-gen platform" |
+| Angel investors | Mg-Air (shorter path to revenue) | Fungal as "moat / IP story" |
+
+### Budget Adjustment for Phase 0
+
+| Item | Fungal-only | Dual-Path | Delta |
+|------|------------|-----------|-------|
+| Lab consumables (fungal) | €800 | €800 | — |
+| Mg foil + corrosion testing | — | €180 | +€180 |
+| Additional soil box + sensors | — | €100 | +€100 |
+| Potentiostat (shared) | €1,500 | €1,500 | — |
+| **Total one-time** | **€3,280** | **€3,560** | **+€280** |
+
+The dual-path adds < 10% to Phase 0 lab costs. The main cost is the extra time for parallel experimentation, not materials.
+
+### Timeline Consideration
+
+Running two paths in parallel does not double the timeline because:
+- First 3 months: both paths share setup (soil boxes, measurement equipment, potentiostat)
+- Months 4-9: experiments run independently but in the same lab session
+- Month 12: gate decision based on whichever path delivers first
+
+**Estimated impact on Phase 0 duration: 0 months** (dual-path fits within the original 12-month plan)
+
+### Risk-Adjusted Valuation
+
+For fundraising, the dual-path strategy can be framed as a risk-mitigation play:
+
+> "Our simulation identified a fundamental O2-transport challenge for buried MFCs. We are validating two independent biodegradable power sources in parallel. This gives investors **two shots on goal** — if the fungal path hits a roadblock, the Mg-air path is already de-risked and ready to proceed."
+
+This framing is more investor-friendly than presenting a single path with a known O2 problem.
+
+---
+
 ## Freedom-to-Operate (FTO) Analysis
 
 A systematic patent search was conducted to identify IP that could block the fungal bio-battery business idea. The search covered fungal MFCs, biodegradable bio-batteries, living fungal electrodes, and mycelium-based energy devices.

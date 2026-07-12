@@ -572,10 +572,15 @@ Die folgende Tabelle ersetzt die bisherige vereinfachte Risikobetrachtung durch 
 | R11 | **FRAM-Datenverlust durch NFC-Readout** | Gering | Mittel | CRC-Prüfung, Reader-Bestätigung vor Löschen |
 | R12 | **Patent-Kollision mit Empa/IP Dritter** | Mittel | Mittel | Frühzeitige FTO-Analyse (Freedom to Operate) einholen; ggf. Lizenzverhandlung mit Empa |
 
-**Top-3-Kritische Risiken (sofort adressieren):**
-1. **R2** — Fehlender wissenschaftlicher Co-Founder (blockiert EXIST und Lab-Zugang)
+| R13 | **O2-Starvation: Pressling-Kathode erstickt im Boden** | Hoch | Kritisch | Simulation belegt O2-Konzentration < 0.1% ab 5 cm Tiefe in feuchtem Lehm. Kathode benötigt O2 für Laccase-Reaktion. **Mitigation:** Air-Chimney-Design (siehe [docs/air_chimney_design.md](docs/air_chimney_design.md)); alternativ Mg-Air-Battery als Dual-Path |
+| R14 | **Mg-Korrosionsrate nicht kontrollierbar** | Mittel | Mittel | Mg-Air-Battery Backup-Pfad (siehe [docs/mg_air_battery.md](docs/mg_air_battery.md)). Reine Mg-Korrosion ist pH-abhängig und ungleichmäßig. **Mitigation:** Legierungen (AZ31), Elektrolyt-Puffer, Beschichtungen |
+
+**Top-5-Kritische Risiken (sofort adressieren):**
+1. **R2** — Fehlender wissenschaftlicher Co-Founder (blockiert EXIST, Lab-Zugang und jede experimentelle Validierung)
 2. **R1** — Kein experimenteller PoC innerhalb von 12 Monaten (gefährdet gesamte Finanzierung)
-3. **R3** — P. chrysosporium-Power-Lücke (150x aus Sukri 2021 ist nicht in Pressling-Form reproduziert)
+3. **R13** — O2-Starvation: Pressling funktioniert in 10 cm Tiefe nicht (neuer kritischer Befund)
+4. **R3** — P. chrysosporium-Power-Lücke (150x aus Sukri 2021 ist nicht in Pressling-Form reproduziert)
+5. **R14** — Mg-Korrosionsrate schwer kontrollierbar (Backup-Pfad-Risiko)
 
 ### 8.3 Entscheidungs-Gates
 
@@ -604,9 +609,133 @@ Gate 3 — TRL 7 erreicht (2030-06)
 
 ---
 
-## 9. Anhang
+## 9. Dual-Path-Strategie (Phase 0)
 
-### 9.1 Referenzen
+> **Status:** Beschlossen nach Simulation O2-Starvation (Juli 2026)
+> **Dokumente:**
+> - [docs/air_chimney_design.md](docs/air_chimney_design.md) — Pressling mit Luftröhre
+> - [docs/mg_air_battery.md](docs/mg_air_battery.md) — Mg-Air-Biobatterie als Backup
+> - [simulation/pressling_viability.py](simulation/pressling_viability.py) — O2-Modell
+> - [simulation/alternatives.py](simulation/alternatives.py) — Alternativen-Vergleich
+
+### 9.1 Warum zwei Pfade?
+
+Die Pressling-Simulation hat einen fundamentalen, bisher übersehenen Fehler aufgedeckt:
+**Die Laccase-Kathode benötigt O2, aber in 10 cm Bodentiefe ist praktisch keins vorhanden**
+(Millington-Quirk-Modell: < 0,1 % O2 in feuchtem Lehm ab 5 cm).
+
+Der Pressling ist nicht per se tot — aber er braucht entweder:
+- **(A) Air-Chimney:** Eine poröse Röhre zur Oberfläche, die O2 zur Kathode bringt
+- **(B) Mg-Air Battery:** Ersatz der Pilz-Bioelektrochemie durch Mg-Korrosion (auch O2-unabhängig)
+
+Beide Pfade werden parallel in Phase 0 entwickelt. Nach 12 Monaten fällt die Gate-Entscheidung.
+
+### 9.2 Pfad A: Air-Chimney Pressling
+
+**Konzept:** Gleicher Pilz-MFC, gleiche Pressling-Rezeptur, aber die Kathode atmet über eine
+3 mm-PTFE-Röhre an der Oberfläche.
+
+**Vorteile:**
+- Keine Änderung an der Biologie oder Rezeptur
+- Chimney-Kosten: €0,05/Stück (vernachlässigbar in €24,55 BOM)
+- Ficksche Diffusion: 160× Sicherheitsfaktor bei 10 cm Tiefe
+- Erhält die "Pilz-Batterie"-Story
+
+**Nachteile:**
+- Zusätzliches mechanisches Teil (Chimney + Kappe)
+- Anfällig für Wasser-/Schmutz-Eintritt (hydrophobe Beschichtung nötig)
+- Wird bei Bodenbearbeitung beschädigt
+
+**Siehe:** [docs/air_chimney_design.md](docs/air_chimney_design.md)
+
+### 9.3 Pfad B: Mg-Air Biodegradable Battery
+
+**Konzept:** Mg-Folie als Anode, Kohlepapier als Kathode (optional), in CNF-Hydrogel.
+Bei O2-Mangel schaltet die Zelle auf Wasserreduktion um (parasitäre Reaktion).
+
+**Vorteile:**
+- Funktioniert in jeder Tiefe (auch > 20 cm)
+- Höhere TRL als Pilz-MFC (Labor-Prototypen existieren in der Literatur)
+- 95 % biologisch abbaubar (Mg(OH)₂ ist pflanzenverträglich)
+- Kostengünstiger als Pressling (€0,19 vs €0,50 in Kleinserie)
+- Elektronik-kompatibel (BQ25570 boostet ab 0,3 V)
+
+**Nachteile:**
+- Verliert die "Pilz-Batterie"-Differenzierung
+- H₂-Entwicklung bei Wasserreduktion (muss ventiliert werden)
+- Mg-Korrosionsrate ist schwer zu kontrollieren
+- Mg-Bergbau hat Umweltkosten
+
+**Siehe:** [docs/mg_air_battery.md](docs/mg_air_battery.md)
+
+### 9.4 Entscheidungsmatrix
+
+| Kriterium | Gewicht | Pfad A (Air-Chimney) | Pfad B (Mg-Air) |
+|-----------|---------|---------------------|-----------------|
+| TRL heute | 15 % | 2 (Simulation) | 2–3 (Literatur) |
+| O2-unabhängig | 15 % | ❌ (braucht Chimney) | ✅ (Wasserreduktion) |
+| Power @ 10 cm | 10 % | ~6 µW (mit Chimney) | ~80 µW |
+| Bio-Abbau | 15 % | 90 % | 95 % |
+| Kosten (500 St.) | 10 % | €0,55 | €0,19 |
+| "Green Story" | 20 % | ⭐ Pilz-Batterie | 👍 Mg ist natürlich |
+| Fertigungskomplexität | 10 % | Mittel (Chimney + Biologie) | Niedrig (Folie + Gießen) |
+| H₂-Risiko | 5 % | Keines | Gering (ventiliert) |
+| **Gesamt (gewichtet)** | **100 %** | **—** | **—** |
+
+### 9.5 Parallel-Entwicklungsplan Phase 0
+
+```
+Monat 1-3:  Laboraufbau
+  ├── Pfad A: Empa 2024 reproduzieren (T. pubescens im Becherglas)
+  ├── Pfad B: Mg-Folie in Boden vergraben, Korrosionsrate messen
+  └── Co-Founder-Suche (Mykologie ODER Elektrochemie)
+
+Monat 4-6:  Prototyp
+  ├── Pfad A: Pressling mit Chimney bauen, O2-Messung im Boden
+  ├── Pfad B: Mg-Air-Zelle mit BQ25570 koppeln, Leistung messen
+  └── Entscheidungskriterien definieren
+
+Monat 7-9:  Systemtest
+  ├── Pfad A: L2-Systemtest Pressling + Chimney (7 Tage)
+  ├── Pfad B: L2-Systemtest Mg-Air (7 Tage)
+  └── Kosten-Nutzen-Analyse beider Pfade
+
+Monat 10-12: Gate-Entscheidung
+  ├── Pfad A bestanden? → Phase 1 DevKit mit Chimney-Pressling
+  ├── Pfad B bestanden? → Phase 1 DevKit mit Mg-Air
+  ├── Beide bestanden? → Mg-Air für Feldpilot, Fungal für Story
+  └── Keiner bestanden? → Pivot auf passive NFC-only DevKit
+```
+
+### 9.6 Gate-Kriterien (12 Monate)
+
+| Kriterium | Pfad A (Air-Chimney) | Pfad B (Mg-Air) |
+|-----------|---------------------|-----------------|
+| Power @ 10 cm | > 12 µW (Empa-Baseline × Chimney) | > 50 µW |
+| Lifetime | > 7 Tage | > 7 Tage |
+| Bio-Abbau | > 80 % Masse | > 80 % Masse |
+| Kosten | < €1,00/Stück | < €0,50/Stück |
+| OCV | > 300 mV | > 600 mV |
+| H₂-Risiko | n/a | < 0,1 mL/Tag |
+
+### 9.7 Kommunikationsstrategie
+
+**Nach außen:** "MykoVolt entwickelt die erste vollständig kompostierbare Bodensensor-Batterie.
+Unser Hauptfokus liegt auf pilzbasierten MFCs, aber wir validieren parallel alternative
+biodegradable Chemien (Mg-Air) als technisches Backup."
+
+**Nach innen:** Ehrlich bleiben — der Pressling hat ein O2-Problem. Beide Pfade bekommen
+gleiche Ressourcen, bis ein Pfad sich klar durchsetzt.
+
+> **Kein Pivot, sondern eine Absicherung.** Der Pressling bleibt das Hauptprodukt.
+> Die Mg-Air ist nicht der neue Fokus, sondern der Rettungsanker, falls Phase 0 zeigt,
+> dass der Pressling in der Tiefe nicht atmen kann — was die Simulation stark nahelegt.
+
+---
+
+## 10. Anhang
+
+### 10.1 Referenzen
 
 - Empa 2024 — *Trametes pubescens* MFC Charakterisierung (12,5 µW/cm²)
 - Bactery AB — Soil MFC mit 25-30 Jahren Lebensdauer (~£25)
@@ -615,15 +744,19 @@ Gate 3 — TRL 7 erreicht (2030-06)
 - BQ25570 Datasheet — Boost ab 0,3V, MPPT
 - FDC1004 Datasheet — Kapazitiver Sensor, I²C, 4-Kanal
 
-### 9.2 Begriffe
+### 10.2 Begriffe
 
 | Begriff | Definition |
 |---|---|
 | MFC | Mikrobielle Brennstoffzelle |
 | Pressling | In Tablettenform gepresste Pilz-Biobatterie |
+| Air-Chimney | Poröse Röhre zur Oberfläche, die O2 zur vergrabenen Kathode führt |
+| Mg-Air Battery | Magnesium-Luft-Batterie, biodegradable, funktioniert auch ohne O2 |
 | DevKit | Entwickler-Kit für Laboranwendung |
 | Feldpilot | Feldtauglicher Prototyp für landwirtschaftliche Tests |
 | FRAM | Ferroelectric RAM, nichtflüchtig, extrem hohe Schreibzyklen |
 | OCV | Open Circuit Voltage (Leerlaufspannung) |
 | MPPT | Maximum Power Point Tracking |
 | VWC | Volumetric Water Content (volumetrischer Wassergehalt) |
+| Millington-Quirk | Modell zur Berechnung der O2-Diffusion in Böden |
+| Dual-Path | Parallele Entwicklung zweier Technologiepfade (Air-Chimney + Mg-Air) |
