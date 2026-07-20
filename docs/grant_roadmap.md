@@ -296,6 +296,10 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ### Immediate Priorities (Q3 2026)
 
+0. **Post idea as "flash" to Uni Marburg** — *Deadline: 15.8.2026*
+   - Submit via [MAFEX Flash](https://www.uni-marburg.de/de/transfer/mafex/flash/)
+   - Early-stage idea validation, feedback from transfer experts
+
 1. **Recruit co-founding team** (CEO + CTO) — *Critical path*
    - CTO profile: fungal biology / electrochemistry / materials science
    - CEO profile: business development, grant writing, fundraising
