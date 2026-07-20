@@ -10,6 +10,8 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 
 **Ideal timing:** Start thesis recruitment 3-6 months before grant deadlines. Thesis results feed directly into Hessen Ideen / EXIST applications as "preliminary data".
 
+**Current status (July 2026):** **Design complete, recruiting team to build first prototype.** Master's students will **build and validate** the prototype (not optimize existing hardware). Hessen Ideen application Q4 2026 / Q1 2027, EXIST Q1 2027.
+
 ---
 
 ## Thesis Topics by Work Package
@@ -19,19 +21,25 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 #### Topic 1.1: High-Performance Fungal Strains for MFCs
 **Degree:** M.Sc. Biotechnology / Microbiology
 **Duration:** 6 months
-**Start:** Q1 2026 (results for EXIST application Q3 2026)
+**Start:** Q4 2026 / Q1 2027 (results for EXIST application Q3 2027)
 
-**Research Question:** Which fungal strains maximize power density in compression-molded MFCs?
+**Research Question:** Which fungal strains maximize power density in MFCs? Can we reproduce Empa baseline (12.5 µW/cm²) and exceed it?
 
 **Tasks:**
-- Screen 10-15 fungal strains (*Trametes*, *Phanerochaete*, *Pleurotus*, *Ganoderma*)
+- Build MFC test setup (3D-printed or compression-molded pellets)
+- Screen 5-10 fungal strains (*Trametes*, *Phanerochaete*, *Pleurotus*, *Ganoderma*)
 - Measure power density (µW/cm²), OCV, longevity
 - Test strain combinations (anode yeast + cathode white-rot)
 - Optimize inoculation density, nutrient composition
 
 **Target Metrics:**
-- Baseline: 12.5 µW/cm² (Empa *T. pubescens*)
-- Target: 100-260 µW/cm² (literature maximum: 1.9 W/m² = 190 µW/cm²)
+- Baseline: 12.5 µW/cm² (Empa *T. pubescens* — literature)
+- Target: 50-100 µW/cm² (Phase 1), 260 µW/cm² (Phase 2)
+
+**Deliverables:**
+- **Functional MFC prototype** (first light!)
+- Strain ranking (power density, growth rate, stability)
+- Optimized co-culture protocol
 
 **Deliverables:**
 - Strain ranking (power density, growth rate, stability)
@@ -46,7 +54,7 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 #### Topic 1.2: Enzyme Engineering for Laccase Optimization
 **Degree:** M.Sc. Biochemistry / Molecular Biology
 **Duration:** 6 months
-**Start:** Q2 2026
+**Start:** Q2 2027
 
 **Research Question:** Can laccase activity be enhanced through protein engineering or immobilization?
 
@@ -74,15 +82,17 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 #### Topic 2.1: Compression-Molded Fungal MFC Pellets
 **Degree:** M.Sc. Materials Science / Chemical Engineering
 **Duration:** 6 months
-**Start:** Q1 2026 (critical for Hessen Ideen application)
+**Start:** Q4 2026 / Q1 2027 (critical for Hessen Ideen + EXIST applications)
 
-**Research Question:** What compression molding parameters maximize conductivity and fungal viability?
+**Research Question:** Can we build functional MFCs via compression molding (not 3D printing)? What parameters maximize conductivity and fungal viability?
 
 **Tasks:**
+- **Build first compression-molded MFC prototype**
 - Formulate cellulose-carbon-graphite composite (vary ratios)
 - Optimize compression pressure (10-100 bar), temperature (20-80°C), time (1-60 min)
 - Characterize conductivity, porosity, mechanical strength
 - Test fungal viability post-compression (CFU counts, metabolic activity)
+- Compare: 3D-printed (Empa) vs. compression-molded (MykoVolt) performance
 
 **Target Metrics:**
 - Conductivity: >10 S/m (sufficient for µW-scale MFCs)
@@ -102,7 +112,7 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 #### Topic 2.2: Biodegradable Encapsulation for IP67 Protection
 **Degree:** M.Sc. Materials Science / Polymer Chemistry
 **Duration:** 6 months
-**Start:** Q2 2026
+**Start:** Q2 2027
 
 **Research Question:** Can we formulate a compostable coating that provides IP67 protection for 7-30 days, then degrades?
 
@@ -132,11 +142,12 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 #### Topic 3.1: Ultra-Low-Power MCU Firmware for Energy Harvesting
 **Degree:** M.Sc. Electrical Engineering / Embedded Systems
 **Duration:** 6 months
-**Start:** Q1 2026
+**Start:** Q4 2026 / Q1 2027
 
-**Research Question:** How to maximize sensor lifetime under µW-scale energy budgets?
+**Research Question:** How to maximize sensor lifetime under µW-scale energy budgets? **Build the first working sensor node.**
 
 **Tasks:**
+- **Design + build PCB prototype** (STM32L0, boost converter, capacitive sensor)
 - STM32L0 firmware (sleep modes, interrupt-driven sensing)
 - Energy profiling (MCU, sensor, comms)
 - Adaptive sampling (adjust interval based on energy availability)
@@ -146,6 +157,10 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 - Average power: <40 µW (7-day runtime @ 15-min intervals)
 - Sleep current: <0.5 µA
 - Boost efficiency: >85%
+
+**Deliverables:**
+- **First working sensor node** (MFC + electronics + firmware)
+- Open-source firmware (GitHub)
 
 **Deliverables:**
 - Open-source firmware (GitHub)
@@ -301,9 +316,9 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 
 | Thesis Start | Application Deadline | Results Ready For |
 |--------------|----------------------|-------------------|
-| **Q1 2026 (Jan-Mar)** | Hessen Ideen (Q2 2026) | EXIST (Q3 2026) |
-| **Q2 2026 (Apr-Jun)** | EXIST (Q3 2026) | Horizon Europe (Q4 2026) |
-| **Q3 2026 (Jul-Sep)** | Horizon Europe (Q4 2026) | DBU (Q1 2027) |
+| **Q4 2026 (Oct-Dec)** | Hessen Ideen (Q1 2027) | EXIST (Q2 2027) |
+| **Q1 2027 (Jan-Mar)** | EXIST (Q2 2027) | Horizon Europe (Q3 2027) |
+| **Q2 2027 (Apr-Jun)** | Horizon Europe (Q3 2027) | DBU (Q4 2027) |
 
 **Recruitment channels:**
 - University job boards (TU Darmstadt, KIT, RWTH, ETH Zürich)
@@ -351,19 +366,22 @@ Master's theses are a **cost-effective R&D engine** for early-stage startups:
 
 ## Next Steps
 
-1. **Identify supervising professors** (fungal biology, materials, electronics)
+1. **Identify supervising professors** (fungal biology, materials, electronics) — *Q3 2026*
    - Empa (CH): Dr. Gustav Nyström (cellulose, 3D printing)
    - TU Darmstadt: Prof. Alexander Böker (materials)
    - KIT: Prof. Christoph Syldatk (industrial biotech)
+   - Local: Frankfurt/Fulda universities (check biotech programs)
 
-2. **Draft thesis descriptions** (2-page PDF per topic)
+2. **Draft thesis descriptions** (2-page PDF per topic) — *Q3 2026*
 
-3. **Post openings** (university portals, LinkedIn)
+3. **Post openings** (university portals, LinkedIn, Twitter) — *Q3-Q4 2026*
 
-4. **Interview candidates** (Q4 2025)
+4. **Interview candidates** — *Q4 2026*
 
-5. **Onboard students** (Q1 2026)
+5. **Onboard students** — *Q4 2026 / Q1 2027*
+
+**Immediate priority:** Find co-founders + students to **build the first prototype**.
 
 ---
 
-*Last updated: 2026-07-20*
+*Last updated: 2026-07-20 (Q3 2026) — Pre-prototype, recruiting team*

@@ -27,15 +27,17 @@ Glucose → Yeast metabolism → NADH → Anode → External circuit → Cathode
 
 The fungi are embedded in a cellulose-based conductive ink (carbon black + graphite flakes), 3D-printed or compression-molded into a pellet. The system is dry-storable and activated on-site with water + nutrients.
 
-### Performance (Current State)
+### Performance (Target)
 
-| Metric | Value | Target (Phase 2) |
-|--------|-------|------------------|
-| Power density | 12.5 µW/cm² (Empa baseline) | ~260 µW/cm² (optimized) |
-| Open circuit voltage | 0.45V (boost to 3.3V) | 0.6-0.8V |
-| Runtime | 7 days @ 15-min intervals | 30+ days |
-| Cost | €0.15/unit | €0.08/unit @ scale |
-| Biodegradability | 90% compostable (pellet + electronics separate) | 100% (retrievable electronics) |
+| Metric | Baseline (Empa literature) | Target (Phase 1) | Target (Phase 2) |
+|--------|---------------------------|------------------|------------------|
+| Power density | 12.5 µW/cm² | 50-100 µW/cm² | ~260 µW/cm² |
+| Open circuit voltage | 0.45V | 0.5-0.6V | 0.6-0.8V |
+| Runtime | — | 7 days @ 15-min intervals | 30+ days |
+| Cost | — | €0.15/unit | €0.08/unit @ scale |
+| Biodegradability | — | 90% compostable | 100% (retrievable electronics) |
+
+**Current status (July 2026):** Design complete. **Recruiting team** to build first functional prototype.
 
 ### Key Innovation
 
@@ -69,8 +71,8 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ## Application Roadmap
 
-### Phase 1: DevKit (2025-Q3 to 2026-Q2)
-**Goal:** Prove the technology with low-regulation, high-margin applications.
+### Phase 1: DevKit (2026-Q3 to 2027-Q2)
+**Goal:** Build first functional prototype, prove the technology with low-regulation, high-margin applications.
 
 | Application | Market | Why MykoVolt Wins |
 |-------------|--------|-------------------|
@@ -84,9 +86,11 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 **Grant fit:** Hessen Ideen (early-stage R&D), EXIST (university spinoff).
 
+**Current status (July 2026):** **Recruiting team** (co-founders, Master's students) to build prototype. Hessen Ideen application Q4 2026 / Q1 2027.
+
 ---
 
-### Phase 2: Feldpilot (2026-Q3 to 2027-Q2)
+### Phase 2: Feldpilot (2027-Q2 to 2027-Q4)
 **Goal:** Field-ready product with LoRa telemetry, IP67 housing, 30+ day runtime.
 
 | Application | Market | Why MykoVolt Wins |
@@ -103,7 +107,7 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ---
 
-### Phase 3: Commercial Scale (2027-Q3+)
+### Phase 3: Commercial Scale (2028-Q1+)
 **Goal:** Mass production (10,000+ units/day), diversified product line.
 
 | Application | Market | Why MykoVolt Wins |
@@ -120,7 +124,7 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ## Grant Strategy
 
-### Hessen Ideen (2025-Q4)
+### Hessen Ideen (2026-Q4)
 **Focus:** Early-stage innovation, Hesse-based startups.
 
 **Application angle:**
@@ -135,11 +139,13 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 - €0.15/unit cost structure
 - 90% biodegradability
 
-**Timeline:** Application deadline typically Q1/Q2, decision Q3.
+**Timeline:** Application deadline Q4 2026, decision Q1 2027.
+
+**Status:** Preparing application (August-September 2026).
 
 ---
 
-### EXIST Forschungstransfer (2026-Q1)
+### EXIST Forschungstransfer (2027-Q1)
 **Focus:** University-to-market technology transfer.
 
 **Application angle:**
@@ -152,13 +158,15 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 - IP position (patent pending on compression-molded fungal MFC)
 - Pilot customers (farms, composting facilities, research institutes)
 - Team: fungal biology + electronics + business development
-- Path to Series A (2027)
+- Path to Series A (2028)
 
 **Timeline:** Rolling applications, 8-12 week review.
 
+**Status:** Prepare Q4 2026, submit Q1 2027.
+
 ---
 
-### Horizon Europe — Bio-based Industries (2026-Q2)
+### Horizon Europe — Bio-based Industries (2027-Q2)
 **Focus:** Circular economy, bio-based materials, industrial biotechnology.
 
 **Application angle:**
@@ -177,9 +185,11 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 **Timeline:** Annual calls (typically Q1), decision Q3-Q4.
 
+**Status:** Build consortium Q4 2026 - Q1 2027, submit Q2 2027.
+
 ---
 
-### BMBF — Bioökonomie (2026-Q3)
+### BMBF — Bioökonomie (2027-Q3)
 **Focus:** Bioeconomy, sustainable production, climate tech.
 
 **Application angle:**
@@ -197,9 +207,11 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 **Timeline:** Annual calls.
 
+**Status:** Prepare Q1-Q2 2027, submit Q3 2027.
+
 ---
 
-### DBU — Umweltinnovation (2026-Q4)
+### DBU — Umweltinnovation (2027-Q4)
 **Focus:** Environmental innovation, proven technologies.
 
 **Application angle:**
@@ -217,20 +229,24 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 **Timeline:** Rolling applications.
 
+**Status:** Requires field pilot data (Q2-Q3 2027), submit Q4 2027.
+
 ---
 
 ## Technical Milestones
 
 | Milestone | Target Date | Grant Dependency |
 |-----------|-------------|------------------|
-| **Pellet formulation (compression molding)** | 2025-Q3 | Hessen Ideen |
-| **Board design Rev A (ultra-low-power)** | 2025-Q3 | EXIST |
-| **Functional prototype (7-day runtime)** | 2025-Q4 | EXIST |
-| **L2 system test (field validation)** | 2026-Q1 | EXIST |
-| **LoRa integration** | 2026-Q3 | Horizon Europe |
-| **Field pilot (100+ sensors)** | 2026-Q4 | DBU |
-| **Production scaling (1,000 units/day)** | 2027-Q1 | BMBF |
-| **EU market launch** | 2027-Q2 | — |
+| **Pellet formulation (compression molding)** | 2026-Q3 | Hessen Ideen |
+| **Board design Rev A (ultra-low-power)** | 2026-Q3 | EXIST |
+| **Functional prototype (7-day runtime)** | 2026-Q4 | EXIST |
+| **L2 system test (field validation)** | 2027-Q1 | EXIST |
+| **LoRa integration** | 2027-Q2 | Horizon Europe |
+| **Field pilot (100+ sensors)** | 2027-Q3 | DBU |
+| **Production scaling (1,000 units/day)** | 2027-Q4 | BMBF |
+| **EU market launch** | 2028-Q2 | — |
+
+**Current status (July 2026):** **Design complete, recruiting team to build prototype.** Next: compression molding + fungal cultivation (Q4 2026 - Q1 2027).
 
 ---
 
@@ -263,10 +279,10 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 | Year | Revenue | Units Sold | Burn Rate | Funding Source |
 |------|---------|------------|-----------|----------------|
-| 2025 | €0 (R&D) | 0 | €20k/mo | Hessen Ideen, EXIST |
-| 2026 | €50k (pilots) | 5,000 | €40k/mo | EXIST, Horizon Europe |
-| 2027 | €500k (early commercial) | 50,000 | €60k/mo | Series A |
-| 2028 | €5M (scale-up) | 500,000 | €150k/mo | Revenue + Series B |
+| 2026 | €0 (R&D) | 0 | €15k/mo | Bootstrap, Hessen Ideen |
+| 2027 | €50k (pilots) | 5,000 | €35k/mo | EXIST, Horizon Europe |
+| 2028 | €500k (early commercial) | 50,000 | €60k/mo | Series A |
+| 2029 | €5M (scale-up) | 500,000 | €150k/mo | Revenue + Series B |
 
 **Unit economics:**
 - COGS: €0.15 (battery) + €0.50 (electronics) = €0.65
@@ -275,15 +291,37 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ---
 
-## Next Steps
+## Next Steps (Q3-Q4 2026)
 
-1. **Finalize pellet formulation** (compression molding vs. 3D printing decision)
-2. **File provisional patent** (compression-molded fungal MFC architecture)
-3. **Prepare Hessen Ideen application** (deadline: Q1 2026)
-4. **Recruit co-founding team** (CEO + CTO)
-5. **Secure pilot customers** (2-3 farms, 1 composting facility, 1 construction partner)
-6. **Apply for EXIST** (rolling, submit Q1 2026)
-7. **Build consortium for Horizon Europe** (DE + CH + FR partners)
+### Immediate Priorities (Q3 2026)
+
+1. **Recruit co-founding team** (CEO + CTO) — *Critical path*
+   - CTO profile: fungal biology / electrochemistry / materials science
+   - CEO profile: business development, grant writing, fundraising
+
+2. **Recruit Master's thesis students** (3-4 topics) — *Start Q4 2026 / Q1 2027*
+   - WP2.1: Compression molding (critical for prototype)
+   - WP3.1: Ultra-low-power firmware
+   - WP1.1: Fungal strain screening
+
+3. **File provisional patent** (compression-molded fungal MFC architecture) — *Before publications*
+
+4. **Prepare Hessen Ideen application** — *Deadline Q4 2026 or Q1 2027*
+
+5. **Build first prototype** (3D-printed, lab-scale) — *Q4 2026*
+   - Validate Empa baseline (12.5 µW/cm²)
+   - Test with yeast + Trametes co-culture
+
+### Medium-Term (Q4 2026 - Q1 2027)
+
+6. **Secure pilot customers** (LOIs, not revenue) — *2-3 partners for letters of intent*
+   - Research institutions (easiest entry)
+   - Pilot farms (viticulture, turf)
+   - Composting facilities
+
+7. **Apply for EXIST** — *Submit Q1 2027*
+
+8. **Build consortium for Horizon Europe** — *Q1-Q2 2027*
 
 ---
 
@@ -295,4 +333,4 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 
 ---
 
-*Last updated: 2026-07-20*
+*Last updated: 2026-07-20 (Q3 2026) — Pre-prototype, recruiting team*
