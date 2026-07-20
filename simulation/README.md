@@ -87,7 +87,7 @@ Parameter ranking by impact on power:
 | Leistung | 260 µW¹ | 5000 µW | 10 mW |
 | Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
 
-> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MykoVolt-mvp-design.md](../MykoVolt-mvp-design.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
+> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MVP_DESIGN.md](../MVP_DESIGN.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
 >
 > ² Simulationsziel aus Bayesian Optimization (260 µW = 20× Empa-Baseline). Experimentell bislang nur 12.5 µW/cm² (Empa 2024) bestätigt. Der tatsächlich erreichbare Wert hängt von Tintenformulierung und Zellgeometrie ab.
 

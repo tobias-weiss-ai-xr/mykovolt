@@ -346,17 +346,8 @@ mykovolt/
 │   ├── test_degradation.py
 │   ├── test_multi_objective.py
 │   └── test_uncertainty.py
-├── archive_*.md               # Historical documents (7 files)
-├── competitive_*.py           # Competitive intelligence dashboard
-├── compliance_*.md            # Regulatory roadmap
-├── finance_*.md               # Funding strategy
-├── ip_*.md                    # IP strategy
-├── marketing_*.md             # Market segment strategies
-├── MykoVolt-mvp-design.md     # Full MVP design documentation
-├── MykoVolt_Angebot_EMC.md    # EMC GmbH offer
-├── MykoVolt_LinkedIn_Pitch.md # LinkedIn pitch
-├── MykoVolt_Papers.md         # Literature survey (92 papers)
-├── MykoVolt_Pitch_Deck.html   # Interactive pitch deck
+├── MVP_DESIGN.md              # Full MVP design documentation
+├── PITCH_DECK.html            # Interactive pitch deck
 └── README.md
 ```
 
@@ -439,7 +430,7 @@ pytest simulation/
 | Field Test | 📝 Planned | 0% | Dependent on Phases 0-1 completion |
 | Production | 📝 Planned | 0% | Realistic target: 2029+ |
 
-> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [finance_funding_strategy.md](finance_funding_strategy.md) for the realistic funding pathway and [MykoVolt-mvp-design.md](MykoVolt-mvp-design.md) for the risk register.
+> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [docs/finance_funding_strategy.md](docs/finance_funding_strategy.md) for the realistic funding pathway and [MVP_DESIGN.md](MVP_DESIGN.md) for the risk register.
 
 ---
 
