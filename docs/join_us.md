@@ -14,14 +14,20 @@
 - ✅ **Simulation validated** (Empa baseline: 12.5 µW/cm²)
 - ✅ **Grant roadmap prepared** (Hessen Ideen, EXIST)
 - ✅ **Master's thesis topics defined** (10 topics across 5 work packages)
-- ❌ **Team: Looking for co-founders + students**
+- ✅ **Business Development:** Marc (part-time)
+- ❌ **Team: Looking for co-founders (CTO) + students**
 - ❌ **Prototype: Not yet built**
 
 **Next milestone:** Build first functional prototype (Q4 2026 - Q1 2027).
 
 ---
 
-## Open Roles
+## Team
+
+### Business Development
+- **Marc** — Business development, partnerships, grant strategy (part-time)
+
+### Open Roles
 
 ### 1. Co-Founder / CTO (Technical Lead)
 
@@ -42,6 +48,8 @@
 ---
 
 ### 2. Co-Founder / CEO (Business Lead)
+
+**Note:** Marc is supporting business development. We're still looking for a dedicated CEO co-founder to lead fundraising and operations full-time.
 
 **Profile:**
 - M.Sc. or MBA + experience in **business development, fundraising, grant writing**
