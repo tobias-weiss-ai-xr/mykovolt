@@ -41,7 +41,16 @@ MykoVolt develops the first commercial, biodegradable fungal bio-battery to powe
 ### Key Innovation
 - **Biodegradable**: Fungus-based bio-battery + compostable casing
 - **Reusable**: Electronics board (100+ cycles)
-- **Hybrid approach**: Immediate market entry with full biodegradability as long-term goal
+- **Dual-path strategy**: Fungal MFC (primary) + Mg-Air battery (fallback)
+
+### MVP Options (Phase 0 Gate Decision)
+
+| Path | Technology | Advantage | Risk |
+|------|-----------|-----------|------|
+| **A: Fungal MFC** | *T. pubescens* + yeast co-culture | Fully biodegradable, novel IP | Power density unproven at scale |
+| **B: Mg-Air** | Mg foil anode, carbon cathode | Proven chemistry, higher power | Mg foil not fully biodegradable |
+
+Both paths developed in parallel during Phase 0. Gate decision after 12 months of lab validation. See [MVP_DESIGN.md](MVP_DESIGN.md#9-dual-path-strategie-phase-0) for details.
 
 ---
 
