@@ -27,6 +27,7 @@
 - [Competitive Positioning](#competitive-positioning)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [Grant Applications & Recruitment](#grant-applications--recruitment)
 - [Development Progress](#development-progress)
 - [Contact](#contact)
 - [License](#license)
@@ -309,8 +310,12 @@ quadrantChart
 mykovolt/
 ├── docs/
 │   ├── diagrams.html          # Full Mermaid diagram suite (12 diagrams)
-│   ├── mvp_design.svg        # MVP exploded view & specifications
-│   ├── teaser.svg             # Hero image
+│   ├── mvp_design.svg         # MVP exploded view & specifications
+│   ├── teaser.png             # Hero image (PNG)
+│   ├── teaser.svg             # Hero image (SVG source)
+│   ├── grant_roadmap.md       # Grant application strategy (Hessen Ideen, EXIST)
+│   ├── masters_thesis_topics.md  # 10 Master's thesis topics for R&D
+│   ├── join_us.md             # Recruiting: co-founders, students, advisors
 │   ├── manufacturing_process.md
 │   └── supply_chain_analysis.md
 ├── simulation/
@@ -329,9 +334,10 @@ mykovolt/
 │   └── ip_strategy.md
 ├── archive/                   # Historical documents
 ├── MykoVolt-mvp-design.md     # Full MVP design documentation
-├── MykoVolt_Angebot_EMC.md     # EMC GmbH offer
-├── MykoVolt_Pitch_Deck.html    # Interactive pitch deck
+├── MykoVolt_Angebot_EMC.md    # EMC GmbH offer
+├── MykoVolt_Pitch_Deck.html   # Interactive pitch deck
 └── README.md
+```
 ```
 
 ---
@@ -354,6 +360,45 @@ pip install -r requirements.txt
 ```bash
 pytest simulation/
 ```
+
+---
+
+## Grant Applications & Recruitment
+
+**Current status (Q3 2026):** Design complete. **Recruiting team** to build first functional prototype.
+
+### Grant Roadmap
+
+| Grant | Amount | Timeline | Status |
+|-------|--------|----------|--------|
+| **Hessen Ideen** | €50k-150k | Q4 2026 / Q1 2027 | Preparing |
+| **EXIST** | €250k-500k | Q1 2027 | Preparing |
+| **Horizon Europe** | €2-5M | Q2 2027 | Consortium building |
+| **BMBF Bioökonomie** | €500k-2M | Q3 2027 | — |
+| **DBU Umweltinnovation** | €300k | Q4 2027 | — |
+
+📄 **Details:** [`docs/grant_roadmap.md`](docs/grant_roadmap.md)
+
+### Master's Thesis Topics
+
+**10 thesis topics** across 5 work packages (fungal strains, materials, electronics, environmental impact, applications).
+
+**Key priorities:**
+- **WP2.1:** Compression-molded fungal MFC pellets (critical path)
+- **WP3.1:** Ultra-low-power MCU firmware
+- **WP1.1:** High-performance fungal strains
+
+📄 **Details:** [`docs/masters_thesis_topics.md`](docs/masters_thesis_topics.md)
+
+### Join Us
+
+**Looking for:**
+- **Co-Founder / CTO** (fungal biology, electrochemistry, materials science)
+- **Co-Founder / CEO** (business development, fundraising, grant writing)
+- **Master's Thesis Students** (Q4 2026 / Q1 2027 start)
+- **Advisors** (2-4 hours/week, flexible)
+
+📄 **Apply:** [`docs/join_us.md`](docs/join_us.md)
 
 ---
 
