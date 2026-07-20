@@ -27,6 +27,9 @@
 ### Business Development
 - **Marc** — Business development, partnerships, grant strategy (part-time)
 
+### AI & Simulation
+- **Tobias** — CIO, AI, simulation, business development
+
 ### Open Roles
 
 ### 1. Co-Founder / CTO (Technical Lead)

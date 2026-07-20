@@ -255,6 +255,7 @@ This unlocks **dense, distributed sensor networks** at a cost and deployment mod
 | Role | Profile | When Needed | Status |
 |------|---------|-------------|--------|
 | **CEO / Co-founder** | Business development, grant writing, fundraising | Now | Marc (part-time) |
+| **CIO / Co-founder** | AI, simulation, business development | Now | Tobias |
 | **CTO / Co-founder** | Fungal biology, electrochemistry, materials science | Now | ❌ Open |
 | **Electronics Engineer** | Ultra-low-power design, STM32, LoRa | 2027-Q1 |
 | **Fungal Cultivation Tech** | Mycology lab work, strain optimization | 2027-Q1 |
