@@ -1,7 +1,7 @@
 # MykoVolt — Biodegradable Fungal Battery for Precision Agriculture
 
 <p align="center">
-  <img src="docs/teaser.png" alt="MykoVolt" width="100%">
+  <img src="docs/assets/teaser.png" alt="MykoVolt" width="100%">
 </p>
 
 <p align="center">
@@ -48,7 +48,7 @@ MykoVolt develops the first commercial, biodegradable fungal bio-battery to powe
 ## MVP Design
 
 <p align="center">
-  <img src="docs/mvp_design.svg" alt="MykoVolt MVP Design" width="100%">
+  <img src="docs/technical/mvp_design.svg" alt="MykoVolt MVP Design" width="100%">
 </p>
 
 ---
@@ -309,35 +309,55 @@ quadrantChart
 ```
 mykovolt/
 ├── docs/
-│   ├── diagrams.html          # Full Mermaid diagram suite (12 diagrams)
-│   ├── mvp_design.svg         # MVP exploded view & specifications
-│   ├── teaser.png             # Hero image (PNG)
-│   ├── teaser.svg             # Hero image (SVG source)
-│   ├── grant_roadmap.md       # Grant application strategy (Hessen Ideen, EXIST)
-│   ├── masters_thesis_topics.md  # 10 Master's thesis topics for R&D
-│   ├── join_us.md             # Recruiting: co-founders, students, advisors
-│   ├── manufacturing_process.md
-│   └── supply_chain_analysis.md
-├── simulation/
-│   └── e2e_soil_sensor.py     # End-to-end sensor simulation
-├── tests/
-│   └── battery_validation.py
-├── competitive/
-│   └── intelligence_dashboard.py
-├── compliance/
-│   └── regulatory_roadmap.md
-├── finance/
-│   └── funding_strategy.md
-├── marketing/
-│   └── segment_strategies.md
-├── ip/
-│   └── ip_strategy.md
-├── archive/                   # Historical documents
+│   ├── assets/                # Images & diagrams
+│   │   ├── teaser.png         # Hero image (PNG)
+│   │   └── teaser.svg         # Hero image (SVG source)
+│   ├── business/              # Business & market analysis
+│   │   └── supply_chain_analysis.md
+│   ├── grants/                # Grant applications
+│   │   ├── flash_submission.md    # MAFEX FLASH submission (deadline 15.8.2026)
+│   │   └── grant_roadmap.md       # Grant strategy (Hessen Ideen, EXIST, Horizon)
+│   ├── team/                  # Recruiting & team
+│   │   ├── join_us.md             # Co-founders, students, advisors
+│   │   └── masters_thesis_topics.md # 10 Master's thesis topics
+│   └── technical/             # Technical documentation
+│       ├── air_chimney_design.md
+│       ├── diagrams.html      # Full Mermaid diagram suite (12 diagrams)
+│       ├── manufacturing_process.md
+│       ├── mg_air_battery.md
+│       ├── mvp_design.svg     # MVP exploded view & specifications
+│       └── phase0_execution_plan.md
+├── simulation/                # Simulation code & outputs
+│   ├── ai_optimizer.py
+│   ├── alternatives.py
+│   ├── component_failure_modes.py
+│   ├── degradation_model.py
+│   ├── dual_path_analysis.py
+│   ├── e2e_soil_sensor.py     # End-to-end sensor simulation
+│   ├── electron_transport_graph.py
+│   ├── geometry_optimization.py
+│   ├── multi_objective_optimizer.py
+│   ├── pressling_viability.py
+│   ├── print_geometry_optimizer.py
+│   ├── uncertainty_aware_twin.py
+│   └── visualize.py
+├── tests/                     # Test suite
+│   ├── conftest.py
+│   ├── test_degradation.py
+│   ├── test_multi_objective.py
+│   └── test_uncertainty.py
+├── archive_*.md               # Historical documents (7 files)
+├── competitive_*.py           # Competitive intelligence dashboard
+├── compliance_*.md            # Regulatory roadmap
+├── finance_*.md               # Funding strategy
+├── ip_*.md                    # IP strategy
+├── marketing_*.md             # Market segment strategies
 ├── MykoVolt-mvp-design.md     # Full MVP design documentation
 ├── MykoVolt_Angebot_EMC.md    # EMC GmbH offer
+├── MykoVolt_LinkedIn_Pitch.md # LinkedIn pitch
+├── MykoVolt_Papers.md         # Literature survey (92 papers)
 ├── MykoVolt_Pitch_Deck.html   # Interactive pitch deck
 └── README.md
-```
 ```
 
 ---
@@ -371,13 +391,14 @@ pytest simulation/
 
 | Grant | Amount | Timeline | Status |
 |-------|--------|----------|--------|
+| **MAFEX FLASH** | €500 | 15.8.2026 | Preparing |
 | **Hessen Ideen** | €50k-150k | Q4 2026 / Q1 2027 | Preparing |
 | **EXIST** | €250k-500k | Q1 2027 | Preparing |
 | **Horizon Europe** | €2-5M | Q2 2027 | Consortium building |
 | **BMBF Bioökonomie** | €500k-2M | Q3 2027 | — |
 | **DBU Umweltinnovation** | €300k | Q4 2027 | — |
 
-📄 **Details:** [`docs/grant_roadmap.md`](docs/grant_roadmap.md)
+📄 **Details:** [`docs/grants/grant_roadmap.md`](docs/grants/grant_roadmap.md)
 
 ### Master's Thesis Topics
 
@@ -388,17 +409,19 @@ pytest simulation/
 - **WP3.1:** Ultra-low-power MCU firmware
 - **WP1.1:** High-performance fungal strains
 
-📄 **Details:** [`docs/masters_thesis_topics.md`](docs/masters_thesis_topics.md)
+📄 **Details:** [`docs/team/masters_thesis_topics.md`](docs/team/masters_thesis_topics.md)
 
 ### Join Us
 
 **Looking for:**
 - **Co-Founder / CTO** (fungal biology, electrochemistry, materials science)
 - **Co-Founder / CEO** (business development, fundraising, grant writing)
+- **Co-Founder / CIO** (AI, simulation, business development) — Tobias
+- **Business Development** — Marc (part-time)
 - **Master's Thesis Students** (Q4 2026 / Q1 2027 start)
 - **Advisors** (2-4 hours/week, flexible)
 
-📄 **Apply:** [`docs/join_us.md`](docs/join_us.md)
+📄 **Apply:** [`docs/team/join_us.md`](docs/team/join_us.md)
 
 ---
 
@@ -416,7 +439,7 @@ pytest simulation/
 | Field Test | 📝 Planned | 0% | Dependent on Phases 0-1 completion |
 | Production | 📝 Planned | 0% | Realistic target: 2029+ |
 
-> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [finance/funding_strategy.md](finance/funding_strategy.md) for the realistic funding pathway and [MykoVolt-mvp-design.md](MykoVolt-mvp-design.md) for the risk register.
+> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [finance_funding_strategy.md](finance_funding_strategy.md) for the realistic funding pathway and [MykoVolt-mvp-design.md](MykoVolt-mvp-design.md) for the risk register.
 
 ---
 
