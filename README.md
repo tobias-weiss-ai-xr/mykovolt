@@ -350,7 +350,12 @@ mykovolt/
 │   ├── assets/                # Images & diagrams
 │   │   ├── teaser.png         # Hero image (PNG)
 │   │   └── teaser.svg         # Hero image (SVG source)
-│   ├── business/              # Business & market analysis
+│   ├── business/              # Business, IP, finance & marketing
+│   │   ├── competitive_intelligence_dashboard.py
+│   │   ├── compliance_regulatory_roadmap.md
+│   │   ├── finance_funding_strategy.md
+│   │   ├── ip_strategy.md
+│   │   ├── marketing_segment_strategies.md
 │   │   └── supply_chain_analysis.md
 │   ├── grants/                # Grant applications
 │   │   ├── flash_submission.md    # MAFEX FLASH submission (deadline 15.8.2026)
@@ -468,7 +473,7 @@ pytest simulation/
 | Field Test | 📝 Planned | 0% | Dependent on Phases 0-1 completion |
 | Production | 📝 Planned | 0% | Realistic target: 2029+ |
 
-> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [docs/finance_funding_strategy.md](docs/finance_funding_strategy.md) for the realistic funding pathway and [MVP_DESIGN.md](MVP_DESIGN.md) for the risk register.
+> ⚠️ **Feasibility Note (July 2026):** MykoVolt is currently at **TRL 2** (technology concept formulated). The simulation and design work is complete, but no experimental validation has been performed. All hardware-dependent milestones above require successful lab validation first. See [docs/business/finance_funding_strategy.md](docs/business/finance_funding_strategy.md) for the realistic funding pathway and [MVP_DESIGN.md](MVP_DESIGN.md) for the risk register.
 
 ---
 
