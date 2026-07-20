@@ -1,12 +1,12 @@
-# MykoVolt — Biodegradable Fungal Battery for Precision Agriculture
+# MykoVolt — Biodegradable Fungal Battery for IoT & Beyond
 
 <p align="center">
   <img src="docs/assets/teaser.png" alt="MykoVolt" width="100%">
 </p>
 
 <p align="center">
-  <b>The first compostable soil moisture sensor application.</b><br>
-  7 days runtime · 90% biodegradable · pellets from €0.15 · Zero e-waste
+  <b>Compostable bio-batteries for 15+ applications across agriculture, construction, logistics & environment.</b><br>
+  15 use cases · 90% biodegradable · pellets from €0.15 · Zero e-waste
 </p>
 
 ## Table of Contents
@@ -36,12 +36,41 @@
 
 ## Overview
 
-MykoVolt develops the first commercial, biodegradable fungal bio-battery to power soil moisture sensors in precision agriculture. The technology uses microbial fuel cells (MFC) based on white-rot fungi (*Trametes pubescens*, *Phanerochaete chrysosporium*), embedded in a compostable pellet.
+MykoVolt develops the first commercial, biodegradable fungal bio-battery to power IoT sensors across 15+ applications. The technology uses microbial fuel cells (MFC) based on white-rot fungi (*Trametes pubescens*, *Phanerochaete chrysosporium*), embedded in a compostable pellet.
 
 ### Key Innovation
 - **Biodegradable**: Fungus-based bio-battery + compostable casing
 - **Reusable**: Electronics board (100+ cycles)
 - **Dual-path strategy**: Fungal MFC (primary) + Mg-Air battery (fallback)
+
+### Use Cases (3 Phases)
+
+#### Phase 1: DevKit (Research Labs)
+| Application | Market | Why MykoVolt Wins |
+|-------------|--------|-------------------|
+| Soil moisture | Precision ag, viticulture, turf | Underground operation, €0.15/unit, compostable |
+| Compost monitoring | Municipal composting, biowaste | Works inside compost piles (dark, moist, perfect for fungi) |
+| Structural health (concrete curing) | Construction, infrastructure | Embedded during pouring — no light, no retrieval |
+| Cold-chain loggers | Food/pharma shipping | Disposable, compostable, no Li-ion in food containers |
+| Research/education kits | Universities, schools | Safe, biodegradable, teaches synthetic biology + IoT |
+
+#### Phase 2: Field Pilot
+| Application | Market | Why MykoVolt Wins |
+|-------------|--------|-------------------|
+| Forestry / under-canopy sensing | Carbon credits, wildfire detection | Zero light under canopy — solar is dead |
+| Permafrost monitoring | Climate research, Arctic | Solar seasonal (polar night); fungal batteries work continuously |
+| Landfill / waste monitoring | Environmental compliance | Works inside waste piles; no retrieval in hazardous zones |
+| Wildlife tracking tags | Conservation, ecology | €0.15 disposable tags — no retrieval, no harm if ingested |
+| Smart packaging | Food/pharma logistics | Compostable temperature abuse indicators |
+
+#### Phase 3: Commercial Scale
+| Application | Market | Why MykoVolt Wins |
+|-------------|--------|-------------------|
+| Agricultural sensor networks | Row crops, vineyards, orchards | Dense deployment (100+ sensors/ha), no retrieval labor |
+| Medical disposable sensors | Wound dressings, diagnostics | Single-use, biocompatible, no Li-ion waste |
+| Landmine / UXO monitoring | Defense, humanitarian demining | Long-term passive monitoring, biodegradable (no cleanup) |
+| Soil carbon verification | Carbon credits, regenerative ag | Buried sensors verify carbon sequestration — zero maintenance |
+| Smart city infrastructure | Underground utilities, flood detection | Embedded in soil/concrete, no battery replacement |
 
 ### MVP Options (Phase 0 Gate Decision)
 
