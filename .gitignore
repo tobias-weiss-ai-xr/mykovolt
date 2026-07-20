@@ -16,4 +16,23 @@ temp/
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE
+*.iml
+
+# Logs
+*.log
