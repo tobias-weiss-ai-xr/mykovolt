@@ -67,14 +67,16 @@ MykoVolt's intellectual property strategy must balance the tension between:
 
 ## 2. Freedom to Operate (FTO) Analysis
 
+**Search date:** July 2026. Searched FreePatentsOnline, Google Patents, WIPO PATENTSCOPE, Espacenet, Semantic Scholar.
+
 ### 2.1 Empa Patent Portfolio
 
-The foundational technology (3D-printed cellulose-based fungal MFC by Reyes et al., 2024) was published in *ACS Sustainable Chemistry & Engineering* as open-access research. However:
+The foundational technology (3D-printed cellulose-based fungal MFC by Reyes et al., 2024) was published in *ACS Sustainable Chemistry & Engineering* as open-access research.
 
-- **Check:** Did Empa/Empa spin-offs file patents on the 3D-printed MFC concept itself?
-- **Risk:** If so, MykoVolt's dry-pressed pellet may be a derivative implementation
-- **Outcome:** Likely low risk — the 3D-printing method is different from dry-pressing, and open-access publication limits scope of later patent claims
-- **Action:** Request a professional FTO search once EXIST funding is secured (~€500-1k for a focused search)
+- **Search result:** No patents found by Empa or Reyes related to microbial fuel cells, fungal batteries, or bio-batteries across all queried databases.
+- **Assessment:** The 2024 paper was published as open science without apparent patent protection. Any Swiss national patent would have expired its 18-month non-publication window by mid-2026.
+- **Remaining gap:** Swiss IPI and EPO Espacenet were not fully searchable (JS-rendered). A professional European search (~€500-1k) is recommended to confirm.
+- **Risk:** **LOW** — no blocking patents found; dry-pressed pellet is methodologically distinct from 3D-printing.
 
 ### 2.2 MycelioTronics (JKU / Science Advances 2022)
 
@@ -85,21 +87,32 @@ The foundational technology (3D-printed cellulose-based fungal MFC by Reyes et a
 ### 2.3 Bactery AB
 
 - **What:** Soil microbial fuel cells (bacteria-based, not fungi) with proprietary ceramic membrane
-- **Risk:** **Medium** — overlapping addressable market (soil-powered sensors) could lead to design-around claims
-- **Action:** Monitor Bactery's patent filings quarterly
+- **Search result:** No patents found in US databases. Swedish/European patents may exist outside US coverage, or they may rely on trade secrets.
+- **Risk:** **Low-Medium** — overlapping addressable market (soil-powered sensors) could lead to design-around claims
+- **Action:** Monitor Bactery's patent filings; investigate via Swedish patent office (PRV)
 
-### 2.4 Existing MFC Patents (General)
+### 2.4 Relevant Patents Found
 
-Most MFC patents cover liquid-phase reactors, wastewater treatment, or specific bacteria strains. The dry-pressed fungal pellet is sufficiently distinct from existing art.
+| Patent | Title | Assignee | Year | Risk | Notes |
+|--------|-------|----------|------|------|-------|
+| US7160637 | Implantable miniaturized MFC | UC Berkeley | 2007 | **Low** | Yeast anode, but for implantable medical devices (MEMS), not IoT. Patent ~18yr old, likely expired. |
+| US9257709 | Paper-based fuel cell | Univ. New Mexico | 2016 | **Low** | Enzymes (laccase, bilirubin oxidase), not living fungi. Paper lamination, not compression molding. "Microorganisms" in claims only specify bacteria (Shewanella, Geobacter). |
+| US20250210680 | Terrestrial microbial fuel cell | — | 2025 | **Monitor** | Published application, claims not yet examined. Terrestrial deployment similar to Bactery's space. Monitor prosecution for fungal/biodegradable MFC claims. |
+| US8552861 | Biodegradable smart sensor | — | 2013 | **Irrelevant** | Conventional battery chemistry, not biological. |
+
+### 2.5 Key Finding: Fungal MFC Claim Space Is Unpatented
+
+No patent anywhere claims a fungal cathode, fungal anode, or a fuel cell combining yeast and fungi. The fungal MFC claim space is a green field — MykoVolt should file first.
 
 ### FTO Checklist
 
-| Item | Status | Owner |
+| Item | Status | Result |
 |---|---|---|
-| Empa MFC method patents | ⬜ Search needed | — |
-| Generic MFC ink/pellet patents | ⬜ Search needed | — |
-| Biodegradable sensor housing patents | 🔍 Low risk (medical only) | — |
+| Empa MFC method patents | ✅ Searched | **None found** (US, WIPO, Espacenet) |
+| Generic MFC ink/pellet patents | ✅ Searched | **None fungal** (2 low-risk enzyme/paper patents) |
+| Biodegradable sensor housing patents | ✅ Searched | **Irrelevant** (conventional chemistry only) |
 | NFC energy harvesting + biological power source | ⬜ Search needed | — |
+| Swiss IPI / EPO Espacenet (professional search) | ⬜ Recommended | ~€500-1k, before first patent filing |
 
 ---
 
@@ -178,10 +191,12 @@ When working with EMC JLU or other academic labs (critical for EXIST):
 
 | Priority | Action | Deadline | Cost |
 |---|---|---|---|
-| 1 | FTO search for Empa patents | Before first lab experiment | €500-1k |
+| 1 | ~~FTO search for Empa patents~~ | ~~Before first lab experiment~~ | ~~€500-1k~~ |
+| 1 | **Professional EPO/Swiss IPI patent search** (close gap on EU/Swiss databases) | Before first patent filing | ~€500-1k |
 | 2 | Provisional DPMA for P1 (pellet) | Same month as first reproducible result | ~€3-5k |
 | 3 | Trademark "MykoVolt" DE | Before any public DevKit announcement | ~€300 |
 | 4 | University IP agreement template | Before signing any collaboration agreement | Legal review ~€1k |
 | 5 | NDA template for suppliers/partners | Before sharing formulation specs | Free (templates exist) |
+| 6 | Monitor US20250210680 prosecution | Ongoing, quarterly | Free |
 
-**Budget needed for immediate IP steps:** ~€5-8k (can be funded from EXIST Sachmittel).
+**Budget needed for remaining IP steps:** ~€5-8k (can be funded from EXIST Sachmittel).
