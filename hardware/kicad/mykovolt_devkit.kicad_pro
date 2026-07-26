@@ -1,0 +1,62 @@
+{
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_clearance": 0.3,
+        "min_track_width": 0.3,
+        "min_via_diameter": 0.6,
+        "min_via_drill": 0.3,
+        "min_hole_to_hole": 0.3,
+        "min_silk_to_copper": 0.15,
+        "min_silk_to_silk": 0.15,
+        "allow_soldermask_bridges_in_footprints": false
+      }
+    }
+  },
+  "boards": [],
+  "cvpcb": {},
+  "erc": {},
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "mykovolt_devkit.kicad_pro",
+    "version": 2
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "name": "Default",
+        "clearance": 0.2,
+        "trace_width": 0.3,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "uvia_diameter": 0.3,
+        "uvia_drill": 0.1,
+        "diff_pair_width": 0.3,
+        "diff_pair_gap": 0.2
+      }
+    ],
+    "meta": {
+      "version": 2,
+      "net_count": 34
+    }
+  },
+  "pcbnew": {
+    "last_paths": {
+      "gerbers": "",
+      "netlist": ""
+    },
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "annotate_start_num": 0,
+    "drawing": {
+      "default_line_width": 0.15,
+      "default_text_size": 1.27
+    }
+  },
+  "sheets": [],
+  "text_variables": {}
+}

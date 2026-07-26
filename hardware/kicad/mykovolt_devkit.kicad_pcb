@@ -1,0 +1,58 @@
+(kicad_sch (version 20231120) (generator "mykovolt_gen") (generator_version "0.1"))
+
+  (board (version 20231120) (host software "mykovolt_gen"))
+  (uuid "db09020b-2e2c-53f6-b55f-6cacbb55be21")
+  
+  (general
+    (thickness 1.6)
+    (legacy_teardrops no)
+  )
+  
+  (stackup
+    (layer "F.Cu" (type copper) (thickness 0.035))
+    (layer "Dielectric 1" (type prepreg) (thickness 0.2) (material "FR-4"))
+    (layer "In1.Cu" (type copper) (thickness 0.035))
+    (layer "Dielectric 2" (type core) (thickness 0.4) (material "FR-4"))
+    (layer "In2.Cu" (type copper) (thickness 0.035))
+    (layer "Dielectric 3" (type prepreg) (thickness 0.2) (material "FR-4"))
+    (layer "B.Cu" (type copper) (thickness 0.035))
+  )
+  
+  (setup
+    (stackup
+      (layer "F.Cu" (type copper))
+      (layer "Dielectric 1" (type prepreg) (thickness 0.2))
+      (layer "In1.Cu" (type copper))
+      (layer "Dielectric 2" (type core) (thickness 0.4))
+      (layer "In2.Cu" (type copper))
+      (layer "Dielectric 3" (type prepreg) (thickness 0.2))
+      (layer "B.Cu" (type copper))
+    )
+    (edge_connector
+      (allowed_layers "F.Cu" "B.Cu" "In1.Cu" "In2.Cu")
+    )
+  )
+  
+  (net 0 "")
+  (net 1 "GND")
+  (net 2 "3.3V")
+  (net 3 "I2C1_SCL")
+  (net 4 "I2C1_SDA")
+  
+  (footprint "6dacd2cc-e0cf-526b-9260-a3ca23301485" (layer "F.Cu")
+    (tedit 0)
+    (attr board_only)
+    (fp_polygon (pts
+      (xy 0 0) (xy 30000000.0 0) (xy 30000000.0 20000000.0) (xy 0 20000000.0)
+    ) (layer "Edge.Cuts") (width 0.1))
+    
+    (fp_line (start 0 0) (end 30000000.0 0) (layer "Edge.Cuts") (width 0.1))
+    (fp_line (start 30000000.0 0) (end 30000000.0 20000000.0) (layer "Edge.Cuts") (width 0.1))
+    (fp_line (start 30000000.0 20000000.0) (end 0 20000000.0) (layer "Edge.Cuts") (width 0.1))
+    (fp_line (start 0 20000000.0) (end 0 0) (layer "Edge.Cuts") (width 0.1))
+    
+    (fp_text user "MykoVolt DevKit v0.1" (at 15000000.0 22000000.0 0)
+      (layer "F.SilkS")
+      (effects (font (size 1e6 1e6) (thickness 0.15)))
+    )
+  )
