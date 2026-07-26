@@ -1,346 +1,178 @@
-# MykoVolt Sensor Board — Shopping List & Procurement Guide
+# MykoVolt Sensor Board — Shopping List
 
-> **Board:** DevKit v0.1 | **Qty:** 5 prototype boards + 2 spare sets
-> **Total Budget:** ~€155 | **Last Updated:** 2026-07-26
-
----
-
-## How to Use This List
-
-1. **Order PCB + stencil** from JLCPCB first (longest lead time: 5-7 days)
-2. **Order all components** from Mouser + Digikey in one go (saves shipping)
-3. **Order tools & consumables** from Reichelt (local, fast delivery)
-4. **Assembly** — founder hand-solders prototypes (see skill-level notes below)
+> **Qty:** 5 prototype boards + spares | **Budget:** ~€300 | **Last updated:** 2026-07-26
 
 ---
 
-## Section 1: Integrated Circuits (ICs)
+## How to Order
 
-Order these from **Mouser** (best stock × price combo). Buy **10× each** to have spares.
-
-| Ref | Part | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|------|---------|:---:|-----------|----------:|----------:|
-| U1 | **STM32L011K4** | TSSOP-20 | 10 | [511-STM32L011K4](https://mou.sr/4f3abc) | €2.15 | €21.50 |
-| U2 | **BQ25570** | QFN-20 (3.5×3.5) | 10 | [595-BQ25570](https://mou.sr/4f3def) | €3.95 | €39.50 |
-| U3 | **ST25DV04K** | SO-8 | 10 | [511-ST25DV04K](https://mou.sr/4f3ghi) | €1.35 | €13.50 |
-| U4 | **MB85RC16** | SO-8 | 10 | [865-MB85RC16PNF-G](https://www.digikey.de/products/de?keywords=MB85RC16PNF-G) | €2.10 | €21.00 |
-| U5 | **PCF8523** | SO-8 | 10 | [771-PCF8523T/1](https://mou.sr/4f3mno) | €0.75 | €7.50 |
-| U6 | **FDC1004** | WSON-10 (3×3) | 10 | [595-FDC1004DSC](https://mou.sr/4f3pqr) | €3.15 | €31.50 |
-| | | | **60** | | **Total ICs** | **€134.50** |
-
-**⚠️ JLCPCB assembly note:** BQ25570 is a basic part at JLCPCB. ST25DV04K, MB85RC16, and FDC1004 are **not stocked** at JLCPCB — must hand-solder these.
-
-**💡 Alternative for cost reduction (100+ qty):**
-| Part | 100pc Price | Save vs 10pc |
-|------|:----------:|:-----------:|
-| STM32L011K4 | €1.52 | −29% |
-| BQ25570 | €3.20 | −19% |
-| ST25DV04K | €0.95 | −30% |
-| MB85RC16 | €1.65 | −21% |
-| PCF8523 | €0.52 | −31% |
-| FDC1004 | €2.55 | −19% |
+1. **Mouser** — one basket for all components (€200)
+2. **JLCPCB** — 5× PCBs + stencil (€18)
+3. **Reichelt/Amazon** — tools & consumables (€80)
 
 ---
 
-## Section 2: Passives — Resistors
+## 1. ICs (buy 10× each)
 
-**Size:** 0603 (1608 metric) — manually solderable, JLCPCB standard.  
-**Tolerance:** 1% for all signal/divider resistors, 5% for pull-ups OK.  
-**Order:** 100× each from **Mouser**.
+| Ref | Part | Package | Qty | Mouser SKU | Price | Link |
+|-----|------|---------|:---:|------------|:-----:|------|
+| U1 | STM32L011K4 | TSSOP-20 | 10 | 511-STM32L011K4 | €21.50 | [Mouser](https://www.mouser.de/c/?q=511-STM32L011K4) |
+| U2 | BQ25570 | QFN-20 | 10 | 595-BQ25570 | €39.50 | [Mouser](https://www.mouser.de/c/?q=595-BQ25570) |
+| U3 | ST25DV04K | SO-8 | 10 | 511-ST25DV04K | €13.50 | [Mouser](https://www.mouser.de/c/?q=511-ST25DV04K) |
+| U4 | MB85RC16 | SO-8 | 10 | 342-MB85RC16PNF-G | €21.00 | [Mouser](https://www.mouser.de/c/?q=342-MB85RC16PNF-G) |
+| U5 | PCF8523T/1,118 | SO-8 | 10 | 771-PCF8523T/1,118 | €7.50 | [Mouser](https://www.mouser.de/c/?q=771-PCF8523T/1,118) |
+| U6 | FDC1004DSCR | WSON-10 | 10 | 595-FDC1004DSC | €31.50 | [Mouser](https://www.mouser.de/c/?q=595-FDC1004DSC) |
 
-| Ref | Value | Qty | Mouser PN | Price 100 | Line Total |
-|-----|-------|:---:|-----------|----------:|----------:|
-| R1, R2 | **2.2 kΩ** (I²C pull-up) | 100 | [71-CRCW06032K20F](https://mou.sr/) | €0.005 | €0.50 |
-| R3, R4 | **47 kΩ** (BQ25570 MPPT div) | 100 | [71-CRCW060347K0F](https://mou.sr/) | €0.005 | €0.50 |
-| R5, R6 | **510 kΩ** (BQ25570 VBAT_OK) | 100 | [71-CRCW0603510KF](https://mou.sr/) | €0.005 | €0.50 |
-| R7, R8 | **1.0 MΩ** (BQ25570 VOUT_SET) | 100 | [71-CRCW06031M00F](https://mou.sr/) | €0.005 | €0.50 |
-| R9 | **100 kΩ** (Vbatt divider upper) | 100 | [71-CRCW0603100KF](https://mou.sr/) | €0.005 | €0.50 |
-| R10 | **220 kΩ** (Vbatt divider lower) | 100 | [71-CRCW0603220KF](https://mou.sr/) | €0.005 | €0.50 |
-| R11 | **22 Ω** (SWDIO series) | 100 | [71-CRCW060322R0F](https://mou.sr/) | €0.005 | €0.50 |
-| R12 | **100 Ω** (SWCLK series) | 100 | [71-CRCW0603100RF](https://mou.sr/) | €0.005 | €0.50 |
-| | | **800** | | **Total** | **€4.00** |
+## 2. Resistors (0603, 1%, buy 100× each)
 
-**💡 Tip:** Buy an RC0603 assorted kit instead — [e.g. this 1600-piece kit from Mouser](https://mou.sr/) (~€15). Gives you all values plus extras for future boards.
+| Value | Used For | Mouser SKU | Price/100 | Link |
+|-------|----------|------------|:---------:|------|
+| 2.2 kΩ | I²C pull-up | 71-CRCW06032K20F | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW06032K20F) |
+| 47 kΩ | MPPT divider | 71-CRCW060347K0F | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW060347K0F) |
+| 510 kΩ | VBAT_OK set | 71-CRCW0603510KF | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW0603510KF) |
+| 1 MΩ | VOUT_SET | 71-CRCW06031M00F | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW06031M00F) |
+| 100 kΩ | Vbatt div upper | 71-CRCW0603100KF | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW0603100KF) |
+| 220 kΩ | Vbatt div lower | 71-CRCW0603220KF | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW0603220KF) |
+| 22 Ω | SWDIO series | 71-CRCW060322R0F | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW060322R0F) |
+| 100 Ω | SWCLK series | 71-CRCW0603100RF | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW0603100RF) |
+| 330 Ω | LED current limit | 71-CRCW0603330RF | €0.50 | [Mouser](https://www.mouser.de/c/?q=71-CRCW0603330RF) |
 
----
+💡 **Or buy an 0603 resistor kit** (e.g. [YAGEO RC0603 kit](https://www.mouser.de/c/?q=0603+resistor+kit)) for ~€15 — covers all values.
 
-## Section 3: Passives — Capacitors
+## 3. Capacitors (buy 100× each)
 
-**Dielectric:** X7R for decoupling (stable over temp), C0G/NP0 for timing/resonant circuits.  
-**Voltage rating:** ≥10V (derated from 6.3V for ceramic — DC bias reduces capacitance).  
-**Order:** 100× each from **Mouser**.
+| Value | Dielectric | Size | Used For | Mouser SKU | Price/100 | Link |
+|-------|-----------|:----:|----------|------------|:---------:|------|
+| 100 nF | X7R 16V | 0603 | Decoupling | 81-GRM188R71C104K | €0.80 | [Mouser](https://www.mouser.de/c/?q=81-GRM188R71C104K) |
+| 1 µF | X5R 10V | 0603 | Decoupling | 81-GRM188R61A105K | €1.50 | [Mouser](https://www.mouser.de/c/?q=81-GRM188R61A105K) |
+| 10 µF | X5R 6.3V | 0805 | BQ output | 81-GRM21BR60J106K | €2.50 | [Mouser](https://www.mouser.de/c/?q=81-GRM21BR60J106K) |
+| 22 pF | C0G 50V | 0603 | Xtal load | 81-GRM1885C1H220J | €0.80 | [Mouser](https://www.mouser.de/c/?q=81-GRM1885C1H220J) |
+| 100 pF | C0G 50V | 0603 | Filter | 81-GRM1885C1H101J | €0.80 | [Mouser](https://www.mouser.de/c/?q=81-GRM1885C1H101J) |
+| 47 pF | C0G 50V | 0603 | NFC tune | 81-GRM1885C1H470J | €0.80 | [Mouser](https://www.mouser.de/c/?q=81-GRM1885C1H470J) |
+| 4.7 µF | X5R 10V | 0603 | BQ input | 81-GRM188R61A475K | €1.80 | [Mouser](https://www.mouser.de/c/?q=81-GRM188R61A475K) |
 
-| Ref | Value | Dielectric | Size | Qty | Mouser PN | Price 100 | Line Total |
-|-----|-------|-----------|:----:|:---:|-----------|----------:|----------:|
-| C1–C10 | **100 nF** | X7R, 16V | 0603 | 100 | [81-GRM188R71C104K](https://mou.sr/) | €0.008 | €0.80 |
-| C11–C13 | **1 µF** | X5R, 10V | 0603 | 100 | [81-GRM188R61A105K](https://mou.sr/) | €0.015 | €1.50 |
-| C14, C15 | **10 µF** | X5R, 6.3V | 0805* | 100 | [81-GRM21BR60J106K](https://mou.sr/) | €0.025 | €2.50 |
-| C16, C17 | **22 pF** | C0G, 50V | 0603 | 100 | [81-GRM1885C1H220J](https://mou.sr/) | €0.008 | €0.80 |
-| C18, C19 | **100 pF** | C0G, 50V | 0603 | 100 | [81-GRM1885C1H101J](https://mou.sr/) | €0.008 | €0.80 |
-| C20 | **47 pF** | C0G, 50V | 0603 | 100 | [81-GRM1885C1H470J](https://mou.sr/) | €0.008 | €0.80 |
-| C21 | **4.7 µF** | X5R, 10V | 0603 | 100 | [81-GRM188R61A475K](https://mou.sr/) | €0.018 | €1.80 |
-| | | | | **700** | | **Total Caps** | **€9.00** |
+## 4. Inductors & Crystal (buy 10×)
 
-*\*C14, C15 (10 µF) in 0805 for lower DC bias derating at 3.3V — 0603 10 µF drops to ~4 µF at 3.3V.*
+| Ref | Value | Size | Mouser SKU | Price | Link |
+|-----|-------|------|------------|:-----:|------|
+| L1 | 10 µH, 2A sat | 4×4×2 mm | 963-MLPD2012A100M | €3.50 | [Mouser](https://www.mouser.de/c/?q=963-MLPD2012A100M) |
+| L2 | 47 µH, 0.5A sat | 3×3×1.5 mm | 810-MLZ2012A470M | €2.80 | [Mouser](https://www.mouser.de/c/?q=810-MLZ2012A470M) |
+| X1 | 32.768 kHz, ±20 ppm, 12.5 pF | 3.2×1.5 mm | 732-SM32K32768K20 | €4.50 | [Mouser](https://www.mouser.de/c/?q=732-SM32K32768K20) |
 
----
+**⚠️ L1 critical:** Must handle 2A saturation for BQ25570 cold-start. Do not substitute.
 
-## Section 4: Inductors
+## 5. Supercap & ESD (buy 10×)
 
-| Ref | Value | Size | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|-------|:----:|:---:|-----------|----------:|----------:|
-| L1 | **10 µH, 2A sat** | 4×4×2 mm | 10 | [963-MLPD2012A100M](https://mou.sr/) | €0.35 | €3.50 |
-| L2 | **47 µH, 0.5A sat** | 3×3×1.5 mm | 10 | [810-MLZ2012A470M](https://mou.sr/) | €0.28 | €2.80 |
-| | | | **20** | | **Total** | **€6.30** |
+| Ref | Part | Mouser SKU | Price | Link |
+|-----|------|------------|:-----:|------|
+| SC1 | 100 mF, 3.6 V, <5 µA leakage | 598-DGH336Q3R6 | €12.00 | [Mouser](https://www.mouser.de/c/?q=598-DGH336Q3R6) |
+| D1 | USBLC6-2P6 (NFC ESD) | 511-USBLC6-2P6 | €3.50 | [Mouser](https://www.mouser.de/c/?q=511-USBLC6-2P6) |
+| D2 | PESD5V0S1UB (VDD TVS) | 771-PESD5V0S1UB | €1.20 | [Mouser](https://www.mouser.de/c/?q=771-PESD5V0S1UB) |
 
-**L1 critical:** Must handle 2A saturation (BQ25570 has high peak inductor current during cold-start).  
-**Do not substitute** with smaller inductor — system won't start.
+**Supercap selection note:** Leakage current is the dominant power drain in standby. The DGH series has <3 µA typical. For lower leakage (but smaller capacitance), consider Seiko CPH3225A (11 mF, <0.5 µA — Mouser [667-CPH3225A](https://www.mouser.de/c/?q=667-CPH3225A)).
 
----
+## 6. Transistor & LEDs (buy 10×)
 
-## Section 5: Crystal
+| Ref | Part | Mouser SKU | Price | Link |
+|-----|------|------------|:-----:|------|
+| Q1 | SI1308EDL (P-MOS load switch) | 781-SI1308EDL-T1-GE3 | €2.50 | [Mouser](https://www.mouser.de/c/?q=781-SI1308EDL-T1-GE3) |
+| LED1 | Green LED 0603 (power) | 78-VAOL-S6GT4 | €0.80 | [Mouser](https://www.mouser.de/c/?q=78-VAOL-S6GT4) |
+| LED2 | Yellow LED 0603 (status) | 78-VAOL-S6YT4 | €0.80 | [Mouser](https://www.mouser.de/c/?q=78-VAOL-S6YT4) |
 
-| Ref | Value | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|-------|---------|:---:|-----------|----------:|----------:|
-| X1 | **32.768 kHz, ±20 ppm, 12.5 pF** | 3.2×1.5 mm SMD | 10 | [732-SM32K32768K20](https://mou.sr/) | €0.45 | €4.50 |
+## 7. Connectors (buy 10×)
 
-**Alternative (cheaper):** [AB38T-32.768kHz-12.5pF](https://mou.sr/) — €0.28 each, cylinder package, easier to hand-solder.
+| Ref | Type | Mouser SKU | Price | Link |
+|-----|------|------------|:-----:|------|
+| J1 | 2×5 box header SH, 1.27 mm (SWD) | 855-FTSH-105-01-L-DV-K | €5.50 | [Mouser](https://www.mouser.de/c/?q=855-FTSH-105-01-L-DV-K) |
+| J2, J3 | JST PH 2-pin header, 2.0 mm | 306-PH2RA2WS | €5.00 | [Mouser](https://www.mouser.de/c/?q=306-PH2RA2WS) |
+| — | JST PH housing (mating) | 306-PHR-2 | €0.50 | [Mouser](https://www.mouser.de/c/?q=306-PHR-2) |
+| — | Crimp pins female | 306-BPH-002T-P0.5S | €0.60 | [Mouser](https://www.mouser.de/c/?q=306-BPH-002T-P0.5S) |
+| J4 | Test point loop | 710-5001 | €1.60 | [Mouser](https://www.mouser.de/c/?q=710-5001) |
+| — | Silicone wire 24 AWG, 1 m | — | ~€3 | Local |
 
----
+Also need: **2×5 ribbon cable 1.27 mm pitch** + **ST-Link/V2 programmer** (~€15 from Reichelt).
 
-## Section 6: Supercapacitor
+## 8. PCB (JLCPCB)
 
-| Ref | Value | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|-------|---------|:---:|-----------|----------:|----------:|
-| SC1 | **100 mF, 3.6V, <5 µA leakage** | 8×12 mm radial | 10 | [598-DGH336Q3R6](https://mou.sr/) | €1.20 | €12.00 |
+| Parameter | Selection | Cost |
+|-----------|-----------|:----:|
+| Dimensions | 30×20 mm | — |
+| Layers | 4 | — |
+| Thickness | 0.8 mm | — |
+| Copper | 1 oz all layers | — |
+| Finish | **ENIG** | +€5 |
+| Min trace/space | 0.3 mm / 0.3 mm | — |
+| Qty | **5 pcs** | ~€8 |
+| Stencil | Electropolished, 0.12 mm | +€4 |
+| Shipping | DHL | ~€6 |
+| **Total** | | **~€18** |
 
-**Selection rationale (based on simulation):**
-- Leakage current is the #1 power drain in the conservative case (5 µA × 3.3V = 16.5 µW)
-- The DGH series has **<3 µA leakage** at 3.6V (better than generic 5 µA)
-- 100 mF provides: 0.5 × 0.1 × (3.3² − 2.0²) / 3600 = **18.7 µWh** of usable energy
-- This buffers ~2.5 hours of operation without pressling power
-- For 30-day deployment: **add optional LiPo backup** (see Section 12)
+**⚠️ JLCPCB assembly:** Only BQ25570, PCF8523, and passives are in basic parts. ST25DV04K, MB85RC16, FDC1004 are not stocked — hand-solder these.
 
-**⛔ Avoid:** Large can supercaps (≥1F) — their leakage is 10-50 µA and they're physically too big for the 30×20 mm board.
+## 9. Tools & Consumables (one-time)
 
----
+| Item | Use | Price | Where |
+|------|-----|:-----:|-------|
+| Hot air station (≥200°C, 3 mm nozzle) | QFN, WSON soldering | ~€80 | Reichelt / Amazon |
+| Soldering iron (0.3 mm tip, 320°C) | TSSOP, SO-8, 0603 | ~€40 | Hakko FX-600 |
+| DMM with µA resolution | Quiescent current | ~€30 | Uni-T UT61E |
+| Digital microscope 10–20× | QFN inspection | ~€25 | Amazon USB |
+| ST-Link/V2 debugger | SWD programming | ~€15 | Reichelt |
+| SAC305 solder paste, syringe | Reflow | ~€8 | Reichelt |
+| Flux pen | QFN rework | ~€5 | Reichelt |
+| Solder wick 2 mm | Touch-up | ~€3 | Reichelt |
+| ESD tweezers (straight + curved) | Placement | ~€10 | Reichelt |
+| Isopropyl alcohol 99%, 250 ml | Cleaning | ~€5 | Pharmacy |
+| Breadboard + jumper wires | Testing | ~€8 | Reichelt |
+| **Total tools** | | **~€80** | |
 
-## Section 7: ESD Protection
-
-| Ref | Part | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|------|---------|:---:|-----------|----------:|----------:|
-| D1 | **USBLC6-2P6** (NFC antenna ESD) | SOT-666 | 10 | [511-USBLC6-2P6](https://mou.sr/) | €0.35 | €3.50 |
-| D2 | **PESD5V0S1UB** (VDD rail TVS) | SOD-523 | 10 | [771-PESD5V0S1UB](https://mou.sr/) | €0.12 | €1.20 |
-| | | | **20** | | **Total** | **€4.70** |
-
----
-
-## Section 8: Transistors
-
-| Ref | Part | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|------|---------|:---:|-----------|----------:|----------:|
-| Q1 | **SI1308EDL** (P-MOSFET load switch) | SOT-323 (SC-70) | 10 | [781-SI1308EDL-T1-GE3](https://mou.sr/) | €0.25 | €2.50 |
-
-**Why SI1308EDL:** Lowest Rds(on) (≈50 mΩ) at 1.8V Vgs — critical for 3.3V rail switching with minimal voltage drop.
-
----
-
-## Section 9: LEDs (Optional — Debug Only)
-
-| Ref | Color | Package | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|-------|---------|:---:|-----------|----------:|----------:|
-| LED1 | **Green** (power indicator) | 0603 SMD | 10 | [78-VAOL-S6GT4](https://mou.sr/) | €0.08 | €0.80 |
-| LED2 | **Yellow** (status/activity) | 0603 SMD | 10 | [78-VAOL-S6YT4](https://mou.sr/) | €0.08 | €0.80 |
-| | **330 Ω current-limit resistors** | 0603 | 20 | [71-CRCW0603330RF](https://mou.sr/) | €0.005 | €0.10 |
-| | | | **20** | | **Total** | **€1.70** |
-
-**Production note:** Leave LEDs unpopulated for deployed units (saves ~3 µA total). Only needed for debugging.
-
----
-
-## Section 10: Connectors
-
-| Ref | Type | Pitch | Qty | Mouser PN | Price 1pc | Line Total |
-|-----|------|:----:|:---:|-----------|----------:|----------:|
-| J1 | **2×5 box header, SH type** (SWD debug) | 1.27 mm | 10 | [855-FTSH-105-01-L-DV-K](https://mou.sr/) | €0.55 | €5.50 |
-| J2 | **JST PH 2-pin** (pressling input) | 2.0 mm | 10 | [306-PH2RA2WS](https://mou.sr/) | €0.25 | €2.50 |
-| J3 | **JST PH 2-pin** (aux sensor, optional) | 2.0 mm | 10 | (same as J2) | €0.25 | €2.50 |
-| J4 | **Test points, loop type** (Vbatt, 3.3V, GND) | — | 20 | [710-5001](https://mou.sr/) | €0.08 | €1.60 |
-| | **Matching connector housings** (for pressling cable) | | 10 | [306-PHR-2](https://mou.sr/) | €0.05 | €0.50 |
-| | **Crimp pins** (for pressling cable) | | 20 | [306-BPH-002T-P0.5S](https://mou.sr/) | €0.03 | €0.60 |
-| | **24 AWG silicone wire, 1m** (pressling leads) | — | 2 | [602-160-1001-2-4-](https://mou.sr/) | €2.50 | €5.00 |
-| | | | | | **Total** | **€18.20** |
-
-**⚠️ SWD header:** Get a matching 2×5 ribbon cable with 1.27mm pitch connector and ST-Link/V2 programmer.
-
----
-
-## Section 11: PCB & Assembly
-
-### PCB Order — JLCPCB
-
-| Parameter | Selection | 
-|-----------|-----------|
-| Dimensions | 30 × 20 mm |
-| Layers | 4 |
-| Thickness | 0.8 mm |
-| Copper weight | 1 oz all layers |
-| Surface finish | **ENIG** (gold) — required for NFC antenna and ENIG electrode durability |
-| Min trace/space | 0.3 mm / 0.3 mm |
-| Min via | 0.3 mm |
-| Via process | Tented & filled (for QFN thermal pad) |
-| Color | Green (default — cheapest) |
-| Quantity | **5 pcs** |
-| Stencil | **Included** (electropolished, for paste) |
-| **Cost** | **~€18** (5 pcs + stencil + ENIG + shipping) |
-
-**Ordering steps:**
-1. Upload Gerber files (need to generate from KiCad/EDA)
-2. Select "ENIG" surface finish (€5 surcharge for 5 pcs — worth it)
-3. Select "Stencil" — electropolished, 0.12 mm thickness
-4. Select "PCB Assembly" — BUT only BQ25570 + PCF8523 + passives are in basic parts
-5. Uncheck assembly for ST25DV04K, MB85RC16, FDC1004 (not in JLCPCB stock)
-6. **Recommended:** Order bare PCB + stencil, hand-solder everything
-
----
-
-## Section 12: Optional — LiPo Backup Battery
-
-For deployments >30 days or where pressling may dry out:
-
-| Part | Qty | Supplier | Price | Line Total |
-|------|:---:|----------|------:|----------:|
-| **Lithium Polymer 50 mAh 3.7V** (10×15×4 mm) | 2 | [Adafruit 2750](https://www.adafruit.com/product/2750) | €4.95 | €9.90 |
-| **MCP73831 LiPo charger** (SOT-23-5) | 5 | [Mouser 579-MCP73831T-2ACI/OT](https://mou.sr/) | €0.45 | €2.25 |
-| **Schottky diode** (BAT54, OR-ing pressling/LiPo) | 10 | [Mouser 771-BAT54](https://mou.sr/) | €0.08 | €0.80 |
-| **Total backup option** | | | | **€12.95** |
-
-**When to add:** Only if customer requires >30-day unattended operation. Adds 10×10mm to board area.
-
----
-
-## Section 13: Tools & Consumables
-
-### Required Tools (if you don't have them)
-
-| Tool | Use | Price | Supplier | 
-|------|-----|------|----------|
-| **Hot air station** (≥200°C, 3mm nozzle) | QFN-20, WSON-10 soldering | ~€80 | Reichelt / Amazon |
-| **Soldering iron** (0.3mm tip, 320°C) | TSSOP-20, SO-8, 0603 | ~€40 | Hakko FX-600 |
-| **Digital multimeter** (µA resolution) | Quiescent current measurement | ~€30 | Uni-T UT61E |
-| **Oscilloscope** (2-ch, ≥20 MHz) | I²C debugging, power rail | ~€100 | Rigol DS1054Z (used) |
-
-### Consumables (per prototype batch)
-
-| Item | Qty | Price | Supplier |
-|------|:---:|------|----------|
-| **SAC305 solder paste** (syringe, no-clean) | 1 | €8.00 | Reichelt |
-| **Flux pen** (for QFN rework) | 1 | €5.00 | Reichelt |
-| **Solder wick** (2mm, for touch-up) | 1 | €3.00 | Reichelt |
-| **Isopropyl alcohol 99%** (for cleaning) | 250 ml | €5.00 | Local pharmacy |
-| **ESD tweezers** (fine tip, straight+curved) | 2 | €10.00 | Reichelt |
-| **Microscope** (10-20×, for QFN inspection) | 1 | €25.00 | Amazon USB microscope |
-| **ST-Link/V2** (SWD debugger) | 1 | €15.00 | Reichelt |
-| **USB-micro cable** (for debugger) | 1 | €3.00 | Local |
-| **Breadboard + jumper wires** (testing) | 1 | €8.00 | Reichelt |
-| **Total consumables** | | **€82.00** | |
-
----
-
-## Section 14: Price Summary
+## 10. Cost Summary
 
 | Category | Cost |
 |----------|:----:|
-| ICs (10× each) | €134.50 |
-| Resistors (100× each) | €4.00 |
-| Capacitors (100× each) | €9.00 |
-| Inductors (10× each) | €6.30 |
-| Crystal (10×) | €4.50 |
-| Supercap 100 mF (10×) | €12.00 |
-| ESD protection (10×) | €4.70 |
-| P-MOSFET load switch (10×) | €2.50 |
-| LEDs + resistors (debug) | €1.70 |
-| Connectors + wiring | €18.20 |
-| PCB 5 pcs + stencil (JLCPCB) | €18.00 |
-| **Subtotal (components + PCB)** | **€215.40** |
-| Tools & consumables (one-time) | €82.00 |
-| **Total prototype investment** | **€297.40** |
+| ICs (10×) | €134.50 |
+| Passives (100×) | ~€15.00 |
+| Inductors + crystal (10×) | €10.80 |
+| Supercap + ESD (10×) | €16.70 |
+| MOSFET + LEDs (10×) | €4.10 |
+| Connectors + wire (10×) | ~€20.00 |
+| **Subtotal (components)** | **~€200** |
+| PCB 5 pcs + stencil | €18.00 |
+| **Subtotal (hardware)** | **~€218** |
+| Tools & consumables (one-time) | ~€80 |
+| **Total prototype investment** | **~€298** |
 
-### Per-Board Cost Breakdown
+### Per-board at scale
 
-| Scenario | Cost/Board |
+| Scenario | Cost/board |
 |----------|:----------:|
-| **Prototype** (5 boards, full component qty) | **€43.08** |
-| **After tools amortized** (over 5 boards) | **€59.48** |
-| **Pilot 100 pcs** (JLCPCB assembled, 100pc IC pricing) | **€13.22** |
-| **Mass 1000 pcs** (full SMT, 1k IC pricing) | **~€8.50** |
+| Prototype (5 boards, full qty) | ~€43 |
+| Pilot (100 boards, JLCPCB assembled) | **~€14** |
+| Mass (1000 boards, full SMT) | **~€8.50** |
 
-### What's NOT Included (future spending)
+## 11. Ordering Schedule
 
-| Item | Estimated Cost | When |
-|------|:-------------:|:----:|
-| NFC phone for testing (used Android with NFC) | €50 | Before testing |
-| Environmental chamber (temp/humidity control) | €200 | For validation |
-| Fungal pressling materials (mycelium + substrate) | €30 | For integration test |
-| EMC pre-compliance scan | €500 | Before product launch |
-
----
-
-## Section 15: Ordering Checklist
-
-### Week 1 — Order Everything
-
-- [ ] **JLCPCB** — 5× 30×20mm 4-layer ENIG PCBs + stencil — **~€18**
-- [ ] **Mouser** — all ICs, passives, inductors, crystal, supercap, ESD, MOSFET, LEDs — **~€180**
-- [ ] **Mouser** — connectors (JST PH, SWD header), test points, crimp pins — **~€20**
-- [ ] **Mouser** — spare parts (10× each IC, 100× each passive) — included above
-- [ ] **Reichelt** — ST-Link/V2 debugger, solder paste, flux, wick, tweezers — **~€40**
-- [ ] **Local** — isopropyl alcohol, USB cables — **~€10**
+### Week 1 — Order
+- [ ] JLCPCB: 5× 4-layer ENIG PCBs + stencil
+- [ ] Mouser: all components in one basket
+- [ ] Reichelt: ST-Link, solder paste, flux, wick, tweezers
+- [ ] Amazon: hot air station (if needed)
 
 ### Week 2 — Build
-
-- [ ] Receive PCBs from JLCPCB (5-7 day lead time)
-- [ ] Receive components from Mouser (3-5 day shipping)
-- [ ] Apply solder paste through stencil
-- [ ] Place all components using tweezers + microscope
-- [ ] Reflow: hot air for QFN/WSON, iron for TSSOP/SO-8
-- [ ] Inspect under microscope — reflow any bridges
-- [ ] Clean with isopropyl alcohol
+- [ ] Receive PCBs + components
+- [ ] Stencil paste → place parts → reflow (hot air + iron)
+- [ ] Inspect under microscope → clean with IPA
 
 ### Week 3 — Test
-
-- [ ] **Power-up test:** Connect 0.5V lab supply → measure 3.3V output
-- [ ] **I²C scan:** Verify all 4 devices detected (0x50, 0x51, 0x52, 0x53)
-- [ ] **NFC test:** Tap phone → read ST25DV04K
-- [ ] **Quiescent current:** Measure <5 µA in sleep mode
-- [ ] **Pressling test:** Connect real fungal pressling → verify 3.3V regulation
-- [ ] **Capacitive sensor:** Place in soil → read FDC1004 values
-- [ ] **Full system:** Run for 7 days, read NFC data at end
+- [ ] Power-up: 0.5 V supply → 3.3 V output ✓
+- [ ] I²C scan: 0x50, 0x51, 0x52, 0x53 ✓
+- [ ] NFC: phone tap → read tag ✓
+- [ ] Quiescent: <5 µA sleep ✓
+- [ ] Pressling: real fungal MFC → 3.3 V regulated ✓
+- [ ] 7-day soil box test → NFC readout ✓
 
 ---
 
-## Section 16: Simulation Validation
-
-The PCB power simulation (see `simulation/pcb_power_sim.py`) predicts:
-
-| Metric | Typical | Conservative |
-|--------|:-------:|:------------:|
-| Pressling output (avg) | 24.0 µW | 20.8 µW |
-| After BQ25570 boost | 13.3 µW | 11.2 µW |
-| Board consumption (avg) | **8.07 µW** | **17.97 µW** |
-| Energy margin | **1.65×** | **0.62×** |
-| 7-day survival rate | **100%** | **0%** |
-| Supercap min voltage | 3.597 V | 2.000 V (brown-out) |
-| Max deployment lifetime | ~37 days | <1 day |
-
-**Critical finding:** The bottleneck is **supercap leakage**. In conservative mode, 5 µA leakage × 3.3V = 16.5 µW dominates the 17.97 µW consumption. The recommended supercap (DGH series, <3 µA leakage) improves this, but for robust deployment:
-
-1. **Use typical parameters** — with 24 µW pressling output, the system has 1.65× margin
-2. **Low-leakage supercap (<3 µA)** — halves the standby power
-3. **Optional LiPo backup** (Section 12) for >30-day deployments
-4. **Key metric to validate experimentally:** actual pressling power output at 15°C and 30°C
-
----
-
-*Questions? Contact founder at mykovolt@pm.me*
-*Simulation: `python3 simulation/pcb_power_sim.py --help`*
+*Questions: mykovolt@pm.me*  
+*Full design: `sensor_board_design.md`*  
+*Simulation: `python3 ../simulation/pcb_power_sim.py`*
