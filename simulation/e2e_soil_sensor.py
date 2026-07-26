@@ -311,6 +311,7 @@ class SoilSensorSimulator:
 
 def plot_lifetime_heatmap(sim, filename="e2e_lifetime_heatmap.png"):
     """Plot lifetime as function of measurement interval and moisture."""
+    import copy
     intervals = [60, 300, 600, 900, 1800, 3600]  # seconds
     moistures = [5, 10, 15, 20, 25, 30, 40]
     lifetime_matrix = np.zeros((len(intervals), len(moistures)))
@@ -323,7 +324,6 @@ def plot_lifetime_heatmap(sim, filename="e2e_lifetime_heatmap.png"):
             res = SoilSensorSimulator(c).run()
             lifetime_matrix[i, j] = res.total_lifetime_days
 
-    import copy
 
     fig, ax = plt.subplots(figsize=(10, 7))
     im = ax.imshow(lifetime_matrix, cmap="YlGn", aspect="auto", vmin=0, vmax=30)
@@ -492,22 +492,15 @@ COMPETITOR_BATTERIES = [
 # 8. MAIN
 # =============================================================================
 
-if __name__ == "__main__":
+def run_e2e(config_override=None, skip_plots=False):
     import copy
-
-    print("#" * 60)
-    print("#  E2E SIMULATION: SOIL MOISTURE SENSOR TAG")
-    print("#  Fungal Bio-Battery → Field → Compost")
-    print("#" * 60)
-
-    # ── Default configuration ──
-    config = SystemConfig(
-        soil_type="loam",
-        moisture_pct=25.0,
-        measurement_interval_s=900,  # every 15 minutes
-        target_lifetime_days=7.0,
-        nfc_reads_per_day=2,
-    )
+    config = SystemConfig()
+    if config_override:
+        for k, v in config_override.items():
+            if hasattr(config, k):
+                setattr(config, k, v)
+            elif hasattr(config.battery, k):
+                setattr(config.battery, k, v)
 
     sim = SoilSensorSimulator(config)
     result = sim.run()
@@ -517,6 +510,7 @@ if __name__ == "__main__":
     print(f"   Measurement:     every {config.measurement_interval_s/60:.0f} minutes")
     print(f"   Target lifetime: {config.target_lifetime_days} days")
     print(f"   NFC reads/day:   {config.nfc_reads_per_day}")
+    print(f"   Power density:   {config.battery.power_density_uw_cm2} µW/cm²")
 
     print(f"\n📊 RESULTS")
     print(f"   {'✅ VIABLE' if result.viable else '❌ NOT VIABLE'} — "
@@ -579,14 +573,22 @@ if __name__ == "__main__":
         eps_25 = soil_epsilon(soil, 25)
         print(f"   {soil:10s} εr={eps_25:.1f} → {res.total_lifetime_days:.1f} days {'✅' if res.viable else '❌'}")
 
-    print(f"\n📊 SENSITIVITY: BATTERY SIZE vs LIFETIME (loam, 25%, 15min)")
+    print(f"\n📊 SENSITIVITY: BATTERY AREA vs LIFETIME (loam, 25%, 15min)")
     for area in [0.5, 1.0, 2.0, 4.0, 6.0]:
         c = copy.deepcopy(config)
         c.battery.area_cm2 = area
         res = SoilSensorSimulator(c).run()
         mass = area * 0.05 * 1.2
-        power = area * 260
+        power = area * config.battery.power_density_uw_cm2
         print(f"   {area:<4.1f} cm²  {power:4.0f} µW  {mass:.2f}g → {res.total_lifetime_days:.1f} days {'✅' if res.viable else '❌'}")
+
+    # ── POWER DENSITY SWEEP (what power density do we need for viability?) ──
+    print(f"\n📊 SENSITIVITY: MINIMUM POWER DENSITY for 7-day target (loam, 25%, 15min)")
+    for pd in [5, 10, 12.5, 25, 50, 100, 150, 200, 260]:
+        c = copy.deepcopy(config)
+        c.battery.power_density_uw_cm2 = pd
+        res = SoilSensorSimulator(c).run()
+        print(f"   {pd:>5.0f} µW/cm² → {res.total_lifetime_days:.1f} days {'✅' if res.viable else '❌'}")
 
     # ── Analysis summary ──
     print(f"\n" + "=" * 60)
@@ -626,4 +628,58 @@ if __name__ == "__main__":
     plot_cost_comparison()
     plot_lifetime_vs_interval(sim)
 
-    print(f"\n  Done. {4} plots saved.")
+    return result
+
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="MykoVolt E2E Soil Sensor Simulation")
+    parser.add_argument("--empa-baseline", action="store_true",
+                        help="Run at Empa 2024 demonstrated power (12.5 \u00b5W/cm\u00b2) "
+                             "instead of simulation target (260 \u00b5W/cm\u00b2)")
+    parser.add_argument("--conservative", action="store_true",
+                        help="Run at conservative estimate (50 \u00b5W/cm\u00b2)")
+    parser.add_argument("--power-density", type=float,
+                        help="Custom power density in \u00b5W/cm\u00b2")
+    parser.add_argument("--interval", type=float, default=900,
+                        help="Measurement interval in seconds (default: 900 = 15min)")
+    parser.add_argument("--no-plots", action="store_true",
+                        help="Skip generating plot images")
+    parser.add_argument("--json", type=str,
+                        help="Export results to JSON file")
+    args = parser.parse_args()
+
+    print("#" * 60)
+    print("#  E2E SIMULATION: SOIL MOISTURE SENSOR TAG")
+    print("#  Fungal Bio-Battery \u2192 Field \u2192 Compost")
+    print("#" * 60)
+
+    # Determine power density
+    if args.empa_baseline:
+        pd = 12.5
+        print(f"\n\U0001f52c MODE: Empa Baseline (12.5 \u00b5W/cm\u00b2 \u2014 TRL 2 demonstrated)")
+    elif args.conservative:
+        pd = 50.0
+        print(f"\n\U0001f52c MODE: Conservative Estimate (50 \u00b5W/cm\u00b2 \u2014 50% of simulation target)")
+    elif args.power_density:
+        pd = args.power_density
+        print(f"\n\U0001f52c MODE: Custom Power Density ({pd} \u00b5W/cm\u00b2)")
+    else:
+        pd = 260.0
+        print(f"\n\U0001f680 MODE: Simulation Target (260 \u00b5W/cm\u00b2 \u2014 unvalidated Bayesian optimum)")
+
+    config_override = {
+        "measurement_interval_s": args.interval,
+        "power_density_uw_cm2": pd,
+    }
+
+    result = run_e2e(config_override, skip_plots=args.no_plots)
+
+    if args.json:
+        import json
+        with open(args.json, "w") as f:
+            json.dump(result.summary_dict(), f, indent=2)
+        print(f"\n  Results saved to {args.json}")

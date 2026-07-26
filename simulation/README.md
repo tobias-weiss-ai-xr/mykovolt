@@ -35,7 +35,10 @@ Level 7: Uncertainty-Aware Digital Twin (Bootstrap-Ensembles)
 | `uncertainty_aware_twin.py` | 7 | Bootstrap-Ensemble Digital Twin (95% CI auf alle Vorhersagen) |
 | `pressling_viability.py` | 8 | **Pressling-Viability:** O2-Diffusion im Boden, Pressschäden, Monte-Carlo (deckt O2-Problem auf) |
 | `alternatives.py` | 9 | **Alternativen-Vergleich:** Air-Chimney, Mg-Air, Split-MFC, NFC-passiv, Tiefen-Sweep, Gewichtete Entscheidungsmatrix |
+| `product_explorer.py` | 10 | **Product Concept Scanner:** Bewertet 30+ Produktkonzepte gegen Batterie-Physik (Power, O2, Formfaktor, Markt) |
+| `manufacturing_bom.py` | 11 | **Manufacturing BOM:** Bottom-up Kostenmodell für alle 3 Pfade (Pressling, Mg-Air, NFC) in 3 Volumen-Stufen |
 | `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
+| `../docs/product/product_concepts.md` | — | 30 Produktkonzepte (15 bekannte + 15 neue) mit Machbarkeits-Scan |
 
 ## Ergebnisse
 
@@ -159,9 +162,18 @@ cd simulation
 python3 electron_transport_graph.py  # Level 0
 python3 ai_optimizer.py              # Level 1+2
 python3 print_geometry_optimizer.py  # Level 3
-python3 e2e_soil_sensor.py           # Level 4
+python3 e2e_soil_sensor.py           # Level 4 (use --empa-baseline for real power)
+python3 e2e_soil_sensor.py --empa-baseline --no-plots  # Empa baseline, no plots
+python3 e2e_soil_sensor.py --conservative              # Conservative estimate (50 µW/cm²)
+python3 e2e_soil_sensor.py --power-density 100         # Custom power density
 python3 pressling_viability.py       # Level 8: O2-Starvationsanalyse + Monte-Carlo
 python3 alternatives.py              # Level 9: Dual-Path-Vergleich
+python3 product_explorer.py          # Level 10: 30 Produktkonzepte scannen
+python3 product_explorer.py --novel-only  # Nur die neuen Konzepte
+python3 product_explorer.py --concept "soil-moisture"  # Deep-Dive eines Konzepts
+python3 manufacturing_bom.py         # Level 11: Kostenmodell
+python3 manufacturing_bom.py --itemized --path a  # Detailierte BOM für Pfad A
+python3 manufacturing_bom.py --sensitivity        # Monte-Carlo Kostenanalyse
 python3 visualize.py                 # Plots
 pytest tests/                        # Run all 35 tests
 ```

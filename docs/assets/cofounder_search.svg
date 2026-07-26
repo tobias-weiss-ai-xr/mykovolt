@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a472a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d6a4f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#95d5b2" />
+      <stop offset="100%" style="stop-color:#52b788" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="675" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#52b788" stroke-width="2" opacity="0.3"/>
+  <circle cx="1100" cy="575" r="120" fill="none" stroke="#95d5b2" stroke-width="2" opacity="0.2"/>
+  <circle cx="600" cy="337" r="200" fill="none" stroke="#74c69d" stroke-width="1" opacity="0.15"/>
+  
+  <!-- MykoVolt Logo Area -->
+  <g transform="translate(100, 50)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#95d5b2">🍄</text>
+    <text x="35" y="28" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">MykoVolt</text>
+  </g>
+  
+  <!-- Main Headline -->
+  <g transform="translate(600, 180)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">WE'RE HIRING</text>
+    <text x="0" y="70" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#95d5b2" text-anchor="middle">Co-Founder / CTO</text>
+  </g>
+  
+  <!-- Tagline -->
+  <g transform="translate(600, 280)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" fill="#d8f3dc" text-anchor="middle">Build the World's First Biodegradable Fungal Battery</text>
+  </g>
+  
+  <!-- Key Details Box -->
+  <g transform="translate(200, 340)">
+    <rect x="0" y="0" width="800" height="200" rx="15" fill="rgba(255,255,255,0.1)" stroke="url(#accentGradient)" stroke-width="2"/>
+    
+    <!-- What You'll Do -->
+    <g transform="translate(50, 40)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#95d5b2">🔬 What You'll Lead</text>
+      <text x="0" y="35" font-family="Arial, sans-serif" font-size="18" fill="#e7f5e8">• Prototype development (fungal MFC + cultivation)</text>
+      <text x="0" y="65" font-family="Arial, sans-serif" font-size="18" fill="#e7f5e8">• Supervise Master's thesis students</text>
+      <text x="0" y="95" font-family="Arial, sans-serif" font-size="18" fill="#e7f5e8">• File patents &amp; publish research</text>
+      <text x="0" y="125" font-family="Arial, sans-serif" font-size="18" fill="#e7f5e8">• Apply for grants (EXIST, Horizon Europe)</text>
+    </g>
+  </g>
+  
+  <!-- Profile Box -->
+  <g transform="translate(200, 560)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#95d5b2">👤 Profile:</text>
+    <text x="220" y="0" font-family="Arial, sans-serif" font-size="20" fill="#e7f5e8">PhD/M.Sc. in Fungal Biology, Electrochemistry, or Materials Science</text>
+  </g>
+  
+  <!-- Contact Info -->
+  <g transform="translate(600, 620)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" fill="#95d5b2" text-anchor="middle">📧 Apply: tobias.weiss.ai.xr@gmail.com</text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="16" fill="#b7e4c7" text-anchor="middle">🔗 github.com/tobias-weiss-ai-xr/mykovolt</text>
+  </g>
+  
+  <!-- Status Badge -->
+  <g transform="translate(950, 80)">
+    <rect x="0" y="0" width="180" height="50" rx="25" fill="#52b788" filter="url(#glow)"/>
+    <text x="90" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">🚀 Deep Tech Startup</text>
+  </g>
+  
+  <!-- Icons -->
+  <g transform="translate(850, 560)">
+    <text x="0" y="0" font-size="40">🌱</text>
+    <text x="50" y="0" font-size="40">⚡</text>
+    <text x="100" y="0" font-size="40">♻️</text>
+  </g>
+</svg>

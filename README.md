@@ -357,6 +357,7 @@ mykovolt/
 │   │   ├── ip_strategy.md
 │   │   ├── marketing_segment_strategies.md
 │   │   └── supply_chain_analysis.md
+│   │   └── business_development_pipeline.md  # 4-pipeline tracker: co-founder, funding, customer, product
 │   ├── grants/                # Grant applications
 │   │   ├── flash_submission.md    # MAFEX FLASH submission (deadline 15.8.2026)
 │   │   └── grant_roadmap.md       # Grant strategy (Hessen Ideen, EXIST, Horizon)

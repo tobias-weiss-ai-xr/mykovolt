@@ -36,3 +36,10 @@ env/
 
 # Logs
 *.log
+
+# Simulation output images
+*.png
+*.svg
+!docs/assets/*.png
+!docs/assets/*.svg
+!docs/technical/*.svg
