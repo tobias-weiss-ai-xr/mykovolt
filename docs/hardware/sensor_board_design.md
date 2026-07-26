@@ -69,7 +69,7 @@ Pressling (0.3–0.6 V, 25 µW)
 | FDC1004 | 0x51 | Capacitive sensor |
 | PCF8523 | 0x52 | Real-time clock |
 
-**Address conflict resolved:** FDC1004 ADDR pin → VDD (0x51), PCF8523 ADDR pin → 10 kΩ to VDD (0x52).
+**Address conflict resolved:** FDC1004 ADDR pin → VDD via 10kΩ (0x51), PCF8523 ADDR pin → 10 kΩ to VDD (0x52).
 
 ### Memory Map (FRAM: 16 KB)
 
@@ -97,7 +97,7 @@ Pressling (0.3–0.6 V, 25 µW)
 | **I²C** (center-right) | MB85RC16 (FRAM) + PCF8523 (RTC) + FDC1004 (sensor) + pull-ups R1/R2 |
 | **NFC** (right) | ST25DV04K + 4-turn PCB antenna (24×14 mm) + tuning cap C20 |
 | **Sensor** (bottom L4) | 10 interdigital fingers (0.3 mm trace/space, 15 mm length) + shield plane on L3 |
-| **Test points** | TP1 (Vbatt), TP2 (3.3 V), TP3 (GND) |
+| **Test points** | TP1 (Vbatt), TP2 (3.3 V), TP3 (GND), TP4 (V_PRESSLING) |
 
 ### Critical Layout Rules
 
@@ -114,66 +114,67 @@ Pressling (0.3–0.6 V, 25 µW)
 
 ### ICs
 
-| Ref | Part | Pkg | Qty | Mouser SKU | Price 1pc | Price 100 |
-|-----|------|-----|:---:|------------|----------:|----------:|
-| U1 | STM32L011K4 | TSSOP-20 | 1 | [511-STM32L011K4](https://www.mouser.de/c/?q=511-STM32L011K4) | €2.15 | €1.52 |
-| U2 | BQ25570 | QFN-20 | 1 | [595-BQ25570](https://www.mouser.de/c/?q=595-BQ25570) | €3.95 | €3.20 |
-| U3 | ST25DV04K | SO-8 | 1 | [511-ST25DV04K](https://www.mouser.de/c/?q=511-ST25DV04K) | €1.35 | €0.95 |
-| U4 | MB85RC16 | SO-8 | 1 | [342-MB85RC16PNF-G](https://www.mouser.de/c/?q=342-MB85RC16PNF-G) | €2.10 | €1.65 |
-| U5 | PCF8523 | SO-8 | 1 | [771-PCF8523T/1,118](https://www.mouser.de/c/?q=771-PCF8523T/1,118) | €0.75 | €0.52 |
-| U6 | FDC1004 | WSON-10 | 1 | [595-FDC1004DSC](https://www.mouser.de/c/?q=595-FDC1004DSC) | €3.15 | €2.55 |
-| | | | **6** | **IC total** | **€13.45** | **€10.39** |
+| Ref | Part | Pkg | Qty | Mouser SKU | Price 1pc | Price 100 | Mouser | Conrad |
+|-----|------|-----|:---:|------------|----------:|----------:|--------|--------|
+| U1 | STM32L011K4 | TSSOP-20 | 1 | 511-STM32L011K4 | €2.15 | €1.52 | [Mouser](https://www.mouser.de/ProductDetail/STMicroelectronics/STM32L011K4?qs=511-STM32L011K4) | [Conrad](https://www.conrad.de/de/search.html?search=STM32L011K4) |
+| U2 | BQ25570 | QFN-20 | 1 | 595-BQ25570 | €3.95 | €3.20 | [Mouser](https://www.mouser.de/ProductDetail/Texas-Instruments/BQ25570?qs=595-BQ25570) | [Conrad](https://www.conrad.de/de/search.html?search=BQ25570) |
+| U3 | ST25DV04K | SO-8 | 1 | 511-ST25DV04K | €1.35 | €0.95 | [Mouser](https://www.mouser.de/ProductDetail/STMicroelectronics/ST25DV04K?qs=511-ST25DV04K) | [Conrad](https://www.conrad.de/de/search.html?search=ST25DV04K) |
+| U4 | MB85RC16 | SO-8 | 1 | 342-MB85RC16PNF-G | €2.10 | €1.65 | [Mouser](https://www.mouser.de/ProductDetail/Fujitsu/MB85RC16PNF-G?qs=342-MB85RC16PNF-G) | [Conrad](https://www.conrad.de/de/search.html?search=MB85RC16) |
+| U5 | PCF8523 | SO-8 | 1 | 771-PCF8523T/1,118 | €0.75 | €0.52 | [Mouser](https://www.mouser.de/ProductDetail/NXP/PCF8523T-1-118?qs=771-PCF8523T%2F1%2C118) | [Conrad](https://www.conrad.de/de/search.html?search=PCF8523) |
+| U6 | FDC1004 | WSON-10 | 1 | 595-FDC1004DSC | €3.15 | €2.55 | [Mouser](https://www.mouser.de/ProductDetail/Texas-Instruments/FDC1004DSC?qs=595-FDC1004DSC) | [Conrad](https://www.conrad.de/de/search.html?search=FDC1004) |
+| | | | **6** | **IC total** | **€13.45** | **€10.39** | | |
 
 ### Passives (all 0603, 1 % resistors, X7R/C0G caps)
 
-| Ref | Value | Qty | Mouser SKU | Price 100 |
-|-----|-------|:---:|------------|----------:|
-| R1, R2 | 2.2 kΩ (I²C pull-up) | 2 | [71-CRCW06032K20F](https://www.mouser.de/c/?q=71-CRCW06032K20F) | €0.005 |
-| R3, R4 | 47 kΩ (MPPT divider) | 2 | [71-CRCW060347K0F](https://www.mouser.de/c/?q=71-CRCW060347K0F) | €0.005 |
-| R5, R6 | 510 kΩ (VBAT_OK) | 2 | [71-CRCW0603510KF](https://www.mouser.de/c/?q=71-CRCW0603510KF) | €0.005 |
-| R7, R8 | 1 MΩ (VOUT_SET) | 2 | [71-CRCW06031M00F](https://www.mouser.de/c/?q=71-CRCW06031M00F) | €0.005 |
-| R9 | 100 kΩ (Vbatt div upper) | 1 | [71-CRCW0603100KF](https://www.mouser.de/c/?q=71-CRCW0603100KF) | €0.005 |
-| R10 | 220 kΩ (Vbatt div lower) | 1 | [71-CRCW0603220KF](https://www.mouser.de/c/?q=71-CRCW0603220KF) | €0.005 |
-| R11 | 22 Ω (SWDIO series) | 1 | [71-CRCW060322R0F](https://www.mouser.de/c/?q=71-CRCW060322R0F) | €0.005 |
-| R12 | 100 Ω (SWCLK series) | 1 | [71-CRCW0603100RF](https://www.mouser.de/c/?q=71-CRCW0603100RF) | €0.005 |
-| C1–C10 | 100 nF X7R 16V | 10 | [81-GRM188R71C104K](https://www.mouser.de/c/?q=81-GRM188R71C104K) | €0.008 |
-| C11–C13 | 1 µF X5R 10V | 3 | [81-GRM188R61A105K](https://www.mouser.de/c/?q=81-GRM188R61A105K) | €0.015 |
-| C14, C15 | 10 µF X5R 6.3V (0805) | 2 | [81-GRM21BR60J106K](https://www.mouser.de/c/?q=81-GRM21BR60J106K) | €0.025 |
-| C16, C17 | 22 pF C0G 50V | 2 | [81-GRM1885C1H220J](https://www.mouser.de/c/?q=81-GRM1885C1H220J) | €0.008 |
-| C18, C19 | 100 pF C0G 50V | 2 | [81-GRM1885C1H101J](https://www.mouser.de/c/?q=81-GRM1885C1H101J) | €0.008 |
-| C20 | 47 pF C0G 50V (NFC tune) | 1 | [81-GRM1885C1H470J](https://www.mouser.de/c/?q=81-GRM1885C1H470J) | €0.008 |
-| C21 | 4.7 µF X5R 10V (BQ in) | 1 | [81-GRM188R61A475K](https://www.mouser.de/c/?q=81-GRM188R61A475K) | €0.018 |
-| | **Total passives** | **33** | | **~€0.28** |
+| Ref | Value | Qty | Mouser SKU | Price 100 | Mouser | Conrad |
+|-----|-------|:---:|------------|----------:|--------|--------|
+| R1, R2 | 2.2 kΩ (I²C pull-up) | 2 | 71-CRCW06032K20F | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW06032K20F?qs=71-CRCW06032K20F) | [Conrad](https://www.conrad.de/de/search.html?search=2.2k+0603) |
+| R3, R4 | 47 kΩ (MPPT divider) | 2 | 71-CRCW060347K0F | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW060347K0F?qs=71-CRCW060347K0F) | [Conrad](https://www.conrad.de/de/search.html?search=47k+0603) |
+| R5, R6 | 510 kΩ (VBAT_OK) | 2 | 71-CRCW0603510KF | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW0603510KF?qs=71-CRCW0603510KF) | [Conrad](https://www.conrad.de/de/search.html?search=510k+0603) |
+| R7, R8 | 1 MΩ (VOUT_SET) | 2 | 71-CRCW06031M00F | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW06031M00F?qs=71-CRCW06031M00F) | [Conrad](https://www.conrad.de/de/search.html?search=1M+0603) |
+| R9 | 100 kΩ (Vbatt div upper) | 1 | 71-CRCW0603100KF | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW0603100KF?qs=71-CRCW0603100KF) | [Conrad](https://www.conrad.de/de/search.html?search=100k+0603) |
+| R10 | 220 kΩ (Vbatt div lower) | 1 | 71-CRCW0603220KF | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW0603220KF?qs=71-CRCW0603220KF) | [Conrad](https://www.conrad.de/de/search.html?search=220k+0603) |
+| R11 | 22 Ω (SWDIO series) | 1 | 71-CRCW060322R0F | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW060322R0F?qs=71-CRCW060322R0F) | [Conrad](https://www.conrad.de/de/search.html?search=22+0603) |
+| R12 | 100 Ω (SWCLK series) | 1 | 71-CRCW0603100RF | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW0603100RF?qs=71-CRCW0603100RF) | [Conrad](https://www.conrad.de/de/search.html?search=100+0603) |
+| C1–C10 | 100 nF X7R 16V | 10 | 81-GRM188R71C104K | €0.008 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM188R71C104K?qs=81-GRM188R71C104K) | [Conrad](https://www.conrad.de/de/search.html?search=100nF+0603) |
+| C11–C13 | 1 µF X5R 10V | 3 | 81-GRM188R61A105K | €0.015 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM188R61A105K?qs=81-GRM188R61A105K) | [Conrad](https://www.conrad.de/de/search.html?search=1%C2%B5F+0603) |
+| C14, C15 | 10 µF X5R 6.3V (0805) | 2 | 81-GRM21BR60J106K | €0.025 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM21BR60J106K?qs=81-GRM21BR60J106K) | [Conrad](https://www.conrad.de/de/search.html?search=10%C2%B5F+0805) |
+| C16, C17 | 22 pF C0G 50V | 2 | 81-GRM1885C1H220J | €0.008 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM1885C1H220J?qs=81-GRM1885C1H220J) | [Conrad](https://www.conrad.de/de/search.html?search=22pF+0603) |
+| C18, C19 | 100 pF C0G 50V | 2 | 81-GRM1885C1H101J | €0.008 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM1885C1H101J?qs=81-GRM1885C1H101J) | [Conrad](https://www.conrad.de/de/search.html?search=100pF+0603) |
+| C20 | 47 pF C0G 50V (NFC tune) | 1 | 81-GRM1885C1H470J | €0.008 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM1885C1H470J?qs=81-GRM1885C1H470J) | [Conrad](https://www.conrad.de/de/search.html?search=47pF+0603) |
+| C21 | 4.7 µF X5R 10V (BQ in) | 1 | 81-GRM188R61A475K | €0.018 | [Mouser](https://www.mouser.de/ProductDetail/Murata/GRM188R61A475K?qs=81-GRM188R61A475K) | [Conrad](https://www.conrad.de/de/search.html?search=4.7%C2%B5F+0603) |
+| | **Total passives** | **33** | | **~€0.28** | | |
+> **Note:** ~€0.28 is the per-board cost at qty-100 pricing; at single-unit pricing the passives cost ~€1.12 per board.
 
 ### Inductors & Crystal
 
-| Ref | Value | Pkg | Qty | Mouser SKU | Price 100 |
-|-----|-------|-----|:---:|------------|----------:|
-| L1 | 10 µH, 2A sat | 4×4 mm | 1 | [963-MLPD2012A100M](https://www.mouser.de/c/?q=963-MLPD2012A100M) | €0.35 |
-| L2 | 47 µH, 0.5A sat | 3×3 mm | 1 | [810-MLZ2012A470M](https://www.mouser.de/c/?q=810-MLZ2012A470M) | €0.28 |
-| X1 | 32.768 kHz, ±20 ppm, 12.5 pF | 3.2×1.5 mm | 1 | [732-SM32K32768K20](https://www.mouser.de/c/?q=732-SM32K32768K20) | €0.45 |
+| Ref | Value | Pkg | Qty | Mouser SKU | Price 100 | Mouser | Conrad |
+|-----|-------|-----|:---:|------------|----------:|--------|--------|
+| L1 | 10 µH, 2A sat | 4×4 mm | 1 | 963-MLPD2012A100M | €0.35 | [Mouser](https://www.mouser.de/ProductDetail/TDK/MLPD2012A100M?qs=963-MLPD2012A100M) | [Conrad](https://www.conrad.de/de/search.html?search=10%C2%B5H+2A) |
+| L2 | 47 µH, 0.5A sat | 3×3 mm | 1 | 810-MLZ2012A470M | €0.28 | [Mouser](https://www.mouser.de/ProductDetail/TDK/MLZ2012A470M?qs=810-MLZ2012A470M) | [Conrad](https://www.conrad.de/de/search.html?search=47%C2%B5H) |
+| X1 | 32.768 kHz, ±20 ppm, 12.5 pF | 3.2×1.5 mm | 1 | 732-SM32K32768K20 | €0.45 | [Mouser](https://www.mouser.de/ProductDetail/Seiko/SM32K32768K20?qs=732-SM32K32768K20) | [Conrad](https://www.conrad.de/de/search.html?search=32.768kHz) |
 
 ### Supercap & ESD
 
-| Ref | Part | Pkg | Qty | Mouser SKU | Price 100 |
-|-----|------|-----|:---:|------------|----------:|
-| SC1 | 100 mF, 3.6 V, <5 µA leakage | Radial 8×12 | 1 | [598-DGH336Q3R6](https://www.mouser.de/c/?q=598-DGH336Q3R6) | €1.20 |
-| D1 | USBLC6-2P6 (NFC ESD) | SOT-666 | 1 | [511-USBLC6-2P6](https://www.mouser.de/c/?q=511-USBLC6-2P6) | €0.35 |
-| D2 | PESD5V0S1UB (VDD TVS) | SOD-523 | 1 | [771-PESD5V0S1UB](https://www.mouser.de/c/?q=771-PESD5V0S1UB) | €0.12 |
+| Ref | Part | Pkg | Qty | Mouser SKU | Price 100 | Mouser | Conrad |
+|-----|------|-----|:---:|------------|----------:|--------|--------|
+| SC1 | 100 mF, 3.6 V, <5 µA leakage | Radial 8×12 | 1 | 598-DGH336Q3R6 | €1.20 | [Mouser](https://www.mouser.de/ProductDetail/Illinois-Capacitor/DGH336Q3R6?qs=598-DGH336Q3R6) | [Conrad](https://www.conrad.de/de/search.html?search=100mF+Supercap) |
+| D1 | USBLC6-2P6 (NFC ESD) | SOT-666 | 1 | 511-USBLC6-2P6 | €0.35 | [Mouser](https://www.mouser.de/ProductDetail/STMicroelectronics/USBLC6-2P6?qs=511-USBLC6-2P6) | [Conrad](https://www.conrad.de/de/search.html?search=USBLC6-2P6) |
+| D2 | PESD5V0S1UB (VDD TVS) | SOD-523 | 1 | 771-PESD5V0S1UB | €0.12 | [Mouser](https://www.mouser.de/ProductDetail/Nexperia/PESD5V0S1UB?qs=771-PESD5V0S1UB) | [Conrad](https://www.conrad.de/de/search.html?search=PESD5V0S1UB) |
 
 ### Transistor, LEDs, Connectors
 
-| Ref | Part | Pkg | Qty | Mouser SKU | Price 1pc |
-|-----|------|-----|:---:|------------|----------:|
-| Q1 | SI1308EDL (P-MOS, load switch) | SOT-323 | 1 | [781-SI1308EDL-T1-GE3](https://www.mouser.de/c/?q=781-SI1308EDL-T1-GE3) | €0.25 |
-| LED1 | Green LED 0603 (power) | 0603 | 1 | [78-VAOL-S6GT4](https://www.mouser.de/c/?q=78-VAOL-S6GT4) | €0.08 |
-| LED2 | Yellow LED 0603 (status) | 0603 | 1 | [78-VAOL-S6YT4](https://www.mouser.de/c/?q=78-VAOL-S6YT4) | €0.08 |
-| — | 330 Ω resistor (LED current limit) | 0603 | 2 | [71-CRCW0603330RF](https://www.mouser.de/c/?q=71-CRCW0603330RF) | €0.005 |
-| J1 | 2×5 box header, SH type (SWD) | 1.27 mm | 1 | [855-FTSH-105-01-L-DV-K](https://www.mouser.de/c/?q=855-FTSH-105-01-L-DV-K) | €0.55 |
-| J2, J3 | JST PH 2-pin header | 2.0 mm | 2 | [306-PH2RA2WS](https://www.mouser.de/c/?q=306-PH2RA2WS) | €0.25 |
-| — | JST PH housing (mating) | 2.0 mm | 2 | [306-PHR-2](https://www.mouser.de/c/?q=306-PHR-2) | €0.05 |
-| — | Crimp pins (for cable) | — | 4 | [306-BPH-002T-P0.5S](https://www.mouser.de/c/?q=306-BPH-002T-P0.5S) | €0.03 |
-| J4 | Test point loop | — | 4 | [710-5001](https://www.mouser.de/c/?q=710-5001) | €0.08 |
+| Ref | Part | Pkg | Qty | Mouser SKU | Price 1pc | Mouser | Conrad |
+|-----|------|-----|:---:|------------|----------:|--------|--------|
+| Q1 | SI1308EDL (P-MOS, load switch) | SOT-323 | 1 | 781-SI1308EDL-T1-GE3 | €0.25 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/SI1308EDL-T1-GE3?qs=781-SI1308EDL-T1-GE3) | [Conrad](https://www.conrad.de/de/search.html?search=SI1308EDL) |
+| LED1 | Green LED 0603 (power) | 0603 | 1 | 78-VAOL-S6GT4 | €0.08 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/VAOL-S6GT4?qs=78-VAOL-S6GT4) | [Conrad](https://www.conrad.de/de/search.html?search=0603+green+LED) |
+| LED2 | Yellow LED 0603 (status) | 0603 | 1 | 78-VAOL-S6YT4 | €0.08 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/VAOL-S6YT4?qs=78-VAOL-S6YT4) | [Conrad](https://www.conrad.de/de/search.html?search=0603+yellow+LED) |
+| R13, R14 | 330 Ω resistor (LED current limit) | 0603 | 2 | 71-CRCW0603330RF | €0.005 | [Mouser](https://www.mouser.de/ProductDetail/Vishay/CRCW0603330RF?qs=71-CRCW0603330RF) | [Conrad](https://www.conrad.de/de/search.html?search=330+0603) |
+| J1 | 2×5 box header, SH type (SWD) | 1.27 mm | 1 | 855-FTSH-105-01-L-DV-K | €0.55 | [Mouser](https://www.mouser.de/ProductDetail/Samtec/FTSH-105-01-L-DV-K?qs=855-FTSH-105-01-L-DV-K) | [Conrad](https://www.conrad.de/de/search.html?search=1.27mm+box+header) |
+| J2, J3 | JST PH 2-pin header | 2.0 mm | 2 | 306-PH2RA2WS | €0.25 | [Mouser](https://www.mouser.de/ProductDetail/JST/PH2RA2WS?qs=306-PH2RA2WS) | [Conrad](https://www.conrad.de/de/search.html?search=JST+PH+2-pin) |
+| — | JST PH housing (mating) | 2.0 mm | 2 | 306-PHR-2 | €0.05 | [Mouser](https://www.mouser.de/ProductDetail/JST/PHR-2?qs=306-PHR-2) | [Conrad](https://www.conrad.de/de/search.html?search=JST+PHR-2) |
+| — | Crimp pins (for cable) | — | 4 | 306-BPH-002T-P0.5S | €0.03 | [Mouser](https://www.mouser.de/ProductDetail/JST/BPH-002T-P0.5S?qs=306-BPH-002T-P0.5S) | [Conrad](https://www.conrad.de/de/search.html?search=JST+crimp+pin) |
+| J4 | Test point loop | — | 3 | 710-5001 | €0.08 | [Mouser](https://www.mouser.de/ProductDetail/Wurth-Elektronik/710-5001?qs=710-5001) | [Conrad](https://www.conrad.de/de/search.html?search=test+point+loop) |
 
 ### BOM Summary
 

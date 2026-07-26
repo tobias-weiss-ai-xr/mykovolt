@@ -17,14 +17,14 @@ kicad hardware/kicad/mykovolt_devkit.kicad_pro
 | File | Content |
 |------|---------|
 | `mykovolt_devkit.kicad_pro` | Project file — design rules, layer stack, net classes |
-| `mykovolt_devkit.kicad_sch` | Schematic — 50 components placed, ready for wiring |
+| `mykovolt_devkit.kicad_sch` | Schematic — 53 components placed, ready for wiring |
 | `mykovolt_devkit.kicad_pcb` | PCB — board outline, layer stack, component footprints |
-| `mykovolt_devkit.net` | Plain-text netlist — 34 nets, 126 connections |
+| `mykovolt_devkit.net` | Plain-text netlist — 34 nets, 164 connections |
 | `generate_kicad.py` | Python generator — re-creates all project files |
 
 ## Schematic
 
-Opens with 50 components placed in functional groups:
+Opens with 53 components placed in functional groups:
 
 | Group | Components | Position |
 |-------|-----------|----------|
@@ -97,14 +97,14 @@ Key nets (full list in `mykovolt_devkit.net`):
 
 | Device | Address | Notes |
 |--------|---------|-------|
-| ST25DV04K | 0x53 | ADDR pin → GND |
+| ST25DV04K | 0x53 | Fixed address (no ADDR pin) |
 | MB85RC16 | 0x50 | A0/A1 → GND |
 | FDC1004 | 0x51 | ADDR → VDD via 10kΩ |
 | PCF8523 | 0x52 | ADDR → 10kΩ to VDD |
 
 ## BOM Reference
 
-Full BOM with Mouser SKUs and prices: `../../docs/hardware/shopping_list.md`
+Full BOM with Mouser SKUs, Conrad search links, and prices: `../../docs/hardware/shopping_list.md`
 
 ## Generating from Scratch
 

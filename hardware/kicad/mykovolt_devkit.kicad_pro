@@ -28,19 +28,17 @@
     "classes": [
       {
         "name": "Default",
-        "clearance": 0.2,
+        "clearance": 0.3,
         "trace_width": 0.3,
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "uvia_diameter": 0.3,
-        "uvia_drill": 0.1,
-        "diff_pair_width": 0.3,
-        "diff_pair_gap": 0.2
+        "uvia_drill": 0.1
       }
     ],
     "meta": {
       "version": 2,
-      "net_count": 34
+      "net_count": 36
     }
   },
   "pcbnew": {
