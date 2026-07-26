@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'simulation'))
 
 np.random.seed(42)
 
