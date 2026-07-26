@@ -43,3 +43,4 @@ env/
 !docs/assets/*.png
 !docs/assets/*.svg
 !docs/technical/*.svg
+!docs/hardware/*.svg

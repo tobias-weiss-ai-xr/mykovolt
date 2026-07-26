@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#00000030"/>
+    </filter>
+    <filter id="inner-shadow">
+      <feOffset dx="0" dy="1"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+    <pattern id="copper-hatch" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M0 4l4-4" stroke="#C5A059" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+    <marker id="dim-arrow" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#F5F7F5" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#1B4332">MykoVolt Sensor Board — PCB Layout</text>
+  <text x="450" y="53" text-anchor="middle" font-size="11" fill="#888">MykoVolt DevKit v0.1 · 30×20 mm · 4-layer FR-4 · Rev A</text>
+
+  <!-- ============================================================ -->
+  <!-- PCB OUTER FRAME -->
+  <!-- ============================================================ -->
+  <g transform="translate(110, 90)">
+    <!-- Board shadow -->
+    <rect x="3" y="3" width="520" height="347" rx="4" fill="#00000015" filter="url(#shadow)"/>
+
+    <!-- Board outline -->
+    <rect x="0" y="0" width="520" height="347" rx="3" fill="#1D5E2C" stroke="#0D3B17" stroke-width="2.5"/>
+
+    <!-- Board inner routing area -->
+    <rect x="10" y="10" width="500" height="327" rx="2" fill="#236B35" stroke="#1A5427" stroke-width="1"/>
+
+    <!-- Copper pour (GND plane visible through soldermask) -->
+    <rect x="12" y="12" width="496" height="323" rx="2" fill="url(#copper-hatch)" opacity="0.15"/>
+
+    <!-- ============================================================ -->
+    <!-- MOUNTING HOLES -->
+    <!-- ============================================================ -->
+    <!-- 4× M2 mounting holes at corners, 3mm from edge -->
+    <circle cx="23" cy="23" r="7" fill="#1D5E2C" stroke="#0D3B17" stroke-width="1.5"/>
+    <circle cx="23" cy="23" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <circle cx="23" cy="23" r="1.5" fill="#1D5E2C"/>
+
+    <circle cx="497" cy="23" r="7" fill="#1D5E2C" stroke="#0D3B17" stroke-width="1.5"/>
+    <circle cx="497" cy="23" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <circle cx="497" cy="23" r="1.5" fill="#1D5E2C"/>
+
+    <circle cx="23" cy="324" r="7" fill="#1D5E2C" stroke="#0D3B17" stroke-width="1.5"/>
+    <circle cx="23" cy="324" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <circle cx="23" cy="324" r="1.5" fill="#1D5E2C"/>
+
+    <circle cx="497" cy="324" r="7" fill="#1D5E2C" stroke="#0D3B17" stroke-width="1.5"/>
+    <circle cx="497" cy="324" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <circle cx="497" cy="324" r="1.5" fill="#1D5E2C"/>
+
+    <!-- ============================================================ -->
+    <!-- NFC ANTENNA (Top Layer — L1, 4 turns) -->
+    <!-- ============================================================ -->
+    <!-- Antenna keep-out zone (no GND plane underneath) -->
+    <rect x="290" y="18" width="200" height="200" rx="3" fill="#285E39" stroke="#1A5427" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="390" y="30" text-anchor="middle" font-size="6" fill="#52B788">NFC Antenna Keep-Out (no GND L2)</text>
+
+    <!-- Antenna coil — 4 turns -->
+    <!-- Turn 1 (outer) -->
+    <path d="M 300,28 L 480,28 Q 490,28 490,38 L 490,198 Q 490,208 480,208 L 300,208 Q 290,208 290,198 L 290,38 Q 290,28 300,28 Z"
+          fill="none" stroke="#B8860B" stroke-width="2.5" opacity="0.7"/>
+    <!-- Turn 2 -->
+    <path d="M 315,43 L 465,43 Q 475,43 475,53 L 475,183 Q 475,193 465,193 L 315,193 Q 305,193 305,183 L 305,53 Q 305,43 315,43 Z"
+          fill="none" stroke="#B8860B" stroke-width="2.5" opacity="0.6"/>
+    <!-- Turn 3 -->
+    <path d="M 330,58 L 450,58 Q 460,58 460,68 L 460,168 Q 460,178 450,178 L 330,178 Q 320,178 320,168 L 320,68 Q 320,58 330,58 Z"
+          fill="none" stroke="#B8860B" stroke-width="2.5" opacity="0.5"/>
+    <!-- Turn 4 (inner) -->
+    <path d="M 345,73 L 435,73 Q 445,73 445,83 L 445,153 Q 445,163 435,163 L 345,163 Q 335,163 335,153 L 335,83 Q 335,73 345,73 Z"
+          fill="none" stroke="#B8860B" stroke-width="2.5" opacity="0.4"/>
+
+    <!-- Antenna feed lines -->
+    <line x1="290" y1="120" x2="240" y2="120" stroke="#B8860B" stroke-width="1.5" opacity="0.7"/>
+    <line x1="490" y1="120" x2="260" y2="120" stroke="#B8860B" stroke-width="1.5" opacity="0.7"/>
+    <text x="245" y="115" text-anchor="end" font-size="6" fill="#B8860B" opacity="0.7">RF1</text>
+    <text x="255" y="115" text-anchor="start" font-size="6" fill="#B8860B" opacity="0.7">RF2</text>
+
+    <!-- Antenna tuning cap -->
+    <rect x="255" y="108" width="14" height="10" rx="1" fill="#D4A843" stroke="#B8860B" stroke-width="0.5"/>
+    <text x="262" y="116" text-anchor="middle" font-size="5" fill="#333">C20</text>
+    <text x="262" y="106" text-anchor="middle" font-size="5" fill="#B8860B">47pF</text>
+
+    <!-- ============================================================ -->
+    <!-- ST25DV04K — NFC IC (SO-8) -->
+    <!-- ============================================================ -->
+    <rect x="225" y="140" width="34" height="24" rx="2" fill="#4A148C" stroke="#31106B" stroke-width="1.5"/>
+    <text x="242" y="153" text-anchor="middle" font-size="7" font-weight="600" fill="#fff">U3</text>
+    <text x="242" y="163" text-anchor="middle" font-size="5" fill="#CE93D8">ST25DV04K</text>
+    <!-- Pin 1 indicator -->
+    <circle cx="228" cy="143" r="2" fill="#fff"/>
+    <text x="225" y="137" text-anchor="end" font-size="5" fill="#CE93D8">SO-8</text>
+
+    <!-- ============================================================ -->
+    <!-- STM32L011K4 — MCU (TSSOP-20) -->
+    <!-- ============================================================ -->
+    <rect x="180" y="180" width="42" height="30" rx="2" fill="#0D47A1" stroke="#092F6E" stroke-width="1.5"/>
+    <text x="201" y="193" text-anchor="middle" font-size="7" font-weight="600" fill="#fff">U1</text>
+    <text x="201" y="203" text-anchor="middle" font-size="5" fill="#90CAF9">STM32L011</text>
+    <!-- Pin 1 indicator -->
+    <circle cx="183" cy="183" r="2" fill="#fff"/>
+    <text x="230" y="196" text-anchor="start" font-size="5" fill="#90CAF9">TSSOP-20</text>
+
+    <!-- ============================================================ -->
+    <!-- MB85RC16 — FRAM (SO-8) -->
+    <!-- ============================================================ -->
+    <rect x="145" y="218" width="30" height="20" rx="2" fill="#31106B" stroke="#20074A" stroke-width="1.5"/>
+    <text x="160" y="229" text-anchor="middle" font-size="6" font-weight="600" fill="#fff">U4</text>
+    <text x="160" y="237" text-anchor="middle" font-size="4.5" fill="#CE93D8">FRAM</text>
+    <circle cx="148" cy="220" r="1.5" fill="#fff"/>
+
+    <!-- ============================================================ -->
+    <!-- PCF8523 — RTC (SO-8) -->
+    <!-- ============================================================ -->
+    <rect x="145" y="246" width="30" height="20" rx="2" fill="#31106B" stroke="#20074A" stroke-width="1.5"/>
+    <text x="160" y="257" text-anchor="middle" font-size="6" font-weight="600" fill="#fff">U5</text>
+    <text x="160" y="265" text-anchor="middle" font-size="4.5" fill="#CE93D8">RTC</text>
+    <circle cx="148" cy="248" r="1.5" fill="#fff"/>
+
+    <!-- ============================================================ -->
+    <!-- FDC1004 — Capacitive Sensor (WSON-10) -->
+    <!-- ============================================================ -->
+    <rect x="145" y="180" width="30" height="20" rx="2" fill="#BF360C" stroke="#872808" stroke-width="1.5"/>
+    <text x="160" y="191" text-anchor="middle" font-size="6" font-weight="600" fill="#fff">U6</text>
+    <text x="160" y="199" text-anchor="middle" font-size="4.5" fill="#FFCC80">FDC1004</text>
+    <circle cx="148" cy="182" r="1.5" fill="#fff"/>
+    <text x="180" y="177" text-anchor="start" font-size="4.5" fill="#BF360C">WSON-10</text>
+
+    <!-- ============================================================ -->
+    <!-- BQ25570 — Boost Converter (QFN-20) -->
+    <!-- ============================================================ -->
+    <rect x="60" y="225" width="30" height="30" rx="2" fill="#33691E" stroke="#1B5E20" stroke-width="1.5"/>
+    <text x="75" y="240" text-anchor="middle" font-size="6" font-weight="600" fill="#fff">U2</text>
+    <text x="75" y="250" text-anchor="middle" font-size="4.5" fill="#A5D6A7">BQ25570</text>
+    <circle cx="63" cy="228" r="2" fill="#fff"/>
+    <!-- Exposed pad (thermal) -->
+    <rect x="68" y="233" width="14" height="14" rx="1" fill="#A5D6A7" opacity="0.3" stroke="#558B2F" stroke-width="0.3"/>
+    <!-- Thermal vias indicator -->
+    <circle cx="71" cy="236" r="1" fill="#558B2F" opacity="0.5"/>
+    <circle cx="79" cy="236" r="1" fill="#558B2F" opacity="0.5"/>
+    <circle cx="71" cy="244" r="1" fill="#558B2F" opacity="0.5"/>
+    <circle cx="79" cy="244" r="1" fill="#558B2F" opacity="0.5"/>
+    <text x="50" y="278" text-anchor="end" font-size="5" fill="#A5D6A7">QFN-20 (9 thermal vias)</text>
+
+    <!-- Boost inductor L1 (near BQ25570) -->
+    <rect x="62" y="200" width="16" height="16" rx="8" fill="#C5A059" stroke="#A0813D" stroke-width="1"/>
+    <text x="70" y="210" text-anchor="middle" font-size="5" fill="#333">L1</text>
+    <text x="70" y="200" text-anchor="middle" font-size="4" fill="#A0813D">10µH</text>
+    <line x1="70" y1="225" x2="70" y2="216" stroke="#A0813D" stroke-width="0.8"/>
+
+    <!-- ============================================================ -->
+    <!-- I²C BUS ROUTING (visible traces) -->
+    <!-- ============================================================ -->
+    <!-- I²C from MCU to FRAM, RTC, FDC1004 -->
+    <!-- SCL (purple trace) -->
+    <path d="M 195,210 L 195,230 L 160,230" fill="none" stroke="#7B1FA2" stroke-width="1.2" opacity="0.6"/>
+    <path d="M 195,230 L 160,256" fill="none" stroke="#7B1FA2" stroke-width="1.2" opacity="0.6"/>
+    <path d="M 195,200 L 160,190" fill="none" stroke="#7B1FA2" stroke-width="1.2" opacity="0.6"/>
+
+    <!-- I²C pull-up resistors -->
+    <rect x="208" y="248" width="10" height="6" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.5"/>
+    <text x="213" y="256" text-anchor="middle" font-size="4" fill="#805E2C">R1</text>
+    <text x="213" y="247" text-anchor="middle" font-size="4" fill="#805E2C">2.2k</text>
+
+    <rect x="208" y="260" width="10" height="6" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.5"/>
+    <text x="213" y="268" text-anchor="middle" font-size="4" fill="#805E2C">R2</text>
+    <text x="213" y="259" text-anchor="middle" font-size="4" fill="#805E2C">2.2k</text>
+
+    <!-- I²C to NFC -->
+    <path d="M 225,155 L 215,155 L 215,210 L 201,210" fill="none" stroke="#7B1FA2" stroke-width="1.2" opacity="0.5"/>
+
+    <!-- ============================================================ -->
+    <!-- CRYSTAL (32.768 kHz) -->
+    <!-- ============================================================ -->
+    <rect x="182" y="140" width="22" height="12" rx="2" fill="#E0E0E0" stroke="#999" stroke-width="0.8"/>
+    <text x="193" y="148" text-anchor="middle" font-size="5" fill="#555">X1</text>
+    <text x="193" y="138" text-anchor="middle" font-size="4" fill="#999">32.768k</text>
+    <!-- Crystal load caps -->
+    <rect x="178" y="135" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <rect x="202" y="135" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="173" y="138" text-anchor="end" font-size="4" fill="#805E2C">C16</text>
+    <text x="210" y="138" text-anchor="start" font-size="4" fill="#805E2C">C17</text>
+
+    <!-- ============================================================ -->
+    <!-- CAPACITORS (decoupling) -->
+    <!-- ============================================================ -->
+    <!-- MCU decoupling -->
+    <rect x="222" y="182" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="214" y="186" text-anchor="end" font-size="4" fill="#805E2C">C1</text>
+    <rect x="222" y="195" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="214" y="199" text-anchor="end" font-size="4" fill="#805E2C">C2</text>
+
+    <!-- BQ25570 decoupling -->
+    <rect x="90" y="228" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="98" y="234" text-anchor="start" font-size="4" fill="#805E2C">C14</text>
+    <rect x="90" y="240" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="98" y="246" text-anchor="start" font-size="4" fill="#805E2C">C15</text>
+
+    <!-- NFC decoupling -->
+    <rect x="259" y="142" width="6" height="5" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.3"/>
+    <text x="267" y="145" text-anchor="start" font-size="4" fill="#805E2C">C3</text>
+
+    <!-- ============================================================ -->
+    <!-- INTERDIGITAL ELECTRODES (Bottom Layer — L4, shown as dashed) -->
+    <!-- ============================================================ -->
+    <g opacity="0.6">
+      <!-- Electrode zone outline -->
+      <rect x="25" y="70" width="95" height="105" rx="2" fill="none" stroke="#E65100" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="72" y="82" text-anchor="middle" font-size="5" fill="#E65100">Interdigital Electrodes</text>
+      <text x="72" y="90" text-anchor="middle" font-size="4" fill="#E65100">(Bottom layer L4)</text>
+
+      <!-- 10 interdigital fingers -->
+      <line x1="30" y1="100" x2="113" y2="100" stroke="#E65100" stroke-width="1.5"/>
+      <line x1="30" y1="107" x2="113" y2="107" stroke="#BF360C" stroke-width="1.5"/>
+      <line x1="30" y1="114" x2="113" y2="114" stroke="#E65100" stroke-width="1.5"/>
+      <line x1="30" y1="121" x2="113" y2="121" stroke="#BF360C" stroke-width="1.5"/>
+      <line x1="30" y1="128" x2="113" y2="128" stroke="#E65100" stroke-width="1.5"/>
+      <line x1="30" y1="135" x2="113" y2="135" stroke="#BF360C" stroke-width="1.5"/>
+      <line x1="30" y1="142" x2="113" y2="142" stroke="#E65100" stroke-width="1.5"/>
+      <line x1="30" y1="149" x2="113" y2="149" stroke="#BF360C" stroke-width="1.5"/>
+      <line x1="30" y1="156" x2="113" y2="156" stroke="#E65100" stroke-width="1.5"/>
+      <line x1="30" y1="163" x2="113" y2="163" stroke="#BF360C" stroke-width="1.5"/>
+
+      <!-- Bus bars (left and right) -->
+      <line x1="30" y1="100" x2="30" y2="163" stroke="#BF360C" stroke-width="2"/>
+      <line x1="113" y1="100" x2="113" y2="163" stroke="#E65100" stroke-width="2"/>
+
+      <!-- Shield plane indicator -->
+      <rect x="27" y="97" width="89" height="69" rx="1" fill="none" stroke="#E65100" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <text x="72" y="175" text-anchor="middle" font-size="4.5" fill="#E65100">Shield (L3) + Via fence</text>
+
+      <!-- Via fence dots -->
+      <circle cx="30" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="44" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="58" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="72" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="86" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="100" cy="97" r="0.8" fill="#E65100"/>
+      <circle cx="114" cy="97" r="0.8" fill="#E65100"/>
+    </g>
+
+    <!-- ============================================================ -->
+    <!-- PRESSLING CONNECTOR (JST PH 2-pin) -->
+    <!-- ============================================================ -->
+    <rect x="40" y="260" width="20" height="22" rx="2" fill="#E0E0E0" stroke="#999" stroke-width="1"/>
+    <text x="50" y="273" text-anchor="middle" font-size="5" fill="#333">J2</text>
+    <text x="50" y="281" text-anchor="middle" font-size="4" fill="#666">Pressling</text>
+    <!-- Pin holes -->
+    <circle cx="47" cy="265" r="2.5" fill="#C5A059" stroke="#A0813D" stroke-width="0.5"/>
+    <circle cx="53" cy="265" r="2.5" fill="#C5A059" stroke="#A0813D" stroke-width="0.5"/>
+    <text x="46" cy="264" y="263" font-size="4" fill="#333">+</text>
+    <text x="51" y="263" font-size="4" fill="#333">−</text>
+
+    <!-- ============================================================ -->
+    <!-- SWD DEBUG HEADER (2×5, 1.27mm pitch) -->
+    <!-- ============================================================ -->
+    <rect x="25" y="288" width="22" height="14" rx="1" fill="#E0E0E0" stroke="#999" stroke-width="0.8"/>
+    <text x="36" y="297" text-anchor="middle" font-size="4.5" fill="#555">J1</text>
+    <text x="36" y="303" text-anchor="middle" font-size="3.5" fill="#888">SWD 2×5</text>
+
+    <!-- ============================================================ -->
+    <!-- TEST POINTS -->
+    <!-- ============================================================ -->
+    <circle cx="230" y="108" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <text x="230" y="110" text-anchor="middle" font-size="4" fill="#333">TP1</text>
+    <text x="230" y="104" text-anchor="middle" font-size="3.5" fill="#A0813D">Vbatt</text>
+
+    <circle cx="230" y="120" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <text x="230" y="122" text-anchor="middle" font-size="4" fill="#333">TP2</text>
+    <text x="230" y="116" text-anchor="middle" font-size="3.5" fill="#A0813D">3.3V</text>
+
+    <circle cx="230" y="132" r="4" fill="#C5A059" stroke="#A0813D" stroke-width="0.8"/>
+    <text x="230" y="134" text-anchor="middle" font-size="4" fill="#333">TP3</text>
+    <text x="230" y="128" text-anchor="middle" font-size="3.5" fill="#A0813D">GND</text>
+
+    <!-- ============================================================ -->
+    <!-- VOLTAGE DIVIDER (Vbatt sense) -->
+    <!-- ============================================================ -->
+    <rect x="38" y="230" width="16" height="6" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.5"/>
+    <text x="46" y="234" text-anchor="middle" font-size="4" fill="#333">R9</text>
+    <text x="30" y="238" text-anchor="end" font-size="4" fill="#805E2C">100k</text>
+
+    <rect x="38" y="243" width="16" height="6" rx="1" fill="#A0813D" stroke="#805E2C" stroke-width="0.5"/>
+    <text x="46" y="247" text-anchor="middle" font-size="4" fill="#333">R10</text>
+    <text x="30" y="251" text-anchor="end" font-size="4" fill="#805E2C">220k</text>
+
+    <!-- ============================================================ -->
+    <!-- POWER LED (optional indicator) -->
+    <!-- ============================================================ -->
+    <rect x="75" y="180" width="8" height="8" rx="4" fill="#4CAF50" stroke="#388E3C" stroke-width="0.5" opacity="0.7"/>
+    <text x="79" y="176" text-anchor="middle" font-size="4" fill="#388E3C">LED1</text>
+
+    <!-- ============================================================ -->
+    <!-- LOAD SWITCH (SI1308EDL, P-MOSFET) -->
+    <!-- ============================================================ -->
+    <rect x="100" y="230" width="16" height="10" rx="1" fill="#E0E0E0" stroke="#999" stroke-width="0.5"/>
+    <text x="108" y="237" text-anchor="middle" font-size="4" fill="#555">Q1</text>
+    <text x="108" y="230" text-anchor="middle" font-size="3.5" fill="#999">load sw</text>
+
+    <!-- ============================================================ -->
+    <!-- STATUS LED (optional, connected to PB4) -->
+    <!-- ============================================================ -->
+    <rect x="222" y="140" width="8" height="8" rx="4" fill="#FF9800" stroke="#F57C00" stroke-width="0.5" opacity="0.5"/>
+    <text x="226" y="136" text-anchor="middle" font-size="4" fill="#F57C00">LED2</text>
+
+    <!-- ============================================================ -->
+    <!-- AUXILIARY SENSOR HEADER -->
+    <!-- ============================================================ -->
+    <rect x="25" y="55" width="20" height="16" rx="1" fill="#E0E0E0" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="35" y="65" text-anchor="middle" font-size="4" fill="#888">I²C ext</text>
+    <text x="35" y="60" text-anchor="middle" font-size="3.5" fill="#aaa">J3</text>
+
+    <!-- ============================================================ -->
+    <!-- PCB EDGE DIMENSIONS -->
+    <!-- ============================================================ -->
+    <!-- Top edge dimension -->
+    <line x1="0" y1="-15" x2="520" y2="-15" stroke="#999" stroke-width="0.5" marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)"/>
+    <line x1="0" y1="-10" x2="0" y2="-20" stroke="#999" stroke-width="0.3"/>
+    <line x1="520" y1="-10" x2="520" y2="-20" stroke="#999" stroke-width="0.3"/>
+    <text x="260" y="-8" text-anchor="middle" font-size="8" fill="#666">30.0 mm</text>
+
+    <!-- Left edge dimension -->
+    <line x1="-15" y1="0" x2="-15" y2="347" stroke="#999" stroke-width="0.5" marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)"/>
+    <line x1="-10" y1="0" x2="-20" y2="0" stroke="#999" stroke-width="0.3"/>
+    <line x1="-10" y1="347" x2="-20" y2="347" stroke="#999" stroke-width="0.3"/>
+    <text x="-18" y="178" text-anchor="middle" font-size="8" fill="#666" transform="rotate(-90, -18, 178)">20.0 mm</text>
+
+    <!-- ============================================================ -->
+    <!-- TITLE BLOCK (bottom-right corner of PCB) -->
+    <!-- ============================================================ -->
+    <rect x="340" y="310" width="170" height="28" rx="2" fill="#E8F5E9" stroke="#2D6A4F" stroke-width="0.5" opacity="0.8"/>
+    <text x="350" y="321" font-size="5" fill="#1B4332">MykoVolt DevKit v0.1</text>
+    <text x="350" y="330" font-size="4" fill="#558B2F">30×20mm · 4L · FR-4 · Rev A</text>
+    <text x="490" y="330" text-anchor="end" font-size="4" fill="#558B2F">2026-07</text>
+
+    <!-- ============================================================ -->
+    <!-- LABELS for zones -->
+    <!-- ============================================================ -->
+    <!-- Zone labels around board -->
+    <text x="72" y="290" text-anchor="middle" font-size="8" font-weight="700" fill="#FFF" opacity="0.4">POWER</text>
+    <text x="201" y="310" text-anchor="middle" font-size="8" font-weight="700" fill="#FFF" opacity="0.4">MCU</text>
+    <text x="390" y="240" text-anchor="middle" font-size="8" font-weight="700" fill="#FFF" opacity="0.3">NFC ANTENNA</text>
+    <text x="72" y="68" text-anchor="middle" font-size="8" font-weight="700" fill="#FFF" opacity="0.4">SENSOR</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LAYER STACK LEGEND (right side) -->
+  <!-- ============================================================ -->
+  <g transform="translate(660, 80)">
+    <rect x="0" y="0" width="220" height="320" rx="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+    <text x="110" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Layer Stack</text>
+
+    <!-- Layer 1 Top -->
+    <rect x="15" y="35" width="190" height="40" rx="3" fill="#C5A059" stroke="#A0813D" stroke-width="1"/>
+    <text x="25" y="50" font-size="9" font-weight="600" fill="#333">L1 — Top (Signal + Antenna)</text>
+    <text x="25" y="63" font-size="7.5" fill="#666">1 oz Cu · ENIG · Components + NFC coil + electrodes</text>
+
+    <!-- Prepreg -->
+    <rect x="15" y="75" width="190" height="8" rx="1" fill="#E0E0E0" stroke="#CCC" stroke-width="0.5"/>
+    <text x="110" y="83" text-anchor="middle" font-size="6" fill="#999">Prepreg 0.2 mm</text>
+
+    <!-- Layer 2 GND -->
+    <rect x="15" y="83" width="190" height="35" rx="3" fill="#558B2F" stroke="#33691E" stroke-width="1"/>
+    <text x="25" y="98" font-size="9" font-weight="600" fill="#fff">L2 — GND Plane</text>
+    <text x="25" y="111" font-size="7.5" fill="#A5D6A7">1 oz Cu · Solid ground · Cutout under NFC antenna</text>
+
+    <!-- Core -->
+    <rect x="15" y="118" width="190" height="8" rx="1" fill="#E0E0E0" stroke="#CCC" stroke-width="0.5"/>
+    <text x="110" y="126" text-anchor="middle" font-size="6" fill="#999">Core 0.4 mm</text>
+
+    <!-- Layer 3 PWR -->
+    <rect x="15" y="126" width="190" height="35" rx="3" fill="#1565C0" stroke="#0D47A1" stroke-width="1"/>
+    <text x="25" y="141" font-size="9" font-weight="600" fill="#fff">L3 — Power Plane</text>
+    <text x="25" y="154" font-size="7.5" fill="#90CAF9">1 oz Cu · 3.3V + analog split · Shield under electrodes</text>
+
+    <!-- Prepreg -->
+    <rect x="15" y="161" width="190" height="8" rx="1" fill="#E0E0E0" stroke="#CCC" stroke-width="0.5"/>
+    <text x="110" y="169" text-anchor="middle" font-size="6" fill="#999">Prepreg 0.2 mm</text>
+
+    <!-- Layer 4 Bottom -->
+    <rect x="15" y="169" width="190" height="40" rx="3" fill="#BF360C" stroke="#872808" stroke-width="1"/>
+    <text x="25" y="184" font-size="9" font-weight="600" fill="#fff">L4 — Bottom (Sensor + TP)</text>
+    <text x="25" y="197" font-size="7.5" fill="#FFCC80">1 oz Cu · ENIG · Interdigital electrodes + test points</text>
+
+    <!-- Total thickness -->
+    <rect x="15" y="217" width="190" height="12" rx="2" fill="#1B4332"/>
+    <text x="110" y="226" text-anchor="middle" font-size="7" font-weight="600" fill="#B7E4C7">Total thickness: 0.8 mm ±10%</text>
+
+    <!-- Color legend -->
+    <text x="110" y="255" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Colour Legend</text>
+    <rect x="20" y="268" width="14" height="10" rx="2" fill="#C5A059" stroke="#A0813D" stroke-width="0.5"/>
+    <text x="38" y="276" font-size="7.5" fill="#555">Copper (ENIG finish)</text>
+    <rect x="20" y="284" width="14" height="10" rx="2" fill="#236B35" stroke="#1A5427" stroke-width="0.5"/>
+    <text x="38" y="292" font-size="7.5" fill="#555">Soldermask (green)</text>
+    <rect x="20" y="300" width="14" height="10" rx="2" fill="#4A148C" stroke="#31106B" stroke-width="0.5"/>
+    <text x="38" y="308" font-size="7.5" fill="#555">NFC IC / FRAM / RTC</text>
+    <rect x="130" y="268" width="14" height="10" rx="2" fill="#0D47A1" stroke="#092F6E" stroke-width="0.5"/>
+    <text x="148" y="276" font-size="7.5" fill="#555">MCU</text>
+    <rect x="130" y="284" width="14" height="10" rx="2" fill="#33691E" stroke="#1B5E20" stroke-width="0.5"/>
+    <text x="148" y="292" font-size="7.5" fill="#555">Boost converter</text>
+    <rect x="130" y="300" width="14" height="10" rx="2" fill="#BF360C" stroke="#872808" stroke-width="0.5"/>
+    <text x="148" y="308" font-size="7.5" fill="#555">Sensor (electrodes bottom)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- NOTES & SPECS (bottom) -->
+  <!-- ============================================================ -->
+  <g transform="translate(40, 530)">
+    <rect x="0" y="0" width="820" height="140" rx="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+
+    <text x="20" y="22" font-size="12" font-weight="700" fill="#333">Design Notes &amp; Specifications</text>
+
+    <!-- Grid of specs -->
+    <text x="20" y="42" font-size="8" font-weight="600" fill="#1B4332">Layer Stack</text>
+    <text x="20" y="54" font-size="7.5" fill="#555">4-layer FR-4, 0.8 mm, 1 oz Cu outer/inner, ENIG finish</text>
+
+    <text x="270" y="42" font-size="8" font-weight="600" fill="#1B4332">Design Rules</text>
+    <text x="270" y="54" font-size="7.5" fill="#555">0.3 mm min trace/space, 0.3 mm min via, 0.45 mm pad</text>
+
+    <text x="520" y="42" font-size="8" font-weight="600" fill="#1B4332">Impedance</text>
+    <text x="520" y="54" font-size="7.5" fill="#555">No controlled impedance required (I²C @ 100 kHz)</text>
+
+    <text x="20" y="72" font-size="8" font-weight="600" fill="#1B4332">Critical Rules</text>
+    <text x="20" y="84" font-size="7.5" fill="#555">① BQ25570 inductor L1 ≤5 mm from IC, no vias in path</text>
+    <text x="20" y="96" font-size="7.5" fill="#555">② No GND plane under NFC antenna (keep-out on L2)</text>
+    <text x="20" y="108" font-size="7.5" fill="#555">③ FDC1004 CIN1 trace ≤20 mm, shielded by L3 plane</text>
+    <text x="20" y="120" font-size="7.5" fill="#555">④ Decoupling caps ≤3 mm from each IC supply pin</text>
+    <text x="20" y="132" font-size="7.5" fill="#555">⑤ 9 thermal vias under BQ25570 exposed pad (0.3 mm, filled)</text>
+
+    <text x="270" y="72" font-size="8" font-weight="600" fill="#1B4332">Power Budget</text>
+    <text x="270" y="84" font-size="7.5" fill="#555">Sleep: 1.8 µA (RTC + BQ25570 only)</text>
+    <text x="270" y="96" font-size="7.5" fill="#555">Measurement: 3.2 mA for 150 ms</text>
+    <text x="270" y="108" font-size="7.5" fill="#555">NFC readout: 5.0 mA for 500 ms (passive, no battery draw)</text>
+    <text x="270" y="120" font-size="7.5" fill="#555">Daily avg: 4.6 µA → 0.14 mWh/day</text>
+    <text x="270" y="132" font-size="7.5" fill="#555">Pressling delivers: 0.29 mWh/day → 2× margin</text>
+
+    <text x="520" y="72" font-size="8" font-weight="600" fill="#1B4332">BOM Summary (100pc)</text>
+    <text x="520" y="84" font-size="7.5" fill="#555">6 ICs: €10.39</text>
+    <text x="520" y="96" font-size="7.5" fill="#555">33 passives + 2 inductors : €0.91</text>
+    <text x="520" y="108" font-size="7.5" fill="#555">Crystal + connectors + ESD: €2.29</text>
+    <text x="520" y="120" font-size="7.5" fill="#555">PCB + assembly: €2.55</text>
+    <text x="520" y="132" font-size="7.5" fill="#555"><tspan font-weight="700">Total: €16.14/board</tspan></text>
+  </g>
+
+</svg>
