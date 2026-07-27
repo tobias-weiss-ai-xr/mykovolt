@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MykoVolt -- Pitch Deck</title>
+<title>MykoVolt -- Platform Pitch</title>
 <style>
   @page { size: 960px 540px; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,7 +32,6 @@
   tr:last-child td { border-bottom: none; }
   .ask-box { background: #2D6A4F; color: #fff; border-radius: 8px; padding: 12px 16px; margin-top: 8px; }
   .ask-box p { color: #fff; margin: 0; font-size: 13px; }
-  .highlight { background: #fff3cd; padding: 1px 6px; border-radius: 3px; font-weight: 600; }
 
   @media print {
     body { background: #fff; padding: 0; }
@@ -46,230 +45,157 @@
 <div class="slide">
   <div class="logo">MykoVolt</div>
   <div style="display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
-    <div style="font-size:14px; color:#2D6A4F; letter-spacing:3px; text-transform:uppercase; margin-bottom:16px;">Pitch Deck &middot; Juli 2026</div>
-    <h1 style="font-size:42px; margin-bottom:10px;">MykoVolt</h1>
-    <p style="font-size:17px; color:#555; max-width:650px; margin:0 auto 24px;">Kompostierbare Pilz-Biobatterie f&uuml;r IoT-Sensoren &mdash; <strong>Drop-and-Forget</strong> statt Batteriewechsel</p>
+    <div style="font-size:14px; color:#2D6A4F; letter-spacing:3px; text-transform:uppercase; margin-bottom:16px;">Platform Pitch &middot; Juli 2026</div>
+    <h1 style="font-size:40px; margin-bottom:10px;">MykoVolt</h1>
+    <p style="font-size:17px; color:#555; max-width:680px; margin:0 auto 24px;">Eine offene Plattform f&uuml;r <strong>verg&auml;ngliche Sensorik</strong> &mdash; Elektronik, die nach ihrer Mission spurlos verschwindet</p>
     <div style="display:flex; gap:10px; justify-content:center; margin-bottom:20px;">
       <span class="tag">TRL 2</span>
-      <span class="tag">Simulation abgeschlossen</span>
-      <span class="tag">PCB designed</span>
-      <span class="tag">Firmware compiliert</span>
+      <span class="tag">DevKit v0.1</span>
+      <span class="tag">Open Platform</span>
     </div>
     <div style="border-top:2px solid #e0e0e0; padding-top:14px; width:200px; margin:0 auto;">
       <p style="font-size:13px; color:#666; margin:0;">Tobias Wei&szlig;</p>
       <p style="font-size:11px; color:#999; margin:0;">contextual-intelligence.org</p>
     </div>
   </div>
-  <div class="slide-num">1 / 6</div>
+  <div class="slide-num">1 / 5</div>
 </div>
 
-<!-- SLIDE 2: PROBLEM -->
+<!-- SLIDE 2: DAS PROBLEM -->
 <div class="slide">
   <div class="logo">MykoVolt</div>
-  <h2>Problem</h2>
+  <h2>Das Problem</h2>
   <div class="grid-2">
     <div>
-      <p style="font-size:15px;"><strong>Pr&auml;zisionslandwirtschaft</strong> setzt auf tausende verteilte Bodensensoren &mdash; Feuchte, Temperatur, N&auml;hrstoffe, Sch&auml;dlinge.</p>
-      <p>Nach der Ernte sind diese Sensoren nicht r&uuml;ckholbar. Die Knopfzellen bleiben im Boden.</p>
-      <p>Die <strong>EU-Batterieverordnung (2023/1542)</strong> wird das zum Kostenproblem machen f&uuml;r Betriebe, die heute noch keine Antwort haben.</p>
+      <p style="font-size:15px;">Es gibt Umgebungen, in denen Sensoren dringend ben&ouml;tigt werden, aber <strong>keine Batterie darf</strong>:</p>
+      <ul>
+        <li><strong>Kompost:</strong> Li-Ion im Kompost zertifiziert die ganze Charge</li>
+        <li><strong>Beton:</strong> Sensor wird eingegossen &mdash; nie wieder erreichbar</li>
+        <li><strong>Deponie:</strong> Batterien laugen aus &mdash; verboten</li>
+        <li><strong>Wundauflage:</strong> Li-Ion ist nicht biokompatibel</li>
+        <li><strong>CO2-Zertifizierung:</strong> "Wir haben tausend Li-Ion vergraben, um zu beweisen, dass der Boden gesund ist" &mdash; unglaubw&uuml;rdig</li>
+      </ul>
     </div>
     <div style="display:flex; flex-direction:column; justify-content:center;">
       <div style="background:#f8faf8; border-radius:8px; padding:18px; text-align:center;">
-        <div class="stat">&lt; 5 %</div>
-        <div class="stat-label">Recyclingquote Knopfzellen</div>
+        <div class="stat">Heute: Keine L&ouml;sung</div>
+        <div class="stat-label">Diese Umgebungen sind Sensor-Whitelands</div>
         <div style="margin:14px 0; height:1px; background:#e0e0e0;"></div>
-        <div class="stat">0 %</div>
-        <div class="stat-label">kompostierbare Alternativen am Markt</div>
-        <div style="margin:14px 0; height:1px; background:#e0e0e0;"></div>
-        <div class="stat">3.000&ndash;10.000</div>
-        <div class="stat-label">Sensoren pro landwirtschaftlichem Betrieb</div>
+        <div class="stat">MykoVolt: Verg&auml;ngliche Elektronik</div>
+        <div class="stat-label">Kompostierbare Batterie, wiederverwendbare Elektronik</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">2 / 6</div>
+  <div class="slide-num">2 / 5</div>
 </div>
 
-<!-- SLIDE 3: LÖSUNG & STATUS -->
+<!-- SLIDE 3: DIE PLATTFORM -->
 <div class="slide">
   <div class="logo">MykoVolt</div>
-  <h2>L&ouml;sung &amp; aktueller Stand</h2>
-  <p style="font-size:12px; color:#888; margin-bottom:6px;">Dual-Path-Strategie: Pilz-MFC (Prim&auml;r) + Mg-Air (Fallback) &middot; Embedded im 30&times;20 mm Sensor-Board</p>
+  <h2>Die Plattform</h2>
   <div class="grid-2">
     <div>
-      <h3>Simulation abgeschlossen (12 Module)</h3>
-      <ul>
-        <li><strong>Elektronentransport-Graph</strong> &mdash; 91% &Uuml;bereinstimmung mit Empa-Literatur</li>
-        <li><strong>Bayesian Optimization</strong> &rarr; 261 &micro;W/cm&sup2; (20&times; Empa-Baseline, simuliert)</li>
-        <li><strong>Pressling-Viability</strong> &rarr; O2-Mangel ab 5 cm Tiefe entdeckt (Killer-Problem)</li>
-        <li><strong>Dual-Path-Entscheidung</strong> &rarr; Air-Chimney + Mg-Air parallel</li>
-        <li><strong>BOM-Kostenmodell</strong> &rarr; EUR 0,15/St&uuml;ck (Scale)</li>
-      </ul>
-      <h3 style="margin-top:8px;">Hardware &amp; Firmware</h3>
-      <ul>
-        <li><strong>PCB-Design</strong> 30&times;20 mm, 4-Layer, 57 Komponenten, Gerber-Dateien JLCPCB-ready</li>
-        <li><strong>Firmware</strong> STM32L011, I&sup2;C-Bus, FDC1004 (Kapazitiv), ST25DV04K (NFC), FRAM, RTC</li>
-        <li><strong>Build</strong> 0 Warnungen, 3,8 KB Flash, 920 B RAM</li>
-      </ul>
+      <p style="font-size:13px; color:#888; margin-bottom:4px;">MykoVolt ist keine Produktfirma. Es ist eine <strong>offene Plattform</strong> f&uuml;r verg&auml;ngliche Sensorik:</p>
+      <table>
+        <tr><th>Layer</th><th>Jetzt (DevKit v0.1)</th><th>Future</th></tr>
+        <tr><td>Strom</td><td>Pilz-MFC (25 &micro;W)</td><td>Biologisch + Hybrid</td></tr>
+        <tr><td>Sensor</td><td>Kapazitiv (FDC1004)</td><td>Temp, Chem, Vibr.</td></tr>
+        <tr><td>Kommunikation</td><td>NFC (2-5 cm)</td><td>BLE, Passiv-RF</td></tr>
+        <tr><td>Leiterplatte</td><td>FR-4 (wiederverwendbar)</td><td>Zellulose (kompostierbar)</td></tr>
+        <tr><td>Kosten</td><td>~EUR 0,15/Pressling</td><td>~EUR 0,01/Node</td></tr>
+      </table>
+      <p style="font-size:12px; color:#888; margin-top:6px;">Jeder Layer kann unabh&auml;ngig verbessert werden. Die Plattform bleibt.</p>
     </div>
     <div>
-      <p style="font-size:12px; color:#888; margin-bottom:4px;">Vergleich pro Sensor:</p>
-      <table>
-        <tr><th></th><th>MykoVolt</th><th>CR2032</th><th>AAA</th></tr>
-        <tr><td>Kosten</td><td><strong>EUR 0,15</strong></td><td>EUR 0,35</td><td>EUR 0,15</td></tr>
-        <tr><td>Masse</td><td><strong>0,1 g</strong></td><td>3,0 g</td><td>11,5 g</td></tr>
-        <tr><td>Kompostierbar</td><td><strong>Ja (90 %)</strong></td><td>Nein</td><td>Nein</td></tr>
-        <tr><td>Spannung</td><td>0,3&ndash;0,6 V</td><td>3,0 V</td><td>1,5 V</td></tr>
-        <tr><td>Leistung</td><td>25 &micro;W (simuliert)</td><td>5.000 &micro;W</td><td>10.000 &micro;W</td></tr>
-        <tr><td>Schlafstrom</td><td><strong>1,8 &micro;A</strong></td><td>k. A.</td><td>k. A.</td></tr>
-      </table>
-      <div style="background:#f8faf8; border-radius:6px; padding:10px; margin-top:8px; border-left:4px solid #e65100;">
-        <p style="font-size:12px; margin:0; color:#333;"><strong>Kritischer Befund (Simulation):</strong> O2-Konzentration in 10 cm Tiefe &lt; 0,1 %. Die Pilz-Kathode braucht Sauerstoff. L&ouml;sung: Air-Chimney (R&ouml;hre zur Oberfl&auml;che) oder Mg-Air-Backup.</p>
+      <p style="font-size:13px; margin-bottom:6px;"><strong>Enthalten im DevKit:</strong></p>
+      <ul>
+        <li>PCB-Design (30x20mm, 4-Layer, 57 Komponenten)</li>
+        <li>Firmware (STM32L011, Zero Warnings)</li>
+        <li>Simulations-Suite (11 Level, 95 Tests)</li>
+        <li>PCB-Generator (YAML-Konfig, CLI, CI/CD)</li>
+        <li>Design-Konfiguration (design_rules.yaml)</li>
+        <li>Gerber-Export (JLCPCB-ready)</li>
+      </ul>
+      <div style="background:#f8faf8; border-radius:6px; padding:10px; margin-top:8px; border-left:4px solid #2D6A4F;">
+        <p style="font-size:12px; margin:0;"><strong>DevKit:</strong> EUR 49-99 &middot; Forscher bauen damit die n&auml;chsten Anwendungen.</p>
       </div>
     </div>
   </div>
-  <div class="slide-num">3 / 6</div>
+  <div class="slide-num">3 / 5</div>
 </div>
 
-<!-- SLIDE 4: TECHNOLOGIE & SIMULATION -->
+<!-- SLIDE 4: ANWENDUNGEN -->
 <div class="slide">
   <div class="logo">MykoVolt</div>
-  <h2>KI-Simulations-Pipeline (11 Level)</h2>
-  <p style="font-size:12px; color:#888; margin-bottom:4px;">Volle Simulations-Suite &mdash; von Elektronentransport-Graph bis Kostenmodell. 85 Unit-Tests bestanden.</p>
-  <div class="grid-3" style="margin-bottom:4px;">
+  <h2>Anwendungen (Heute &amp; Morgen)</h2>
+  <div class="grid-3">
     <div class="card">
-      <div class="stat">261 &micro;W/cm&sup2;</div>
-      <div class="stat-label">Level 1: Tinten-Optimierung</div>
-      <p>Bayesian Optimization: 11,8% Carbon Black, 24,5% Graphit</p>
+      <div class="stat">Jetzt</div>
+      <div class="stat-label">DevKit f&uuml;r Forschung</div>
+      <p>Erstes Produkt. Forscher experimentieren mit Pilz-Batterien, kompostierbarer Sensorik, ephemerer Elektronik. EUR 49-99/Kit.</p>
     </div>
     <div class="card">
-      <div class="stat">80,6 %</div>
-      <div class="stat-label">Level 2: Synergie-Analyse</div>
-      <p>Graphit-Flocken dominieren &rarr; Ohmscher Bottleneck</p>
+      <div class="stat">2028+</div>
+      <div class="stat-label">Kompost-&Uuml;berwachung</div>
+      <p>Sensor im Komposthaufen. Pilz-Batterie wird selbst Kompost. Li-Ion ist in industriellem Kompost verboten. Regulatorischer Moat.</p>
     </div>
     <div class="card">
-      <div class="stat">86 &micro;W/cm&sup2;</div>
-      <div class="stat-label">Level 3: Geometrie-Opt.</div>
-      <p>500 &micro;m Layer, 100% Infill, 1 mm Spacing</p>
+      <div class="stat">2030+</div>
+      <div class="stat-label">Infrastruktur-Monitoring</div>
+      <p>1.000 Sensoren in einer Betonladung. Nach 7 Tagen ausgelesen, f&uuml;r immer eingeschlossen. Kein Li-Ion im Beton.</p>
     </div>
     <div class="card">
-      <div class="stat">85,0 %</div>
-      <div class="stat-label">Level 6: Degradation</div>
-      <p>Physics-Informed GP: Arrhenius + pH + Feuchte</p>
+      <div class="stat">2030+</div>
+      <div class="stat-label">CO2-Zertifizierung</div>
+      <p>Tausende Sensoren auf regenerativen &Auml;ckern. Die Batterie kompostiert. Der Sensor wird ausgelesen. Die Daten sind der Zertifikatsnachweis.</p>
     </div>
     <div class="card">
-      <div class="stat">8,7 %</div>
-      <div class="stat-label">Level 8: Pressling-Viable</div>
-      <p>Monte-Carlo (10k): P(7 Tage &uuml;berleben) in 10 cm Tiefe</p>
+      <div class="stat">Langfristig</div>
+      <div class="stat-label">&Ouml;kologische Forensik</div>
+      <p>Sensoren, die wie Kieselsteine aussehen. &Uuml;berwachung von Wildererei, illegalem Holzeinschlag, Umweltverschmutzung. Sie verschwinden, wenn niemand sie findet.</p>
     </div>
     <div class="card">
-      <div class="stat">EUR 0,15</div>
-      <div class="stat-label">Level 11: BOM-Kosten</div>
-      <p>Bottom-up: Pressling + Elektronik in 3 Volumen-Stufen</p>
+      <div class="stat">Vision</div>
+      <div class="stat-label">Ephemere Sensor-Staub</div>
+      <p>€0,01/Node. Gedruckte Schaltungen. Bodenbetrieben. Kein &Ouml;kosystem st&ouml;rt. Keine R&uuml;ckholung. Kein Abfall.</p>
     </div>
   </div>
-  <div style="display:flex; gap:10px; align-items:stretch;">
-    <div style="flex:1; background:#f8faf8; border-radius:6px; padding:10px;">
-      <p style="font-size:11px; margin:0 0 4px 0; font-weight:600;">Top-Erkenntnisse:</p>
-      <ul style="font-size:11px;">
-        <li>Ohmscher Widerstand ist Bottleneck, nicht Enzyme</li>
-        <li>3D-Druck ungeeignet f&uuml;r Scale-Up &rarr; Pressling</li>
-        <li>O2-Starvation in &gt; 5 cm Tiefe &rarr; Dual-Path n&ouml;tig</li>
-        <li>Simulationsziel 260 &micro;W/cm&sup2; reicht f&uuml;r IoT-Sensoren</li>
-      </ul>
-    </div>
-    <div style="flex:0.8; background:#f8faf8; border-radius:6px; padding:10px;">
-      <p style="font-size:11px; margin:0 0 4px 0; font-weight:600;">Dual-Path-Vergleich:</p>
-      <table style="font-size:10px;">
-        <tr><th>Ansatz</th><th>Score</th><th>O2-frei</th></tr>
-        <tr><td>Passive NFC</td><td>0,800</td><td>Ja</td></tr>
-        <tr><td><strong>Mg-Air</strong></td><td><strong>0,784</strong></td><td><strong>Ja</strong></td></tr>
-        <tr><td>Air-Chimney</td><td>0,598</td><td>Nein</td></tr>
-      </table>
-    </div>
-  </div>
-  <div class="slide-num">4 / 6</div>
+  <div class="slide-num">4 / 5</div>
 </div>
 
-<!-- SLIDE 5: MARKT & BUSINESS -->
-<div class="slide">
-  <div class="logo">MykoVolt</div>
-  <h2>Markt &amp; Gesch&auml;ftsmodell</h2>
-  <div class="grid-2">
-    <div>
-      <h3>Markt</h3>
-      <ul>
-        <li><strong>TAM Bio-Batterien:</strong> USD 96 Mrd. &rarr; USD 230 Mrd. bis 2035 (CAGR 8,2 %)</li>
-        <li><strong>Nische:</strong> Kompostierbare Agrarsensoren &mdash; ~ USD 50 Mio. adressierbar</li>
-        <li><strong>Sustainability-Premium:</strong> 30&ndash;50 % &uuml;ber konventionellen Zellen</li>
-      </ul>
-      <h3 style="margin-top:8px;">Go-to-Market</h3>
-      <table>
-        <tr><th>Phase</th><th>Produkt</th><th>Preis</th></tr>
-        <tr><td>2028: DevKit</td><td>NFC-Sensor-Board + Presslinge</td><td>EUR 49&ndash;99</td></tr>
-        <tr><td>2029: Feldpilot</td><td>LoRa-Sensor (Mg-Air)</td><td>EUR 19&ndash;39</td></tr>
-        <tr><td>2031: Kommerziell</td><td>OEM-Komponente</td><td>EUR 8&ndash;15</td></tr>
-      </table>
-    </div>
-    <div>
-      <h3>Wettbewerbsvorteil</h3>
-      <table>
-        <tr><th>Akteur</th><th>Ansatz</th><th>Bio-abbaubar</th><th>KI-FuE</th></tr>
-        <tr><td><strong>MykoVolt</strong></td><td>Pilz-MFC</td><td>Ja</td><td><strong>Ja</strong></td></tr>
-        <tr><td>BeFC (FR)</td><td>Enzym-Papier</td><td>Ja</td><td>Nein</td></tr>
-        <tr><td>Bactery AB (SE)</td><td>Bakterien-MFC</td><td>Nein</td><td>Nein</td></tr>
-        <tr><td>MycelioTronics (AT)</td><td>Myzel-Separator</td><td>Ja</td><td>Nein</td></tr>
-        <tr><td>Bloo (ES)</td><td>Pflanzen-Batterie</td><td>Ja</td><td>Nein</td></tr>
-      </table>
-      <div class="ask-box" style="margin-top:8px;">
-        <p><strong>Revenue:</strong> DevKit EUR 49&ndash;99 (J1) &rarr; OEM-Komponente EUR 8&ndash;15 (J3)</p>
-      </div>
-    </div>
-  </div>
-  <div class="slide-num">5 / 6</div>
-</div>
-
-<!-- SLIDE 6: ROADMAP & ASK -->
+<!-- SLIDE 5: ROADMAP & ASK -->
 <div class="slide">
   <div class="logo">MykoVolt</div>
   <h2>Roadmap &amp; Ask</h2>
   <div class="grid-2">
     <div>
-      <h3>Status Juli 2026</h3>
-      <div style="background:#e8f5e9; border-radius:6px; padding:10px; margin-bottom:8px;">
-        <p style="font-size:12px; margin:0; font-weight:600;">✅ Abgeschlossen:</p>
-        <ul style="font-size:11px;">
-          <li>Simulations-Suite (11 Level, 85 Tests)</li>
-          <li>PCB-Design (30&times;20 mm, 4-Layer, Gerber-ready)</li>
-          <li>Firmware (STM32L011, NFC, kapazitiver Sensor)</li>
-          <li>BOM-Kostenmodell (EUR 0,15/St&uuml;ck)</li>
-          <li>Patent-Recherche (FTO: kein Blocking-Patent)</li>
-          <li>EXIST-Grant-Skizze</li>
-        </ul>
-      </div>
-      <h3>N&auml;chste Schritte</h3>
+      <h3>Kritischer Pfad</h3>
       <table>
-        <tr><th>Phase 0</th><th>Dauer</th><th>Kosten</th></tr>
-        <tr><td>Co-Founder-Rekrutierung</td><td>Q3 2026</td><td>&mdash;</td></tr>
-        <tr><td>Lab Validation (Dual-Path)</td><td>12 Monate</td><td>EUR 15&ndash;50 k</td></tr>
-        <tr><td>EXIST-Antrag</td><td>M&auml;rz 2027</td><td>EUR 84 k</td></tr>
-        <tr><td><strong>Gate 1: Pfad-Entscheidung</strong></td><td><strong>Q2 2027</strong></td><td>&mdash;</td></tr>
+        <tr><th>Schritt</th><th>Dauer</th></tr>
+        <tr><td>1. DevKit f&uuml;r Forscher</td><td>Jetzt</td></tr>
+        <tr><td>2. Biologisch abbaubare Leiterplatte</td><td>2-3 Jahre</td></tr>
+        <tr><td>3. >30 Tage Lebensdauer</td><td>3-4 Jahre</td></tr>
+        <tr><td>4. BLE / Passiv-RF</td><td>4-5 Jahre</td></tr>
+        <tr><td>5. Gedruckte, Rolle-zu-Rolle-Fertigung</td><td>5-7 Jahre</td></tr>
+        <tr><td>6. €0,01/Node im Ma&szlig;stab</td><td>7-10 Jahre</td></tr>
       </table>
+      <p style="font-size:12px; color:#888; margin-top:6px;">Schritt 1 finanziert die Schritte 2-4.</p>
     </div>
     <div>
       <h3>Unser Ask</h3>
       <ul>
-        <li><strong>Co-Founder (Mykologie/Elektrochemie)</strong> f&uuml;r Phase-0-Laborarbeit</li>
-        <li><strong>Laborzugang</strong> f&uuml;r Pilzkultivierung &amp; elektrochemische Messung (3&ndash;12 Monate)</li>
-        <li><strong>Mentoring</strong> f&uuml;r EXIST-Antrag und fachliche Validierung</li>
-        <li><strong>Netzwerk</strong> zu relevanten Professuren (Biologie, Materialwissenschaft)</li>
+        <li><strong>Co-Founder (Mykologie/Elektrochemie)</strong> f&uuml;r Lab-Validierung</li>
+        <li><strong>Laborzugang</strong> f&uuml;r Pilzkultivierung &amp; elektrochemische Messung</li>
+        <li><strong>EXIST-F&ouml;rderung</strong> (Deadline M&auml;rz 2027, EUR 84k)</li>
+        <li><strong>Forscher als erste Kunden</strong> f&uuml;r das DevKit</li>
+        <li><strong>Kooperationspartner</strong> f&uuml;r Zellulose-Leiterplatten-Forschung</li>
       </ul>
-      <p style="font-size:12px; color:#888; margin-top:6px;">Wir bieten: Publikationspotential, studentische Projekte, Innovations-Sichtbarkeit.</p>
       <div class="ask-box" style="margin-top:8px;">
-        <p><strong>N&auml;chste Schritte:</strong> Co-Founder-Gespr&auml;che &middot; Lab-Besichtigung &middot; EXIST-Feinschliff</p>
+        <p><strong>N&auml;chste Schritte:</strong> Co-Founder-Gespr&auml;che &middot; Lab-Besichtigung &middot; DevKit an Forscher</p>
       </div>
     </div>
   </div>
-  <div class="slide-num">6 / 6</div>
+  <div class="slide-num">5 / 5</div>
 </div>
 
 </body>

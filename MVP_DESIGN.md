@@ -1,8 +1,10 @@
 # MykoVolt — MVP Design Document
 
 **Datum:** 2025-06-26
-**Status:** Entwurf
+**Status:** Entwurf — siehe auch [Plattform-Architektur](platform/architecture/overview.md)
 **Version:** 1.0
+
+> **Hinweis:** Dieses Dokument beschreibt den ursprünglichen MVP-Plan. Die aktuelle Plattform-Vision ist unter [platform/architecture/overview.md](platform/architecture/overview.md) dokumentiert. Der DevKit (Phase 1) ist die erste Instanziierung der Plattform.
 
 ---
 
