@@ -101,7 +101,7 @@ COMPONENTS = [
     (
         "U6",
         "FDC1004",
-        "Package_SON:WSON-10-1EP_3x3mm_P0.5mm_EP1.6x2.0mm",
+        "Package_SON:Texas_S-PWSON-N10",
         "https://www.ti.com/lit/ds/symlink/fdc1004.pdf",
         "FDC1004",  # Custom embedded symbol
     ),
@@ -146,10 +146,10 @@ COMPONENTS = [
     ("C23", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     ("C24", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     # ── Inductors ──
-    ("L1", "10µH", "Inductor_SMD:L_4x4mm_H2mm", "", "Device:L_Small"),
-    ("L2", "47µH", "Inductor_SMD:L_3x3mm_H1.5mm", "", "Device:L_Small"),
+    ("L1", "10µH", "Inductor_SMD:L_Vishay_IFSC-1515AH_4x4x1.8mm", "", "Device:L_Small"),
+    ("L2", "47µH", "Inductor_SMD:L_Bourns-SRN4018", "", "Device:L_Small"),
     # ── Crystal ──
-    ("X1", "32.768kHz", "Crystal:Crystal_SMD_3.2x1.5mm", "", "Device:Crystal"),
+    ("X1", "32.768kHz", "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm", "", "Device:Crystal"),
     # ── Transistor ──
     ("Q1", "SI1308EDL", "Package_TO_SOT_SMD:SOT-323_SC-70", "", "Device:Q_PMOS_SGD"),
     # ── LEDs ──
@@ -159,28 +159,28 @@ COMPONENTS = [
     (
         "J1",
         "SWD_2x5",
-        "Connector_Header:Header_2x05_P1.27mm_SMD",
+        "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD",
         "",
         "Connector_Generic:Conn_02x05_Counter_Clockwise",
     ),
     (
         "J2",
         "Pressling",
-        "Connector:JST_PH_B2B-PH-K_1x02_P2.0mm_Vertical",
+        "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
         "",
         "Connector_Generic:Conn_01x02",
     ),
     (
         "J3",
         "Aux_I2C",
-        "Connector:JST_PH_B2B-PH-K_1x02_P2.0mm_Vertical",
+        "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
         "",
         "Connector_Generic:Conn_01x02",
     ),
     (
         "J4",
         "Sensor_In",
-        "Connector_Header:Header_2x03_P1.27mm_SMD",
+        "Connector_PinHeader_1.27mm:PinHeader_2x03_P1.27mm_Vertical_SMD",
         "",
         "Connector_Generic:Conn_01x03",
     ),
@@ -188,7 +188,7 @@ COMPONENTS = [
     (
         "SC1",
         "100mF",
-        "Capacitor_THT:CP_Radial_D8.0mm_P3.5mm",
+        "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm",
         "",
         "Device:C_Polarized_Small",
     ),
@@ -203,7 +203,7 @@ COMPONENTS = [
     (
         "D2",
         "PESD5V0S1UB",
-        "Package_TO_SOT_SMD:SOD-523",
+        "Diode_SMD:D_SOD-523",
         "https://www.nexperia.com/packaging/SOD-523.html",
         "Device:D_TVS",
     ),
@@ -917,13 +917,24 @@ def generate_pcb_pcbnew():
     text2.SetTextThickness(120000)
     board.Add(text2)
     
-    # ── Create nets ──
+    # ── Create nets and build netcode map ──
     net_names = sorted(set(n[0] for n in NETS))
+    netcode_map = {}  # net_name -> netcode
     for i, name in enumerate(net_names):
-        net = pn.NETINFO_ITEM(board, name, i + 1)
+        netcode = i + 1
+        net = pn.NETINFO_ITEM(board, name, netcode)
         board.Add(net)
+        netcode_map[name] = netcode
     
-    # ── Place footprints ──
+    # ── Place footprints with pad net assignments ──
+    # Build a lookup: ref -> { pin_num -> net_name }
+    ref_nets = {}  # ref -> { pin -> net_name }
+    for net_name, connections in NETS:
+        for ref, pin in connections:
+            if ref not in ref_nets:
+                ref_nets[ref] = {}
+            ref_nets[ref][pin] = net_name
+    
     for ref, value, footprint, _, _ in COMPONENTS:
         if ref not in PCB_POS:
             continue
@@ -955,7 +966,55 @@ def generate_pcb_pcbnew():
         fp.SetOrientation(0)
         fp.Reference().SetText(ref)
         fp.Value().SetText(value)
+        
+        # Assign nets to pads based on netlist
+        if ref in ref_nets:
+            pin_map = ref_nets[ref]
+            for pad in fp.Pads():
+                pad_num = pad.GetNumber()
+                if pad_num in pin_map:
+                    net_name = pin_map[pad_num]
+                    if net_name in netcode_map:
+                        pad.SetNetCode(netcode_map[net_name])
+        
         board.Add(fp)
+    
+    # ── Add copper zones ──
+    # Build zone outline from board edges (slightly inset)
+    inset = int(0.3e6)  # 0.3mm clearance from edge
+    zone_corners = [
+        pn.wxPoint(inset, inset),
+        pn.wxPoint(w - inset, inset),
+        pn.wxPoint(w - inset, h - inset),
+        pn.wxPoint(inset, h - inset),
+    ]
+    
+    # Helper to create a zone (KiCad 6 API)
+    def add_zone(layer, net_name, priority=0):
+        zone = pn.ZONE(board)
+        zone.SetLayer(layer)
+        zone.SetNetCode(netcode_map.get(net_name, 0))
+        zone.SetPriority(priority)
+        zone.SetIslandRemovalMode(pn.ISLAND_REMOVAL_MODE_AREA)
+        zone.SetMinIslandArea(100000000)  # 100mm²
+        zone.SetCornerSmoothingType(pn.ZONE_SETTINGS.SMOOTHING_FILLET)
+        zone.SetCornerRadius(500000)  # 0.5mm
+        zone.SetFillMode(pn.ZONE_FILL_MODE_POLYGONS)
+        
+        # Build zone outline using AppendCorner (KiCad 6 compatible)
+        for pt in zone_corners:
+            zone.AppendCorner(pn.wxPoint(pt.x, pt.y), -1)  # -1 = no hole
+        
+        board.Add(zone)
+        return zone
+    
+    # GND pour on In1.Cu (inner layer 1)
+    if "GND" in netcode_map:
+        add_zone(pn.In1_Cu, "GND", 0)
+    
+    # 3.3V pour on In2.Cu (inner layer 2)
+    if "3.3V" in netcode_map:
+        add_zone(pn.In2_Cu, "3.3V", 0)
     
     # ── Save ──
     pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
