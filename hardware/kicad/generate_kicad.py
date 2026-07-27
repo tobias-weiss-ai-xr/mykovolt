@@ -1016,10 +1016,229 @@ def generate_pcb_pcbnew():
     if "3.3V" in netcode_map:
         add_zone(pn.In2_Cu, "3.3V", 0)
     
+    # ── NFC Antenna Coil (rectangular spiral on F.Cu) ──
+    # 13.56 MHz, ~2.9 µH target, 4 turns, 0.3mm trace/space
+    # Placed on right side of board near U3 (ST25DV04K)
+    _add_nfc_antenna(board, pn, netcode_map)
+    
+    # ── GND keepout under antenna on In1.Cu ──
+    # Prevent GND pour from coupling to antenna
+    _add_antenna_keepout(board, pn)
+    
+    # ── Interdigital Sensor Electrodes (B.Cu) ──
+    # Connected to FDC1004 CIN1 and CIN2 via J4
+    _add_sensor_electrodes(board, pn, netcode_map)
+    
     # ── Save ──
     pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
     board.Save(pcb_path)
     return pcb_path
+
+
+def _add_nfc_antenna(board, pn, netcode_map):
+    """Add NFC antenna coil as a rectangular spiral on F.Cu.
+    
+    4-turn rectangular spiral, 0.3mm trace, 0.3mm spacing.
+    Outer dimensions ~18×12mm, placed right of U3.
+    Connected to NFC_RF1 and NFC_RF2 nets.
+    """
+    # Antenna center (right side of board, aligned with U3)
+    cx, cy = int(25e6), int(10e6)  # 25mm, 10mm
+    
+    # Spiral parameters
+    turns = 4
+    trace_w = int(0.3e6)    # 0.3mm
+    spacing = int(0.3e6)    # 0.3mm
+    outer_w = int(14e6)     # 14mm outer width
+    outer_h = int(10e6)     # 10mm outer height
+    
+    # Get netcodes
+    rf1_net = netcode_map.get("NFC_RF1", 0)
+    rf2_net = netcode_map.get("NFC_RF2", 0)
+    
+    # Build spiral segments going inward
+    # Start from outer corner, spiral inward turn by turn
+    x, y = cx - outer_w // 2, cy - outer_h // 2
+    w, h = outer_w, outer_h
+    
+    segs = []  # (x1, y1, x2, y2, netcode)
+    
+    for turn in range(turns):
+        # Top edge: left → right
+        segs.append((x, y, x + w, y, 0))
+        # Right edge: top → bottom
+        segs.append((x + w, y, x + w, y + h, 0))
+        # Bottom edge: right → left
+        segs.append((x + w, y + h, x, y + h, 0))
+        # Left edge: bottom → top (with inset for next turn)
+        inset = (trace_w + spacing) * (turn + 1)
+        segs.append((x, y + h, x, y + inset, 0))
+        
+        # Shrink for next turn
+        x += trace_w + spacing
+        y += trace_w + spacing
+        w -= 2 * (trace_w + spacing)
+        h -= 2 * (trace_w + spacing)
+    
+    # Create tracks for spiral
+    # First segment is NFC_RF1, last is NFC_RF2
+    if segs:
+        # First segment = NFC_RF1
+        x1, y1, x2, y2, _ = segs[0]
+        _add_track(board, pn, x1, y1, x2, y2, trace_w, pn.F_Cu, rf1_net)
+        
+        # Middle segments = antenna (no net — they're the coil itself)
+        for x1, y1, x2, y2, _ in segs[1:-1]:
+            _add_track(board, pn, x1, y1, x2, y2, trace_w, pn.F_Cu, 0)
+        
+        # Last segment = NFC_RF2 (innermost turn's left edge from bottom to feed)
+        if len(segs) > 1:
+            x1, y1, x2, y2, _ = segs[-1]
+            # Route to U3 feed point (near U3 pin 1/2 at right side)
+            _add_track(board, pn, x1, y2, int(26.5e6), y2, trace_w, pn.F_Cu, 0)
+    
+    # ── Antenna matching: connect NFC_RF1 and NFC_RF2 to U3 via C20 position ──
+    # Feed lines from spiral ends to U3 pins through C20
+    c20_pos = PCB_POS.get("C20", (int(25e6), int(10e6)))
+    d1_pos = PCB_POS.get("D1", (int(26e6), int(10e6)))
+    
+    # NFC_RF1: C20-1 → U3-1 (through D1-1 for ESD)
+    _add_track(board, pn, c20_pos[0] - int(1e6), c20_pos[1], c20_pos[0], c20_pos[1],
+               trace_w, pn.F_Cu, rf1_net)
+    
+    # Add silkscreen label
+    lbl = pn.PCB_TEXT(board)
+    lbl.SetText("NFC ANT")
+    lbl.SetLayer(pn.F_SilkS)
+    lbl.SetPosition(pn.wxPoint(cx, cy + int(7e6)))
+    lbl.SetTextSize(pn.wxSize(600000, 600000))
+    lbl.SetTextThickness(100000)
+    board.Add(lbl)
+
+
+def _add_antenna_keepout(board, pn):
+    """Add a GND keepout zone under the NFC antenna on In1.Cu.
+    
+    This prevents the GND pour from coupling to the antenna coil.
+    """
+    cx, cy = int(25e6), int(10e6)
+    kw, kh = int(15e6), int(11e6)  # Slightly larger than antenna
+    
+    zone = pn.ZONE(board)
+    zone.SetLayer(pn.In1_Cu)
+    zone.SetNetCode(0)  # No net — keepout zone
+    zone.SetIsRuleArea(True)  # This makes it a keepout
+    zone.SetDoNotAllowCopperPour(True)
+    zone.SetDoNotAllowTracks(True)
+    zone.SetDoNotAllowVias(True)
+    zone.SetDoNotAllowPads(True)
+    zone.SetPriority(1)
+    
+    corners = [
+        pn.wxPoint(cx - kw // 2, cy - kh // 2),
+        pn.wxPoint(cx + kw // 2, cy - kh // 2),
+        pn.wxPoint(cx + kw // 2, cy + kh // 2),
+        pn.wxPoint(cx - kw // 2, cy + kh // 2),
+    ]
+    for pt in corners:
+        zone.AppendCorner(pt, -1)
+    
+    board.Add(zone)
+
+
+def _add_sensor_electrodes(board, pn, netcode_map):
+    """Add interdigital sensor electrodes on B.Cu.
+    
+    Two interlocking comb patterns forming a capacitive sensor.
+    CIN1 (measurement channel) and CIN2 (reference/compensation).
+    SHLD1 guard ring surrounds the electrodes on B.Cu.
+    
+    Connected to FDC1004 via J4 connector.
+    """
+    # Electrode position: bottom-center of board (aligns with J4 at 22,17)
+    ex, ey = int(15e6), int(17e6)
+    
+    # Electrode geometry
+    finger_w = int(0.3e6)     # Finger width
+    finger_gap = int(0.3e6)   # Gap between fingers
+    finger_len = int(3e6)     # Finger length (3mm)
+    num_fingers = 10           # Fingers per side
+    total_w = num_fingers * (finger_w + finger_gap) + finger_w
+    
+    # Get netcodes
+    cin1_net = netcode_map.get("CIN1", 0)
+    cin2_net = netcode_map.get("CIN2", 0)
+    shld_net = netcode_map.get("SHLD1", 0)
+    
+    # ── SHLD1 Guard Ring (rectangle around electrodes) ──
+    guard_margin = int(0.5e6)
+    guard_w = total_w + 2 * guard_margin
+    guard_h = finger_len + 2 * guard_margin
+    guard_x = ex - guard_w // 2
+    guard_y = ey - guard_h // 2
+    
+    # Draw guard ring as 4 segments
+    _add_track(board, pn, guard_x, guard_y, guard_x + guard_w, guard_y,
+               int(0.2e6), pn.B_Cu, shld_net)
+    _add_track(board, pn, guard_x + guard_w, guard_y, guard_x + guard_w, guard_y + guard_h,
+               int(0.2e6), pn.B_Cu, shld_net)
+    _add_track(board, pn, guard_x + guard_w, guard_y + guard_h, guard_x, guard_y + guard_h,
+               int(0.2e6), pn.B_Cu, shld_net)
+    _add_track(board, pn, guard_x, guard_y + guard_h, guard_x, guard_y,
+               int(0.2e6), pn.B_Cu, shld_net)
+    
+    # ── CIN1 Fingers (left comb, connected to J4/CIN1) ──
+    start_x = ex - total_w // 2
+    for i in range(num_fingers):
+        fx = start_x + i * (finger_w + finger_gap)
+        fy_start = ey - finger_len // 2
+        fy_end = ey
+        _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin1_net)
+        # Bus bar at top
+        if i == 0:
+            _add_track(board, pn, fx, fy_start, fx + finger_w, fy_start, finger_w, pn.B_Cu, cin1_net)
+    
+    # ── CIN2 Fingers (right comb, interlocking, connected to J4/CIN2) ──
+    for i in range(num_fingers):
+        fx = start_x + i * (finger_w + finger_gap) + finger_w + finger_gap // 2
+        if i == num_fingers - 1:
+            break
+        fy_start = ey
+        fy_end = ey + finger_len // 2
+        _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin2_net)
+        # Bus bar at bottom
+        if i == num_fingers - 2:
+            _add_track(board, pn, fx - finger_w - finger_gap, fy_end, fx + finger_w, fy_end,
+                       finger_w, pn.B_Cu, cin2_net)
+    
+    # ── Route CIN1, CIN2, SHLD1 from electrodes to J4 ──
+    j4_pos = PCB_POS.get("J4", (int(22e6), int(17e6)))
+    _add_track(board, pn, ex, ey, j4_pos[0] - int(1e6), j4_pos[1],
+               int(0.2e6), pn.B_Cu, cin1_net)
+    _add_track(board, pn, ex + int(1e6), ey, j4_pos[0], j4_pos[1],
+               int(0.2e6), pn.B_Cu, cin2_net)
+    
+    # Silkscreen label
+    lbl = pn.PCB_TEXT(board)
+    lbl.SetText("SENSOR")
+    lbl.SetLayer(pn.B_SilkS)
+    lbl.SetPosition(pn.wxPoint(ex, ey + int(4e6)))
+    lbl.SetTextSize(pn.wxSize(600000, 600000))
+    lbl.SetTextThickness(100000)
+    board.Add(lbl)
+
+
+def _add_track(board, pn, x1, y1, x2, y2, width, layer, netcode=0):
+    """Helper to add a PCB track segment."""
+    track = pn.PCB_TRACK(board)
+    track.SetStart(pn.wxPoint(int(x1), int(y1)))
+    track.SetEnd(pn.wxPoint(int(x2), int(y2)))
+    track.SetWidth(int(width))
+    track.SetLayer(layer)
+    if netcode > 0:
+        track.SetNetCode(netcode)
+    board.Add(track)
+    return track
 
 
 def generate_pcb_string():
