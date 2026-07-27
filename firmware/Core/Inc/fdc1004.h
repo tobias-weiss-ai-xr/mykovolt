@@ -86,6 +86,13 @@ uint16_t fdc1004_read_manufacturer_id(void);
 /** Read device ID (should be 0x1004) */
 uint16_t fdc1004_read_device_id(void);
 
+/* ── Channel definitions ── */
+
+#define FDC1004_CIN1         0  /* Soil moisture sensor */
+#define FDC1004_CIN2         1  /* Reference / compensation */
+#define FDC1004_CIN3         2  /* Spare */
+#define FDC1004_CIN4         3  /* Not used */
+
 #ifdef __cplusplus
 }
 #endif
