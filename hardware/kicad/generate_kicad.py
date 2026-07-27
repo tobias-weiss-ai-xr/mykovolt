@@ -2,7 +2,12 @@
 """KiCad 6 Project Generator — MykoVolt DevKit v0.1
 
 Generates a valid KiCad 6 project (schematic + PCB) programmatically.
+Uses simp_sexp.Sexp for robust S-expression generation and pcbnew for PCB layout.
+
 Target format: version 20211014 (KiCad 6).
+
+Usage:
+    python3 hardware/kicad/generate_kicad.py
 
 After generation:
   1. Open hardware/kicad/mykovolt_devkit.kicad_pro in KiCad
@@ -13,27 +18,51 @@ After generation:
   6. Run Inspect → Design Rules Checker to verify
 """
 
-import os, sys, json
+import os
+import sys
+import json
+import uuid
 from datetime import datetime
+from collections import defaultdict
+
+# ── Try importing simp_sexp for robust S-expression generation ──
+try:
+    from simp_sexp import Sexp
+    HAVE_SEXP = True
+except ImportError:
+    HAVE_SEXP = False
+    print("WARNING: simp_sexp not available, falling back to string-based generation")
+
+# ── Try importing pcbnew for PCB layout ──
+try:
+    import pcbnew
+    HAVE_PCBNEW = True
+except ImportError:
+    HAVE_PCBNEW = False
+    print("WARNING: pcbnew not available, using string-based PCB generation")
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BOARD_NAME = "mykovolt_devkit"
 VERSION = "0.1"
 
-import uuid
+# KiCad 6 format version
+KICAD_VERSION = 20211014
 
 
 def det_uuid(seed: str) -> str:
+    """Generate a deterministic UUID from a seed string."""
     ns = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
     return str(uuid.uuid5(ns, f"mykovolt.{seed}"))
 
 
-KICAD_VERSION = "20211014"
+# ═══════════════════════════════════════════════════════════════
+# Component Database
+# ═══════════════════════════════════════════════════════════════
 
-# ── Component Database ──
 # (ref, value, footprint, datasheet, kicad_symbol)
+# kicad_symbol follows KiCad's "LIB:SYMBOL" format, or a custom symbol name.
 COMPONENTS = [
-    # ICs
+    # ── ICs ──
     (
         "U1",
         "STM32L011F4Px",
@@ -76,7 +105,7 @@ COMPONENTS = [
         "https://www.ti.com/lit/ds/symlink/fdc1004.pdf",
         "FDC1004",  # Custom embedded symbol
     ),
-    # Passives
+    # ── Resistors ──
     ("R1", "2.2kΩ", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
     ("R2", "2.2kΩ", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
     ("R3", "47kΩ", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
@@ -91,6 +120,7 @@ COMPONENTS = [
     ("R12", "100Ω", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
     ("R13", "330Ω", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
     ("R14", "330Ω", "Resistor_SMD:R_0603_1608Metric", "", "Device:R_Small"),
+    # ── Capacitors ──
     ("C1", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     ("C2", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     ("C3", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
@@ -113,12 +143,19 @@ COMPONENTS = [
     ("C20", "47pF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     ("C21", "4.7µF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
     ("C22", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
+    ("C23", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
+    ("C24", "100nF", "Capacitor_SMD:C_0603_1608Metric", "", "Device:C_Small"),
+    # ── Inductors ──
     ("L1", "10µH", "Inductor_SMD:L_4x4mm_H2mm", "", "Device:L_Small"),
     ("L2", "47µH", "Inductor_SMD:L_3x3mm_H1.5mm", "", "Device:L_Small"),
+    # ── Crystal ──
     ("X1", "32.768kHz", "Crystal:Crystal_SMD_3.2x1.5mm", "", "Device:Crystal"),
+    # ── Transistor ──
     ("Q1", "SI1308EDL", "Package_TO_SOT_SMD:SOT-323_SC-70", "", "Device:Q_PMOS_SGD"),
+    # ── LEDs ──
     ("LED1", "Green", "LED_SMD:LED_0603_1608Metric", "", "Device:LED"),
     ("LED2", "Yellow", "LED_SMD:LED_0603_1608Metric", "", "Device:LED"),
+    # ── Connectors ──
     (
         "J1",
         "SWD_2x5",
@@ -141,12 +178,21 @@ COMPONENTS = [
         "Connector_Generic:Conn_01x02",
     ),
     (
+        "J4",
+        "Sensor_In",
+        "Connector_Header:Header_2x03_P1.27mm_SMD",
+        "",
+        "Connector_Generic:Conn_01x03",
+    ),
+    # ── Supercap ──
+    (
         "SC1",
         "100mF",
         "Capacitor_THT:CP_Radial_D8.0mm_P3.5mm",
         "",
         "Device:C_Polarized_Small",
     ),
+    # ── TVS Diodes ──
     (
         "D1",
         "USBLC6-2P6",
@@ -163,100 +209,65 @@ COMPONENTS = [
     ),
 ]
 
+# ═══════════════════════════════════════════════════════════════
+# Netlist
+# ═══════════════════════════════════════════════════════════════
+
+# Each net: (net_name, [(ref, pin_number), ...])
 NETS = [
     (
         "GND",
         [
-            ("U1", "15"),
-            ("U2", "1"),
-            ("U2", "9"),
-            ("U2", "15"),
-            ("U2", "17"),
-            ("U2", "21"),
-            ("U2", "5"),
-            ("U2", "7"),
-            ("U3", "3"),
-            ("U3", "4"),
-            ("U6", "9"),
-            ("C22", "2"),
+            ("U1", "15"), ("U1", "8"),  # STM32 VSSA
+            ("U2", "1"), ("U2", "9"), ("U2", "15"), ("U2", "17"),
+            ("U2", "21"), ("U2", "5"), ("U2", "7"),
+            ("U3", "3"), ("U3", "4"),
+            ("U6", "5"), ("U6", "9"),
             ("U4", "4"),
             ("U5", "4"),
-            ("U6", "5"),
-            ("C1", "2"),
-            ("C2", "2"),
-            ("C3", "2"),
-            ("C4", "2"),
-            ("C5", "2"),
-            ("C6", "2"),
-            ("C7", "2"),
-            ("C8", "2"),
-            ("C9", "2"),
-            ("C10", "2"),
-            ("C11", "2"),
-            ("C12", "2"),
-            ("C13", "2"),
-            ("C14", "2"),
-            ("C15", "2"),
-            ("C16", "2"),
-            ("C17", "2"),
-            ("C18", "2"),
-            ("C19", "2"),
-            ("C21", "2"),
+            ("C1", "2"), ("C2", "2"), ("C3", "2"), ("C4", "2"),
+            ("C5", "2"), ("C6", "2"), ("C7", "2"), ("C8", "2"),
+            ("C9", "2"), ("C10", "2"),
+            ("C11", "2"), ("C12", "2"), ("C13", "2"),
+            ("C14", "2"), ("C15", "2"),
+            ("C16", "2"), ("C17", "2"),
+            ("C18", "2"), ("C19", "2"),
+            ("C21", "2"), ("C22", "2"),
+            ("C23", "2"), ("C24", "2"),
             ("J1", "3"),
             ("J2", "2"),
             ("J3", "2"),
-            ("LED1", "2"),
-            ("LED2", "2"),
+            ("J4", "1"), ("J4", "2"), ("J4", "3"),
+            ("LED1", "2"), ("LED2", "2"),
             ("SC1", "2"),
-            ("D1", "3"),
-            ("D1", "4"),
-            ("D1", "6"),
+            ("D1", "3"), ("D1", "4"), ("D1", "6"),
             ("D2", "2"),
-            ("R10", "2"),
-            ("U4", "1"),
-            ("U4", "2"),
-            ("U4", "3"),
-            ("U4", "7"),
-            ("R5", "2"),
-            ("R6", "2"),
-            ("R8", "2"),
             ("R4", "1"),
-            ("Q1", "1"),
-            ("Q1", "2"),
-            ("Q1", "3"),
+            ("R5", "2"), ("R6", "2"), ("R8", "2"), ("R10", "2"),
+            ("U4", "1"), ("U4", "2"), ("U4", "3"), ("U4", "7"),
         ],
     ),
     (
         "3.3V",
         [
-            ("U1", "5"),
-            ("U1", "16"),
+            ("U1", "5"), ("U1", "16"),
             ("U2", "14"),
             ("U3", "8"),
             ("U4", "8"),
             ("U5", "8"),
             ("U6", "10"),
-            ("C1", "1"),
-            ("C2", "1"),
-            ("C3", "1"),
-            ("C4", "1"),
-            ("C5", "1"),
-            ("C6", "1"),
-            ("C7", "1"),
-            ("C8", "1"),
-            ("C9", "1"),
-            ("C10", "1"),
+            ("C1", "1"), ("C2", "1"), ("C3", "1"), ("C4", "1"),
+            ("C5", "1"), ("C6", "1"), ("C7", "1"), ("C8", "1"),
+            ("C9", "1"), ("C10", "1"),
+            ("C11", "1"), ("C12", "1"), ("C13", "1"),
+            ("C14", "1"), ("C15", "1"),
             ("C19", "1"),
-            ("C11", "1"),
-            ("C12", "1"),
-            ("C13", "1"),
-            ("C14", "1"),
-            ("C15", "1"),
-            ("R1", "1"),
-            ("R2", "1"),
+            ("C23", "1"), ("C24", "1"),
+            ("R1", "1"), ("R2", "1"),
             ("R13", "2"),
             ("D2", "1"),
             ("L2", "2"),
+            ("Q1", "2"),
             ("J1", "1"),
         ],
     ),
@@ -276,18 +287,17 @@ NETS = [
     ("SWDIO", [("U1", "19"), ("J1", "4"), ("R11", "1"), ("R11", "2")]),
     ("SWCLK", [("U1", "20"), ("J1", "2"), ("R12", "1"), ("R12", "2")]),
     ("NRST", [("U1", "4"), ("J1", "10"), ("C18", "1")]),
-    ("LOAD_SW_GATE", [("U1", "10")]),
+    ("LOAD_SW_GATE", [("U1", "10"), ("Q1", "1")]),
     ("NFC_IRQ", [("U1", "11"), ("U3", "7")]),
-    ("NFC_FD", [("U1", "1")]),
     ("RTC_INT", [("U1", "12"), ("U5", "7")]),
     ("SENSOR_RDY", [("U1", "7"), ("U6", "6")]),
     ("NFC_RF1", [("U3", "1"), ("C20", "1"), ("D1", "1")]),
     ("NFC_RF2", [("U3", "2"), ("C20", "2"), ("D1", "2")]),
     ("XTAL_IN", [("U1", "2"), ("X1", "1"), ("C16", "1")]),
     ("XTAL_OUT", [("U1", "3"), ("X1", "2"), ("C17", "1")]),
-    ("CIN1", [("U6", "1")]),
-    ("CIN2", [("U6", "2")]),
-    ("SHLD1", [("U6", "3")]),
+    ("CIN1", [("U6", "1"), ("J4", "1")]),
+    ("CIN2", [("U6", "2"), ("J4", "2")]),
+    ("SHLD1", [("U6", "3"), ("J4", "3")]),
     ("VOC_SAMP", [("U2", "3"), ("R3", "1")]),
     ("VREF_SAMP", [("U2", "4"), ("R4", "2")]),
     ("OK_HYST", [("U2", "10"), ("R6", "1")]),
@@ -298,23 +308,29 @@ NETS = [
     ("LBOOST", [("U2", "20"), ("L1", "2")]),
     ("LBUCK", [("U2", "16"), ("L2", "1")]),
     ("VSTOR", [("U2", "19"), ("SC1", "1"), ("U2", "6"), ("U2", "18"), ("U5", "3")]),
-    ("LED_PWR", [("LED1", "1"), ("R13", "1")]),
+    ("LED_PWR", [("LED1", "1"), ("R13", "1"), ("Q1", "3")]),
     ("LED_STAT", [("LED2", "1"), ("R14", "1")]),
     ("MCU_LED_CTRL", [("U1", "13"), ("R14", "2")]),
-    ("UART_TX", [("U1", "8")]),
-    ("UART_RX", [("U1", "9")]),
+    ("UART_TX", [("U1", "8"), ("J1", "8")]),
+    ("UART_RX", [("U1", "9"), ("J1", "6")]),
 ]
 
-# Schematic positions (x, y in mm)
+# ═══════════════════════════════════════════════════════════════
+# Schematic Positions (x, y in mm)
+# ═══════════════════════════════════════════════════════════════
+
 POS = {
+    # Power section (left)
     "U2": (150, 200),
     "L1": (110, 300),
     "L2": (190, 300),
     "C21": (150, 350),
     "J2": (150, 400),
     "J3": (150, 550),
+    "J4": (800, 750),
     "Q1": (300, 200),
     "SC1": (100, 500),
+    # MCU section (center)
     "U1": (500, 200),
     "X1": (500, 100),
     "C16": (450, 100),
@@ -322,20 +338,27 @@ POS = {
     "R11": (450, 250),
     "R12": (550, 250),
     "C18": (480, 300),
+    # NFC section (right)
     "U3": (800, 200),
     "C20": (800, 100),
     "D1": (750, 300),
+    # I2C devices (center-right)
     "U4": (700, 450),
     "U5": (700, 550),
+    # Capacitance sensor (right)
     "U6": (700, 650),
+    "D2": (700, 750),
+    # I2C pull-ups
     "R1": (600, 400),
     "R2": (600, 450),
-    "D2": (700, 750),
+    # Debug connector
     "J1": (350, 600),
+    # LEDs
     "LED1": (500, 550),
     "LED2": (600, 550),
     "R13": (500, 600),
     "R14": (600, 600),
+    # Decoupling caps around U1 (500, 200)
     "C1": (430, 150),
     "C2": (430, 180),
     "C3": (430, 210),
@@ -352,6 +375,7 @@ POS = {
     "C14": (780, 450),
     "C15": (780, 480),
     "C19": (480, 350),
+    # BQ25570 programming resistors
     "R3": (300, 100),
     "R4": (300, 130),
     "R5": (300, 350),
@@ -361,14 +385,25 @@ POS = {
     "R9": (300, 500),
     "R10": (300, 530),
     "C22": (400, 350),
+    # Decoupling for U3 (800,200) and U6 (700,650)
+    "C23": (650, 550),
+    "C24": (650, 600),
 }
 
+# ═══════════════════════════════════════════════════════════════
+# PCB Positions (x, y in nanometers)
+# ═══════════════════════════════════════════════════════════════
+
 PCB_POS = {
+    # Connectors
     "J1": (5e6, 15e6),
     "J2": (2e6, 2e6),
     "J3": (2e6, 5e6),
+    "J4": (22e6, 17e6),
+    # I2C pull-ups (top-right area)
     "R1": (20e6, 8e6),
     "R2": (21e6, 8e6),
+    # BQ25570 programming resistors (left side)
     "R5": (4e6, 8e6),
     "R6": (5e6, 8e6),
     "R7": (6e6, 8e6),
@@ -377,11 +412,27 @@ PCB_POS = {
     "R10": (5e6, 6e6),
     "R3": (4e6, 5e6),
     "R4": (5e6, 5e6),
+    # Debug resistors
     "R11": (10e6, 15e6),
     "R12": (11e6, 15e6),
     "R13": (12e6, 2e6),
     "R14": (13e6, 2e6),
-    "C21": (3e6, 3e6),
+    # Decoupling caps around U1 (12,10)
+    "C1": (10.5e6, 8.5e6),
+    "C2": (11.5e6, 8.5e6),
+    "C3": (12.5e6, 8.5e6),
+    "C4": (13.5e6, 8.5e6),
+    "C5": (14e6, 9.5e6),
+    "C6": (14e6, 10.5e6),
+    "C7": (10e6, 9e6),
+    "C8": (10e6, 10e6),
+    "C9": (10e6, 11e6),
+    "C10": (14e6, 11.5e6),
+    "C11": (11e6, 11.8e6),
+    "C12": (13e6, 11.8e6),
+    "C13": (14e6, 7.5e6),
+    # Power caps
+    "C21": (5e6, 9e6),
     "C14": (5e6, 4e6),
     "C15": (6e6, 4e6),
     "C16": (15e6, 14e6),
@@ -390,23 +441,36 @@ PCB_POS = {
     "C19": (15e6, 13e6),
     "C20": (25e6, 10e6),
     "C22": (6e6, 6e6),
+    # Decoupling for U3 (24,10) and U6 (22,14)
+    "C23": (23e6, 11e6),
+    "C24": (21e6, 15e6),
+    # Inductors
     "L1": (3e6, 6e6),
     "L2": (4e6, 7e6),
+    # Transistor
     "Q1": (8e6, 12e6),
+    # LEDs
     "LED1": (12e6, 1e6),
     "LED2": (14e6, 1e6),
+    # ICs
     "U1": (12e6, 10e6),
     "U2": (4e6, 10e6),
     "U3": (24e6, 10e6),
     "U4": (18e6, 12e6),
     "U5": (18e6, 8e6),
     "U6": (22e6, 14e6),
+    # Crystal
     "X1": (14e6, 12e6),
+    # Supercap
     "SC1": (8e6, 4e6),
+    # TVS diodes
     "D1": (26e6, 10e6),
     "D2": (8e6, 14e6),
 }
 
+# ═══════════════════════════════════════════════════════════════
+# Custom Symbol Definitions (KiCad 6 S-expression format)
+# ═══════════════════════════════════════════════════════════════
 
 CUSTOM_SYMBOLS = {
     "ST25DV04K": """(symbol "ST25DV04K" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
@@ -511,69 +575,235 @@ CUSTOM_SYMBOLS = {
 )""",
 }
 
+# ═══════════════════════════════════════════════════════════════
+# Generation helpers
+# ═══════════════════════════════════════════════════════════════
 
-def gen_symbol(ref, value, footprint, datasheet, kicad_symbol):
+def _p(**kwargs):
+    """Create a property list for an S-exp with key-value pairs.
+    
+    Usage: _p(at=[x, y, rot], name=value) -> [['at', x, y, rot], ['name', value]]
+    """
+    items = []
+    for k, v in kwargs.items():
+        if v is None:
+            continue
+        if isinstance(v, list):
+            items.append([k.replace('_', '')] + v)
+        else:
+            items.append([k.replace('_', ''), v])
+    return items
+
+
+def gen_symbol_sexp(ref, value, footprint, datasheet, kicad_symbol):
+    """Generate a symbol instance S-expression for the schematic."""
     uid = det_uuid(ref)
     if ":" in kicad_symbol:
-        lib, sym = kicad_symbol.split(":")
-        lib_id = f"{lib}:{sym}"
-        embedded = None
+        lib_id = kicad_symbol
     else:
         lib_id = kicad_symbol
-        embedded = CUSTOM_SYMBOLS.get(kicad_symbol)
     x, y = POS.get(ref, (500, 400))
-    s = f'  (symbol "{uid}" (in_bom yes) (on_board yes)\n'
-    s += f'    (property "Reference" "{ref}" (id 0) (at {x} {y} 0)\n'
-    s += f"      (effects (font (size 1.27 1.27)) (justify left))\n    )\n"
-    s += f'    (property "Value" "{value}" (id 1) (at {x} {y - 2.54} 0)\n'
-    s += f"      (effects (font (size 1.27 1.27)) (justify left))\n    )\n"
-    s += f'    (property "Footprint" "{footprint}" (id 2) (at {x} {y - 5.08} 0\n'
-    s += f"      (effects (font (size 0.5 0.5)) hide)\n    )\n"
-    s += f'    (property "Datasheet" "{datasheet}" (id 3) (at {x} {y - 7.62} 0\n'
-    s += f"      (effects (font (size 0.5 0.5)) hide)\n    )\n"
-    if embedded:
-        s += f"    (lib_symbols\n{embedded}\n    )\n"
-    else:
-        s += "    (lib_symbols)\n"
-    s += f'    (lib_id "{lib_id}")\n  )\n'
-    return s
+    
+    # Build symbol S-expression
+    sym = Sexp([
+        "symbol",
+        ["lib_id", lib_id],
+        ["at", x, y, 0],
+        ["unit", 1],
+        ["in_bom", "yes"],
+        ["on_board", "yes"],
+        ["uuid", uid],
+    ])
+    
+    # Properties
+    sym.append(Sexp([
+        "property", "Reference", ref,
+        ["at", x, y, 0],
+        ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
+    ]))
+    sym.append(Sexp([
+        "property", "Value", value,
+        ["at", x, y - 2.54, 0],
+        ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
+    ]))
+    sym.append(Sexp([
+        "property", "Footprint", footprint,
+        ["at", x, y - 5.08, 0],
+        ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
+    ]))
+    sym.append(Sexp([
+        "property", "Datasheet", datasheet,
+        ["at", x, y - 7.62, 0],
+        ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
+    ]))
+    
+    return sym
 
 
-def gen_power_symbol(text, x, y, uid_suffix=""):
-    uid = det_uuid(f"power_{text}_{x}_{y}_{uid_suffix}")
-    return (
-        f'  (symbol "{uid}" (power (in_bom no) (on_board yes))\n'
-        f'    (property "Reference" "#PWR" (id 0) (at {x} {y} 0)\n'
-        f"      (effects (font (size 1.27 1.27)) hide)\n    )\n"
-        f'    (property "Value" "{text}" (id 1) (at {x} {y - 2.54} 0)\n'
-        f"      (effects (font (size 1.27 1.27)))\n    )\n"
-        f'    (lib_symbols)\n    (lib_id "power:{text}")\n  )\n'
-    )
+def gen_power_symbol_sexp(text, x, y, ref_suffix=""):
+    """Generate a power symbol instance (GND, +3.3V)."""
+    uid = det_uuid(f"power_{text}_{x}_{y}_{ref_suffix}")
+    pwr_ref = f"#PWR{abs(hash(uid)) % 1000:03d}"
+    
+    net_to_kicad = {
+        "GND": "power:GND",
+        "+3.3V": "power:+3.3V",
+        "V_PRESSLING": "power:VCC",
+    }
+    lib_id = net_to_kicad.get(text, f"power:{text}")
+    
+    sym = Sexp([
+        "symbol",
+        ["lib_id", lib_id],
+        ["at", x, y, 0],
+        ["unit", 1],
+        ["in_bom", "no"],
+        ["on_board", "yes"],
+        ["uuid", uid],
+    ])
+    
+    sym.append(Sexp([
+        "property", "Reference", pwr_ref,
+        ["at", x, y, 0],
+        ["effects", ["font", ["size", 1.27, 1.27]], ["hide", "yes"]],
+    ]))
+    sym.append(Sexp([
+        "property", "Value", text,
+        ["at", x, y - 2.54, 0],
+        ["effects", ["font", ["size", 1.27, 1.27]]],
+    ]))
+    
+    return sym
 
 
-def gen_global_label(text, x, y):
+def gen_label_sexp(text, x, y):
+    """Generate a global label for a net."""
     uid = det_uuid(f"glabel_{text}_{x}_{y}")
-    return (
-        f'  (symbol "{uid}" (in_bom no) (on_board yes)\n'
-        f'    (property "Reference" "#FLG" (id 0) (at {x} {y} 0)\n'
-        f"      (effects (font (size 1.27 1.27)) hide)\n    )\n"
-        f'    (property "Value" "{text}" (id 1) (at {x} {y - 2.54} 0)\n'
-        f"      (effects (font (size 1.27 1.27)))\n    )\n"
-        f'    (property "Symbol" "label" (id 2) (at 0 0 0)\n'
-        f"      (effects (font (size 1.27 1.27)) hide)\n    )\n"
-        f'    (lib_symbols)\n    (lib_id "Device:L_Small")\n  )\n'
-    )
+    return Sexp([
+        "label", text,
+        ["at", x, y, 0],
+        ["effects", ["font", ["size", 1.27, 1.27]]],
+        ["uuid", uid],
+    ])
 
 
-def generate_schematic():
-    lines = [
-        f'(kicad_sch (version {KICAD_VERSION}) (generator "mykovolt_gen") (generator_version "{VERSION}"))'
-    ]
+def gen_bus_entry_sexp(text, x, y):
+    """Generate a bus entry (used for net connectivity symbols)."""
+    uid = det_uuid(f"bentry_{text}_{x}_{y}")
+    return Sexp([
+        "symbol",
+        ["lib_id", "Device:Conn_01x01"],
+        ["at", x, y, 0],
+        ["unit", 1],
+        ["in_bom", "no"],
+        ["on_board", "yes"],
+        ["uuid", uid],
+    ])
+
+
+# ═══════════════════════════════════════════════════════════════
+# Schematic Generation
+# ═══════════════════════════════════════════════════════════════
+
+def generate_schematic_sexp():
+    """Generate the complete schematic as an Sexp tree."""
+    
+    root = Sexp([
+        "kicad_sch",
+        ["version", KICAD_VERSION],
+        ["generator", "mykovolt_gen"],
+    ])
+    
+    # ── Add all component symbols ──
     for comp in COMPONENTS:
-        lines.append(gen_symbol(*comp))
+        root.append(gen_symbol_sexp(*comp))
+    
+    # ── Add global labels for each net connection ──
     used = set()
-    for net_name, conns in NETS:
-        for ref, pin in conns:
+    for net_name, connections in NETS:
+        for ref, pin in connections:
+            if ref not in POS:
+                continue
+            bx, by = POS[ref]
+            # Offset labels to avoid overlap
+            ly = int(by) + (int(pin) * 50) % 300 - 150
+            lx = bx + 15
+            key = f"{net_name}_{lx}_{ly}"
+            if key not in used:
+                used.add(key)
+                root.append(gen_label_sexp(net_name, lx, ly))
+    
+    # ── Add power symbols near each component ──
+    for ref, _, _, _, _ in COMPONENTS:
+        if ref in POS:
+            x, y = POS[ref]
+            root.append(gen_power_symbol_sexp("GND", x, y + 15, ref))
+            root.append(gen_power_symbol_sexp("+3.3V", x, y - 15, ref))
+    
+    # ── lib_symbols: embedded definitions for custom parts (ST25DV04K, FDC1004) ──
+    # We build these as a string section and insert directly into the output
+    # since simp_sexp cannot parse raw S-expression strings.
+    lib_syms = []
+    for kicad_symbol_name, sym_text in CUSTOM_SYMBOLS.items():
+        lib_syms.append(sym_text)
+    if lib_syms:
+        lib_block = "    (lib_symbols\n"
+        for ls in lib_syms:
+            # Indent each line of the custom symbol definition
+            for line in ls.strip().split('\n'):
+                lib_block += f"      {line}\n"
+        lib_block += "    )"
+        root.append(lib_block)
+    
+    # ── Sheet instances and symbol instances (required by KiCad 6) ──
+    root.append(Sexp(["sheet_instances"]))
+    root.append(Sexp(["symbol_instances"]))
+    
+    return root
+
+
+def generate_schematic_string():
+    """Fallback: generate schematic as a string (when simp_sexp not available)."""
+    lines = [
+        f'(kicad_sch (version {KICAD_VERSION}) (generator mykovolt_gen)'
+    ]
+    
+    # Generate component symbols
+    for ref, value, footprint, datasheet, kicad_symbol in COMPONENTS:
+        uid = det_uuid(ref)
+        if ":" in kicad_symbol:
+            lib_id = kicad_symbol
+        else:
+            lib_id = kicad_symbol
+        x, y = POS.get(ref, (500, 400))
+        
+        lines.append(f'  (symbol "{uid}" (in_bom yes) (on_board yes)')
+        lines.append(f'    (property "Reference" "{ref}" (id 0) (at {x} {y} 0)')
+        lines.append(f'      (effects (font (size 1.27 1.27)) (justify left))')
+        lines.append(f'    )')
+        lines.append(f'    (property "Value" "{value}" (id 1) (at {x} {y - 2.54} 0)')
+        lines.append(f'      (effects (font (size 1.27 1.27)) (justify left))')
+        lines.append(f'    )')
+        lines.append(f'    (property "Footprint" "{footprint}" (id 2) (at {x} {y - 5.08} 0)')
+        lines.append(f'      (effects (font (size 0.5 0.5)) hide)')
+        lines.append(f'    )')
+        lines.append(f'    (property "Datasheet" "{datasheet}" (id 3) (at {x} {y - 7.62} 0)')
+        lines.append(f'      (effects (font (size 0.5 0.5)) hide)')
+        lines.append(f'    )')
+        if ":" not in kicad_symbol and kicad_symbol in CUSTOM_SYMBOLS:
+            lines.append(f'    (lib_symbols')
+            for cs_line in CUSTOM_SYMBOLS[kicad_symbol].split('\n'):
+                lines.append(f'      {cs_line}')
+            lines.append(f'    )')
+        else:
+            lines.append(f'    (lib_symbols)')
+        lines.append(f'    (lib_id "{lib_id}")')
+        lines.append(f'  )')
+    
+    # Generate global labels for net connections
+    used = set()
+    for net_name, connections in NETS:
+        for ref, pin in connections:
             if ref not in POS:
                 continue
             bx, by = POS[ref]
@@ -582,17 +812,240 @@ def generate_schematic():
             key = f"{net_name}_{lx}_{ly}"
             if key not in used:
                 used.add(key)
-                lines.append(gen_global_label(net_name, lx, ly))
-    for ref in [c[0] for c in COMPONENTS]:
+                uid = det_uuid(f"glabel_{net_name}_{lx}_{ly}")
+                lines.append(f'  (symbol "{uid}" (in_bom no) (on_board yes)')
+                lines.append(f'    (property "Reference" "#FLG" (id 0) (at {lx} {ly} 0)')
+                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
+                lines.append(f'    )')
+                lines.append(f'    (property "Value" "{net_name}" (id 1) (at {lx} {ly - 2.54} 0)')
+                lines.append(f'      (effects (font (size 1.27 1.27)))')
+                lines.append(f'    )')
+                lines.append(f'    (property "Symbol" "label" (id 2) (at 0 0 0)')
+                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
+                lines.append(f'    )')
+                lines.append(f'    (lib_symbols)')
+                lines.append(f'    (lib_id "Device:L_Small")')
+                lines.append(f'  )')
+    
+    # Power symbols near each component
+    for ref, _, _, _, _ in COMPONENTS:
         if ref in POS:
             x, y = POS[ref]
-            lines.append(gen_power_symbol("GND", x, y + 15, ref))
-            lines.append(gen_power_symbol("+3.3V", x, y - 15, ref))
-    lines.append("  (sheet_instances)\n  (symbol_instances)")
+            for pwr_name, dy in [("GND", 15), ("+3.3V", -15)]:
+                uid = det_uuid(f"power_{pwr_name}_{x}_{y}_{ref}")
+                pwr_ref = f"#PWR{abs(hash(uid)) % 1000:03d}"
+                net_map = {"GND": "power:GND", "+3.3V": "power:+3.3V"}
+                lib_id = net_map.get(pwr_name, f"power:{pwr_name}")
+                lines.append(f'  (symbol "{uid}" (power (in_bom no) (on_board yes))')
+                lines.append(f'    (property "Reference" "#PWR" (id 0) (at {x} {y} 0)')
+                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
+                lines.append(f'    )')
+                lines.append(f'    (property "Value" "{pwr_name}" (id 1) (at {x} {y - 2.54} 0)')
+                lines.append(f'      (effects (font (size 1.27 1.27)))')
+                lines.append(f'    )')
+                lines.append(f'    (lib_symbols)')
+                lines.append(f'    (lib_id "{lib_id}")')
+                lines.append(f'  )')
+    
+    lines.append("  (sheet_instances)")
+    lines.append("  (symbol_instances)")
+    lines.append(")")
+    
     return "\n".join(lines)
 
 
+# ═══════════════════════════════════════════════════════════════
+# PCB Generation
+# ═══════════════════════════════════════════════════════════════
+
+def generate_pcb_pcbnew():
+    """Generate PCB using the pcbnew API (KiCad 6).
+    
+    Sets up a 4-layer board: F.Cu, In1.Cu (GND), In2.Cu (PWR), B.Cu.
+    Falls back to string-based generation if pcbnew fails.
+    """
+    import pcbnew as pn
+    board = pn.BOARD()
+    
+    # Board dimensions (nanometers)
+    w, h = int(30e6), int(20e6)
+    
+    # ── Configure 4-layer stackup ──
+    board.SetCopperLayerCount(4)
+    
+    # Enable all required layers
+    enabled = pn.LSET()
+    for layer in [pn.F_Cu, pn.In1_Cu, pn.In2_Cu, pn.B_Cu,
+                   pn.F_SilkS, pn.B_SilkS,
+                   pn.F_Mask, pn.B_Mask,
+                   pn.F_Paste, pn.B_Paste,
+                   pn.Edge_Cuts,
+                   pn.F_Fab, pn.B_Fab,
+                   pn.F_CrtYd, pn.B_CrtYd]:
+        enabled.AddLayer(layer)
+    board.SetEnabledLayers(enabled)
+    
+    # ── Create board outline from 4 edge segments on Edge.Cuts ──
+    corners = [(0, 0), (w, 0), (w, h), (0, h)]
+    for i in range(4):
+        x1, y1 = corners[i]
+        x2, y2 = corners[(i + 1) % 4]
+        edge = pn.PCB_SHAPE(board)
+        edge.SetShape(pn.SHAPE_T_SEGMENT)
+        edge.SetLayer(pn.Edge_Cuts)
+        edge.SetStart(pn.wxPoint(x1, y1))
+        edge.SetEnd(pn.wxPoint(x2, y2))
+        edge.SetWidth(100000)  # 0.1mm
+        board.Add(edge)
+    
+    # ── Silkscreen text ──
+    cx, cy = w // 2, h // 2
+    
+    text = pn.PCB_TEXT(board)
+    text.SetText(f"MykoVolt DevKit v{VERSION}")
+    text.SetLayer(pn.F_SilkS)
+    text.SetPosition(pn.wxPoint(cx, cy + int(2e6)))
+    text.SetTextSize(pn.wxSize(1000000, 1000000))
+    text.SetTextThickness(150000)
+    board.Add(text)
+    
+    text2 = pn.PCB_TEXT(board)
+    text2.SetText("30x20mm 4L ENIG RevA")
+    text2.SetLayer(pn.F_SilkS)
+    text2.SetPosition(pn.wxPoint(cx, cy + int(3.5e6)))
+    text2.SetTextSize(pn.wxSize(800000, 800000))
+    text2.SetTextThickness(120000)
+    board.Add(text2)
+    
+    # ── Create nets ──
+    net_names = sorted(set(n[0] for n in NETS))
+    for i, name in enumerate(net_names):
+        net = pn.NETINFO_ITEM(board, name, i + 1)
+        board.Add(net)
+    
+    # ── Place footprints ──
+    for ref, value, footprint, _, _ in COMPONENTS:
+        if ref not in PCB_POS:
+            continue
+        x_nm, y_nm = PCB_POS[ref]
+        
+        # Parse footprint into library and name
+        fp_path = "/usr/share/kicad/footprints"
+        if ":" in footprint:
+            lib, fp_name = footprint.split(":", 1)
+            fp = pn.FootprintLoad(f"{fp_path}/{lib}.pretty", fp_name)
+        else:
+            fp = pn.FootprintLoad(fp_path, footprint)
+        
+        if fp is None:
+            print(f"    ⚠ Cannot load '{footprint}', creating placeholder for {ref}")
+            fp = pn.FOOTPRINT(board)
+            fp.SetReference(ref)
+            fp.SetValue(value)
+            pad = pn.PAD(fp)
+            pad.SetSize(pn.wxSize(500000, 500000))
+            pad.SetPosition(pn.wxPoint(0, 0))
+            pad.SetLayerSet(pn.LSET.AllCuMask())
+            fp.Add(pad)
+        else:
+            fp.SetReference(ref)
+            fp.SetValue(value)
+        
+        fp.SetPosition(pn.wxPoint(int(x_nm), int(y_nm)))
+        fp.SetOrientation(0)
+        fp.Reference().SetText(ref)
+        fp.Value().SetText(value)
+        board.Add(fp)
+    
+    # ── Save ──
+    pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
+    board.Save(pcb_path)
+    return pcb_path
+
+
+def generate_pcb_string():
+    """Fallback: generate PCB using S-expression string (when pcbnew not available)."""
+    w, h = 30e6, 20e6
+    uid_board = det_uuid("board_outline")
+    net_names = sorted(set(n[0] for n in NETS))
+    pcb_nets = "\n".join(f'  (net {i} "{name}")' for i, name in enumerate(net_names))
+    
+    s = f'(kicad_pcb (version {KICAD_VERSION}) (generator mykovolt_gen)\n'
+    s += "  (general\n    (thickness 0.8)\n  )\n"
+    s += '  (paper "A4")\n'
+    s += "  (layers\n"
+    s += '    (0 "F.Cu" signal) (1 "In1.Cu" signal) (2 "In2.Cu" signal) (31 "B.Cu" signal)\n'
+    s += '    (32 "B.Adhes" user "B.Adhesive") (33 "F.Adhes" user "F.Adhesive")\n'
+    s += '    (34 "B.Paste" user) (35 "F.Paste" user)\n'
+    s += '    (36 "B.SilkS" user "B.Silkscreen") (37 "F.SilkS" user "F.Silkscreen")\n'
+    s += '    (38 "B.Mask" user) (39 "F.Mask" user)\n'
+    s += '    (40 "Dwgs.User" user "User.Drawings") (41 "Cmts.User" user "User.Comments")\n'
+    s += '    (42 "Eco1.User" user "User.Eco1") (43 "Eco2.User" user "User.Eco2")\n'
+    s += '    (44 "Edge.Cuts" user)\n'
+    s += '    (45 "Margin" user)\n'
+    s += '    (46 "B.CrtYd" user) (47 "F.CrtYd" user) (48 "B.Fab" user) (49 "F.Fab" user)\n'
+    s += "  )\n"
+    s += "  (setup\n"
+    s += "    (stackup\n"
+    s += '      (layer "F.SilkS" (type "Top Silk Screen") (color "White"))\n'
+    s += '      (layer "F.Paste" (type "Top Solder Paste"))\n'
+    s += '      (layer "F.Mask" (type "Top Solder Mask") (color "Green") (thickness 0.01))\n'
+    s += '      (layer "F.Cu" (type "copper") (thickness 0.035))\n'
+    s += '      (layer "dielectric 1" (type "prepreg") (thickness 0.2) (material "FR-4") (epsilon_r 4.5) (loss_tangent 0.02))\n'
+    s += '      (layer "In1.Cu" (type "copper") (thickness 0.035))\n'
+    s += '      (layer "dielectric 2" (type "core") (thickness 0.4) (material "FR-4") (epsilon_r 4.5) (loss_tangent 0.02))\n'
+    s += '      (layer "In2.Cu" (type "copper") (thickness 0.035))\n'
+    s += '      (layer "dielectric 3" (type "prepreg") (thickness 0.2) (material "FR-4") (epsilon_r 4.5) (loss_tangent 0.02))\n'
+    s += '      (layer "B.Cu" (type "copper") (thickness 0.035))\n'
+    s += '      (layer "B.Mask" (type "Bottom Solder Mask") (color "Green") (thickness 0.01))\n'
+    s += '      (layer "B.Paste" (type "Bottom Solder Paste"))\n'
+    s += '      (layer "B.SilkS" (type "Bottom Silk Screen") (color "White"))\n'
+    s += '      (copper_finish "None")\n'
+    s += '      (dielectric_constraints no)\n'
+    s += "    )\n"
+    s += "    (pad_to_mask_clearance 0)\n"
+    s += "  )\n"
+    s += f"{pcb_nets}\n"
+    s += f'  (footprint "" (layer "F.Cu") (tedit 0) (tstamp "{uid_board}")\n'
+    s += "    (at 0 0 0)\n"
+    s += "    (attr board_only)\n"
+    s += "    (fp_poly\n"
+    s += f"      (pts (xy 0 0) (xy {w} 0) (xy {w} {h}) (xy 0 {h}))\n"
+    s += '      (layer "Edge.Cuts") (width 0.1)\n'
+    s += "    )\n"
+    s += f'    (fp_text user "MykoVolt DevKit v{VERSION}" (at {w//2/1e6} {h//2/1e6 + 2} 0)\n'
+    s += '      (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15)))\n'
+    s += "    )\n"
+    s += f'    (fp_text user "30x20mm 4L ENIG RevA" (at {w//2/1e6} {h//2/1e6 + 3.5} 0)\n'
+    s += '      (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12)))\n'
+    s += "    )\n"
+    s += "  )\n"
+    
+    for ref, value, footprint, _, _ in COMPONENTS:
+        if ref not in PCB_POS:
+            continue
+        x_nm, y_nm = PCB_POS[ref]
+        x, y = x_nm / 1e6, y_nm / 1e6
+        uid = det_uuid(f"fp_{ref}")
+        s += f'  (footprint "{footprint}" (layer "F.Cu") (tedit 0) (tstamp "{uid}")\n'
+        s += f'    (at {x} {y} 0)\n'
+        s += f'    (fp_text reference "{ref}" (at 0 0 0) (layer "F.SilkS")\n'
+        s += "      (effects (font (size 1 1) (thickness 0.15))))\n"
+        s += f'    (fp_text value "{value}" (at 0 -2 0) (layer "F.Fab")\n'
+        s += "      (effects (font (size 1 1) (thickness 0.15))))\n"
+        s += "  )\n"
+    
+    s += ")\n"
+    return s
+
+
+# ═══════════════════════════════════════════════════════════════
+# Project File Generation
+# ═══════════════════════════════════════════════════════════════
+
 def generate_project():
+    """Generate the KiCad project file (.kicad_pro)."""
+    net_names = sorted(set(n[0] for n in NETS))
     return json.dumps(
         {
             "board": {
@@ -643,57 +1096,8 @@ def generate_project():
     )
 
 
-def generate_pcb():
-    uid_board = det_uuid("board_outline")
-    w, h = 30e6, 20e6
-    net_names = sorted(set(n[0] for n in NETS))
-    pcb_nets = "\n".join(f'  (net {i} "{name}")' for i, name in enumerate(net_names))
-    s = f'(kicad_pcb (version {KICAD_VERSION}) (host software "mykovolt_gen")\n'
-    s += f'  (uuid "{uid_board}")\n'
-    s += "  (general\n    (thickness 0.8)\n  )\n"
-    s += '  (paper "A4")\n'
-    s += "  (layers\n"
-    s += '    (0 "F.Cu" signal) (1 "In1.Cu" signal) (2 "In2.Cu" signal) (31 "B.Cu" signal)\n'
-    s += '    (37 "F.SilkS" user) (39 "F.Mask" user) (40 "Dwgs.User" user)\n'
-    s += '    (41 "Cmts.User" user) (44 "Edge.Cuts" user)\n'
-    s += '    (46 "B.CrtYd" user) (47 "F.CrtYd" user) (48 "B.Fab" user) (49 "F.Fab" user)\n'
-    s += "  )\n"
-    s += "  (stackup\n"
-    s += '    (layer "F.Cu" (type copper) (thickness 0.035))\n'
-    s += '    (layer "Dielectric 1" (type prepreg) (thickness 0.2) (material "FR-4"))\n'
-    s += '    (layer "In1.Cu" (type copper) (thickness 0.035))\n'
-    s += '    (layer "Dielectric 2" (type core) (thickness 0.4) (material "FR-4"))\n'
-    s += '    (layer "In2.Cu" (type copper) (thickness 0.035))\n'
-    s += '    (layer "Dielectric 3" (type prepreg) (thickness 0.2) (material "FR-4"))\n'
-    s += '    (layer "B.Cu" (type copper) (thickness 0.035))\n'
-    s += "  )\n"
-    s += f"{pcb_nets}\n"
-    s += f'  (footprint "{det_uuid("board_outline")}" (layer "F.Cu")\n'
-    s += "    (tedit 0) (attr board_only)\n"
-    s += f"    (fp_polygon (pts (xy 0 0) (xy {w} 0) (xy {w} {h}) (xy 0 {h}))\n"
-    s += '      (layer "Edge.Cuts") (width 0.1))\n'
-    s += f'    (fp_text user "MykoVolt DevKit v{VERSION}" (at {w // 2} {h + 2e6} 0)\n'
-    s += '      (layer "F.SilkS") (effects (font (size 1e6 1e6) (thickness 0.15))))\n'
-    s += f'    (fp_text user "30x20mm 4L ENIG RevA" (at {w // 2} {h + 3.5e6} 0)\n'
-    s += '      (layer "F.SilkS") (effects (font (size 0.8e6 0.8e6) (thickness 0.12))))\n'
-    s += "  )\n"
-    for comp in COMPONENTS:
-        ref, value, footprint, _, _ = comp
-        if ref not in PCB_POS:
-            continue
-        x, y = PCB_POS[ref]
-        uid = det_uuid(f"fp_{ref}")
-        s += f'  (footprint "{footprint}" (uuid "{uid}")\n'
-        s += f'    (layer "F.Cu") (tedit 0) (at {x} {y} 0)\n'
-        s += f'    (fp_text reference "{ref}" (at 0 0 0) (layer "F.SilkS")\n'
-        s += "      (effects (font (size 1e6 1e6) (thickness 0.15))))\n"
-        s += f'    (fp_text value "{value}" (at 0 -2e6 0) (layer "F.Fab")\n'
-        s += "      (effects (font (size 1e6 1e6) (thickness 0.15))))\n"
-        s += "  )\n"
-    return s
-
-
-def generate_netlist():
+def generate_netlist_string():
+    """Generate a simple plain-text netlist."""
     lines = ["# MykoVolt DevKit v0.1 — Netlist", f"# Generated: {datetime.now()}", ""]
     total = 0
     for net_name, connections in NETS:
@@ -705,52 +1109,82 @@ def generate_netlist():
     return "\n".join(lines)
 
 
+# ═══════════════════════════════════════════════════════════════
+# Main
+# ═══════════════════════════════════════════════════════════════
+
 def main():
     print(f"=== MykoVolt KiCad Project Generator v{VERSION} ===\n")
-
+    
+    # ── 1. Generate Project File ──
     print("Generating project file...")
     proj = generate_project()
     path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pro")
     with open(path, "w") as f:
         f.write(proj)
-    nets_count = len(NETS)
-    print(f"  {BOARD_NAME}.kicad_pro ({len(proj)} bytes)")
-
+    print(f"  ✓ {BOARD_NAME}.kicad_pro ({len(proj)} bytes)")
+    
+    # ── 2. Generate Schematic ──
     print("Generating schematic...")
-    sch = generate_schematic()
+    if HAVE_SEXP:
+        try:
+            sch_sexp = generate_schematic_sexp()
+            sch_str = sch_sexp.to_str()
+        except Exception as e:
+            print(f"  ⚠ Sexp generation failed ({e}), falling back to string-based")
+            sch_str = generate_schematic_string()
+    else:
+        sch_str = generate_schematic_string()
+    
     path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_sch")
     with open(path, "w") as f:
-        f.write(sch)
-    sym_count = (
-        sch.count('(symbol "')
-        - sch.count('(symbol "#PWR"')
-        - sch.count('(symbol "#FLG"')
-    )
-    print(f"  {BOARD_NAME}.kicad_sch ({len(sch)} bytes, {sym_count} symbols)")
-
+        f.write(sch_str)
+    sym_count = len(COMPONENTS) * 2 + len(NETS)  # rough estimate
+    print(f"  ✓ {BOARD_NAME}.kicad_sch ({len(sch_str)} bytes, ~{len(COMPONENTS)}+ symbols)")
+    
+    # ── 3. Generate PCB Layout ──
     print("Generating PCB layout...")
-    pcb = generate_pcb()
-    path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
-    with open(path, "w") as f:
-        f.write(pcb)
-    fp_count = pcb.count('(footprint "')
-    print(f"  {BOARD_NAME}.kicad_pcb ({len(pcb)} bytes, {fp_count} footprints)")
-
+    if HAVE_PCBNEW:
+        try:
+            pcb_path = generate_pcb_pcbnew()
+            with open(pcb_path, "r") as f:
+                pcb_len = len(f.read())
+            print(f"  ✓ {os.path.basename(pcb_path)} ({pcb_len} bytes, {len([c for c in COMPONENTS if c[0] in PCB_POS])} footprints) [pcbnew]")
+        except Exception as e:
+            print(f"  ⚠ pcbnew generation failed ({e}), falling back to string-based")
+            pcb_str = generate_pcb_string()
+            path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
+            with open(path, "w") as f:
+                f.write(pcb_str)
+            fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
+            print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes, {fp_count} footprints) [fallback]")
+    else:
+        pcb_str = generate_pcb_string()
+        path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
+        with open(path, "w") as f:
+            f.write(pcb_str)
+        fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
+        print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes, {fp_count} footprints) [string]")
+    
+    # ── 4. Generate Netlist ──
     print("Generating netlist...")
-    net = generate_netlist()
+    net = generate_netlist_string()
     path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.net")
     with open(path, "w") as f:
         f.write(net)
     total_pins = sum(len(c[1]) for c in NETS)
-    print(
-        f"  {BOARD_NAME}.net ({len(net)} bytes, {nets_count} nets, ~{total_pins} connections)"
-    )
-
-    print(f"\nComponents: {len(COMPONENTS)}")
-    print(f"Nets: {nets_count}")
-    print(f"Connections: {total_pins}")
-    print(f"\nOutput: {PROJECT_DIR}/")
-    print("Open with: kicad hardware/kicad/mykovolt_devkit.kicad_pro")
+    print(f"  ✓ {BOARD_NAME}.net ({len(net)} bytes, {len(NETS)} nets, {total_pins} connections)")
+    
+    # ── Summary ──
+    print(f"\n{'─' * 62}")
+    print(f"  Components: {len(COMPONENTS)}")
+    print(f"  Nets:       {len(NETS)}")
+    print(f"  Connections: {total_pins}")
+    print(f"  Library:    {'simp_sexp' if HAVE_SEXP else 'string-based'} S-expressions")
+    print(f"  PCB:        {'pcbnew' if HAVE_PCBNEW else 'string-based'} [KiCad {pcbnew.Version() if HAVE_PCBNEW else 'N/A'}]")
+    print(f"{'─' * 62}")
+    print(f"\n  Output: {PROJECT_DIR}/")
+    print(f"  Open with: kicad hardware/kicad/{BOARD_NAME}.kicad_pro")
 
 
 if __name__ == "__main__":

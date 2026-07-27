@@ -28,6 +28,8 @@ build/
 
 # Virtual environments
 venv/
+.env/
+.venv/
 env/
 .env
 
@@ -44,3 +46,15 @@ env/
 !docs/assets/*.svg
 !docs/technical/*.svg
 !docs/hardware/*.svg
+
+# KiCad generated artifacts
+hardware/kicad/*.pdf
+hardware/kicad/*.prl
+hardware/kicad/mykovolt_devkit_verification.lean
+hardware/kicad/*-backups/
+hardware/kicad/mykovolt_devkit-mykovolt_devkit_*.pdf
+
+# Python REPL artifacts
+skidl_REPL.erc
+skidl_REPL.sch
+*.erc
