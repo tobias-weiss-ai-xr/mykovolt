@@ -1000,6 +1000,7 @@ def generate_pcb_pcbnew():
         zone.SetCornerSmoothingType(pn.ZONE_SETTINGS.SMOOTHING_FILLET)
         zone.SetCornerRadius(500000)  # 0.5mm
         zone.SetFillMode(pn.ZONE_FILL_MODE_POLYGONS)
+        zone.SetIsRuleArea(False)  # Explicitly not a keepout
         
         # Build zone outline using AppendCorner (KiCad 6 compatible)
         for pt in zone_corners:
@@ -1028,6 +1029,14 @@ def generate_pcb_pcbnew():
     # ── Interdigital Sensor Electrodes (B.Cu) ──
     # Connected to FDC1004 CIN1 and CIN2 via J4
     _add_sensor_electrodes(board, pn, netcode_map)
+    
+    # ── Route Critical Signal Nets ──
+    # I2C bus, SWD, UART, control signals
+    _route_critical_nets(board, pn, netcode_map)
+    
+    # ── Power Via Stitching ──
+    # 3.3V vias to In2.Cu, GND vias to In1.Cu
+    _add_power_vias(board, pn, netcode_map)
     
     # ── Save ──
     pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
@@ -1226,6 +1235,170 @@ def _add_sensor_electrodes(board, pn, netcode_map):
     lbl.SetTextSize(pn.wxSize(600000, 600000))
     lbl.SetTextThickness(100000)
     board.Add(lbl)
+
+
+def _route_critical_nets(board, pn, netcode_map):
+    """Route the critical signal nets between components.
+    
+    Routes I2C bus (daisy-chain), SWD, UART, and control signals
+    using Manhattan routing on F.Cu. Power is handled by the inner
+    layer copper pours with via stitching in _add_power_vias().
+    """
+    TRACK_W = int(0.3e6)   # 0.3mm default trace width
+    
+    # ── Helper: Manhattan route (L-shaped) ──
+    def route_L(x1, y1, x2, y2, net, layer=pn.F_Cu, width=TRACK_W):
+        """Route an L-shaped track from (x1,y1) to (x2,y2)."""
+        ncode = netcode_map.get(net, 0)
+        if ncode == 0:
+            return
+        # Route horizontal then vertical (or vice versa based on proximity)
+        mid_x = x2
+        _add_track(board, pn, x1, y1, mid_x, y1, width, layer, ncode)
+        _add_track(board, pn, mid_x, y1, x2, y2, width, layer, ncode)
+    
+    # ── Helper: Get component pad position ──
+    def pad_pos(ref, pin):
+        """Estimate pad position from component PCB position and pin number.
+        Returns (x_nm, y_nm) approximate center of the pad.
+        """
+        if ref not in PCB_POS:
+            return None
+        cx, cy = PCB_POS[ref]
+        # Simple offset based on pin number (0-3 → L, 4-7 → R, others → top/bottom)
+        pin_i = int(pin) if pin.isdigit() else 0
+        # ICs typically have pins on left (odd) and right (even) sides
+        if pin_i <= 4 or (pin_i % 2 == 1 and pin_i < 10):
+            return (cx - int(2e6), cy)
+        else:
+            return (cx + int(2e6), cy)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 1. I2C Bus: SCL and SDA (daisy chain: U1 → U3 → U4 → U5 → U6)
+    # ═══════════════════════════════════════════════════════════
+    # Horizontal trunk at Y=11.0mm between U4 (18,12) and U5 (18,8)
+    trunk_y = int(11.0e6)
+    trunk_x_start = int(11.0e6)  # Left of U1 (12,10)
+    trunk_x_end = int(23.0e6)    # Right of U6 (22,14)
+    
+    for net_name in ["I2C1_SCL", "I2C1_SDA"]:
+        ncode = netcode_map.get(net_name, 0)
+        if ncode == 0:
+            continue
+        
+        # Draw horizontal trunk
+        _add_track(board, pn, trunk_x_start, trunk_y, trunk_x_end, trunk_y,
+                   TRACK_W, pn.F_Cu, ncode)
+        
+        # Drop to each I2C device
+        i2c_devs = [("U1", "17", "18"), ("U3", "5", "6"),
+                    ("U4", "6", "5"), ("U5", "6", "5"),
+                    ("U6", "7", "8")]
+        for ref, scl_pin, sda_pin in i2c_devs:
+            pin = scl_pin if net_name == "I2C1_SCL" else sda_pin
+            pos = pad_pos(ref, pin)
+            if pos:
+                px, py = pos
+                # Route vertically from trunk to device
+                if py < trunk_y:
+                    _add_track(board, pn, px, py, px, trunk_y, TRACK_W, pn.F_Cu, ncode)
+                else:
+                    _add_track(board, pn, px, py, px, trunk_y + int(0.5e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 2. SWD Debug: J1 → U1
+    # ═══════════════════════════════════════════════════════════
+    # J1 at (5,15), U1 at (12,10)
+    # SWDIO: U1-19 → R11 → J1-4
+    # SWCLK: U1-20 → R12 → J1-2
+    
+    for net_name in ["SWDIO", "SWCLK"]:
+        ncode = netcode_map.get(net_name, 0)
+        if ncode == 0:
+            continue
+        # Route from U1 area to J1 area
+        _add_track(board, pn, int(9e6), int(14e6), int(9e6), int(12.5e6),
+                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(9e6), int(12.5e6), int(7e6), int(12.5e6),
+                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(7e6), int(12.5e6), int(7e6), int(15e6),
+                   TRACK_W, pn.F_Cu, ncode)
+    
+    # NRST: J1-10 → C18 → U1-4
+    ncode = netcode_map.get("NRST", 0)
+    if ncode:
+        _add_track(board, pn, int(5e6), int(15e6), int(5e6), int(13e6),
+                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(5e6), int(13e6), int(14e6), int(13e6),
+                   TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 3. UART: U1 → J1
+    # ═══════════════════════════════════════════════════════════
+    for net_name in ["UART_TX", "UART_RX"]:
+        ncode = netcode_map.get(net_name, 0)
+        if ncode == 0:
+            continue
+        route_L(int(9e6), int(15e6), int(7e6), int(15e6), net_name)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 4. Control Signals: U1 → peripherals
+    # ═══════════════════════════════════════════════════════════
+    signals = [
+        ("NFC_IRQ", int(12.5e6), int(10.5e6), int(23e6), int(10.5e6)),   # U1 → U3
+        ("RTC_INT", int(12.5e6), int(9.5e6), int(17e6), int(9.5e6)),     # U1 → U5
+        ("SENSOR_RDY", int(12.5e6), int(10.2e6), int(21e6), int(10.2e6)), # U1 → U6
+        ("VBAT_OK", int(12.5e6), int(9.0e6), int(5e6), int(9.0e6)),      # U1 → U2
+        ("LOAD_SW_GATE", int(12.5e6), int(10.8e6), int(8e6), int(10.8e6)), # U1 → Q1
+        ("MCU_LED_CTRL", int(12.5e6), int(11.5e6), int(13e6), int(2e6)),  # U1 → LED2
+    ]
+    for net_name, x1, y1, x2, y2 in signals:
+        route_L(x1, y1, x2, y2, net_name)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 5. V_SENSE voltage divider: U1 → R9/R10
+    # ═══════════════════════════════════════════════════════════
+    ncode = netcode_map.get("V_SENSE", 0)
+    if ncode:
+        _add_track(board, pn, int(12e6), int(8.5e6), int(5e6), int(8.5e6),
+                   TRACK_W, pn.F_Cu, ncode)
+
+
+def _add_power_vias(board, pn, netcode_map):
+    """Add via stitching between component power pads and inner layer pours.
+    
+    Connects 3.3V pads to In2.Cu (power plane) and GND pads to In1.Cu (ground plane)
+    using small vias near each IC.
+    """
+    VIA_DIAM = int(0.5e6)   # 0.5mm via diameter
+    VIA_DRILL = int(0.25e6)  # 0.25mm drill
+    
+    gnd_code = netcode_map.get("GND", 0)
+    pwr_code = netcode_map.get("3.3V", 0)
+    
+    # Create vias near each IC for power/ground connections
+    via_locations = {
+        "U1": [(int(11e6), int(9e6)), (int(13e6), int(11e6))],  # Near STM32
+        "U2": [(int(3e6), int(9e6)), (int(5e6), int(11e6))],     # Near BQ25570
+        "U3": [(int(23e6), int(9e6)), (int(25e6), int(11e6))],   # Near ST25DV04K
+        "U4": [(int(17e6), int(11e6)), (int(19e6), int(13e6))],  # Near FRAM
+        "U5": [(int(17e6), int(7e6)), (int(19e6), int(9e6))],    # Near RTC
+        "U6": [(int(21e6), int(13e6)), (int(23e6), int(15e6))],  # Near FDC1004
+    }
+    
+    for ref, positions in via_locations.items():
+        for i, (vx, vy) in enumerate(positions):
+            # Alternate between GND and 3.3V
+            netcode = gnd_code if i % 2 == 0 else pwr_code
+            if netcode == 0:
+                continue
+            via = pn.PCB_VIA(board)
+            via.SetPosition(pn.wxPoint(vx, vy))
+            via.SetWidth(VIA_DIAM)
+            via.SetDrill(VIA_DRILL)
+            via.SetLayer(pn.F_Cu)  # Start on top layer
+            via.SetNetCode(netcode)
+            board.Add(via)
 
 
 def _add_track(board, pn, x1, y1, x2, y2, width, layer, netcode=0):
