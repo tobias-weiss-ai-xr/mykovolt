@@ -1115,6 +1115,12 @@ def _add_nfc_antenna(board, pn, netcode_map):
     _add_track(board, pn, c20_pos[0] - int(1e6), c20_pos[1], c20_pos[0], c20_pos[1],
                trace_w, pn.F_Cu, rf1_net)
     
+    # Route NFC_RF2 from antenna feed to C20/U3
+    rf2_code = netcode_map.get("NFC_RF2", 0)
+    if rf2_code:
+        _add_track(board, pn, int(26.5e6), cy, int(26.5e6), cy + int(3e6),
+                   trace_w, pn.F_Cu, rf2_code)
+    
     # Add silkscreen label
     lbl = pn.PCB_TEXT(board)
     lbl.SetText("NFC ANT")
@@ -1274,72 +1280,75 @@ def _route_critical_nets(board, pn, netcode_map):
             return (cx + int(2e6), cy)
     
     # ═══════════════════════════════════════════════════════════
-    # 1. I2C Bus: SCL and SDA (daisy chain: U1 → U3 → U4 → U5 → U6)
+    # 1. I2C Bus: SCL and SDA (daisy chain)
     # ═══════════════════════════════════════════════════════════
-    # Horizontal trunk at Y=11.0mm between U4 (18,12) and U5 (18,8)
-    trunk_y = int(11.0e6)
-    trunk_x_start = int(11.0e6)  # Left of U1 (12,10)
-    trunk_x_end = int(23.0e6)    # Right of U6 (22,14)
-    
+    # Route from U1 to each I2C device sequentially
+    # SCL: U1(12,10) → U3(24,10) → U4(18,12) → U5(18,8) → U6(22,14)
+    # SDA: same path
+    #
+    # We use explicit coordinates per device to ensure connections.
+    i2c_stops = [
+        ("U1", int(12.3e6), int(10.5e6), "17", "18"),
+        ("U3", int(23.0e6), int(10.5e6), "5", "6"),
+        ("U4", int(17.5e6), int(11.5e6), "6", "5"),
+        ("U5", int(17.5e6), int(8.5e6), "6", "5"),
+        ("U6", int(21.5e6), int(13.5e6), "7", "8"),
+    ]
     for net_name in ["I2C1_SCL", "I2C1_SDA"]:
         ncode = netcode_map.get(net_name, 0)
         if ncode == 0:
             continue
-        
-        # Draw horizontal trunk
-        _add_track(board, pn, trunk_x_start, trunk_y, trunk_x_end, trunk_y,
+        # Draw horizontal trunk through all stops
+        y_trunk = int(11.0e6)
+        x_min = min(x for _, x, _, _, _ in i2c_stops)
+        x_max = max(x for _, x, _, _, _ in i2c_stops)
+        _add_track(board, pn, x_min - int(1e6), y_trunk, x_max + int(1e6), y_trunk,
                    TRACK_W, pn.F_Cu, ncode)
-        
-        # Drop to each I2C device
-        i2c_devs = [("U1", "17", "18"), ("U3", "5", "6"),
-                    ("U4", "6", "5"), ("U5", "6", "5"),
-                    ("U6", "7", "8")]
-        for ref, scl_pin, sda_pin in i2c_devs:
+        # Vertical drops to each stop
+        for ref, sx, sy, scl_pin, sda_pin in i2c_stops:
             pin = scl_pin if net_name == "I2C1_SCL" else sda_pin
-            pos = pad_pos(ref, pin)
-            if pos:
-                px, py = pos
-                # Route vertically from trunk to device
-                if py < trunk_y:
-                    _add_track(board, pn, px, py, px, trunk_y, TRACK_W, pn.F_Cu, ncode)
-                else:
-                    _add_track(board, pn, px, py, px, trunk_y + int(0.5e6), TRACK_W, pn.F_Cu, ncode)
+            drop_x = sx
+            if sy < y_trunk:
+                _add_track(board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode)
+            elif sy > y_trunk:
+                _add_track(board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode)
+    
+    # I2C pull-up resistors: R1(20,8) → SCL trunk, R2(21,8) → SDA trunk
+    for net_name, rx, ry in [("I2C1_SCL", int(20e6), int(8e6)), ("I2C1_SDA", int(21e6), int(8e6))]:
+        ncode = netcode_map.get(net_name, 0)
+        if ncode:
+            _add_track(board, pn, rx, ry, rx, int(11e6), TRACK_W, pn.F_Cu, ncode)
     
     # ═══════════════════════════════════════════════════════════
     # 2. SWD Debug: J1 → U1
     # ═══════════════════════════════════════════════════════════
-    # J1 at (5,15), U1 at (12,10)
-    # SWDIO: U1-19 → R11 → J1-4
-    # SWCLK: U1-20 → R12 → J1-2
-    
-    for net_name in ["SWDIO", "SWCLK"]:
+    for net_name, u1_x, u1_y, j1_x, j1_y in [
+        ("SWDIO", int(11e6), int(11e6), int(6e6), int(15e6)),
+        ("SWCLK", int(11e6), int(11.5e6), int(6.5e6), int(15e6)),
+    ]:
         ncode = netcode_map.get(net_name, 0)
         if ncode == 0:
             continue
-        # Route from U1 area to J1 area
-        _add_track(board, pn, int(9e6), int(14e6), int(9e6), int(12.5e6),
-                   TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(9e6), int(12.5e6), int(7e6), int(12.5e6),
-                   TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(7e6), int(12.5e6), int(7e6), int(15e6),
-                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, u1_x, u1_y, j1_x, u1_y, TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, j1_x, u1_y, j1_x, j1_y, TRACK_W, pn.F_Cu, ncode)
     
-    # NRST: J1-10 → C18 → U1-4
+    # NRST: J1(5,15) → U1(12,10) via C18
     ncode = netcode_map.get("NRST", 0)
     if ncode:
-        _add_track(board, pn, int(5e6), int(15e6), int(5e6), int(13e6),
-                   TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(5e6), int(13e6), int(14e6), int(13e6),
-                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(5e6), int(15e6), int(5e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(5e6), int(13e6), int(14e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
     
     # ═══════════════════════════════════════════════════════════
     # 3. UART: U1 → J1
     # ═══════════════════════════════════════════════════════════
-    for net_name in ["UART_TX", "UART_RX"]:
+    for net_name, x1, y1, x2, y2 in [
+        ("UART_TX", int(11e6), int(12e6), int(5e6), int(14e6)),
+        ("UART_RX", int(11.5e6), int(12e6), int(5.5e6), int(14e6)),
+    ]:
         ncode = netcode_map.get(net_name, 0)
-        if ncode == 0:
-            continue
-        route_L(int(9e6), int(15e6), int(7e6), int(15e6), net_name)
+        if ncode:
+            _add_track(board, pn, x1, y1, x2, y1, TRACK_W, pn.F_Cu, ncode)
+            _add_track(board, pn, x2, y1, x2, y2, TRACK_W, pn.F_Cu, ncode)
     
     # ═══════════════════════════════════════════════════════════
     # 4. Control Signals: U1 → peripherals
@@ -1362,6 +1371,89 @@ def _route_critical_nets(board, pn, netcode_map):
     if ncode:
         _add_track(board, pn, int(12e6), int(8.5e6), int(5e6), int(8.5e6),
                    TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 6. BQ25570 Power Path (wider tracks for power)
+    # ═══════════════════════════════════════════════════════════
+    PWR_W = int(0.5e6)  # 0.5mm for power tracks
+    
+    # LBOOST: U2(4,10) → L1(3,6)
+    ncode = netcode_map.get("LBOOST", 0)
+    if ncode:
+        _add_track(board, pn, int(4e6), int(8e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(4e6), int(6e6), int(3e6), int(6e6), PWR_W, pn.F_Cu, ncode)
+    
+    # LBUCK: U2(4,10) → L2(4,7)
+    ncode = netcode_map.get("LBUCK", 0)
+    if ncode:
+        _add_track(board, pn, int(4e6), int(8e6), int(4e6), int(7e6), PWR_W, pn.F_Cu, ncode)
+    
+    # VSTOR: U2(4,10) → SC1(8,4) → U5(18,8)
+    ncode = netcode_map.get("VSTOR", 0)
+    if ncode:
+        _add_track(board, pn, int(5e6), int(8e6), int(5e6), int(4e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(5e6), int(4e6), int(8e6), int(4e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(8e6), int(4e6), int(8e6), int(8e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(8e6), int(8e6), int(18e6), int(8e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # V_PRESSLING: J2(2,2) → U2(4,10) with branches to R3,R9,C21,L1
+    ncode = netcode_map.get("V_PRESSLING", 0)
+    if ncode:
+        _add_track(board, pn, int(2e6), int(2e6), int(2e6), int(4e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(2e6), int(4e6), int(4e6), int(4e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(4e6), int(4e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode)
+        # Branches to R3(4,5), R9(4,6), C21(5,9), L1(3,6)
+        _add_track(board, pn, int(4e6), int(5e6), int(4e6), int(4e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(4e6), int(6e6), int(4e6), int(6e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 7. BQ25570 Programming Resistors
+    # ═══════════════════════════════════════════════════════════
+    bq_prog = [
+        ("VOC_SAMP", int(3.0e6), int(7e6), int(4e6), int(5e6)),   # U2-3 → R3
+        ("VREF_SAMP", int(3.5e6), int(7e6), int(5e6), int(5e6)),  # U2-4 → R4
+        ("OK_PROG", int(3.0e6), int(8e6), int(4e6), int(8e6)),    # U2-11 → R5
+        ("OK_HYST", int(3.5e6), int(8e6), int(5e6), int(8e6)),    # U2-10 → R6
+        ("VRDIV", int(3.5e6), int(9e6), int(6e6), int(6e6)),      # U2-8 → C22
+        ("VOUT_SET", int(6e6), int(8e6), int(7e6), int(8e6)),     # U2-12 → R7/R8
+    ]
+    for net_name, x1, y1, x2, y2 in bq_prog:
+        ncode = netcode_map.get(net_name, 0)
+        if ncode:
+            _add_track(board, pn, x1, y1, x2, y2, TRACK_W, pn.F_Cu, ncode)
+    # Extra VOUT_SET segment for R8
+    ncode = netcode_map.get("VOUT_SET", 0)
+    if ncode:
+        _add_track(board, pn, int(7e6), int(8e6), int(7e6), int(7e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 8. LEDs
+    # ═══════════════════════════════════════════════════════════
+    # LED_PWR: Q1(8,12) → R13(12,2) → LED1(12,1)
+    ncode = netcode_map.get("LED_PWR", 0)
+    if ncode:
+        _add_track(board, pn, int(8e6), int(12e6), int(8e6), int(2e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(8e6), int(2e6), int(12e6), int(2e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # LED_STAT: R14(13,2) → LED2(14,1)
+    ncode = netcode_map.get("LED_STAT", 0)
+    if ncode:
+        _add_track(board, pn, int(13e6), int(2e6), int(14e6), int(1e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # ═══════════════════════════════════════════════════════════
+    # 9. Crystal Oscillator
+    # ═══════════════════════════════════════════════════════════
+    # XTAL_IN: U1(12,10) → X1(14,12) → C16(15,14)
+    ncode = netcode_map.get("XTAL_IN", 0)
+    if ncode:
+        _add_track(board, pn, int(13e6), int(11e6), int(14e6), int(12e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(14e6), int(12e6), int(15e6), int(14e6), TRACK_W, pn.F_Cu, ncode)
+    
+    # XTAL_OUT: U1(12,10) → X1(14,12) → C17(16,14)
+    ncode = netcode_map.get("XTAL_OUT", 0)
+    if ncode:
+        _add_track(board, pn, int(13e6), int(11e6), int(14e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(board, pn, int(14e6), int(13e6), int(16e6), int(14e6), TRACK_W, pn.F_Cu, ncode)
 
 
 def _add_power_vias(board, pn, netcode_map):
@@ -1547,6 +1639,93 @@ def generate_project():
     )
 
 
+def generate_gerbers():
+    """Export Gerber and drill files for PCB fabrication.
+    
+    Uses pcbnew PLOT_CONTROLLER to generate:
+    - Individual Gerber files for each copper/silkscreen/mask layer
+    - NC drill file (Excellon format)
+    
+    Output goes to hardware/kicad/gerber/ directory.
+    """
+    import pcbnew as pn
+    import os
+    
+    pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
+    if not os.path.exists(pcb_path):
+        print("  ⚠ PCB file not found, regenerate first")
+        return None
+    
+    board = pn.LoadBoard(pcb_path)
+    gerber_dir = os.path.join(PROJECT_DIR, "gerber")
+    os.makedirs(gerber_dir, exist_ok=True)
+    
+    ctrl = pn.PLOT_CONTROLLER(board)
+    opts = ctrl.GetPlotOptions()
+    
+    # Configure plot options for JLCPCB-compatible Gerbers
+    opts.SetOutputDirectory(gerber_dir)
+    opts.SetFormat(pn.PLOT_FORMAT_GERBER)
+    opts.SetPlotFrameRef(False)
+    opts.SetPlotValue(True)
+    opts.SetPlotReference(True)
+    opts.SetPlotInvisibleText(False)
+    opts.SetAutoScale(False)
+    opts.SetScale(1)
+    opts.SetUseAuxOrigin(True)
+    opts.SetNegative(False)
+    opts.SetSkipPlotNPTH_Pads(False)
+    opts.SetExcludeEdgeLayer(False)
+    opts.SetUseGerberX2format(True)
+    opts.SetUseGerberProtelExtensions(True)
+    opts.SetIncludeGerberNetlistInfo(False)
+    opts.SetCreateGerberJobFile(True)
+    opts.SetSubtractMaskFromSilk(True)
+    
+    # Define layers to plot
+    layers_to_plot = [
+        (pn.F_Cu, "F.Cu"),
+        (pn.In1_Cu, "In1.Cu"),
+        (pn.In2_Cu, "In2.Cu"),
+        (pn.B_Cu, "B.Cu"),
+        (pn.F_SilkS, "F.SilkS"),
+        (pn.B_SilkS, "B.SilkS"),
+        (pn.F_Mask, "F.Mask"),
+        (pn.B_Mask, "B.Mask"),
+        (pn.F_Paste, "F.Paste"),
+        (pn.B_Paste, "B.Paste"),
+        (pn.Edge_Cuts, "Edge.Cuts"),
+    ]
+    
+    plotted = []
+    for layer_id, layer_name in layers_to_plot:
+        ctrl.SetLayer(layer_id)
+        try:
+            ctrl.OpenPlotfile(layer_name.replace(".", "_"), pn.PLOT_FORMAT_GERBER, layer_name)
+            ctrl.PlotLayer()
+            plotted.append(layer_name)
+        except Exception as e:
+            print(f"    ⚠ Error plotting {layer_name}: {e}")
+    
+    ctrl.ClosePlot()
+    
+    # Generate NC drill files
+    try:
+        drill_writer = pn.EXCELLON_WRITER(board)
+        drill_writer.SetFormat(True)  # Use metric
+        drill_writer.SetOptions(False, False, pn.wxPoint(0, 0), True)
+        drill_writer.CreateDrillandMapFilesSet(gerber_dir, True, False)
+        plotted.append("NC Drill")
+    except Exception as e:
+        print(f"    ⚠ Error generating drill file: {e}")
+    
+    print(f"  ✓ Generated {len(plotted)} files in {gerber_dir}/")
+    for layer in plotted:
+        print(f"    - {layer}")
+    
+    return gerber_dir
+
+
 def generate_netlist_string():
     """Generate a simple plain-text netlist."""
     lines = ["# MykoVolt DevKit v0.1 — Netlist", f"# Generated: {datetime.now()}", ""]
@@ -1636,6 +1815,14 @@ def main():
     print(f"{'─' * 62}")
     print(f"\n  Output: {PROJECT_DIR}/")
     print(f"  Open with: kicad hardware/kicad/{BOARD_NAME}.kicad_pro")
+    
+    # ── Export Gerbers ──
+    if HAVE_PCBNEW:
+        print("\nExporting Gerber files...")
+        try:
+            generate_gerbers()
+        except Exception as e:
+            print(f"  ⚠ Gerber export failed: {e}")
 
 
 if __name__ == "__main__":
