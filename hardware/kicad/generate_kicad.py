@@ -1052,13 +1052,14 @@ def _add_nfc_antenna(board, pn, netcode_map):
     Connected to NFC_RF1 and NFC_RF2 nets.
     """
     # Antenna center (right side of board, aligned with U3)
-    cx, cy = int(25e6), int(10e6)  # 25mm, 10mm
+    # NOTE: outer width must fit within 30mm board (cx - outer_w/2 >= 0, cx + outer_w/2 <= 30)
+    cx, cy = int(23e6), int(10e6)  # 23mm, 10mm (shifted left 2mm to clear board edge)
     
     # Spiral parameters
     turns = 4
     trace_w = int(0.3e6)    # 0.3mm
     spacing = int(0.3e6)    # 0.3mm
-    outer_w = int(14e6)     # 14mm outer width
+    outer_w = int(12e6)     # 12mm outer width (fits within 30mm: 23±6 = 17..29mm)
     outer_h = int(10e6)     # 10mm outer height
     
     # Get netcodes
@@ -1136,8 +1137,8 @@ def _add_antenna_keepout(board, pn):
     
     This prevents the GND pour from coupling to the antenna coil.
     """
-    cx, cy = int(25e6), int(10e6)
-    kw, kh = int(15e6), int(11e6)  # Slightly larger than antenna
+    cx, cy = int(23e6), int(10e6)  # Matches antenna center
+    kw, kh = int(13e6), int(11e6)  # Slightly larger than antenna (12mm width + margin)
     
     zone = pn.ZONE(board)
     zone.SetLayer(pn.In1_Cu)
@@ -1209,9 +1210,12 @@ def _add_sensor_electrodes(board, pn, netcode_map):
         fy_start = ey - finger_len // 2
         fy_end = ey
         _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin1_net)
-        # Bus bar at top
-        if i == 0:
-            _add_track(board, pn, fx, fy_start, fx + finger_w, fy_start, finger_w, pn.B_Cu, cin1_net)
+    
+    # Bus bar at top: connect all CIN1 fingers together
+    c1_bus_start = start_x
+    c1_bus_end = start_x + num_fingers * (finger_w + finger_gap)
+    c1_bus_y = ey - finger_len // 2
+    _add_track(board, pn, c1_bus_start, c1_bus_y, c1_bus_end, c1_bus_y, finger_w, pn.B_Cu, cin1_net)
     
     # ── CIN2 Fingers (right comb, interlocking, connected to J4/CIN2) ──
     for i in range(num_fingers):
@@ -1221,10 +1225,12 @@ def _add_sensor_electrodes(board, pn, netcode_map):
         fy_start = ey
         fy_end = ey + finger_len // 2
         _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin2_net)
-        # Bus bar at bottom
-        if i == num_fingers - 2:
-            _add_track(board, pn, fx - finger_w - finger_gap, fy_end, fx + finger_w, fy_end,
-                       finger_w, pn.B_Cu, cin2_net)
+    
+    # Bus bar at bottom: connect all CIN2 fingers together
+    c2_bus_start = start_x + finger_w + finger_gap // 2
+    c2_bus_end = start_x + (num_fingers - 1) * (finger_w + finger_gap) + finger_w + finger_gap // 2
+    c2_bus_y = ey + finger_len // 2
+    _add_track(board, pn, c2_bus_start, c2_bus_y, c2_bus_end, c2_bus_y, finger_w, pn.B_Cu, cin2_net)
     
     # ── Route CIN1, CIN2, SHLD1 from electrodes to J4 ──
     j4_pos = PCB_POS.get("J4", (int(22e6), int(17e6)))
@@ -1237,7 +1243,7 @@ def _add_sensor_electrodes(board, pn, netcode_map):
     lbl = pn.PCB_TEXT(board)
     lbl.SetText("SENSOR")
     lbl.SetLayer(pn.B_SilkS)
-    lbl.SetPosition(pn.wxPoint(ex, ey + int(4e6)))
+    lbl.SetPosition(pn.wxPoint(ex, ey + int(1e6)))
     lbl.SetTextSize(pn.wxSize(600000, 600000))
     lbl.SetTextThickness(100000)
     board.Add(lbl)
@@ -1669,13 +1675,18 @@ def generate_gerbers():
     opts.SetPlotFrameRef(False)
     opts.SetPlotValue(True)
     opts.SetPlotReference(True)
-    opts.SetPlotInvisibleText(False)
+    # KiCad 8+ uses SetPlotFPText; KiCad 6 used SetPlotInvisibleText
+    if hasattr(opts, 'SetPlotInvisibleText'):
+        opts.SetPlotInvisibleText(False)
+    if hasattr(opts, 'SetPlotFPText'):
+        opts.SetPlotFPText(True)
     opts.SetAutoScale(False)
     opts.SetScale(1)
     opts.SetUseAuxOrigin(True)
     opts.SetNegative(False)
     opts.SetSkipPlotNPTH_Pads(False)
-    opts.SetExcludeEdgeLayer(False)
+    if hasattr(opts, 'SetExcludeEdgeLayer'):
+        opts.SetExcludeEdgeLayer(False)
     opts.SetUseGerberX2format(True)
     opts.SetUseGerberProtelExtensions(True)
     opts.SetIncludeGerberNetlistInfo(False)
@@ -1713,7 +1724,11 @@ def generate_gerbers():
     try:
         drill_writer = pn.EXCELLON_WRITER(board)
         drill_writer.SetFormat(True)  # Use metric
-        drill_writer.SetOptions(False, False, pn.wxPoint(0, 0), True)
+        # KiCad 9+ API uses VECTOR2I instead of wxPoint
+        if hasattr(pn, 'VECTOR2I'):
+            drill_writer.SetOptions(False, False, pn.VECTOR2I(0, 0), False)
+        else:
+            drill_writer.SetOptions(False, False, pn.wxPoint(0, 0), False)
         drill_writer.CreateDrillandMapFilesSet(gerber_dir, True, False)
         plotted.append("NC Drill")
     except Exception as e:

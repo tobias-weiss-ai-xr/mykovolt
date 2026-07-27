@@ -30,16 +30,16 @@ static volatile uint32_t i2c_errors = 0;
 
 void i2c_init(void) {
     /* Enable I2C1 clock */
-    RCC->APBENR1 |= RCC_APBENR1_I2C1EN;
+    RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
 
     /* Reset I2C1 */
-    RCC->APBRSTR1 |= RCC_APBRSTR1_I2C1RST;
-    RCC->APBRSTR1 &= ~RCC_APBRSTR1_I2C1RST;
+    RCC->APB1RSTR |= RCC_APB1RSTR_I2C1RST;
+    RCC->APB1RSTR &= ~RCC_APB1RSTR_I2C1RST;
 
     /* Configure GPIO: PA9=SCL(AF1), PA10=SDA(AF1), open-drain */
     GPIOA->MODER &= ~(GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
-    GPIOA->MODER |= GPIO_MODER_AF9 | GPIO_MODER_AF10;   /* Alternate function */
-    GPIOA->OTYPER |= GPIO_OTYPER_OT9 | GPIO_OTYPER_OT10; /* Open-drain */
+    GPIOA->MODER = (GPIOA->MODER & ~(GPIO_MODER_MODE9 | GPIO_MODER_MODE10)) | GPIO_MODER_MODE9_1 | GPIO_MODER_MODE10_1;  /* AF = 0b10 */
+    GPIOA->OTYPER |= GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10; /* Open-drain */
     GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPD9 | GPIO_PUPDR_PUPD10);
     GPIOA->PUPDR |= GPIO_PUPDR_PUPD9_0 | GPIO_PUPDR_PUPD10_0; /* Pull-up */
     GPIOA->AFR[1] &= ~(0xF << 4) & ~(0xF << 8);  /* AF1 for both */
@@ -183,6 +183,112 @@ bool i2c_read_reg(uint8_t addr, uint8_t reg, uint8_t *data, uint16_t len) {
     }
 
     /* Wait for STOP */
+    if (!wait_for_flag(I2C_ISR_STOPF, true)) {
+        i2c_busy = false;
+        return false;
+    }
+
+    I2C1->ICR = I2C_ICR_STOPCF;
+    i2c_busy = false;
+    return true;
+}
+
+/* ========================================================================
+ *   16-bit register address: Master Transmit
+ * ======================================================================== */
+
+bool i2c_write_reg16(uint8_t addr, uint16_t reg, const uint8_t *data, uint16_t len)
+{
+    if (i2c_busy) return false;
+    i2c_busy = true;
+
+    if (!wait_for_flag(I2C_ISR_BUSY, false)) {
+        I2C1->ICR = 0xFFFFFFFF;
+        i2c_busy = false;
+        return false;
+    }
+
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
+    I2C1->CR2 |= (len + 2) | I2C_CR2_AUTOEND;
+
+    if (!wait_for_flag(I2C_ISR_TXIS, true)) {
+        i2c_busy = false;
+        return false;
+    }
+    I2C1->TXDR = (uint8_t)(reg >> 8);
+
+    if (!wait_for_flag(I2C_ISR_TXIS, true)) {
+        i2c_busy = false;
+        return false;
+    }
+    I2C1->TXDR = (uint8_t)(reg);
+
+    for (uint16_t i = 0; i < len; i++) {
+        if (!wait_for_flag(I2C_ISR_TXIS, true)) {
+            i2c_busy = false;
+            return false;
+        }
+        I2C1->TXDR = data[i];
+    }
+
+    if (!wait_for_flag(I2C_ISR_STOPF, true)) {
+        i2c_busy = false;
+        return false;
+    }
+
+    I2C1->ICR = I2C_ICR_STOPCF;
+    i2c_busy = false;
+    return true;
+}
+
+/* ========================================================================
+ *   16-bit register address: Master Receive
+ * ======================================================================== */
+
+bool i2c_read_reg16(uint8_t addr, uint16_t reg, uint8_t *data, uint16_t len)
+{
+    if (i2c_busy || len == 0) return false;
+    i2c_busy = true;
+
+    if (!wait_for_flag(I2C_ISR_BUSY, false)) {
+        I2C1->ICR = 0xFFFFFFFF;
+        i2c_busy = false;
+        return false;
+    }
+
+    /* Phase 1: Send 16-bit register address */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
+    I2C1->CR2 |= 2;
+
+    if (!wait_for_flag(I2C_ISR_TXIS, true)) {
+        i2c_busy = false;
+        return false;
+    }
+    I2C1->TXDR = (uint8_t)(reg >> 8);
+
+    if (!wait_for_flag(I2C_ISR_TXIS, true)) {
+        i2c_busy = false;
+        return false;
+    }
+    I2C1->TXDR = (uint8_t)(reg);
+
+    if (!wait_for_flag(I2C_ISR_TC, true)) {
+        i2c_busy = false;
+        return false;
+    }
+
+    /* Phase 2: Restart + read */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN;
+    I2C1->CR2 |= len | I2C_CR2_AUTOEND;
+
+    for (uint16_t i = 0; i < len; i++) {
+        if (!wait_for_flag(I2C_ISR_RXNE, true)) {
+            i2c_busy = false;
+            return false;
+        }
+        data[i] = I2C1->RXDR;
+    }
+
     if (!wait_for_flag(I2C_ISR_STOPF, true)) {
         i2c_busy = false;
         return false;

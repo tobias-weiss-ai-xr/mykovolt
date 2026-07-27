@@ -41,6 +41,19 @@ static inline bool i2c_write_reg8(uint8_t addr, uint8_t reg, uint8_t val) {
     return i2c_write_reg(addr, reg, &val, 1);
 }
 
+/* ── 16-bit register address variants ── */
+
+/**
+ * Write data to an I2C slave using a 16-bit register address.
+ * Used by devices like ST25DV04K, FRAM with 16-bit address maps.
+ */
+bool i2c_write_reg16(uint8_t addr, uint16_t reg, const uint8_t *data, uint16_t len);
+
+/**
+ * Read data from an I2C slave using a 16-bit register address.
+ */
+bool i2c_read_reg16(uint8_t addr, uint16_t reg, uint8_t *data, uint16_t len);
+
 /* ── Master Receive ── */
 
 /**

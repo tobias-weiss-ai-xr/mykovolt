@@ -24,6 +24,7 @@ set(CORE_SRC
 
 set(STARTUP_SRC
     startup/startup_stm32l011xx.s
+    Drivers/CMSIS/Device/ST/STM32L0xx/system_stm32l0xx.c
 )
 
 # ── Includes ──
@@ -34,6 +35,10 @@ set(CORE_INC
 set(CMSIS_INC
     Drivers/CMSIS/Include
     Drivers/CMSIS/Device/ST/STM32L0xx/Include
+)
+
+set(HAL_INC
+    Drivers/STM32L0xx_HAL_Driver/Inc
 )
 
 # ── Compile options ──
@@ -52,7 +57,6 @@ add_compile_options(
 
 add_compile_definitions(
     ${MCU_FAMILY}
-    USE_HAL_DRIVER
     HSE_VALUE=16000000
 )
 

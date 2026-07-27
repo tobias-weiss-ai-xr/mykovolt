@@ -15,6 +15,7 @@ extern "C" {
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "stm32l011xx.h"
 
 /* ========================================================================
  *   Pin Mappings (STM32L011F4Px TSSOP-20)

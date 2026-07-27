@@ -62,9 +62,9 @@ int main(void) {
         log_error("ST25DV04K init failed");
     }
 
-    /* Read device IDs for verification */
-    uint16_t fdc_id = fdc1004_read_device_id();
-    uint8_t  nfc_ref = st25dv04k_read_ic_ref();
+    /* Read device IDs for verification (unused in release, kept for debug) */
+    (void)fdc1004_read_device_id();
+    (void)st25dv04k_read_ic_ref();
 
     /* ── Main loop ── */
     while (1) {
@@ -113,7 +113,7 @@ static void system_clock_init(void) {
     while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_HSI);
 
     /* Set AHB/APB prescalers (1:1) */
-    RCC->CFGR &= ~(RCC_CFGR_HPRE | RCC_CFGR_PPRE);
+    RCC->CFGR &= ~(RCC_CFGR_HPRE | RCC_CFGR_PPRE1 | RCC_CFGR_PPRE2);
 
     /* Enable LSE for RTC (if available) */
     RCC->CSR |= RCC_CSR_LSEON;
@@ -130,15 +130,15 @@ static void gpio_init(void) {
     /* LED2 (PA7) — push-pull output */
     GPIOA->MODER &= ~GPIO_MODER_MODE7_Msk;
     GPIOA->MODER |= GPIO_MODER_MODE7_0;  /* Output */
-    GPIOA->OTYPER &= ~GPIO_OTYPER_OT7;   /* Push-pull */
+    GPIOA->OTYPER &= ~GPIO_OTYPER_OT_7;   /* Push-pull */
     GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD7_Msk;
 
     /* LOAD_SW_GATE (PA4) — push-pull output, initially on */
     GPIOA->MODER &= ~GPIO_MODER_MODE4_Msk;
     GPIOA->MODER |= GPIO_MODER_MODE4_0;
-    GPIOA->OTYPER &= ~GPIO_OTYPER_OT4;
+    GPIOA->OTYPER &= ~GPIO_OTYPER_OT_4;
     GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD4_Msk;
-    GPIOA->BSRR = GPIO_BSRR_BS4;  /* Turn on load switch */
+    GPIOA->BSRR = GPIO_BSRR_BS_4;  /* Turn on load switch */
 
     /* NFC IRQ (PA5) — input with pull-up */
     GPIOA->MODER &= ~GPIO_MODER_MODE5_Msk;
@@ -161,7 +161,7 @@ static void gpio_init(void) {
 
 static void enter_sleep(void) {
     /* Set LED off */
-    GPIOA->BSRR = GPIO_BSRR_BR7;
+    GPIOA->BSRR = GPIO_BSRR_BR_7;
 
     /* Enter STOP mode */
     PWR->CR |= PWR_CR_LPSDSR;    /* Low-power run in STOP */
@@ -170,7 +170,7 @@ static void enter_sleep(void) {
     __WFI();
 
     /* Wake up — LED on */
-    GPIOA->BSRR = GPIO_BSRR_BS7;
+    GPIOA->BSRR = GPIO_BSRR_BS_7;
 }
 
 /* ========================================================================
@@ -230,9 +230,9 @@ static void log_error(const char *msg) {
     g_app_state = APP_STATE_ERROR;
     /* Blink LED 3 times */
     for (int i = 0; i < 3; i++) {
-        GPIOA->BSRR = GPIO_BSRR_BS7;
+        GPIOA->BSRR = GPIO_BSRR_BS_7;
         for (volatile int j = 0; j < 200000; j++);
-        GPIOA->BSRR = GPIO_BSRR_BR7;
+        GPIOA->BSRR = GPIO_BSRR_BR_7;
         for (volatile int j = 0; j < 200000; j++);
     }
 }
