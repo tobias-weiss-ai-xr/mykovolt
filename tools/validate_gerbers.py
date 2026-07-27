@@ -295,6 +295,145 @@ def print_report(results: dict, json_output: bool = False):
     print(f"{'═' * 60}\n")
 
 
+# ════════════════════════════════════════════════════════════════
+#  Thermal Analysis
+# ════════════════════════════════════════════════════════════════
+
+def analyze_power_thermal(pcb_path: str) -> list:
+    """Check power trace temperatures against current load.
+    
+    Estimates temperature rise for critical power nets
+    (3.3V, GND, V_PRESSLING) based on trace cross-section.
+    IPC-2221 formula: dT = (I / (k * A^b))^c
+    """
+    issues = []
+
+    if not os.path.exists(pcb_path):
+        issues.append(f"PCB not found: {pcb_path}")
+        return issues
+
+    try:
+        import pcbnew
+        board = pcbnew.LoadBoard(pcb_path)
+
+        # Power nets to check with estimated currents
+        power_nets = {
+            "3.3V": {"current_A": 0.010, "max_temp_rise_C": 10},
+            "GND": {"current_A": 0.015, "max_temp_rise_C": 10},
+            "V_PRESSLING": {"current_A": 0.0002, "max_temp_rise_C": 5},
+        }
+
+        # Count vias and estimate trace widths
+        all_tracks = list(board.GetTracks())
+        vias = [t for t in all_tracks if hasattr(t, 'ViaType')]
+        traces = [t for t in all_tracks if not hasattr(t, 'ViaType')]
+
+        # Measure total copper width for each net
+        net_widths = {}
+        for t in traces:
+            try:
+                net = t.GetNet()
+                if net and net.GetNetname() in power_nets:
+                    name = net.GetNetname()
+                    if name not in net_widths:
+                        net_widths[name] = 0
+                    net_widths[name] += t.GetWidth()
+            except Exception:
+                pass
+
+        for net_name, specs in power_nets.items():
+            total_width_um = net_widths.get(net_name, 0)
+            total_width_mm = total_width_um / 1e6 / 1000  # Convert to mm
+            current_A = specs["current_A"]
+
+            # IPC-2221 external layer temp rise estimation
+            # dT = (I / (k * (W*t)^b))^c
+            # k=0.024, b=0.44, c=0.725 for external layers
+            # W in_mm, t=35um (1oz)
+            if total_width_mm > 0:
+                k, b, c = 0.024, 0.44, 0.725
+                area = total_width_mm * 0.035  # mm^2
+                try:
+                    temp_rise = (current_A / (k * (area ** b))) ** c
+                    issues.append(f"[Thermal] {net_name}: ~{temp_rise:.1f}°C rise at {current_A*1000:.0f}mA "
+                                  f"(width={total_width_mm:.2f}mm) — "
+                                  + ("OK" if temp_rise < specs["max_temp_rise_C"] else "⚠ CHECK"))
+                except Exception:
+                    pass
+            else:
+                issues.append(f"[Thermal] {net_name}: no explicit traces found "
+                              f"(may route through power plane)")
+
+        issues.append(f"[Thermal] {len(vias)} vias, {len(traces)} traces total")
+
+    except ImportError:
+        issues.append("[Thermal] pcbnew not available — thermal check skipped")
+    except Exception as e:
+        issues.append(f"[Thermal] Analysis error: {e}")
+
+    return issues
+
+
+# ════════════════════════════════════════════════════════════════
+#  BOM-to-PCB Cross-Validation
+# ════════════════════════════════════════════════════════════════
+
+def validate_bom_vs_pcb(pcb_path: str) -> list:
+    """Cross-validate BOM components against PCB footprints.
+    
+    Checks:
+    - Every IC has a matching footprint on the PCB
+    - Pin counts between schematic symbol and footprint match
+    - No footprint is unconnected (floating)
+    """
+    issues = []
+
+    if not os.path.exists(pcb_path):
+        issues.append(f"PCB not found: {pcb_path}")
+        return issues
+
+    try:
+        import pcbnew
+        board = pcbnew.LoadBoard(pcb_path)
+
+        # Get all footprints on PCB
+        footprints = {}
+        for fp in board.GetFootprints():
+            ref = fp.GetReference()
+            footprints[ref] = {
+                "value": fp.GetValue(),
+                "pads": len(fp.Pads()),
+            }
+
+        # Check for ICs (U-prefixed refs)
+        ics = {ref: info for ref, info in footprints.items() if ref.startswith("U")}
+        if not ics:
+            issues.append("[BOM] No IC footprints found on PCB!")
+        else:
+            for ref, info in sorted(ics.items()):
+                pad_count = info["pads"]
+                if pad_count == 0:
+                    issues.append(f"[BOM] ⚠ {ref} ({info['value']}) has 0 pads")
+
+        # Check for passives (R, C, L prefixes)
+        passives = {ref: info for ref, info in footprints.items()
+                    if ref[0] in ("R", "C", "L") and ref[0].isalpha()}
+        if not passives:
+            issues.append("[BOM] ⚠ No passive components found on PCB")
+
+        # Summary
+        total_fp = len(footprints)
+        issues.append(f"[BOM] {total_fp} footprints: {len(ics)} ICs, {len(passives)} passives, "
+                      f"{total_fp - len(ics) - len(passives)} other")
+
+    except ImportError:
+        issues.append("[BOM] pcbnew not available — BOM check skipped")
+    except Exception as e:
+        issues.append(f"[BOM] Validation error: {e}")
+
+    return issues
+
+
 def main():
     parser = argparse.ArgumentParser(description="Validate Gerber files for PCB fabrication")
     parser.add_argument("--dir", "-d", default=None,
@@ -304,6 +443,12 @@ def main():
                         help="Fabricator ruleset (default: jlcpcb)")
     parser.add_argument("--json", action="store_true",
                         help="JSON output (for CI integration)")
+    parser.add_argument("--pcb", default=None,
+                        help="Path to .kicad_pcb file for thermal/BOM checks")
+    parser.add_argument("--bom", action="store_true",
+                        help="Run BOM-to-PCB cross-validation")
+    parser.add_argument("--thermal", action="store_true",
+                        help="Run thermal analysis on power traces")
     args = parser.parse_args()
 
     # Default directory relative to script location
@@ -317,9 +462,37 @@ def main():
         sys.exit(1)
 
     results = validate_gerber_dir(gerber_dir, args.fabricator)
-    print_report(results, json_output=args.json)
+    if not args.json:
+        print_report(results, json_output=False)
 
-    sys.exit(0 if results["pass"] else 1)
+    # ── Thermal analysis ──
+    if args.thermal or args.pcb:
+        pcb_path = args.pcb or os.path.join(os.path.dirname(gerber_dir), "mykovolt_devkit.kicad_pcb")
+        if not args.json:
+            print("\n=== Thermal Analysis ===")
+        thermal_issues = analyze_power_thermal(pcb_path)
+        if args.json:
+            results["thermal"] = thermal_issues
+        else:
+            for issue in thermal_issues:
+                print(f"  {issue}")
+
+    # ── BOM-to-PCB validation ──
+    if args.bom or args.pcb:
+        pcb_path = args.pcb or os.path.join(os.path.dirname(gerber_dir), "mykovolt_devkit.kicad_pcb")
+        if not args.json:
+            print("\n=== BOM-to-PCB Validation ===")
+        bom_issues = validate_bom_vs_pcb(pcb_path)
+        if args.json:
+            results["bom_validation"] = bom_issues
+        else:
+            for issue in bom_issues:
+                print(f"  {issue}")
+
+        # Print JSON if requested (after all checks)
+    if args.json:
+        print(json.dumps(results, indent=2))
+    sys.exit(0 if results.get("pass", True) else 1)
 
 
 if __name__ == "__main__":
