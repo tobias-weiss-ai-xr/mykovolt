@@ -1,29 +1,142 @@
 #!/usr/bin/env python3
-"""KiCad 6 Project Generator — MykoVolt DevKit v0.1
+"""KiCad Project Generator — MykoVolt DevKit
 
-Generates a valid KiCad 6 project (schematic + PCB) programmatically.
+Generates KiCad project files (schematic + PCB) programmatically.
 Uses simp_sexp.Sexp for robust S-expression generation and pcbnew for PCB layout.
 
-Target format: version 20211014 (KiCad 6).
-
 Usage:
-    python3 hardware/kicad/generate_kicad.py
-
-After generation:
-  1. Open hardware/kicad/mykovolt_devkit.kicad_pro in KiCad
-  2. Schematic opens automatically — all components wired via global labels
-  3. Run Tools → Assign Footprints (auto-resolve library paths)
-  4. Run Tools → Update PCB from Schematic to place all footprints
-  5. Run Route → Route Tracks to connect traces
-  6. Run Inspect → Design Rules Checker to verify
+    python3 hardware/kicad/generate_kicad.py                        # Default config
+    python3 hardware/kicad/generate_kicad.py --config my_config.yaml # Custom config
+    python3 hardware/kicad/generate_kicad.py --skip-gerber           # Skip Gerber export
+    python3 hardware/kicad/generate_kicad.py --variant nfc           # NFC-only variant
 """
 
 import os
 import sys
 import json
 import uuid
+import argparse
 from datetime import datetime
 from collections import defaultdict
+from pathlib import Path
+
+# ── Try loading YAML config ──
+try:
+    import yaml
+    HAVE_YAML = True
+except ImportError:
+    HAVE_YAML = False
+    print("INFO: pyyaml not installed, using built-in defaults")
+
+# ── Default design rules (overridden by design_rules.yaml if present) ──
+DEFAULT_CONFIG = {
+    "board": {
+        "name": "MykoVolt DevKit",
+        "revision": "0.1",
+        "width_mm": 30.0,
+        "height_mm": 20.0,
+        "thickness_mm": 0.8,
+        "layers": 4,
+    },
+    "clearance": {
+        "copper_copper_mm": 0.3,
+        "copper_edge_mm": 0.5,
+    },
+    "routing": {
+        "default_trace_width_mm": 0.3,
+        "default_via_diameter_mm": 0.6,
+        "default_via_drill_mm": 0.3,
+    },
+    "nfc_antenna": {
+        "center_x_mm": 23.0,
+        "center_y_mm": 10.0,
+        "turns": 4,
+        "outer_width_mm": 12.0,
+        "outer_height_mm": 10.0,
+    },
+    "sensor_electrodes": {
+        "finger_width_mm": 0.3,
+        "finger_gap_mm": 0.3,
+        "finger_length_mm": 3.0,
+        "num_fingers": 10,
+    },
+    "i2c": {
+        "speed_hz": 100000,
+        "pullup_resistor_ohm": 2200,
+    },
+    "power": {
+        "v_cold_start_mv": 300,
+        "v_out_mv": 3300,
+    },
+}
+
+
+def load_config(path=None):
+    """Load design rules from YAML, merging with defaults.
+    
+    Args:
+        path: Path to YAML config file. If None, looks for design_rules.yaml
+              in the same directory as this script.
+              
+    Returns:
+        dict: Merged configuration.
+    """
+    config = DEFAULT_CONFIG.copy()
+    
+    if path is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "design_rules.yaml")
+    
+    if os.path.exists(path):
+        if HAVE_YAML:
+            with open(path) as f:
+                loaded = yaml.safe_load(f)
+            if loaded:
+                # Deep merge
+                _deep_merge(config, loaded)
+            print(f"  Config: {path}")
+        else:
+            print(f"  WARNING: {path} exists but pyyaml not installed. Install with: pip install pyyaml")
+    else:
+        print(f"  Config: built-in defaults (no {os.path.basename(path)} found)")
+    
+    return config
+
+
+def _deep_merge(base, override):
+    """Recursively merge override dict into base dict."""
+    for key, value in override.items():
+        if key in base and isinstance(base[key], dict) and isinstance(value, dict):
+            _deep_merge(base[key], value)
+        else:
+            base[key] = value
+
+
+def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="MykoVolt KiCad Project Generator")
+    parser.add_argument("--config", "-c", default=None,
+                        help="Path to design_rules.yaml (default: looks for design_rules.yaml in script dir)")
+    parser.add_argument("--skip-gerber", action="store_true",
+                        help="Skip Gerber file export")
+    parser.add_argument("--skip-pcb", action="store_true",
+                        help="Skip PCB generation (schematic only)")
+    parser.add_argument("--skip-schematic", action="store_true",
+                        help="Skip schematic generation (PCB only)")
+    parser.add_argument("--variant", default=None,
+                        choices=["nfc"],
+                        help="Design variant (default: full DevKit)")
+    parser.add_argument("--output", "-o", default=None,
+                        help="Output directory (default: script directory)")
+    return parser.parse_args()
+
+
+import uuid as _uuid_lib
+
+
+def det_uuid(seed: str) -> str:
+    """Generate a deterministic UUID from a seed string."""
+    ns = _uuid_lib.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
+    return str(_uuid_lib.uuid5(ns, f"mykovolt.{seed}"))
 
 # ── Try importing simp_sexp for robust S-expression generation ──
 try:
@@ -1652,7 +1765,7 @@ def generate_gerbers():
     - Individual Gerber files for each copper/silkscreen/mask layer
     - NC drill file (Excellon format)
     
-    Output goes to hardware/kicad/gerber/ directory.
+    Output goes to gerber/ subdirectory.
     """
     import pcbnew as pn
     import os
@@ -1753,13 +1866,33 @@ def generate_netlist_string():
     lines.append(f"\n# Total connections: {total}")
     return "\n".join(lines)
 
-
-# ═══════════════════════════════════════════════════════════════
-# Main
-# ═══════════════════════════════════════════════════════════════
-
-def main():
+def main(argv=None):
+    """
+    Main entry point for KiCad project generation.
+    
+    Args:
+        argv: Command-line arguments (default: sys.argv[1:]).
+              Pass [] to use all defaults.
+    """
+    if argv is None:
+        argv = sys.argv[1:]
+    # Save and restore sys.argv for argparser
+    old_argv = sys.argv
+    sys.argv = ['generate_kicad.py'] + (argv if argv else [])
+    try:
+        args = parse_args()
+    finally:
+        sys.argv = old_argv
+    config = load_config(args.config)
+    
     print(f"=== MykoVolt KiCad Project Generator v{VERSION} ===\n")
+    print(f"  Board: {config['board']['name']} rev{config['board']['revision']}")
+    print(f"  Size:  {config['board']['width_mm']}×{config['board']['height_mm']}mm, {config['board']['layers']}-layer")
+    print()
+    
+    if args.variant:
+        print(f"  Variant: {args.variant}")
+        # Apply variant filters (future: component substitution)
     
     # ── 1. Generate Project File ──
     print("Generating project file...")
@@ -1770,46 +1903,46 @@ def main():
     print(f"  ✓ {BOARD_NAME}.kicad_pro ({len(proj)} bytes)")
     
     # ── 2. Generate Schematic ──
-    print("Generating schematic...")
-    if HAVE_SEXP:
-        try:
-            sch_sexp = generate_schematic_sexp()
-            sch_str = sch_sexp.to_str()
-        except Exception as e:
-            print(f"  ⚠ Sexp generation failed ({e}), falling back to string-based")
+    if not args.skip_schematic:
+        print("Generating schematic...")
+        if HAVE_SEXP:
+            try:
+                sch_sexp = generate_schematic_sexp()
+                sch_str = sch_sexp.to_str()
+            except Exception as e:
+                print(f"  ⚠ Sexp generation failed ({e}), falling back")
+                sch_str = generate_schematic_string()
+        else:
             sch_str = generate_schematic_string()
-    else:
-        sch_str = generate_schematic_string()
-    
-    path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_sch")
-    with open(path, "w") as f:
-        f.write(sch_str)
-    sym_count = len(COMPONENTS) * 2 + len(NETS)  # rough estimate
-    print(f"  ✓ {BOARD_NAME}.kicad_sch ({len(sch_str)} bytes, ~{len(COMPONENTS)}+ symbols)")
+        
+        path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_sch")
+        with open(path, "w") as f:
+            f.write(sch_str)
+        print(f"  ✓ {BOARD_NAME}.kicad_sch ({len(sch_str)} bytes, {len(COMPONENTS)} components)")
     
     # ── 3. Generate PCB Layout ──
-    print("Generating PCB layout...")
-    if HAVE_PCBNEW:
-        try:
-            pcb_path = generate_pcb_pcbnew()
-            with open(pcb_path, "r") as f:
-                pcb_len = len(f.read())
-            print(f"  ✓ {os.path.basename(pcb_path)} ({pcb_len} bytes, {len([c for c in COMPONENTS if c[0] in PCB_POS])} footprints) [pcbnew]")
-        except Exception as e:
-            print(f"  ⚠ pcbnew generation failed ({e}), falling back to string-based")
+    if not args.skip_pcb:
+        print("Generating PCB layout...")
+        if HAVE_PCBNEW:
+            try:
+                pcb_path = generate_pcb_pcbnew()
+                with open(pcb_path, "r") as f:
+                    pcb_len = len(f.read())
+                fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
+                print(f"  ✓ {os.path.basename(pcb_path)} ({pcb_len} bytes, {fp_count} footprints) [pcbnew]")
+            except Exception as e:
+                print(f"  ⚠ pcbnew failed ({e}), fallback")
+                pcb_str = generate_pcb_string()
+                path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
+                with open(path, "w") as f:
+                    f.write(pcb_str)
+                print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes) [fallback]")
+        else:
             pcb_str = generate_pcb_string()
             path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
             with open(path, "w") as f:
                 f.write(pcb_str)
-            fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
-            print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes, {fp_count} footprints) [fallback]")
-    else:
-        pcb_str = generate_pcb_string()
-        path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
-        with open(path, "w") as f:
-            f.write(pcb_str)
-        fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
-        print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes, {fp_count} footprints) [string]")
+            print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes) [string]")
     
     # ── 4. Generate Netlist ──
     print("Generating netlist...")
@@ -1821,18 +1954,19 @@ def main():
     print(f"  ✓ {BOARD_NAME}.net ({len(net)} bytes, {len(NETS)} nets, {total_pins} connections)")
     
     # ── Summary ──
-    print(f"\n{'─' * 62}")
+    sep = chr(0x2500) * 62
+    print(f"\n{sep}")
     print(f"  Components: {len(COMPONENTS)}")
     print(f"  Nets:       {len(NETS)}")
     print(f"  Connections: {total_pins}")
-    print(f"  Library:    {'simp_sexp' if HAVE_SEXP else 'string-based'} S-expressions")
-    print(f"  PCB:        {'pcbnew' if HAVE_PCBNEW else 'string-based'} [KiCad {pcbnew.Version() if HAVE_PCBNEW else 'N/A'}]")
-    print(f"{'─' * 62}")
+    print(f"  Config:     design_rules.yaml")
+    sep = chr(0x2500) * 62
+    print(f"\n{chr(0x2500) * 62}")
     print(f"\n  Output: {PROJECT_DIR}/")
     print(f"  Open with: kicad hardware/kicad/{BOARD_NAME}.kicad_pro")
     
     # ── Export Gerbers ──
-    if HAVE_PCBNEW:
+    if HAVE_PCBNEW and not args.skip_gerber:
         print("\nExporting Gerber files...")
         try:
             generate_gerbers()

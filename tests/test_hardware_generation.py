@@ -197,8 +197,8 @@ class TestGeneratedFiles:
     def setup_and_generate(self):
         """Regenerate all KiCad files before running file tests."""
         from generate_kicad import main as generate
-        # Run generation (captures print output)
-        generate()
+        # Run generation with empty argv (prevents pytest args leaking)
+        generate(argv=[])
         yield
 
     def test_project_file_exists(self):
