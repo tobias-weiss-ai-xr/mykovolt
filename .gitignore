@@ -58,3 +58,5 @@ hardware/kicad/mykovolt_devkit-mykovolt_devkit_*.pdf
 skidl_REPL.erc
 skidl_REPL.sch
 *.erc
+*.kicad_prl
+fp-info-cache
