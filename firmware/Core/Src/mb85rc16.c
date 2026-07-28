@@ -11,6 +11,7 @@
 #include "mb85rc16.h"
 #include "i2c_driver.h"
 #include "mykovolt.h"
+#include <stddef.h>
 
 /* ── Public API ── */
 
