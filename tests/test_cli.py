@@ -78,3 +78,21 @@ def test_cli_pipeline_help():
     runner = CliRunner()
     result = runner.invoke(cli, ["pipeline", "--help"])
     assert result.exit_code == 0
+
+
+def test_parse_shows_version(tmp_path):
+    from mykovolt.cli import cli
+    from mykovolt.schema import FRAM_MAGIC, FRAM_ENTRY_SIZE_V2
+    import struct
+
+    header = struct.pack(">HBH", FRAM_MAGIC, 2, FRAM_ENTRY_SIZE_V2) + b"\x00" * (
+        256 - 7
+    )
+    entry = b"\x00" * FRAM_ENTRY_SIZE_V2
+    data = header + entry
+    bin_file = tmp_path / "fram.bin"
+    bin_file.write_bytes(data)
+    runner = CliRunner()
+    result = runner.invoke(cli, ["parse", str(bin_file)])
+    assert result.exit_code == 0
+    assert "version=2" in result.output

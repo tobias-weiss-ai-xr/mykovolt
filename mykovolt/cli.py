@@ -11,8 +11,9 @@ from mykovolt.plot import plot_timeseries, plot_summary
 from mykovolt.pipeline import run_pipeline
 from mykovolt.schema import (
     SensorEntry,
+    TestFixtureEntry,
     parse_header,
-    parse_entries,
+    parse_entries_versioned,
     FRAM_DATA_START,
     FRAM_MAX_ENTRIES,
 )
@@ -78,11 +79,18 @@ def fetch(backend, bus, addr):
     )
     click.echo(f"Entries: {len(entries)}")
     for e in entries:
-        click.echo(
-            f"  ts={e.timestamp} cap={e.capacitance_pf:.2f}pF "
-            f"Vbatt={e.v_batt_mv}mV Vsense={e.v_sense_mv}mV "
-            f"status=0x{e.status:02x} crc={'OK' if e.crc_ok else 'BAD'}"
-        )
+        if isinstance(e, TestFixtureEntry):
+            click.echo(
+                f"  ts={e.timestamp} voc={e.voc_mv}mV load={e.load_current_ma}mA "
+                f"R={e.load_resistor_index} T={e.temp_c}C RH={e.humidity_pct}% "
+                f"status=0x{e.status:02x} crc={'OK' if e.crc_ok else 'BAD'}"
+            )
+        else:
+            click.echo(
+                f"  ts={e.timestamp} cap={e.capacitance_pf:.2f}pF "
+                f"Vbatt={e.v_batt_mv}mV Vsense={e.v_sense_mv}mV "
+                f"status=0x{e.status:02x} crc={'OK' if e.crc_ok else 'BAD'}"
+            )
 
 
 @cli.command()
@@ -98,12 +106,15 @@ def parse(input, output, fmt, calibration):
     if header is None:
         click.echo("Invalid FRAM header", err=True)
         sys.exit(1)
-    count = min(header.write_ptr // 12, FRAM_MAX_ENTRIES)
-    entries = parse_entries(data[FRAM_DATA_START:], count)
-    if calibration:
+    click.echo(
+        f"Header: magic=0x{header.magic:04X} version={header.version} "
+        f"write_ptr={header.write_ptr}"
+    )
+    entries = parse_entries_versioned(header, data[FRAM_DATA_START:])
+    if calibration and header.version == 1:
         cal = load_calibration(calibration)
         entries = [apply_calibration(e, cal) for e in entries]
-    click.echo(f"Parsed {len(entries)} entries")
+    click.echo(f"Parsed {len(entries)} entries (v{header.version})")
     buf = open(output, "w") if output else sys.stdout
     if fmt == "csv":
         export_csv(entries, buf)
