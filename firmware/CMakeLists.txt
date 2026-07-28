@@ -20,6 +20,9 @@ set(CORE_SRC
     Core/Src/i2c_driver.c
     Core/Src/fdc1004.c
     Core/Src/st25dv04k.c
+    Core/Src/mb85rc16.c
+    Core/Src/pcf8523.c
+    Core/Src/bq25570.c
 )
 
 set(STARTUP_SRC
