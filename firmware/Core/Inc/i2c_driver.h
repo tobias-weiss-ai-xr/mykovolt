@@ -75,6 +75,18 @@ static inline uint8_t i2c_read_reg8(uint8_t addr, uint8_t reg) {
     return val;
 }
 
+/* ── Raw I2C (no register address) ── */
+
+/**
+ * Read data from an I2C slave without sending a register address first.
+ * Used by command-based devices like SHT30.
+ * @param addr  7-bit slave address
+ * @param data  Buffer for received data
+ * @param len   Number of bytes to read
+ * @return true on ACK, false on NACK/timeout
+ */
+bool i2c_read_raw(uint8_t addr, uint8_t *data, uint16_t len);
+
 /* ── Status / Debug ── */
 
 /** Check if I2C bus is ready */

@@ -298,3 +298,39 @@ bool i2c_read_reg16(uint8_t addr, uint16_t reg, uint8_t *data, uint16_t len)
     i2c_busy = false;
     return true;
 }
+
+/* ========================================================================
+ *   Raw read (no register address)
+ * ======================================================================== */
+
+bool i2c_read_raw(uint8_t addr, uint8_t *data, uint16_t len) {
+    if (i2c_busy || len == 0) return false;
+    i2c_busy = true;
+
+    if (!wait_for_flag(I2C_ISR_BUSY, false)) {
+        I2C1->ICR = 0xFFFFFFFF;
+        i2c_busy = false;
+        return false;
+    }
+
+    /* Start + read directly (no register address phase) */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN;
+    I2C1->CR2 |= len | I2C_CR2_AUTOEND;
+
+    for (uint16_t i = 0; i < len; i++) {
+        if (!wait_for_flag(I2C_ISR_RXNE, true)) {
+            i2c_busy = false;
+            return false;
+        }
+        data[i] = I2C1->RXDR;
+    }
+
+    if (!wait_for_flag(I2C_ISR_STOPF, true)) {
+        i2c_busy = false;
+        return false;
+    }
+
+    I2C1->ICR = I2C_ICR_STOPCF;
+    i2c_busy = false;
+    return true;
+}
