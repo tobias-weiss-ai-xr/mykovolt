@@ -1,5 +1,13 @@
 import struct
-from mykovolt.schema import RingBufferHeader, SensorEntry, parse_header, parse_entries
+import pytest
+from mykovolt.schema import (
+    RingBufferHeader,
+    SensorEntry,
+    TestFixtureEntry,
+    parse_header,
+    parse_entries,
+    parse_entries_versioned,
+)
 
 
 def test_parse_header_valid():
@@ -60,3 +68,70 @@ def test_parse_entries_some():
     assert len(entries) == 3
     assert entries[0].timestamp == 1000
     assert entries[2].timestamp == 1120
+
+
+def test_test_fixture_entry_from_bytes():
+    payload = struct.pack(
+        ">IHhBBbB",
+        1750000000,  # timestamp (uint32)
+        380,  # voc_mv (uint16, 0.38V)
+        250,  # load_current_ma * 10 (int16, 25.0 mA)
+        2,  # load_resistor_index (uint8, R2)
+        22,  # temperature_c (int8)
+        65,  # humidity_pct (uint8)
+        0x01,  # status (uint8)
+    )
+    assert len(payload) == 12
+    crc = 0
+    for b in payload:
+        crc ^= b
+    data = payload + bytes([crc])
+    assert len(data) == 13
+
+    entry = TestFixtureEntry.from_bytes(data)
+    assert entry.timestamp == 1750000000
+    assert entry.voc_mv == 380
+    assert entry.load_current_ma == 25.0
+    assert entry.load_resistor_index == 2
+    assert entry.temp_c == 22
+    assert entry.humidity_pct == 65
+    assert entry.status == 0x01
+    assert entry.crc_ok is True
+
+
+def test_test_fixture_entry_bad_crc():
+    data = struct.pack(">IHhBBbB", 0, 0, 0, 0, 0, 0, 0)
+    data += bytes([0xFF])  # wrong CRC
+    entry = TestFixtureEntry.from_bytes(data)
+    assert entry.crc_ok is False
+
+
+def test_parse_entries_versioned_v1():
+    from mykovolt.schema import FRAM_MAGIC
+
+    header_data = struct.pack(">HBH", FRAM_MAGIC, 1, 12) + b"\x00" * 251
+    header = parse_header(header_data)
+    assert header.version == 1
+    entries = parse_entries_versioned(header, b"\x00" * 12)
+    assert len(entries) == 1
+    assert isinstance(entries[0], SensorEntry)
+
+
+def test_parse_entries_versioned_v2():
+    from mykovolt.schema import FRAM_MAGIC
+
+    header_data = struct.pack(">HBH", FRAM_MAGIC, 2, 13) + b"\x00" * 251
+    header = parse_header(header_data)
+    assert header.version == 2
+    entries = parse_entries_versioned(header, b"\x00" * 13)
+    assert len(entries) == 1
+    assert isinstance(entries[0], TestFixtureEntry)
+
+
+def test_parse_entries_versioned_unknown_version():
+    from mykovolt.schema import FRAM_MAGIC
+
+    header_data = struct.pack(">HBH", FRAM_MAGIC, 99, 12) + b"\x00" * 251
+    header = parse_header(header_data)
+    with pytest.raises(ValueError, match="version"):
+        parse_entries_versioned(header, b"\x00" * 12)
