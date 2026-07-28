@@ -1,11 +1,13 @@
 import sys
 import json
 import csv
+import csv as csv_mod
 import click
 from mykovolt import __version__
 from mykovolt.backend import I2cBackend
 from mykovolt.fram import read_fram
 from mykovolt.calibrate import load_calibration, apply_calibration
+from mykovolt.calibrate_sim import fit_model, model_params_to_yaml
 from mykovolt.export import export_csv, export_json
 from mykovolt.plot import plot_timeseries, plot_summary
 from mykovolt.pipeline import run_pipeline
@@ -126,10 +128,44 @@ def parse(input, output, fmt, calibration):
 
 @cli.command()
 @click.argument("input", type=click.Path(exists=True))
-@click.option("--output", "-o", default="calibration.json", help="Output file")
-def calibrate(input, output):
-    """Generate calibration from known reference data."""
-    click.echo("Calibration generation not yet implemented", err=True)
+@click.option("--output", "-o", default="model_params.yaml", help="Output YAML file")
+@click.option(
+    "--area", default=19.63, type=float, help="Cell area in cm2 (default: 50mm disc)"
+)
+def calibrate(input, output, area):
+    """Fit pressling model parameters to measured CSV data."""
+    if input.endswith(".bin"):
+        click.echo(
+            "Error: calibrate requires CSV input. Run 'mykovolt parse' first.", err=True
+        )
+        sys.exit(1)
+    with open(input, newline="") as f:
+        rows = list(csv_mod.DictReader(f))
+    if not rows:
+        click.echo("No data rows found", err=True)
+        sys.exit(1)
+    measurements = []
+    for r in rows:
+        if "voc_mv" not in r or "load_current_ma" not in r:
+            click.echo(
+                "Error: CSV must have voc_mv and load_current_ma columns", err=True
+            )
+            sys.exit(1)
+        ts = int(r.get("timestamp", 0))
+        day = ts // 86400 if ts > 1700000000 else 0
+        measurements.append(
+            {
+                "day": day,
+                "current_ma": float(r["load_current_ma"]),
+                "voltage_mv": float(r["voc_mv"]),
+            }
+        )
+    model = fit_model(measurements, area_cm2=area)
+    model_params_to_yaml(model, output)
+    click.echo(f"Fitted {len(measurements)} measurements -> {output}")
+    click.echo(f"  power_density = {model.power_density_uw_cm2:.2f} uW/cm2")
+    click.echo(f"  ohmic_loss   = {model.ohmic_loss_r_cm2:.1f} Ohm*cm2")
+    click.echo(f"  depletion    = {model.depletion_rate:.4f} /day")
 
 
 @cli.command()

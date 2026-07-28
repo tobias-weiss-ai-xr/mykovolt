@@ -96,3 +96,39 @@ def test_parse_shows_version(tmp_path):
     result = runner.invoke(cli, ["parse", str(bin_file)])
     assert result.exit_code == 0
     assert "version=2" in result.output
+
+
+def test_calibrate_command(tmp_path):
+    import csv
+    from mykovolt.cli import cli
+
+    csv_file = tmp_path / "measurements.csv"
+    with open(csv_file, "w", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "timestamp",
+                "voc_mv",
+                "load_current_ma",
+                "temp_c",
+                "humidity_pct",
+            ],
+        )
+        writer.writeheader()
+        for i in range(10):
+            writer.writerow(
+                {
+                    "timestamp": 1700000000 + i * 86400,
+                    "voc_mv": 400 - i * 2,
+                    "load_current_ma": 100,
+                    "temp_c": 20,
+                    "humidity_pct": 50,
+                }
+            )
+    out_yaml = tmp_path / "params.yaml"
+    runner = CliRunner()
+    result = runner.invoke(cli, ["calibrate", str(csv_file), "-o", str(out_yaml)])
+    assert result.exit_code == 0
+    assert out_yaml.exists()
+    text = out_yaml.read_text()
+    assert "power_density_uw_cm2" in text
