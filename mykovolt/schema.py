@@ -72,7 +72,7 @@ def parse_entries(data: bytes, count: int) -> list[SensorEntry]:
 class TestFixtureEntry:
     timestamp: int
     voc_mv: int
-    load_current_ma: float
+    load_current_ma: int
     load_resistor_index: int
     temp_c: int
     humidity_pct: int
@@ -83,8 +83,8 @@ class TestFixtureEntry:
     def from_bytes(cls, data: bytes) -> TestFixtureEntry:
         if len(data) < FRAM_ENTRY_SIZE_V2:
             raise ValueError(f"Need {FRAM_ENTRY_SIZE_V2} bytes, got {len(data)}")
-        ts, voc, load_x10, resistor, temp, rh, status = struct.unpack(
-            ">IHhBBbB", data[:12]
+        ts, voc, load_ma, resistor, temp, rh, status = struct.unpack(
+            ">IHhBbBB", data[:12]
         )
         stored_crc = data[12]
         computed_crc = 0
@@ -93,7 +93,7 @@ class TestFixtureEntry:
         return cls(
             timestamp=ts,
             voc_mv=voc,
-            load_current_ma=load_x10 / 10.0,
+            load_current_ma=load_ma,
             load_resistor_index=resistor,
             temp_c=temp,
             humidity_pct=max(rh, 0),

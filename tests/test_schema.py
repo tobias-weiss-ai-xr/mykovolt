@@ -72,10 +72,10 @@ def test_parse_entries_some():
 
 def test_test_fixture_entry_from_bytes():
     payload = struct.pack(
-        ">IHhBBbB",
+        ">IHhBbBB",
         1750000000,  # timestamp (uint32)
         380,  # voc_mv (uint16, 0.38V)
-        250,  # load_current_ma * 10 (int16, 25.0 mA)
+        250,  # load_current_ma (int16, raw mA)
         2,  # load_resistor_index (uint8, R2)
         22,  # temperature_c (int8)
         65,  # humidity_pct (uint8)
@@ -91,7 +91,7 @@ def test_test_fixture_entry_from_bytes():
     entry = TestFixtureEntry.from_bytes(data)
     assert entry.timestamp == 1750000000
     assert entry.voc_mv == 380
-    assert entry.load_current_ma == 25.0
+    assert entry.load_current_ma == 250
     assert entry.load_resistor_index == 2
     assert entry.temp_c == 22
     assert entry.humidity_pct == 65
@@ -100,10 +100,54 @@ def test_test_fixture_entry_from_bytes():
 
 
 def test_test_fixture_entry_bad_crc():
-    data = struct.pack(">IHhBBbB", 0, 0, 0, 0, 0, 0, 0)
+    data = struct.pack(">IHhBbBB", 0, 0, 0, 0, 0, 0, 0)
     data += bytes([0xFF])  # wrong CRC
     entry = TestFixtureEntry.from_bytes(data)
     assert entry.crc_ok is False
+
+
+def test_test_fixture_entry_negative_temp():
+    """Temperature is signed int8 — supports -40 to +127°C."""
+    data = struct.pack(
+        ">IHhBbBB",
+        0,  # timestamp
+        400,  # voc_mv
+        100,  # load_current_ma (raw, signed)
+        1,  # load_resistor_index
+        -10,  # temp_c (signed)
+        80,  # humidity (unsigned)
+        0,  # status
+    )
+    crc = 0
+    for b in data:
+        crc ^= b
+    data += bytes([crc])
+    assert len(data) == 13
+
+    entry = TestFixtureEntry.from_bytes(data)
+    assert entry.temp_c == -10
+    assert entry.humidity_pct == 80
+    assert entry.load_current_ma == 100
+
+
+def test_test_fixture_entry_negative_current():
+    """Load current is signed int16."""
+    data = struct.pack(
+        ">IHhBbBB",
+        0,
+        0,
+        -50,  # negative current
+        0,
+        0,
+        0,
+        0,
+    )
+    crc = 0
+    for b in data:
+        crc ^= b
+    data += bytes([crc])
+    entry = TestFixtureEntry.from_bytes(data)
+    assert entry.load_current_ma == -50
 
 
 def test_parse_entries_versioned_v1():
