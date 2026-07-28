@@ -47,6 +47,9 @@ env/
 !docs/technical/*.svg
 !docs/hardware/*.svg
 
+# Routing cache
+hardware/kicad/.routing_cache.json
+
 # KiCad generated artifacts
 hardware/kicad/*.pdf
 hardware/kicad/*.prl

@@ -2843,7 +2843,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d49429b1-e814-55d2-b381-e06f201d605a)
-    (property Reference #PWR261
+    (property Reference #PWR370
       (at 500 215 0)
       (effects
         (font
@@ -2861,7 +2861,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 35b03007-2da9-5bf9-b6fc-4d813855a714)
-    (property Reference #PWR716
+    (property Reference #PWR276
       (at 500 185 0)
       (effects
         (font
@@ -2879,7 +2879,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 592380b4-1f5b-5483-a1af-27c66800a311)
-    (property Reference #PWR040
+    (property Reference #PWR344
       (at 150 215 0)
       (effects
         (font
@@ -2897,7 +2897,7 @@
     (in_bom no)
     (on_board yes)
     (uuid fdef27e6-4d3e-5617-851b-9d834bc510bd)
-    (property Reference #PWR745
+    (property Reference #PWR944
       (at 150 185 0)
       (effects
         (font
@@ -2915,7 +2915,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 38c05cd0-7592-5081-bbb0-cfe0909f35f0)
-    (property Reference #PWR971
+    (property Reference #PWR828
       (at 800 215 0)
       (effects
         (font
@@ -2933,7 +2933,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 231eb7bd-d593-5f5d-9bbd-edf3dcc5b0e0)
-    (property Reference #PWR869
+    (property Reference #PWR790
       (at 800 185 0)
       (effects
         (font
@@ -2951,7 +2951,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d4175ddb-8968-5175-a3c8-98913ca1d7ed)
-    (property Reference #PWR261
+    (property Reference #PWR017
       (at 700 465 0)
       (effects
         (font
@@ -2969,7 +2969,7 @@
     (in_bom no)
     (on_board yes)
     (uuid e05226ab-7ef2-5fe3-86c2-1ced85cd3cb2)
-    (property Reference #PWR442
+    (property Reference #PWR293
       (at 700 435 0)
       (effects
         (font
@@ -2987,7 +2987,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 17f22e63-1b49-5620-8faa-4e16faba307f)
-    (property Reference #PWR528
+    (property Reference #PWR373
       (at 700 565 0)
       (effects
         (font
@@ -3005,7 +3005,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 33be1859-a461-5c1e-a05b-ead7f406e2f3)
-    (property Reference #PWR914
+    (property Reference #PWR100
       (at 700 535 0)
       (effects
         (font
@@ -3023,7 +3023,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 305dd837-88ca-51af-9ad8-0be9051b581f)
-    (property Reference #PWR527
+    (property Reference #PWR866
       (at 700 665 0)
       (effects
         (font
@@ -3041,7 +3041,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 23050663-8d2b-50e5-a939-9542533cb8cc)
-    (property Reference #PWR952
+    (property Reference #PWR075
       (at 700 635 0)
       (effects
         (font
@@ -3059,7 +3059,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 0a5eeebe-0739-502b-98eb-7ec474a389d0)
-    (property Reference #PWR063
+    (property Reference #PWR221
       (at 600 415 0)
       (effects
         (font
@@ -3077,7 +3077,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 36586e74-c2eb-5e2c-93ba-581f2af42ee7)
-    (property Reference #PWR042
+    (property Reference #PWR199
       (at 600 385 0)
       (effects
         (font
@@ -3095,7 +3095,7 @@
     (in_bom no)
     (on_board yes)
     (uuid eb75bb8b-4565-5558-b8ee-eaabd3cbb8e9)
-    (property Reference #PWR861
+    (property Reference #PWR941
       (at 600 465 0)
       (effects
         (font
@@ -3113,7 +3113,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 5a9feeee-4bd2-502d-834c-d13211eb7f77)
-    (property Reference #PWR945
+    (property Reference #PWR782
       (at 600 435 0)
       (effects
         (font
@@ -3131,7 +3131,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 655055fe-ffa2-5505-ab28-c374fdfc2429)
-    (property Reference #PWR329
+    (property Reference #PWR744
       (at 300 115 0)
       (effects
         (font
@@ -3149,7 +3149,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 2c6da8fc-ce93-5735-892d-6edc103b361f)
-    (property Reference #PWR306
+    (property Reference #PWR399
       (at 300 85 0)
       (effects
         (font
@@ -3167,7 +3167,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 66519b03-1550-5692-999c-6bcc7fb16e6e)
-    (property Reference #PWR630
+    (property Reference #PWR312
       (at 300 145 0)
       (effects
         (font
@@ -3185,7 +3185,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 760da805-5d39-5781-8786-881b3cbdb8f4)
-    (property Reference #PWR163
+    (property Reference #PWR373
       (at 300 115 0)
       (effects
         (font
@@ -3203,7 +3203,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 80e6d886-5293-5581-a076-aa66f36cf5e9)
-    (property Reference #PWR330
+    (property Reference #PWR672
       (at 300 365 0)
       (effects
         (font
@@ -3221,7 +3221,7 @@
     (in_bom no)
     (on_board yes)
     (uuid e431a337-570f-513b-89a8-1cc2174d1833)
-    (property Reference #PWR564
+    (property Reference #PWR822
       (at 300 335 0)
       (effects
         (font
@@ -3239,7 +3239,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 1637df8c-dadc-517c-8fb8-eaacab06487f)
-    (property Reference #PWR983
+    (property Reference #PWR819
       (at 300 395 0)
       (effects
         (font
@@ -3257,7 +3257,7 @@
     (in_bom no)
     (on_board yes)
     (uuid eb2335f4-7154-5b54-93aa-0c6f86dc8719)
-    (property Reference #PWR014
+    (property Reference #PWR185
       (at 300 365 0)
       (effects
         (font
@@ -3275,7 +3275,7 @@
     (in_bom no)
     (on_board yes)
     (uuid e850c5e1-acda-57d9-b54c-cba1690fae36)
-    (property Reference #PWR571
+    (property Reference #PWR427
       (at 300 465 0)
       (effects
         (font
@@ -3293,7 +3293,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 4994c252-ca0b-583a-83ca-29f3d40af779)
-    (property Reference #PWR487
+    (property Reference #PWR122
       (at 300 435 0)
       (effects
         (font
@@ -3311,7 +3311,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 28b63832-63f7-5f2a-beeb-5a1e8cdc47be)
-    (property Reference #PWR081
+    (property Reference #PWR931
       (at 300 495 0)
       (effects
         (font
@@ -3329,7 +3329,7 @@
     (in_bom no)
     (on_board yes)
     (uuid ebc577d1-86d9-5744-8f62-d5f4c5d23f35)
-    (property Reference #PWR920
+    (property Reference #PWR202
       (at 300 465 0)
       (effects
         (font
@@ -3347,7 +3347,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b08c6d9d-f77b-5776-bda7-3968c5692b0d)
-    (property Reference #PWR122
+    (property Reference #PWR243
       (at 300 515 0)
       (effects
         (font
@@ -3365,7 +3365,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 315fcb30-78ac-52d3-bc6d-3030bd3ff868)
-    (property Reference #PWR014
+    (property Reference #PWR064
       (at 300 485 0)
       (effects
         (font
@@ -3383,7 +3383,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 6b1e86bf-7c8e-59bc-a2e5-42d24745a0de)
-    (property Reference #PWR436
+    (property Reference #PWR582
       (at 300 545 0)
       (effects
         (font
@@ -3401,7 +3401,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 470c3fbd-8572-58ee-b227-f2914c37d4da)
-    (property Reference #PWR987
+    (property Reference #PWR181
       (at 300 515 0)
       (effects
         (font
@@ -3419,7 +3419,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 3abefa51-b23a-5b90-8e74-20adb33fd19a)
-    (property Reference #PWR218
+    (property Reference #PWR827
       (at 450 265 0)
       (effects
         (font
@@ -3437,7 +3437,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 0d3bdb40-4b55-507b-b12b-f5e56b522a9f)
-    (property Reference #PWR311
+    (property Reference #PWR307
       (at 450 235 0)
       (effects
         (font
@@ -3455,7 +3455,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 85cecfa0-c6fc-5cfb-965f-1f6171cee7d0)
-    (property Reference #PWR240
+    (property Reference #PWR672
       (at 550 265 0)
       (effects
         (font
@@ -3473,7 +3473,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b33a0a8b-5518-516f-a944-2e3ef904a7b6)
-    (property Reference #PWR046
+    (property Reference #PWR349
       (at 550 235 0)
       (effects
         (font
@@ -3491,7 +3491,7 @@
     (in_bom no)
     (on_board yes)
     (uuid ac6cacf0-740b-5f6f-849d-fa138e79f2b8)
-    (property Reference #PWR479
+    (property Reference #PWR528
       (at 500 615 0)
       (effects
         (font
@@ -3509,7 +3509,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 8002dbb2-25ef-5d1a-8ab7-aaa08129f816)
-    (property Reference #PWR510
+    (property Reference #PWR868
       (at 500 585 0)
       (effects
         (font
@@ -3527,7 +3527,7 @@
     (in_bom no)
     (on_board yes)
     (uuid ca850476-8850-5161-aee7-1cabf7d82c64)
-    (property Reference #PWR006
+    (property Reference #PWR802
       (at 600 615 0)
       (effects
         (font
@@ -3545,7 +3545,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 7c97f9da-1c5b-5184-91d0-b7f3b9766981)
-    (property Reference #PWR587
+    (property Reference #PWR096
       (at 600 585 0)
       (effects
         (font
@@ -3563,7 +3563,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 133da7a0-e5ad-5e0d-8b37-e4df11ddbad7)
-    (property Reference #PWR185
+    (property Reference #PWR260
       (at 430 165 0)
       (effects
         (font
@@ -3581,7 +3581,7 @@
     (in_bom no)
     (on_board yes)
     (uuid c3c37d05-40ca-5097-ab2a-492aa5a3e5cc)
-    (property Reference #PWR615
+    (property Reference #PWR027
       (at 430 135 0)
       (effects
         (font
@@ -3599,7 +3599,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 91e83154-7268-5279-a02e-3e77a5c502a7)
-    (property Reference #PWR987
+    (property Reference #PWR464
       (at 430 195 0)
       (effects
         (font
@@ -3617,7 +3617,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 33643ad7-126c-5730-bf80-d791d3a92e4d)
-    (property Reference #PWR724
+    (property Reference #PWR055
       (at 430 165 0)
       (effects
         (font
@@ -3635,7 +3635,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d60a16a7-dce2-5dac-be64-11aedcbc1433)
-    (property Reference #PWR549
+    (property Reference #PWR408
       (at 430 225 0)
       (effects
         (font
@@ -3653,7 +3653,7 @@
     (in_bom no)
     (on_board yes)
     (uuid cdb0d01b-23e9-595a-90a3-2ca6f6a1f351)
-    (property Reference #PWR708
+    (property Reference #PWR353
       (at 430 195 0)
       (effects
         (font
@@ -3671,7 +3671,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a679c65a-480e-5e4d-8f04-ef3d26b29cab)
-    (property Reference #PWR912
+    (property Reference #PWR999
       (at 430 255 0)
       (effects
         (font
@@ -3689,7 +3689,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 4739942b-fff4-5c79-8e3a-05998556266d)
-    (property Reference #PWR315
+    (property Reference #PWR917
       (at 430 225 0)
       (effects
         (font
@@ -3707,7 +3707,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 5ccff404-4e0e-518e-8990-b144388faf61)
-    (property Reference #PWR699
+    (property Reference #PWR351
       (at 430 285 0)
       (effects
         (font
@@ -3725,7 +3725,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b6f2fbb7-c2e3-5614-9b9a-68d4cb232d2c)
-    (property Reference #PWR462
+    (property Reference #PWR065
       (at 430 255 0)
       (effects
         (font
@@ -3743,7 +3743,7 @@
     (in_bom no)
     (on_board yes)
     (uuid ae777b84-f614-58c5-8f8e-3b083a6d1b5d)
-    (property Reference #PWR059
+    (property Reference #PWR721
       (at 430 315 0)
       (effects
         (font
@@ -3761,7 +3761,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 688fcff8-39c0-5408-8fef-2f9b6ba57590)
-    (property Reference #PWR359
+    (property Reference #PWR028
       (at 430 285 0)
       (effects
         (font
@@ -3779,7 +3779,7 @@
     (in_bom no)
     (on_board yes)
     (uuid f78b912b-4a73-53df-89ef-ac1d0b88e325)
-    (property Reference #PWR391
+    (property Reference #PWR429
       (at 570 165 0)
       (effects
         (font
@@ -3797,7 +3797,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 50df4243-ba37-58e8-89de-ffb772394363)
-    (property Reference #PWR099
+    (property Reference #PWR718
       (at 570 135 0)
       (effects
         (font
@@ -3815,7 +3815,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 72d831d4-39d5-5914-9397-ef9b1ed02725)
-    (property Reference #PWR956
+    (property Reference #PWR240
       (at 570 195 0)
       (effects
         (font
@@ -3833,7 +3833,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a63e6a89-05b6-5164-be82-6cca943f5ed7)
-    (property Reference #PWR936
+    (property Reference #PWR415
       (at 570 165 0)
       (effects
         (font
@@ -3851,7 +3851,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d08ad681-a523-5436-a98e-64aa6d73359c)
-    (property Reference #PWR065
+    (property Reference #PWR115
       (at 570 225 0)
       (effects
         (font
@@ -3869,7 +3869,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 9ad02cd1-cf61-5810-a4e4-2c781f2e698d)
-    (property Reference #PWR970
+    (property Reference #PWR150
       (at 570 195 0)
       (effects
         (font
@@ -3887,7 +3887,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 26b42de9-6a5b-559e-aa67-6f5e469848f2)
-    (property Reference #PWR643
+    (property Reference #PWR274
       (at 570 255 0)
       (effects
         (font
@@ -3905,7 +3905,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 335f2dc4-9288-5a55-868a-205a61a811fd)
-    (property Reference #PWR854
+    (property Reference #PWR844
       (at 570 225 0)
       (effects
         (font
@@ -3923,7 +3923,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 58fda71a-6448-5ce3-8c82-46ef0d05c969)
-    (property Reference #PWR042
+    (property Reference #PWR548
       (at 650 165 0)
       (effects
         (font
@@ -3941,7 +3941,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d60d3bce-6903-5025-b3de-80d0ff86c423)
-    (property Reference #PWR917
+    (property Reference #PWR884
       (at 650 135 0)
       (effects
         (font
@@ -3959,7 +3959,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b1bb9280-dfbc-5f3a-8245-1576bd17b78c)
-    (property Reference #PWR608
+    (property Reference #PWR841
       (at 650 195 0)
       (effects
         (font
@@ -3977,7 +3977,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a43f9ea4-f533-510c-ba28-d5d6cde75cd9)
-    (property Reference #PWR147
+    (property Reference #PWR438
       (at 650 165 0)
       (effects
         (font
@@ -3995,7 +3995,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b2b43b6f-cf23-5081-9d7c-c0fa4da267dc)
-    (property Reference #PWR469
+    (property Reference #PWR484
       (at 650 225 0)
       (effects
         (font
@@ -4013,7 +4013,7 @@
     (in_bom no)
     (on_board yes)
     (uuid bbb67236-f8a2-50f0-a379-ffa765a214fd)
-    (property Reference #PWR856
+    (property Reference #PWR753
       (at 650 195 0)
       (effects
         (font
@@ -4031,7 +4031,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 649e80f7-1b9c-551a-b710-5c8adf6e5a81)
-    (property Reference #PWR588
+    (property Reference #PWR400
       (at 780 465 0)
       (effects
         (font
@@ -4049,7 +4049,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a80685de-8406-559c-905b-afe1154659ea)
-    (property Reference #PWR405
+    (property Reference #PWR486
       (at 780 435 0)
       (effects
         (font
@@ -4067,7 +4067,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a0bfd993-5194-55e5-a0f1-8f91e485c3c7)
-    (property Reference #PWR642
+    (property Reference #PWR294
       (at 780 495 0)
       (effects
         (font
@@ -4085,7 +4085,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 8759a7e4-9659-55b9-a28f-e598b291cb70)
-    (property Reference #PWR407
+    (property Reference #PWR747
       (at 780 465 0)
       (effects
         (font
@@ -4103,7 +4103,7 @@
     (in_bom no)
     (on_board yes)
     (uuid c9ba7f2a-81f1-5a28-8f52-8c01ffc522eb)
-    (property Reference #PWR875
+    (property Reference #PWR458
       (at 450 115 0)
       (effects
         (font
@@ -4121,7 +4121,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 12dbbe46-7f86-522c-b4f3-c0d31977da71)
-    (property Reference #PWR604
+    (property Reference #PWR627
       (at 450 85 0)
       (effects
         (font
@@ -4139,7 +4139,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 94c6ff9f-33f0-514b-9692-1da40c5521e0)
-    (property Reference #PWR761
+    (property Reference #PWR668
       (at 550 115 0)
       (effects
         (font
@@ -4157,7 +4157,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 1b8f992d-ffc8-5c44-b507-13f5bbf29fc6)
-    (property Reference #PWR738
+    (property Reference #PWR433
       (at 550 85 0)
       (effects
         (font
@@ -4175,7 +4175,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 07ac2df3-d391-58fa-9595-4f09e6803c54)
-    (property Reference #PWR701
+    (property Reference #PWR147
       (at 480 315 0)
       (effects
         (font
@@ -4193,7 +4193,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 7bbe5278-8fe2-56a1-9f5a-ebe69cf06076)
-    (property Reference #PWR338
+    (property Reference #PWR062
       (at 480 285 0)
       (effects
         (font
@@ -4211,7 +4211,7 @@
     (in_bom no)
     (on_board yes)
     (uuid b08d09ee-714d-5469-9a12-857edf4671a6)
-    (property Reference #PWR053
+    (property Reference #PWR722
       (at 480 365 0)
       (effects
         (font
@@ -4229,7 +4229,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a1999e5b-aea4-5920-a7b4-1a8752ba245c)
-    (property Reference #PWR314
+    (property Reference #PWR083
       (at 480 335 0)
       (effects
         (font
@@ -4247,7 +4247,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 17167bdf-6d9b-5fb9-8c1a-020e60b64cdc)
-    (property Reference #PWR755
+    (property Reference #PWR922
       (at 800 115 0)
       (effects
         (font
@@ -4265,7 +4265,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 54749657-d107-5805-9453-8c625109e93b)
-    (property Reference #PWR971
+    (property Reference #PWR448
       (at 800 85 0)
       (effects
         (font
@@ -4283,7 +4283,7 @@
     (in_bom no)
     (on_board yes)
     (uuid fbab0464-7fb9-5341-96fe-1e60ae965bc6)
-    (property Reference #PWR450
+    (property Reference #PWR049
       (at 150 365 0)
       (effects
         (font
@@ -4301,7 +4301,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 3fb903a8-0c85-5d33-a331-b571e688b617)
-    (property Reference #PWR561
+    (property Reference #PWR426
       (at 150 335 0)
       (effects
         (font
@@ -4319,7 +4319,7 @@
     (in_bom no)
     (on_board yes)
     (uuid e2def778-d962-5274-aa3b-e90bdb3d3514)
-    (property Reference #PWR870
+    (property Reference #PWR270
       (at 400 365 0)
       (effects
         (font
@@ -4337,7 +4337,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 3d388fa9-e22f-50ee-abea-3991c4f1a209)
-    (property Reference #PWR849
+    (property Reference #PWR720
       (at 400 335 0)
       (effects
         (font
@@ -4355,7 +4355,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 6fba9772-3cef-5bd5-a15b-a5c44d48379f)
-    (property Reference #PWR613
+    (property Reference #PWR337
       (at 650 565 0)
       (effects
         (font
@@ -4373,7 +4373,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 13b7b169-dec8-5335-9073-09a094f345a1)
-    (property Reference #PWR569
+    (property Reference #PWR015
       (at 650 535 0)
       (effects
         (font
@@ -4391,7 +4391,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 72cdb015-9c9e-59a3-8075-ff0c51df867d)
-    (property Reference #PWR704
+    (property Reference #PWR741
       (at 650 615 0)
       (effects
         (font
@@ -4409,7 +4409,7 @@
     (in_bom no)
     (on_board yes)
     (uuid c6dd2f17-5afa-5b4d-9c78-7b6d5bf95e6a)
-    (property Reference #PWR833
+    (property Reference #PWR614
       (at 650 585 0)
       (effects
         (font
@@ -4427,7 +4427,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 15349472-9498-59cc-a28d-96aa72825701)
-    (property Reference #PWR841
+    (property Reference #PWR818
       (at 110 315 0)
       (effects
         (font
@@ -4445,7 +4445,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 0901ceee-8f24-55c1-863a-80517f09e2bc)
-    (property Reference #PWR661
+    (property Reference #PWR670
       (at 110 285 0)
       (effects
         (font
@@ -4463,7 +4463,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 2fd92af1-897d-5c2d-9efb-4975ff6cd2ac)
-    (property Reference #PWR117
+    (property Reference #PWR980
       (at 190 315 0)
       (effects
         (font
@@ -4481,7 +4481,7 @@
     (in_bom no)
     (on_board yes)
     (uuid eb560046-a8f2-503d-aaa3-8759c123ad41)
-    (property Reference #PWR622
+    (property Reference #PWR837
       (at 190 285 0)
       (effects
         (font
@@ -4499,7 +4499,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 9c1be289-eacd-5d2d-a66b-97e7d2afb87c)
-    (property Reference #PWR787
+    (property Reference #PWR504
       (at 500 115 0)
       (effects
         (font
@@ -4517,7 +4517,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 8f468255-8615-54f0-877b-d1189d66fa70)
-    (property Reference #PWR205
+    (property Reference #PWR065
       (at 500 85 0)
       (effects
         (font
@@ -4535,7 +4535,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 6d14db08-e62e-5821-8267-9421c634d164)
-    (property Reference #PWR668
+    (property Reference #PWR233
       (at 300 215 0)
       (effects
         (font
@@ -4553,7 +4553,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 5f8b45be-3296-536e-9d58-5f426a5a2ea0)
-    (property Reference #PWR386
+    (property Reference #PWR986
       (at 300 185 0)
       (effects
         (font
@@ -4571,7 +4571,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 57309409-f758-5f40-96cd-433f50a26abd)
-    (property Reference #PWR111
+    (property Reference #PWR007
       (at 500 565 0)
       (effects
         (font
@@ -4589,7 +4589,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 06c34dbb-d78b-5bac-9911-602eaa8a0169)
-    (property Reference #PWR986
+    (property Reference #PWR928
       (at 500 535 0)
       (effects
         (font
@@ -4607,7 +4607,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 79f67f83-0611-5432-937a-9ac19f040d5f)
-    (property Reference #PWR987
+    (property Reference #PWR366
       (at 600 565 0)
       (effects
         (font
@@ -4625,7 +4625,7 @@
     (in_bom no)
     (on_board yes)
     (uuid bc330258-935d-5efb-b2da-b69c9ebc65ee)
-    (property Reference #PWR264
+    (property Reference #PWR896
       (at 600 535 0)
       (effects
         (font
@@ -4643,7 +4643,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 742a6b78-515f-556a-94ca-18306550391e)
-    (property Reference #PWR891
+    (property Reference #PWR503
       (at 350 615 0)
       (effects
         (font
@@ -4661,7 +4661,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 3283fac7-837d-51a8-8bc1-597f5920fbfb)
-    (property Reference #PWR371
+    (property Reference #PWR691
       (at 350 585 0)
       (effects
         (font
@@ -4679,7 +4679,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 8fa0200d-d402-5e19-b142-2357d7d72598)
-    (property Reference #PWR993
+    (property Reference #PWR195
       (at 150 415 0)
       (effects
         (font
@@ -4697,7 +4697,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 2328cfe3-88d4-58fd-994b-153e369b8c5c)
-    (property Reference #PWR174
+    (property Reference #PWR562
       (at 150 385 0)
       (effects
         (font
@@ -4715,7 +4715,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 61bddcd2-c342-59f9-bee0-4add2c9a9f47)
-    (property Reference #PWR210
+    (property Reference #PWR994
       (at 150 565 0)
       (effects
         (font
@@ -4733,7 +4733,7 @@
     (in_bom no)
     (on_board yes)
     (uuid d08c425f-b13c-5325-8f2b-090b75965abd)
-    (property Reference #PWR422
+    (property Reference #PWR844
       (at 150 535 0)
       (effects
         (font
@@ -4751,7 +4751,7 @@
     (in_bom no)
     (on_board yes)
     (uuid a5e2ac08-d32c-5071-9063-af14c2c6cadb)
-    (property Reference #PWR876
+    (property Reference #PWR408
       (at 800 765 0)
       (effects
         (font
@@ -4769,7 +4769,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 78e21a91-6456-571c-903c-167d68f37443)
-    (property Reference #PWR443
+    (property Reference #PWR587
       (at 800 735 0)
       (effects
         (font
@@ -4787,7 +4787,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 73a616ff-b56f-58f7-b202-8f217d56e7f4)
-    (property Reference #PWR801
+    (property Reference #PWR387
       (at 100 515 0)
       (effects
         (font
@@ -4805,7 +4805,7 @@
     (in_bom no)
     (on_board yes)
     (uuid c0b3598c-9ad1-5adc-9545-112242eb480f)
-    (property Reference #PWR316
+    (property Reference #PWR584
       (at 100 485 0)
       (effects
         (font
@@ -4823,7 +4823,7 @@
     (in_bom no)
     (on_board yes)
     (uuid e03078bc-9928-5327-8d35-f8e8c8f492f4)
-    (property Reference #PWR493
+    (property Reference #PWR955
       (at 750 315 0)
       (effects
         (font
@@ -4841,7 +4841,7 @@
     (in_bom no)
     (on_board yes)
     (uuid cea7a842-2bc3-576e-9c61-7f3957f1ded8)
-    (property Reference #PWR915
+    (property Reference #PWR035
       (at 750 285 0)
       (effects
         (font
@@ -4859,7 +4859,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 0e865cc4-7fe5-531d-abb5-5f4460913297)
-    (property Reference #PWR187
+    (property Reference #PWR358
       (at 700 765 0)
       (effects
         (font
@@ -4877,7 +4877,7 @@
     (in_bom no)
     (on_board yes)
     (uuid 7617ff13-7885-5a9f-9c6b-4bbf90aaa216)
-    (property Reference #PWR283
+    (property Reference #PWR767
       (at 700 735 0)
       (effects
         (font

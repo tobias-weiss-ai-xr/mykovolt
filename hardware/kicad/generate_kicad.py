@@ -14,6 +14,7 @@ Usage:
 import os
 import sys
 import json
+import hashlib
 import uuid
 import argparse
 from datetime import datetime
@@ -23,6 +24,7 @@ from pathlib import Path
 # ── Try loading YAML config ──
 try:
     import yaml
+
     HAVE_YAML = True
 except ImportError:
     HAVE_YAML = False
@@ -73,19 +75,21 @@ DEFAULT_CONFIG = {
 
 def load_config(path=None):
     """Load design rules from YAML, merging with defaults.
-    
+
     Args:
         path: Path to YAML config file. If None, looks for design_rules.yaml
               in the same directory as this script.
-              
+
     Returns:
         dict: Merged configuration.
     """
     config = DEFAULT_CONFIG.copy()
-    
+
     if path is None:
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "design_rules.yaml")
-    
+        path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "design_rules.yaml"
+        )
+
     if os.path.exists(path):
         if HAVE_YAML:
             with open(path) as f:
@@ -95,10 +99,12 @@ def load_config(path=None):
                 _deep_merge(config, loaded)
             print(f"  Config: {path}")
         else:
-            print(f"  WARNING: {path} exists but pyyaml not installed. Install with: pip install pyyaml")
+            print(
+                f"  WARNING: {path} exists but pyyaml not installed. Install with: pip install pyyaml"
+            )
     else:
         print(f"  Config: built-in defaults (no {os.path.basename(path)} found)")
-    
+
     return config
 
 
@@ -114,19 +120,35 @@ def _deep_merge(base, override):
 def parse_args():
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(description="MykoVolt KiCad Project Generator")
-    parser.add_argument("--config", "-c", default=None,
-                        help="Path to design_rules.yaml (default: looks for design_rules.yaml in script dir)")
-    parser.add_argument("--skip-gerber", action="store_true",
-                        help="Skip Gerber file export")
-    parser.add_argument("--skip-pcb", action="store_true",
-                        help="Skip PCB generation (schematic only)")
-    parser.add_argument("--skip-schematic", action="store_true",
-                        help="Skip schematic generation (PCB only)")
-    parser.add_argument("--variant", default=None,
-                        choices=["nfc"],
-                        help="Design variant (default: full DevKit)")
-    parser.add_argument("--output", "-o", default=None,
-                        help="Output directory (default: script directory)")
+    parser.add_argument(
+        "--config",
+        "-c",
+        default=None,
+        help="Path to design_rules.yaml (default: looks for design_rules.yaml in script dir)",
+    )
+    parser.add_argument(
+        "--skip-gerber", action="store_true", help="Skip Gerber file export"
+    )
+    parser.add_argument(
+        "--skip-pcb", action="store_true", help="Skip PCB generation (schematic only)"
+    )
+    parser.add_argument(
+        "--skip-schematic",
+        action="store_true",
+        help="Skip schematic generation (PCB only)",
+    )
+    parser.add_argument(
+        "--variant",
+        default=None,
+        choices=["nfc"],
+        help="Design variant (default: full DevKit)",
+    )
+    parser.add_argument(
+        "--output",
+        "-o",
+        default=None,
+        help="Output directory (default: script directory)",
+    )
     return parser.parse_args()
 
 
@@ -138,9 +160,11 @@ def det_uuid(seed: str) -> str:
     ns = _uuid_lib.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
     return str(_uuid_lib.uuid5(ns, f"mykovolt.{seed}"))
 
+
 # ── Try importing simp_sexp for robust S-expression generation ──
 try:
     from simp_sexp import Sexp
+
     HAVE_SEXP = True
 except ImportError:
     HAVE_SEXP = False
@@ -149,10 +173,13 @@ except ImportError:
 # ── Try importing pcbnew for PCB layout ──
 try:
     import pcbnew
+
     HAVE_PCBNEW = True
 except ImportError:
     HAVE_PCBNEW = False
     print("WARNING: pcbnew not available, using string-based PCB generation")
+
+from topology_router import TopologyRouter
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BOARD_NAME = "mykovolt_devkit"
@@ -262,7 +289,13 @@ COMPONENTS = [
     ("L1", "10µH", "Inductor_SMD:L_Vishay_IFSC-1515AH_4x4x1.8mm", "", "Device:L_Small"),
     ("L2", "47µH", "Inductor_SMD:L_Bourns-SRN4018", "", "Device:L_Small"),
     # ── Crystal ──
-    ("X1", "32.768kHz", "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm", "", "Device:Crystal"),
+    (
+        "X1",
+        "32.768kHz",
+        "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm",
+        "",
+        "Device:Crystal",
+    ),
     # ── Transistor ──
     ("Q1", "SI1308EDL", "Package_TO_SOT_SMD:SOT-323_SC-70", "", "Device:Q_PMOS_SGD"),
     # ── LEDs ──
@@ -331,52 +364,98 @@ NETS = [
     (
         "GND",
         [
-            ("U1", "15"), ("U1", "8"),  # STM32 VSSA
-            ("U2", "1"), ("U2", "9"), ("U2", "15"), ("U2", "17"),
-            ("U2", "21"), ("U2", "5"), ("U2", "7"),
-            ("U3", "3"), ("U3", "4"),
-            ("U6", "5"), ("U6", "9"),
+            ("U1", "15"),
+            ("U1", "8"),  # STM32 VSSA
+            ("U2", "1"),
+            ("U2", "9"),
+            ("U2", "15"),
+            ("U2", "17"),
+            ("U2", "21"),
+            ("U2", "5"),
+            ("U2", "7"),
+            ("U3", "3"),
+            ("U3", "4"),
+            ("U6", "5"),
+            ("U6", "9"),
             ("U4", "4"),
             ("U5", "4"),
-            ("C1", "2"), ("C2", "2"), ("C3", "2"), ("C4", "2"),
-            ("C5", "2"), ("C6", "2"), ("C7", "2"), ("C8", "2"),
-            ("C9", "2"), ("C10", "2"),
-            ("C11", "2"), ("C12", "2"), ("C13", "2"),
-            ("C14", "2"), ("C15", "2"),
-            ("C16", "2"), ("C17", "2"),
-            ("C18", "2"), ("C19", "2"),
-            ("C21", "2"), ("C22", "2"),
-            ("C23", "2"), ("C24", "2"),
+            ("C1", "2"),
+            ("C2", "2"),
+            ("C3", "2"),
+            ("C4", "2"),
+            ("C5", "2"),
+            ("C6", "2"),
+            ("C7", "2"),
+            ("C8", "2"),
+            ("C9", "2"),
+            ("C10", "2"),
+            ("C11", "2"),
+            ("C12", "2"),
+            ("C13", "2"),
+            ("C14", "2"),
+            ("C15", "2"),
+            ("C16", "2"),
+            ("C17", "2"),
+            ("C18", "2"),
+            ("C19", "2"),
+            ("C21", "2"),
+            ("C22", "2"),
+            ("C23", "2"),
+            ("C24", "2"),
             ("J1", "3"),
             ("J2", "2"),
             ("J3", "2"),
-            ("J4", "1"), ("J4", "2"), ("J4", "3"),
-            ("LED1", "2"), ("LED2", "2"),
+            ("J4", "1"),
+            ("J4", "2"),
+            ("J4", "3"),
+            ("LED1", "2"),
+            ("LED2", "2"),
             ("SC1", "2"),
-            ("D1", "3"), ("D1", "4"), ("D1", "6"),
+            ("D1", "3"),
+            ("D1", "4"),
+            ("D1", "6"),
             ("D2", "2"),
             ("R4", "1"),
-            ("R5", "2"), ("R6", "2"), ("R8", "2"), ("R10", "2"),
-            ("U4", "1"), ("U4", "2"), ("U4", "3"), ("U4", "7"),
+            ("R5", "2"),
+            ("R6", "2"),
+            ("R8", "2"),
+            ("R10", "2"),
+            ("U4", "1"),
+            ("U4", "2"),
+            ("U4", "3"),
+            ("U4", "7"),
         ],
     ),
     (
         "3.3V",
         [
-            ("U1", "5"), ("U1", "16"),
+            ("U1", "5"),
+            ("U1", "16"),
             ("U2", "14"),
             ("U3", "8"),
             ("U4", "8"),
             ("U5", "8"),
             ("U6", "10"),
-            ("C1", "1"), ("C2", "1"), ("C3", "1"), ("C4", "1"),
-            ("C5", "1"), ("C6", "1"), ("C7", "1"), ("C8", "1"),
-            ("C9", "1"), ("C10", "1"),
-            ("C11", "1"), ("C12", "1"), ("C13", "1"),
-            ("C14", "1"), ("C15", "1"),
+            ("C1", "1"),
+            ("C2", "1"),
+            ("C3", "1"),
+            ("C4", "1"),
+            ("C5", "1"),
+            ("C6", "1"),
+            ("C7", "1"),
+            ("C8", "1"),
+            ("C9", "1"),
+            ("C10", "1"),
+            ("C11", "1"),
+            ("C12", "1"),
+            ("C13", "1"),
+            ("C14", "1"),
+            ("C15", "1"),
             ("C19", "1"),
-            ("C23", "1"), ("C24", "1"),
-            ("R1", "1"), ("R2", "1"),
+            ("C23", "1"),
+            ("C24", "1"),
+            ("R1", "1"),
+            ("R2", "1"),
             ("R13", "2"),
             ("D2", "1"),
             ("L2", "2"),
@@ -692,9 +771,10 @@ CUSTOM_SYMBOLS = {
 # Generation helpers
 # ═══════════════════════════════════════════════════════════════
 
+
 def _p(**kwargs):
     """Create a property list for an S-exp with key-value pairs.
-    
+
     Usage: _p(at=[x, y, rot], name=value) -> [['at', x, y, rot], ['name', value]]
     """
     items = []
@@ -702,9 +782,9 @@ def _p(**kwargs):
         if v is None:
             continue
         if isinstance(v, list):
-            items.append([k.replace('_', '')] + v)
+            items.append([k.replace("_", "")] + v)
         else:
-            items.append([k.replace('_', ''), v])
+            items.append([k.replace("_", ""), v])
     return items
 
 
@@ -716,40 +796,66 @@ def gen_symbol_sexp(ref, value, footprint, datasheet, kicad_symbol):
     else:
         lib_id = kicad_symbol
     x, y = POS.get(ref, (500, 400))
-    
+
     # Build symbol S-expression
-    sym = Sexp([
-        "symbol",
-        ["lib_id", lib_id],
-        ["at", x, y, 0],
-        ["unit", 1],
-        ["in_bom", "yes"],
-        ["on_board", "yes"],
-        ["uuid", uid],
-    ])
-    
+    sym = Sexp(
+        [
+            "symbol",
+            ["lib_id", lib_id],
+            ["at", x, y, 0],
+            ["unit", 1],
+            ["in_bom", "yes"],
+            ["on_board", "yes"],
+            ["uuid", uid],
+        ]
+    )
+
     # Properties
-    sym.append(Sexp([
-        "property", "Reference", ref,
-        ["at", x, y, 0],
-        ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
-    ]))
-    sym.append(Sexp([
-        "property", "Value", value,
-        ["at", x, y - 2.54, 0],
-        ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
-    ]))
-    sym.append(Sexp([
-        "property", "Footprint", footprint,
-        ["at", x, y - 5.08, 0],
-        ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
-    ]))
-    sym.append(Sexp([
-        "property", "Datasheet", datasheet,
-        ["at", x, y - 7.62, 0],
-        ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
-    ]))
-    
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Reference",
+                ref,
+                ["at", x, y, 0],
+                ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
+            ]
+        )
+    )
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Value",
+                value,
+                ["at", x, y - 2.54, 0],
+                ["effects", ["font", ["size", 1.27, 1.27]], ["justify", "left"]],
+            ]
+        )
+    )
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Footprint",
+                footprint,
+                ["at", x, y - 5.08, 0],
+                ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
+            ]
+        )
+    )
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Datasheet",
+                datasheet,
+                ["at", x, y - 7.62, 0],
+                ["effects", ["font", ["size", 0.5, 0.5]], ["hide", "yes"]],
+            ]
+        )
+    )
+
     return sym
 
 
@@ -757,80 +863,102 @@ def gen_power_symbol_sexp(text, x, y, ref_suffix=""):
     """Generate a power symbol instance (GND, +3.3V)."""
     uid = det_uuid(f"power_{text}_{x}_{y}_{ref_suffix}")
     pwr_ref = f"#PWR{abs(hash(uid)) % 1000:03d}"
-    
+
     net_to_kicad = {
         "GND": "power:GND",
         "+3.3V": "power:+3.3V",
         "V_PRESSLING": "power:VCC",
     }
     lib_id = net_to_kicad.get(text, f"power:{text}")
-    
-    sym = Sexp([
-        "symbol",
-        ["lib_id", lib_id],
-        ["at", x, y, 0],
-        ["unit", 1],
-        ["in_bom", "no"],
-        ["on_board", "yes"],
-        ["uuid", uid],
-    ])
-    
-    sym.append(Sexp([
-        "property", "Reference", pwr_ref,
-        ["at", x, y, 0],
-        ["effects", ["font", ["size", 1.27, 1.27]], ["hide", "yes"]],
-    ]))
-    sym.append(Sexp([
-        "property", "Value", text,
-        ["at", x, y - 2.54, 0],
-        ["effects", ["font", ["size", 1.27, 1.27]]],
-    ]))
-    
+
+    sym = Sexp(
+        [
+            "symbol",
+            ["lib_id", lib_id],
+            ["at", x, y, 0],
+            ["unit", 1],
+            ["in_bom", "no"],
+            ["on_board", "yes"],
+            ["uuid", uid],
+        ]
+    )
+
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Reference",
+                pwr_ref,
+                ["at", x, y, 0],
+                ["effects", ["font", ["size", 1.27, 1.27]], ["hide", "yes"]],
+            ]
+        )
+    )
+    sym.append(
+        Sexp(
+            [
+                "property",
+                "Value",
+                text,
+                ["at", x, y - 2.54, 0],
+                ["effects", ["font", ["size", 1.27, 1.27]]],
+            ]
+        )
+    )
+
     return sym
 
 
 def gen_label_sexp(text, x, y):
     """Generate a global label for a net."""
     uid = det_uuid(f"glabel_{text}_{x}_{y}")
-    return Sexp([
-        "label", text,
-        ["at", x, y, 0],
-        ["effects", ["font", ["size", 1.27, 1.27]]],
-        ["uuid", uid],
-    ])
+    return Sexp(
+        [
+            "label",
+            text,
+            ["at", x, y, 0],
+            ["effects", ["font", ["size", 1.27, 1.27]]],
+            ["uuid", uid],
+        ]
+    )
 
 
 def gen_bus_entry_sexp(text, x, y):
     """Generate a bus entry (used for net connectivity symbols)."""
     uid = det_uuid(f"bentry_{text}_{x}_{y}")
-    return Sexp([
-        "symbol",
-        ["lib_id", "Device:Conn_01x01"],
-        ["at", x, y, 0],
-        ["unit", 1],
-        ["in_bom", "no"],
-        ["on_board", "yes"],
-        ["uuid", uid],
-    ])
+    return Sexp(
+        [
+            "symbol",
+            ["lib_id", "Device:Conn_01x01"],
+            ["at", x, y, 0],
+            ["unit", 1],
+            ["in_bom", "no"],
+            ["on_board", "yes"],
+            ["uuid", uid],
+        ]
+    )
 
 
 # ═══════════════════════════════════════════════════════════════
 # Schematic Generation
 # ═══════════════════════════════════════════════════════════════
 
+
 def generate_schematic_sexp():
     """Generate the complete schematic as an Sexp tree."""
-    
-    root = Sexp([
-        "kicad_sch",
-        ["version", KICAD_VERSION],
-        ["generator", "mykovolt_gen"],
-    ])
-    
+
+    root = Sexp(
+        [
+            "kicad_sch",
+            ["version", KICAD_VERSION],
+            ["generator", "mykovolt_gen"],
+        ]
+    )
+
     # ── Add all component symbols ──
     for comp in COMPONENTS:
         root.append(gen_symbol_sexp(*comp))
-    
+
     # ── Add global labels for each net connection ──
     used = set()
     for net_name, connections in NETS:
@@ -845,14 +973,14 @@ def generate_schematic_sexp():
             if key not in used:
                 used.add(key)
                 root.append(gen_label_sexp(net_name, lx, ly))
-    
+
     # ── Add power symbols near each component ──
     for ref, _, _, _, _ in COMPONENTS:
         if ref in POS:
             x, y = POS[ref]
             root.append(gen_power_symbol_sexp("GND", x, y + 15, ref))
             root.append(gen_power_symbol_sexp("+3.3V", x, y - 15, ref))
-    
+
     # ── lib_symbols: embedded definitions for custom parts (ST25DV04K, FDC1004) ──
     # We build these as a string section and insert directly into the output
     # since simp_sexp cannot parse raw S-expression strings.
@@ -863,24 +991,22 @@ def generate_schematic_sexp():
         lib_block = "    (lib_symbols\n"
         for ls in lib_syms:
             # Indent each line of the custom symbol definition
-            for line in ls.strip().split('\n'):
+            for line in ls.strip().split("\n"):
                 lib_block += f"      {line}\n"
         lib_block += "    )"
         root.append(lib_block)
-    
+
     # ── Sheet instances and symbol instances (required by KiCad 6) ──
     root.append(Sexp(["sheet_instances"]))
     root.append(Sexp(["symbol_instances"]))
-    
+
     return root
 
 
 def generate_schematic_string():
     """Fallback: generate schematic as a string (when simp_sexp not available)."""
-    lines = [
-        f'(kicad_sch (version {KICAD_VERSION}) (generator mykovolt_gen)'
-    ]
-    
+    lines = [f"(kicad_sch (version {KICAD_VERSION}) (generator mykovolt_gen)"]
+
     # Generate component symbols
     for ref, value, footprint, datasheet, kicad_symbol in COMPONENTS:
         uid = det_uuid(ref)
@@ -889,30 +1015,34 @@ def generate_schematic_string():
         else:
             lib_id = kicad_symbol
         x, y = POS.get(ref, (500, 400))
-        
+
         lines.append(f'  (symbol "{uid}" (in_bom yes) (on_board yes)')
         lines.append(f'    (property "Reference" "{ref}" (id 0) (at {x} {y} 0)')
-        lines.append(f'      (effects (font (size 1.27 1.27)) (justify left))')
-        lines.append(f'    )')
+        lines.append(f"      (effects (font (size 1.27 1.27)) (justify left))")
+        lines.append(f"    )")
         lines.append(f'    (property "Value" "{value}" (id 1) (at {x} {y - 2.54} 0)')
-        lines.append(f'      (effects (font (size 1.27 1.27)) (justify left))')
-        lines.append(f'    )')
-        lines.append(f'    (property "Footprint" "{footprint}" (id 2) (at {x} {y - 5.08} 0)')
-        lines.append(f'      (effects (font (size 0.5 0.5)) hide)')
-        lines.append(f'    )')
-        lines.append(f'    (property "Datasheet" "{datasheet}" (id 3) (at {x} {y - 7.62} 0)')
-        lines.append(f'      (effects (font (size 0.5 0.5)) hide)')
-        lines.append(f'    )')
+        lines.append(f"      (effects (font (size 1.27 1.27)) (justify left))")
+        lines.append(f"    )")
+        lines.append(
+            f'    (property "Footprint" "{footprint}" (id 2) (at {x} {y - 5.08} 0)'
+        )
+        lines.append(f"      (effects (font (size 0.5 0.5)) hide)")
+        lines.append(f"    )")
+        lines.append(
+            f'    (property "Datasheet" "{datasheet}" (id 3) (at {x} {y - 7.62} 0)'
+        )
+        lines.append(f"      (effects (font (size 0.5 0.5)) hide)")
+        lines.append(f"    )")
         if ":" not in kicad_symbol and kicad_symbol in CUSTOM_SYMBOLS:
-            lines.append(f'    (lib_symbols')
-            for cs_line in CUSTOM_SYMBOLS[kicad_symbol].split('\n'):
-                lines.append(f'      {cs_line}')
-            lines.append(f'    )')
+            lines.append(f"    (lib_symbols")
+            for cs_line in CUSTOM_SYMBOLS[kicad_symbol].split("\n"):
+                lines.append(f"      {cs_line}")
+            lines.append(f"    )")
         else:
-            lines.append(f'    (lib_symbols)')
+            lines.append(f"    (lib_symbols)")
         lines.append(f'    (lib_id "{lib_id}")')
-        lines.append(f'  )')
-    
+        lines.append(f"  )")
+
     # Generate global labels for net connections
     used = set()
     for net_name, connections in NETS:
@@ -927,19 +1057,23 @@ def generate_schematic_string():
                 used.add(key)
                 uid = det_uuid(f"glabel_{net_name}_{lx}_{ly}")
                 lines.append(f'  (symbol "{uid}" (in_bom no) (on_board yes)')
-                lines.append(f'    (property "Reference" "#FLG" (id 0) (at {lx} {ly} 0)')
-                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
-                lines.append(f'    )')
-                lines.append(f'    (property "Value" "{net_name}" (id 1) (at {lx} {ly - 2.54} 0)')
-                lines.append(f'      (effects (font (size 1.27 1.27)))')
-                lines.append(f'    )')
+                lines.append(
+                    f'    (property "Reference" "#FLG" (id 0) (at {lx} {ly} 0)'
+                )
+                lines.append(f"      (effects (font (size 1.27 1.27)) hide)")
+                lines.append(f"    )")
+                lines.append(
+                    f'    (property "Value" "{net_name}" (id 1) (at {lx} {ly - 2.54} 0)'
+                )
+                lines.append(f"      (effects (font (size 1.27 1.27)))")
+                lines.append(f"    )")
                 lines.append(f'    (property "Symbol" "label" (id 2) (at 0 0 0)')
-                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
-                lines.append(f'    )')
-                lines.append(f'    (lib_symbols)')
+                lines.append(f"      (effects (font (size 1.27 1.27)) hide)")
+                lines.append(f"    )")
+                lines.append(f"    (lib_symbols)")
                 lines.append(f'    (lib_id "Device:L_Small")')
-                lines.append(f'  )')
-    
+                lines.append(f"  )")
+
     # Power symbols near each component
     for ref, _, _, _, _ in COMPONENTS:
         if ref in POS:
@@ -951,19 +1085,21 @@ def generate_schematic_string():
                 lib_id = net_map.get(pwr_name, f"power:{pwr_name}")
                 lines.append(f'  (symbol "{uid}" (power (in_bom no) (on_board yes))')
                 lines.append(f'    (property "Reference" "#PWR" (id 0) (at {x} {y} 0)')
-                lines.append(f'      (effects (font (size 1.27 1.27)) hide)')
-                lines.append(f'    )')
-                lines.append(f'    (property "Value" "{pwr_name}" (id 1) (at {x} {y - 2.54} 0)')
-                lines.append(f'      (effects (font (size 1.27 1.27)))')
-                lines.append(f'    )')
-                lines.append(f'    (lib_symbols)')
+                lines.append(f"      (effects (font (size 1.27 1.27)) hide)")
+                lines.append(f"    )")
+                lines.append(
+                    f'    (property "Value" "{pwr_name}" (id 1) (at {x} {y - 2.54} 0)'
+                )
+                lines.append(f"      (effects (font (size 1.27 1.27)))")
+                lines.append(f"    )")
+                lines.append(f"    (lib_symbols)")
                 lines.append(f'    (lib_id "{lib_id}")')
-                lines.append(f'  )')
-    
+                lines.append(f"  )")
+
     lines.append("  (sheet_instances)")
     lines.append("  (symbol_instances)")
     lines.append(")")
-    
+
     return "\n".join(lines)
 
 
@@ -971,33 +1107,45 @@ def generate_schematic_string():
 # PCB Generation
 # ═══════════════════════════════════════════════════════════════
 
+
 def generate_pcb_pcbnew():
     """Generate PCB using the pcbnew API (KiCad 6).
-    
+
     Sets up a 4-layer board: F.Cu, In1.Cu (GND), In2.Cu (PWR), B.Cu.
     Falls back to string-based generation if pcbnew fails.
     """
     import pcbnew as pn
+
     board = pn.BOARD()
-    
+
     # Board dimensions (nanometers)
     w, h = int(30e6), int(20e6)
-    
+
     # ── Configure 4-layer stackup ──
     board.SetCopperLayerCount(4)
-    
+
     # Enable all required layers
     enabled = pn.LSET()
-    for layer in [pn.F_Cu, pn.In1_Cu, pn.In2_Cu, pn.B_Cu,
-                   pn.F_SilkS, pn.B_SilkS,
-                   pn.F_Mask, pn.B_Mask,
-                   pn.F_Paste, pn.B_Paste,
-                   pn.Edge_Cuts,
-                   pn.F_Fab, pn.B_Fab,
-                   pn.F_CrtYd, pn.B_CrtYd]:
+    for layer in [
+        pn.F_Cu,
+        pn.In1_Cu,
+        pn.In2_Cu,
+        pn.B_Cu,
+        pn.F_SilkS,
+        pn.B_SilkS,
+        pn.F_Mask,
+        pn.B_Mask,
+        pn.F_Paste,
+        pn.B_Paste,
+        pn.Edge_Cuts,
+        pn.F_Fab,
+        pn.B_Fab,
+        pn.F_CrtYd,
+        pn.B_CrtYd,
+    ]:
         enabled.AddLayer(layer)
     board.SetEnabledLayers(enabled)
-    
+
     # ── Create board outline from 4 edge segments on Edge.Cuts ──
     corners = [(0, 0), (w, 0), (w, h), (0, h)]
     for i in range(4):
@@ -1006,30 +1154,30 @@ def generate_pcb_pcbnew():
         edge = pn.PCB_SHAPE(board)
         edge.SetShape(pn.SHAPE_T_SEGMENT)
         edge.SetLayer(pn.Edge_Cuts)
-        edge.SetStart(pn.wxPoint(x1, y1))
-        edge.SetEnd(pn.wxPoint(x2, y2))
+        edge.SetStart(pn.VECTOR2I(x1, y1))
+        edge.SetEnd(pn.VECTOR2I(x2, y2))
         edge.SetWidth(100000)  # 0.1mm
         board.Add(edge)
-    
+
     # ── Silkscreen text ──
     cx, cy = w // 2, h // 2
-    
+
     text = pn.PCB_TEXT(board)
     text.SetText(f"MykoVolt DevKit v{VERSION}")
     text.SetLayer(pn.F_SilkS)
-    text.SetPosition(pn.wxPoint(cx, cy + int(2e6)))
-    text.SetTextSize(pn.wxSize(1000000, 1000000))
+    text.SetPosition(pn.VECTOR2I(cx, cy + int(2e6)))
+    text.SetTextSize(pn.VECTOR2I(1000000, 1000000))
     text.SetTextThickness(150000)
     board.Add(text)
-    
+
     text2 = pn.PCB_TEXT(board)
     text2.SetText("30x20mm 4L ENIG RevA")
     text2.SetLayer(pn.F_SilkS)
-    text2.SetPosition(pn.wxPoint(cx, cy + int(3.5e6)))
-    text2.SetTextSize(pn.wxSize(800000, 800000))
+    text2.SetPosition(pn.VECTOR2I(cx, cy + int(3.5e6)))
+    text2.SetTextSize(pn.VECTOR2I(800000, 800000))
     text2.SetTextThickness(120000)
     board.Add(text2)
-    
+
     # ── Create nets and build netcode map ──
     net_names = sorted(set(n[0] for n in NETS))
     netcode_map = {}  # net_name -> netcode
@@ -1038,7 +1186,7 @@ def generate_pcb_pcbnew():
         net = pn.NETINFO_ITEM(board, name, netcode)
         board.Add(net)
         netcode_map[name] = netcode
-    
+
     # ── Place footprints with pad net assignments ──
     # Build a lookup: ref -> { pin_num -> net_name }
     ref_nets = {}  # ref -> { pin -> net_name }
@@ -1047,12 +1195,12 @@ def generate_pcb_pcbnew():
             if ref not in ref_nets:
                 ref_nets[ref] = {}
             ref_nets[ref][pin] = net_name
-    
+
     for ref, value, footprint, _, _ in COMPONENTS:
         if ref not in PCB_POS:
             continue
         x_nm, y_nm = PCB_POS[ref]
-        
+
         # Parse footprint into library and name
         fp_path = "/usr/share/kicad/footprints"
         if ":" in footprint:
@@ -1060,26 +1208,26 @@ def generate_pcb_pcbnew():
             fp = pn.FootprintLoad(f"{fp_path}/{lib}.pretty", fp_name)
         else:
             fp = pn.FootprintLoad(fp_path, footprint)
-        
+
         if fp is None:
             print(f"    ⚠ Cannot load '{footprint}', creating placeholder for {ref}")
             fp = pn.FOOTPRINT(board)
             fp.SetReference(ref)
             fp.SetValue(value)
             pad = pn.PAD(fp)
-            pad.SetSize(pn.wxSize(500000, 500000))
-            pad.SetPosition(pn.wxPoint(0, 0))
+            pad.SetSize(pn.VECTOR2I(500000, 500000))
+            pad.SetPosition(pn.VECTOR2I(0, 0))
             pad.SetLayerSet(pn.LSET.AllCuMask())
             fp.Add(pad)
         else:
             fp.SetReference(ref)
             fp.SetValue(value)
-        
-        fp.SetPosition(pn.wxPoint(int(x_nm), int(y_nm)))
-        fp.SetOrientation(0)
+
+        fp.SetPosition(pn.VECTOR2I(int(x_nm), int(y_nm)))
+        fp.SetOrientation(pn.ANGLE_0)
         fp.Reference().SetText(ref)
         fp.Value().SetText(value)
-        
+
         # Assign nets to pads based on netlist
         if ref in ref_nets:
             pin_map = ref_nets[ref]
@@ -1089,68 +1237,76 @@ def generate_pcb_pcbnew():
                     net_name = pin_map[pad_num]
                     if net_name in netcode_map:
                         pad.SetNetCode(netcode_map[net_name])
-        
+
         board.Add(fp)
-    
+
     # ── Add copper zones ──
     # Build zone outline from board edges (slightly inset)
     inset = int(0.3e6)  # 0.3mm clearance from edge
     zone_corners = [
-        pn.wxPoint(inset, inset),
-        pn.wxPoint(w - inset, inset),
-        pn.wxPoint(w - inset, h - inset),
-        pn.wxPoint(inset, h - inset),
+        pn.VECTOR2I(inset, inset),
+        pn.VECTOR2I(w - inset, inset),
+        pn.VECTOR2I(w - inset, h - inset),
+        pn.VECTOR2I(inset, h - inset),
     ]
-    
+
     # Helper to create a zone (KiCad 6 API)
     def add_zone(layer, net_name, priority=0):
         zone = pn.ZONE(board)
         zone.SetLayer(layer)
         zone.SetNetCode(netcode_map.get(net_name, 0))
-        zone.SetPriority(priority)
+        zone.SetAssignedPriority(priority)
         zone.SetIslandRemovalMode(pn.ISLAND_REMOVAL_MODE_AREA)
         zone.SetMinIslandArea(100000000)  # 100mm²
         zone.SetCornerSmoothingType(pn.ZONE_SETTINGS.SMOOTHING_FILLET)
         zone.SetCornerRadius(500000)  # 0.5mm
         zone.SetFillMode(pn.ZONE_FILL_MODE_POLYGONS)
         zone.SetIsRuleArea(False)  # Explicitly not a keepout
-        
+
         # Build zone outline using AppendCorner (KiCad 6 compatible)
         for pt in zone_corners:
-            zone.AppendCorner(pn.wxPoint(pt.x, pt.y), -1)  # -1 = no hole
-        
+            zone.AppendCorner(pn.VECTOR2I(pt.x, pt.y), -1)  # -1 = no hole
+
         board.Add(zone)
         return zone
-    
+
     # GND pour on In1.Cu (inner layer 1)
     if "GND" in netcode_map:
         add_zone(pn.In1_Cu, "GND", 0)
-    
+
     # 3.3V pour on In2.Cu (inner layer 2)
     if "3.3V" in netcode_map:
         add_zone(pn.In2_Cu, "3.3V", 0)
-    
+
     # ── NFC Antenna Coil (rectangular spiral on F.Cu) ──
     # 13.56 MHz, ~2.9 µH target, 4 turns, 0.3mm trace/space
     # Placed on right side of board near U3 (ST25DV04K)
     _add_nfc_antenna(board, pn, netcode_map)
-    
+
     # ── GND keepout under antenna on In1.Cu ──
     # Prevent GND pour from coupling to antenna
     _add_antenna_keepout(board, pn)
-    
+
     # ── Interdigital Sensor Electrodes (B.Cu) ──
     # Connected to FDC1004 CIN1 and CIN2 via J4
     _add_sensor_electrodes(board, pn, netcode_map)
-    
+
     # ── Route Critical Signal Nets ──
-    # I2C bus, SWD, UART, control signals
-    _route_critical_nets(board, pn, netcode_map)
-    
+    # I2C bus, SWD, UART, control signals via topology-driven autorouter
+    # Uses persistent cache to avoid recomputing on every regeneration
+    router = TopologyRouter(board, pn, netcode_map, COMPONENTS, PCB_POS, NETS)
+    cache_path = os.path.join(PROJECT_DIR, ".routing_cache.json")
+    if os.path.exists(cache_path):
+        router.load(cache_path)
+    else:
+        router.route_all()
+        router.save(cache_path)
+    router.apply(board)
+
     # ── Power Via Stitching ──
     # 3.3V vias to In2.Cu, GND vias to In1.Cu
     _add_power_vias(board, pn, netcode_map)
-    
+
     # ── Save ──
     pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
     board.Save(pcb_path)
@@ -1159,7 +1315,7 @@ def generate_pcb_pcbnew():
 
 def _add_nfc_antenna(board, pn, netcode_map):
     """Add NFC antenna coil as a rectangular spiral on F.Cu.
-    
+
     4-turn rectangular spiral, 0.3mm trace, 0.3mm spacing.
     Outer dimensions ~18×12mm, placed right of U3.
     Connected to NFC_RF1 and NFC_RF2 nets.
@@ -1167,25 +1323,25 @@ def _add_nfc_antenna(board, pn, netcode_map):
     # Antenna center (right side of board, aligned with U3)
     # NOTE: outer width must fit within 30mm board (cx - outer_w/2 >= 0, cx + outer_w/2 <= 30)
     cx, cy = int(23e6), int(10e6)  # 23mm, 10mm (shifted left 2mm to clear board edge)
-    
+
     # Spiral parameters
     turns = 4
-    trace_w = int(0.3e6)    # 0.3mm
-    spacing = int(0.3e6)    # 0.3mm
-    outer_w = int(12e6)     # 12mm outer width (fits within 30mm: 23±6 = 17..29mm)
-    outer_h = int(10e6)     # 10mm outer height
-    
+    trace_w = int(0.3e6)  # 0.3mm
+    spacing = int(0.3e6)  # 0.3mm
+    outer_w = int(12e6)  # 12mm outer width (fits within 30mm: 23±6 = 17..29mm)
+    outer_h = int(10e6)  # 10mm outer height
+
     # Get netcodes
     rf1_net = netcode_map.get("NFC_RF1", 0)
     rf2_net = netcode_map.get("NFC_RF2", 0)
-    
+
     # Build spiral segments going inward
     # Start from outer corner, spiral inward turn by turn
     x, y = cx - outer_w // 2, cy - outer_h // 2
     w, h = outer_w, outer_h
-    
+
     segs = []  # (x1, y1, x2, y2, netcode)
-    
+
     for turn in range(turns):
         # Top edge: left → right
         segs.append((x, y, x + w, y, 0))
@@ -1196,63 +1352,81 @@ def _add_nfc_antenna(board, pn, netcode_map):
         # Left edge: bottom → top (with inset for next turn)
         inset = (trace_w + spacing) * (turn + 1)
         segs.append((x, y + h, x, y + inset, 0))
-        
+
         # Shrink for next turn
         x += trace_w + spacing
         y += trace_w + spacing
         w -= 2 * (trace_w + spacing)
         h -= 2 * (trace_w + spacing)
-    
+
     # Create tracks for spiral
     # First segment is NFC_RF1, last is NFC_RF2
     if segs:
         # First segment = NFC_RF1
         x1, y1, x2, y2, _ = segs[0]
         _add_track(board, pn, x1, y1, x2, y2, trace_w, pn.F_Cu, rf1_net)
-        
+
         # Middle segments = antenna (no net — they're the coil itself)
         for x1, y1, x2, y2, _ in segs[1:-1]:
             _add_track(board, pn, x1, y1, x2, y2, trace_w, pn.F_Cu, 0)
-        
+
         # Last segment = NFC_RF2 (innermost turn's left edge from bottom to feed)
         if len(segs) > 1:
             x1, y1, x2, y2, _ = segs[-1]
             # Route to U3 feed point (near U3 pin 1/2 at right side)
             _add_track(board, pn, x1, y2, int(26.5e6), y2, trace_w, pn.F_Cu, 0)
-    
+
     # ── Antenna matching: connect NFC_RF1 and NFC_RF2 to U3 via C20 position ──
     # Feed lines from spiral ends to U3 pins through C20
     c20_pos = PCB_POS.get("C20", (int(25e6), int(10e6)))
     d1_pos = PCB_POS.get("D1", (int(26e6), int(10e6)))
-    
+
     # NFC_RF1: C20-1 → U3-1 (through D1-1 for ESD)
-    _add_track(board, pn, c20_pos[0] - int(1e6), c20_pos[1], c20_pos[0], c20_pos[1],
-               trace_w, pn.F_Cu, rf1_net)
-    
+    _add_track(
+        board,
+        pn,
+        c20_pos[0] - int(1e6),
+        c20_pos[1],
+        c20_pos[0],
+        c20_pos[1],
+        trace_w,
+        pn.F_Cu,
+        rf1_net,
+    )
+
     # Route NFC_RF2 from antenna feed to C20/U3
     rf2_code = netcode_map.get("NFC_RF2", 0)
     if rf2_code:
-        _add_track(board, pn, int(26.5e6), cy, int(26.5e6), cy + int(3e6),
-                   trace_w, pn.F_Cu, rf2_code)
-    
+        _add_track(
+            board,
+            pn,
+            int(26.5e6),
+            cy,
+            int(26.5e6),
+            cy + int(3e6),
+            trace_w,
+            pn.F_Cu,
+            rf2_code,
+        )
+
     # Add silkscreen label
     lbl = pn.PCB_TEXT(board)
     lbl.SetText("NFC ANT")
     lbl.SetLayer(pn.F_SilkS)
-    lbl.SetPosition(pn.wxPoint(cx, cy + int(7e6)))
-    lbl.SetTextSize(pn.wxSize(600000, 600000))
+    lbl.SetPosition(pn.VECTOR2I(cx, cy + int(7e6)))
+    lbl.SetTextSize(pn.VECTOR2I(600000, 600000))
     lbl.SetTextThickness(100000)
     board.Add(lbl)
 
 
 def _add_antenna_keepout(board, pn):
     """Add a GND keepout zone under the NFC antenna on In1.Cu.
-    
+
     This prevents the GND pour from coupling to the antenna coil.
     """
     cx, cy = int(23e6), int(10e6)  # Matches antenna center
     kw, kh = int(13e6), int(11e6)  # Slightly larger than antenna (12mm width + margin)
-    
+
     zone = pn.ZONE(board)
     zone.SetLayer(pn.In1_Cu)
     zone.SetNetCode(0)  # No net — keepout zone
@@ -1261,61 +1435,97 @@ def _add_antenna_keepout(board, pn):
     zone.SetDoNotAllowTracks(True)
     zone.SetDoNotAllowVias(True)
     zone.SetDoNotAllowPads(True)
-    zone.SetPriority(1)
-    
+    zone.SetAssignedPriority(1)
+
     corners = [
-        pn.wxPoint(cx - kw // 2, cy - kh // 2),
-        pn.wxPoint(cx + kw // 2, cy - kh // 2),
-        pn.wxPoint(cx + kw // 2, cy + kh // 2),
-        pn.wxPoint(cx - kw // 2, cy + kh // 2),
+        pn.VECTOR2I(cx - kw // 2, cy - kh // 2),
+        pn.VECTOR2I(cx + kw // 2, cy - kh // 2),
+        pn.VECTOR2I(cx + kw // 2, cy + kh // 2),
+        pn.VECTOR2I(cx - kw // 2, cy + kh // 2),
     ]
     for pt in corners:
         zone.AppendCorner(pt, -1)
-    
+
     board.Add(zone)
 
 
 def _add_sensor_electrodes(board, pn, netcode_map):
     """Add interdigital sensor electrodes on B.Cu.
-    
+
     Two interlocking comb patterns forming a capacitive sensor.
     CIN1 (measurement channel) and CIN2 (reference/compensation).
     SHLD1 guard ring surrounds the electrodes on B.Cu.
-    
+
     Connected to FDC1004 via J4 connector.
     """
     # Electrode position: bottom-center of board (aligns with J4 at 22,17)
     ex, ey = int(15e6), int(17e6)
-    
+
     # Electrode geometry
-    finger_w = int(0.3e6)     # Finger width
-    finger_gap = int(0.3e6)   # Gap between fingers
-    finger_len = int(3e6)     # Finger length (3mm)
-    num_fingers = 10           # Fingers per side
+    finger_w = int(0.3e6)  # Finger width
+    finger_gap = int(0.3e6)  # Gap between fingers
+    finger_len = int(3e6)  # Finger length (3mm)
+    num_fingers = 10  # Fingers per side
     total_w = num_fingers * (finger_w + finger_gap) + finger_w
-    
+
     # Get netcodes
     cin1_net = netcode_map.get("CIN1", 0)
     cin2_net = netcode_map.get("CIN2", 0)
     shld_net = netcode_map.get("SHLD1", 0)
-    
+
     # ── SHLD1 Guard Ring (rectangle around electrodes) ──
     guard_margin = int(0.5e6)
     guard_w = total_w + 2 * guard_margin
     guard_h = finger_len + 2 * guard_margin
     guard_x = ex - guard_w // 2
     guard_y = ey - guard_h // 2
-    
+
     # Draw guard ring as 4 segments
-    _add_track(board, pn, guard_x, guard_y, guard_x + guard_w, guard_y,
-               int(0.2e6), pn.B_Cu, shld_net)
-    _add_track(board, pn, guard_x + guard_w, guard_y, guard_x + guard_w, guard_y + guard_h,
-               int(0.2e6), pn.B_Cu, shld_net)
-    _add_track(board, pn, guard_x + guard_w, guard_y + guard_h, guard_x, guard_y + guard_h,
-               int(0.2e6), pn.B_Cu, shld_net)
-    _add_track(board, pn, guard_x, guard_y + guard_h, guard_x, guard_y,
-               int(0.2e6), pn.B_Cu, shld_net)
-    
+    _add_track(
+        board,
+        pn,
+        guard_x,
+        guard_y,
+        guard_x + guard_w,
+        guard_y,
+        int(0.2e6),
+        pn.B_Cu,
+        shld_net,
+    )
+    _add_track(
+        board,
+        pn,
+        guard_x + guard_w,
+        guard_y,
+        guard_x + guard_w,
+        guard_y + guard_h,
+        int(0.2e6),
+        pn.B_Cu,
+        shld_net,
+    )
+    _add_track(
+        board,
+        pn,
+        guard_x + guard_w,
+        guard_y + guard_h,
+        guard_x,
+        guard_y + guard_h,
+        int(0.2e6),
+        pn.B_Cu,
+        shld_net,
+    )
+    _add_track(
+        board,
+        pn,
+        guard_x,
+        guard_y + guard_h,
+        guard_x,
+        guard_y,
+        int(0.2e6),
+        pn.B_Cu,
+        shld_net,
+    )
+
     # ── CIN1 Fingers (left comb, connected to J4/CIN1) ──
     start_x = ex - total_w // 2
     for i in range(num_fingers):
@@ -1323,13 +1533,23 @@ def _add_sensor_electrodes(board, pn, netcode_map):
         fy_start = ey - finger_len // 2
         fy_end = ey
         _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin1_net)
-    
+
     # Bus bar at top: connect all CIN1 fingers together
     c1_bus_start = start_x
     c1_bus_end = start_x + num_fingers * (finger_w + finger_gap)
     c1_bus_y = ey - finger_len // 2
-    _add_track(board, pn, c1_bus_start, c1_bus_y, c1_bus_end, c1_bus_y, finger_w, pn.B_Cu, cin1_net)
-    
+    _add_track(
+        board,
+        pn,
+        c1_bus_start,
+        c1_bus_y,
+        c1_bus_end,
+        c1_bus_y,
+        finger_w,
+        pn.B_Cu,
+        cin1_net,
+    )
+
     # ── CIN2 Fingers (right comb, interlocking, connected to J4/CIN2) ──
     for i in range(num_fingers):
         fx = start_x + i * (finger_w + finger_gap) + finger_w + finger_gap // 2
@@ -1338,39 +1558,72 @@ def _add_sensor_electrodes(board, pn, netcode_map):
         fy_start = ey
         fy_end = ey + finger_len // 2
         _add_track(board, pn, fx, fy_start, fx, fy_end, finger_w, pn.B_Cu, cin2_net)
-    
+
     # Bus bar at bottom: connect all CIN2 fingers together
     c2_bus_start = start_x + finger_w + finger_gap // 2
-    c2_bus_end = start_x + (num_fingers - 1) * (finger_w + finger_gap) + finger_w + finger_gap // 2
+    c2_bus_end = (
+        start_x
+        + (num_fingers - 1) * (finger_w + finger_gap)
+        + finger_w
+        + finger_gap // 2
+    )
     c2_bus_y = ey + finger_len // 2
-    _add_track(board, pn, c2_bus_start, c2_bus_y, c2_bus_end, c2_bus_y, finger_w, pn.B_Cu, cin2_net)
-    
+    _add_track(
+        board,
+        pn,
+        c2_bus_start,
+        c2_bus_y,
+        c2_bus_end,
+        c2_bus_y,
+        finger_w,
+        pn.B_Cu,
+        cin2_net,
+    )
+
     # ── Route CIN1, CIN2, SHLD1 from electrodes to J4 ──
     j4_pos = PCB_POS.get("J4", (int(22e6), int(17e6)))
-    _add_track(board, pn, ex, ey, j4_pos[0] - int(1e6), j4_pos[1],
-               int(0.2e6), pn.B_Cu, cin1_net)
-    _add_track(board, pn, ex + int(1e6), ey, j4_pos[0], j4_pos[1],
-               int(0.2e6), pn.B_Cu, cin2_net)
-    
+    _add_track(
+        board,
+        pn,
+        ex,
+        ey,
+        j4_pos[0] - int(1e6),
+        j4_pos[1],
+        int(0.2e6),
+        pn.B_Cu,
+        cin1_net,
+    )
+    _add_track(
+        board,
+        pn,
+        ex + int(1e6),
+        ey,
+        j4_pos[0],
+        j4_pos[1],
+        int(0.2e6),
+        pn.B_Cu,
+        cin2_net,
+    )
+
     # Silkscreen label
     lbl = pn.PCB_TEXT(board)
     lbl.SetText("SENSOR")
     lbl.SetLayer(pn.B_SilkS)
-    lbl.SetPosition(pn.wxPoint(ex, ey + int(1e6)))
-    lbl.SetTextSize(pn.wxSize(600000, 600000))
+    lbl.SetPosition(pn.VECTOR2I(ex, ey + int(1e6)))
+    lbl.SetTextSize(pn.VECTOR2I(600000, 600000))
     lbl.SetTextThickness(100000)
     board.Add(lbl)
 
 
 def _route_critical_nets(board, pn, netcode_map):
     """Route the critical signal nets between components.
-    
+
     Routes I2C bus (daisy-chain), SWD, UART, and control signals
     using Manhattan routing on F.Cu. Power is handled by the inner
     layer copper pours with via stitching in _add_power_vias().
     """
-    TRACK_W = int(0.3e6)   # 0.3mm default trace width
-    
+    TRACK_W = int(0.3e6)  # 0.3mm default trace width
+
     # ── Helper: Manhattan route (L-shaped) ──
     def route_L(x1, y1, x2, y2, net, layer=pn.F_Cu, width=TRACK_W):
         """Route an L-shaped track from (x1,y1) to (x2,y2)."""
@@ -1381,7 +1634,7 @@ def _route_critical_nets(board, pn, netcode_map):
         mid_x = x2
         _add_track(board, pn, x1, y1, mid_x, y1, width, layer, ncode)
         _add_track(board, pn, mid_x, y1, x2, y2, width, layer, ncode)
-    
+
     # ── Helper: Get component pad position ──
     def pad_pos(ref, pin):
         """Estimate pad position from component PCB position and pin number.
@@ -1397,7 +1650,7 @@ def _route_critical_nets(board, pn, netcode_map):
             return (cx - int(2e6), cy)
         else:
             return (cx + int(2e6), cy)
-    
+
     # ═══════════════════════════════════════════════════════════
     # 1. I2C Bus: SCL and SDA (daisy chain)
     # ═══════════════════════════════════════════════════════════
@@ -1421,23 +1674,39 @@ def _route_critical_nets(board, pn, netcode_map):
         y_trunk = int(11.0e6)
         x_min = min(x for _, x, _, _, _ in i2c_stops)
         x_max = max(x for _, x, _, _, _ in i2c_stops)
-        _add_track(board, pn, x_min - int(1e6), y_trunk, x_max + int(1e6), y_trunk,
-                   TRACK_W, pn.F_Cu, ncode)
+        _add_track(
+            board,
+            pn,
+            x_min - int(1e6),
+            y_trunk,
+            x_max + int(1e6),
+            y_trunk,
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
         # Vertical drops to each stop
         for ref, sx, sy, scl_pin, sda_pin in i2c_stops:
             pin = scl_pin if net_name == "I2C1_SCL" else sda_pin
             drop_x = sx
             if sy < y_trunk:
-                _add_track(board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode)
+                _add_track(
+                    board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode
+                )
             elif sy > y_trunk:
-                _add_track(board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode)
-    
+                _add_track(
+                    board, pn, drop_x, sy, drop_x, y_trunk, TRACK_W, pn.F_Cu, ncode
+                )
+
     # I2C pull-up resistors: R1(20,8) → SCL trunk, R2(21,8) → SDA trunk
-    for net_name, rx, ry in [("I2C1_SCL", int(20e6), int(8e6)), ("I2C1_SDA", int(21e6), int(8e6))]:
+    for net_name, rx, ry in [
+        ("I2C1_SCL", int(20e6), int(8e6)),
+        ("I2C1_SDA", int(21e6), int(8e6)),
+    ]:
         ncode = netcode_map.get(net_name, 0)
         if ncode:
             _add_track(board, pn, rx, ry, rx, int(11e6), TRACK_W, pn.F_Cu, ncode)
-    
+
     # ═══════════════════════════════════════════════════════════
     # 2. SWD Debug: J1 → U1
     # ═══════════════════════════════════════════════════════════
@@ -1450,13 +1719,25 @@ def _route_critical_nets(board, pn, netcode_map):
             continue
         _add_track(board, pn, u1_x, u1_y, j1_x, u1_y, TRACK_W, pn.F_Cu, ncode)
         _add_track(board, pn, j1_x, u1_y, j1_x, j1_y, TRACK_W, pn.F_Cu, ncode)
-    
+
     # NRST: J1(5,15) → U1(12,10) via C18
     ncode = netcode_map.get("NRST", 0)
     if ncode:
-        _add_track(board, pn, int(5e6), int(15e6), int(5e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(5e6), int(13e6), int(14e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(5e6), int(15e6), int(5e6), int(13e6), TRACK_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board,
+            pn,
+            int(5e6),
+            int(13e6),
+            int(14e6),
+            int(13e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
+
     # ═══════════════════════════════════════════════════════════
     # 3. UART: U1 → J1
     # ═══════════════════════════════════════════════════════════
@@ -1468,73 +1749,106 @@ def _route_critical_nets(board, pn, netcode_map):
         if ncode:
             _add_track(board, pn, x1, y1, x2, y1, TRACK_W, pn.F_Cu, ncode)
             _add_track(board, pn, x2, y1, x2, y2, TRACK_W, pn.F_Cu, ncode)
-    
+
     # ═══════════════════════════════════════════════════════════
     # 4. Control Signals: U1 → peripherals
     # ═══════════════════════════════════════════════════════════
     signals = [
-        ("NFC_IRQ", int(12.5e6), int(10.5e6), int(23e6), int(10.5e6)),   # U1 → U3
-        ("RTC_INT", int(12.5e6), int(9.5e6), int(17e6), int(9.5e6)),     # U1 → U5
-        ("SENSOR_RDY", int(12.5e6), int(10.2e6), int(21e6), int(10.2e6)), # U1 → U6
-        ("VBAT_OK", int(12.5e6), int(9.0e6), int(5e6), int(9.0e6)),      # U1 → U2
-        ("LOAD_SW_GATE", int(12.5e6), int(10.8e6), int(8e6), int(10.8e6)), # U1 → Q1
+        ("NFC_IRQ", int(12.5e6), int(10.5e6), int(23e6), int(10.5e6)),  # U1 → U3
+        ("RTC_INT", int(12.5e6), int(9.5e6), int(17e6), int(9.5e6)),  # U1 → U5
+        ("SENSOR_RDY", int(12.5e6), int(10.2e6), int(21e6), int(10.2e6)),  # U1 → U6
+        ("VBAT_OK", int(12.5e6), int(9.0e6), int(5e6), int(9.0e6)),  # U1 → U2
+        ("LOAD_SW_GATE", int(12.5e6), int(10.8e6), int(8e6), int(10.8e6)),  # U1 → Q1
         ("MCU_LED_CTRL", int(12.5e6), int(11.5e6), int(13e6), int(2e6)),  # U1 → LED2
     ]
     for net_name, x1, y1, x2, y2 in signals:
         route_L(x1, y1, x2, y2, net_name)
-    
+
     # ═══════════════════════════════════════════════════════════
     # 5. V_SENSE voltage divider: U1 → R9/R10
     # ═══════════════════════════════════════════════════════════
     ncode = netcode_map.get("V_SENSE", 0)
     if ncode:
-        _add_track(board, pn, int(12e6), int(8.5e6), int(5e6), int(8.5e6),
-                   TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board,
+            pn,
+            int(12e6),
+            int(8.5e6),
+            int(5e6),
+            int(8.5e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
+
     # ═══════════════════════════════════════════════════════════
     # 6. BQ25570 Power Path (wider tracks for power)
     # ═══════════════════════════════════════════════════════════
     PWR_W = int(0.5e6)  # 0.5mm for power tracks
-    
+
     # LBOOST: U2(4,10) → L1(3,6)
     ncode = netcode_map.get("LBOOST", 0)
     if ncode:
-        _add_track(board, pn, int(4e6), int(8e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(4e6), int(6e6), int(3e6), int(6e6), PWR_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(4e6), int(8e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(4e6), int(6e6), int(3e6), int(6e6), PWR_W, pn.F_Cu, ncode
+        )
+
     # LBUCK: U2(4,10) → L2(4,7)
     ncode = netcode_map.get("LBUCK", 0)
     if ncode:
-        _add_track(board, pn, int(4e6), int(8e6), int(4e6), int(7e6), PWR_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(4e6), int(8e6), int(4e6), int(7e6), PWR_W, pn.F_Cu, ncode
+        )
+
     # VSTOR: U2(4,10) → SC1(8,4) → U5(18,8)
     ncode = netcode_map.get("VSTOR", 0)
     if ncode:
-        _add_track(board, pn, int(5e6), int(8e6), int(5e6), int(4e6), PWR_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(5e6), int(4e6), int(8e6), int(4e6), PWR_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(8e6), int(4e6), int(8e6), int(8e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(8e6), int(8e6), int(18e6), int(8e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(5e6), int(8e6), int(5e6), int(4e6), PWR_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(5e6), int(4e6), int(8e6), int(4e6), PWR_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(8e6), int(4e6), int(8e6), int(8e6), TRACK_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(8e6), int(8e6), int(18e6), int(8e6), TRACK_W, pn.F_Cu, ncode
+        )
+
     # V_PRESSLING: J2(2,2) → U2(4,10) with branches to R3,R9,C21,L1
     ncode = netcode_map.get("V_PRESSLING", 0)
     if ncode:
-        _add_track(board, pn, int(2e6), int(2e6), int(2e6), int(4e6), PWR_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(2e6), int(4e6), int(4e6), int(4e6), PWR_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(4e6), int(4e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode)
+        _add_track(
+            board, pn, int(2e6), int(2e6), int(2e6), int(4e6), PWR_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(2e6), int(4e6), int(4e6), int(4e6), PWR_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(4e6), int(4e6), int(4e6), int(6e6), PWR_W, pn.F_Cu, ncode
+        )
         # Branches to R3(4,5), R9(4,6), C21(5,9), L1(3,6)
-        _add_track(board, pn, int(4e6), int(5e6), int(4e6), int(4e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(4e6), int(6e6), int(4e6), int(6e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(4e6), int(5e6), int(4e6), int(4e6), TRACK_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(4e6), int(6e6), int(4e6), int(6e6), TRACK_W, pn.F_Cu, ncode
+        )
+
     # ═══════════════════════════════════════════════════════════
     # 7. BQ25570 Programming Resistors
     # ═══════════════════════════════════════════════════════════
     bq_prog = [
-        ("VOC_SAMP", int(3.0e6), int(7e6), int(4e6), int(5e6)),   # U2-3 → R3
+        ("VOC_SAMP", int(3.0e6), int(7e6), int(4e6), int(5e6)),  # U2-3 → R3
         ("VREF_SAMP", int(3.5e6), int(7e6), int(5e6), int(5e6)),  # U2-4 → R4
-        ("OK_PROG", int(3.0e6), int(8e6), int(4e6), int(8e6)),    # U2-11 → R5
-        ("OK_HYST", int(3.5e6), int(8e6), int(5e6), int(8e6)),    # U2-10 → R6
-        ("VRDIV", int(3.5e6), int(9e6), int(6e6), int(6e6)),      # U2-8 → C22
-        ("VOUT_SET", int(6e6), int(8e6), int(7e6), int(8e6)),     # U2-12 → R7/R8
+        ("OK_PROG", int(3.0e6), int(8e6), int(4e6), int(8e6)),  # U2-11 → R5
+        ("OK_HYST", int(3.5e6), int(8e6), int(5e6), int(8e6)),  # U2-10 → R6
+        ("VRDIV", int(3.5e6), int(9e6), int(6e6), int(6e6)),  # U2-8 → C22
+        ("VOUT_SET", int(6e6), int(8e6), int(7e6), int(8e6)),  # U2-12 → R7/R8
     ]
     for net_name, x1, y1, x2, y2 in bq_prog:
         ncode = netcode_map.get(net_name, 0)
@@ -1543,60 +1857,108 @@ def _route_critical_nets(board, pn, netcode_map):
     # Extra VOUT_SET segment for R8
     ncode = netcode_map.get("VOUT_SET", 0)
     if ncode:
-        _add_track(board, pn, int(7e6), int(8e6), int(7e6), int(7e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(7e6), int(8e6), int(7e6), int(7e6), TRACK_W, pn.F_Cu, ncode
+        )
+
     # ═══════════════════════════════════════════════════════════
     # 8. LEDs
     # ═══════════════════════════════════════════════════════════
     # LED_PWR: Q1(8,12) → R13(12,2) → LED1(12,1)
     ncode = netcode_map.get("LED_PWR", 0)
     if ncode:
-        _add_track(board, pn, int(8e6), int(12e6), int(8e6), int(2e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(8e6), int(2e6), int(12e6), int(2e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(8e6), int(12e6), int(8e6), int(2e6), TRACK_W, pn.F_Cu, ncode
+        )
+        _add_track(
+            board, pn, int(8e6), int(2e6), int(12e6), int(2e6), TRACK_W, pn.F_Cu, ncode
+        )
+
     # LED_STAT: R14(13,2) → LED2(14,1)
     ncode = netcode_map.get("LED_STAT", 0)
     if ncode:
-        _add_track(board, pn, int(13e6), int(2e6), int(14e6), int(1e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board, pn, int(13e6), int(2e6), int(14e6), int(1e6), TRACK_W, pn.F_Cu, ncode
+        )
+
     # ═══════════════════════════════════════════════════════════
     # 9. Crystal Oscillator
     # ═══════════════════════════════════════════════════════════
     # XTAL_IN: U1(12,10) → X1(14,12) → C16(15,14)
     ncode = netcode_map.get("XTAL_IN", 0)
     if ncode:
-        _add_track(board, pn, int(13e6), int(11e6), int(14e6), int(12e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(14e6), int(12e6), int(15e6), int(14e6), TRACK_W, pn.F_Cu, ncode)
-    
+        _add_track(
+            board,
+            pn,
+            int(13e6),
+            int(11e6),
+            int(14e6),
+            int(12e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
+        _add_track(
+            board,
+            pn,
+            int(14e6),
+            int(12e6),
+            int(15e6),
+            int(14e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
+
     # XTAL_OUT: U1(12,10) → X1(14,12) → C17(16,14)
     ncode = netcode_map.get("XTAL_OUT", 0)
     if ncode:
-        _add_track(board, pn, int(13e6), int(11e6), int(14e6), int(13e6), TRACK_W, pn.F_Cu, ncode)
-        _add_track(board, pn, int(14e6), int(13e6), int(16e6), int(14e6), TRACK_W, pn.F_Cu, ncode)
+        _add_track(
+            board,
+            pn,
+            int(13e6),
+            int(11e6),
+            int(14e6),
+            int(13e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
+        _add_track(
+            board,
+            pn,
+            int(14e6),
+            int(13e6),
+            int(16e6),
+            int(14e6),
+            TRACK_W,
+            pn.F_Cu,
+            ncode,
+        )
 
 
 def _add_power_vias(board, pn, netcode_map):
     """Add via stitching between component power pads and inner layer pours.
-    
+
     Connects 3.3V pads to In2.Cu (power plane) and GND pads to In1.Cu (ground plane)
     using small vias near each IC.
     """
-    VIA_DIAM = int(0.5e6)   # 0.5mm via diameter
+    VIA_DIAM = int(0.5e6)  # 0.5mm via diameter
     VIA_DRILL = int(0.25e6)  # 0.25mm drill
-    
+
     gnd_code = netcode_map.get("GND", 0)
     pwr_code = netcode_map.get("3.3V", 0)
-    
+
     # Create vias near each IC for power/ground connections
     via_locations = {
         "U1": [(int(11e6), int(9e6)), (int(13e6), int(11e6))],  # Near STM32
-        "U2": [(int(3e6), int(9e6)), (int(5e6), int(11e6))],     # Near BQ25570
-        "U3": [(int(23e6), int(9e6)), (int(25e6), int(11e6))],   # Near ST25DV04K
+        "U2": [(int(3e6), int(9e6)), (int(5e6), int(11e6))],  # Near BQ25570
+        "U3": [(int(23e6), int(9e6)), (int(25e6), int(11e6))],  # Near ST25DV04K
         "U4": [(int(17e6), int(11e6)), (int(19e6), int(13e6))],  # Near FRAM
-        "U5": [(int(17e6), int(7e6)), (int(19e6), int(9e6))],    # Near RTC
+        "U5": [(int(17e6), int(7e6)), (int(19e6), int(9e6))],  # Near RTC
         "U6": [(int(21e6), int(13e6)), (int(23e6), int(15e6))],  # Near FDC1004
     }
-    
+
     for ref, positions in via_locations.items():
         for i, (vx, vy) in enumerate(positions):
             # Alternate between GND and 3.3V
@@ -1604,7 +1966,7 @@ def _add_power_vias(board, pn, netcode_map):
             if netcode == 0:
                 continue
             via = pn.PCB_VIA(board)
-            via.SetPosition(pn.wxPoint(vx, vy))
+            via.SetPosition(pn.VECTOR2I(vx, vy))
             via.SetWidth(VIA_DIAM)
             via.SetDrill(VIA_DRILL)
             via.SetLayer(pn.F_Cu)  # Start on top layer
@@ -1615,8 +1977,8 @@ def _add_power_vias(board, pn, netcode_map):
 def _add_track(board, pn, x1, y1, x2, y2, width, layer, netcode=0):
     """Helper to add a PCB track segment."""
     track = pn.PCB_TRACK(board)
-    track.SetStart(pn.wxPoint(int(x1), int(y1)))
-    track.SetEnd(pn.wxPoint(int(x2), int(y2)))
+    track.SetStart(pn.VECTOR2I(int(x1), int(y1)))
+    track.SetEnd(pn.VECTOR2I(int(x2), int(y2)))
     track.SetWidth(int(width))
     track.SetLayer(layer)
     if netcode > 0:
@@ -1631,8 +1993,8 @@ def generate_pcb_string():
     uid_board = det_uuid("board_outline")
     net_names = sorted(set(n[0] for n in NETS))
     pcb_nets = "\n".join(f'  (net {i} "{name}")' for i, name in enumerate(net_names))
-    
-    s = f'(kicad_pcb (version {KICAD_VERSION}) (generator mykovolt_gen)\n'
+
+    s = f"(kicad_pcb (version {KICAD_VERSION}) (generator mykovolt_gen)\n"
     s += "  (general\n    (thickness 0.8)\n  )\n"
     s += '  (paper "A4")\n'
     s += "  (layers\n"
@@ -1663,7 +2025,7 @@ def generate_pcb_string():
     s += '      (layer "B.Paste" (type "Bottom Solder Paste"))\n'
     s += '      (layer "B.SilkS" (type "Bottom Silk Screen") (color "White"))\n'
     s += '      (copper_finish "None")\n'
-    s += '      (dielectric_constraints no)\n'
+    s += "      (dielectric_constraints no)\n"
     s += "    )\n"
     s += "    (pad_to_mask_clearance 0)\n"
     s += "  )\n"
@@ -1675,14 +2037,14 @@ def generate_pcb_string():
     s += f"      (pts (xy 0 0) (xy {w} 0) (xy {w} {h}) (xy 0 {h}))\n"
     s += '      (layer "Edge.Cuts") (width 0.1)\n'
     s += "    )\n"
-    s += f'    (fp_text user "MykoVolt DevKit v{VERSION}" (at {w//2/1e6} {h//2/1e6 + 2} 0)\n'
+    s += f'    (fp_text user "MykoVolt DevKit v{VERSION}" (at {w // 2 / 1e6} {h // 2 / 1e6 + 2} 0)\n'
     s += '      (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15)))\n'
     s += "    )\n"
-    s += f'    (fp_text user "30x20mm 4L ENIG RevA" (at {w//2/1e6} {h//2/1e6 + 3.5} 0)\n'
+    s += f'    (fp_text user "30x20mm 4L ENIG RevA" (at {w // 2 / 1e6} {h // 2 / 1e6 + 3.5} 0)\n'
     s += '      (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12)))\n'
     s += "    )\n"
     s += "  )\n"
-    
+
     for ref, value, footprint, _, _ in COMPONENTS:
         if ref not in PCB_POS:
             continue
@@ -1690,13 +2052,13 @@ def generate_pcb_string():
         x, y = x_nm / 1e6, y_nm / 1e6
         uid = det_uuid(f"fp_{ref}")
         s += f'  (footprint "{footprint}" (layer "F.Cu") (tedit 0) (tstamp "{uid}")\n'
-        s += f'    (at {x} {y} 0)\n'
+        s += f"    (at {x} {y} 0)\n"
         s += f'    (fp_text reference "{ref}" (at 0 0 0) (layer "F.SilkS")\n'
         s += "      (effects (font (size 1 1) (thickness 0.15))))\n"
         s += f'    (fp_text value "{value}" (at 0 -2 0) (layer "F.Fab")\n'
         s += "      (effects (font (size 1 1) (thickness 0.15))))\n"
         s += "  )\n"
-    
+
     s += ")\n"
     return s
 
@@ -1704,6 +2066,7 @@ def generate_pcb_string():
 # ═══════════════════════════════════════════════════════════════
 # Project File Generation
 # ═══════════════════════════════════════════════════════════════
+
 
 def generate_project():
     """Generate the KiCad project file (.kicad_pro)."""
@@ -1760,28 +2123,28 @@ def generate_project():
 
 def generate_gerbers():
     """Export Gerber and drill files for PCB fabrication.
-    
+
     Uses pcbnew PLOT_CONTROLLER to generate:
     - Individual Gerber files for each copper/silkscreen/mask layer
     - NC drill file (Excellon format)
-    
+
     Output goes to gerber/ subdirectory.
     """
     import pcbnew as pn
     import os
-    
+
     pcb_path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_pcb")
     if not os.path.exists(pcb_path):
         print("  ⚠ PCB file not found, regenerate first")
         return None
-    
+
     board = pn.LoadBoard(pcb_path)
     gerber_dir = os.path.join(PROJECT_DIR, "gerber")
     os.makedirs(gerber_dir, exist_ok=True)
-    
+
     ctrl = pn.PLOT_CONTROLLER(board)
     opts = ctrl.GetPlotOptions()
-    
+
     # Configure plot options for JLCPCB-compatible Gerbers
     opts.SetOutputDirectory(gerber_dir)
     opts.SetFormat(pn.PLOT_FORMAT_GERBER)
@@ -1789,23 +2152,23 @@ def generate_gerbers():
     opts.SetPlotValue(True)
     opts.SetPlotReference(True)
     # KiCad 8+ uses SetPlotFPText; KiCad 6 used SetPlotInvisibleText
-    if hasattr(opts, 'SetPlotInvisibleText'):
+    if hasattr(opts, "SetPlotInvisibleText"):
         opts.SetPlotInvisibleText(False)
-    if hasattr(opts, 'SetPlotFPText'):
+    if hasattr(opts, "SetPlotFPText"):
         opts.SetPlotFPText(True)
     opts.SetAutoScale(False)
     opts.SetScale(1)
     opts.SetUseAuxOrigin(True)
     opts.SetNegative(False)
     opts.SetSkipPlotNPTH_Pads(False)
-    if hasattr(opts, 'SetExcludeEdgeLayer'):
+    if hasattr(opts, "SetExcludeEdgeLayer"):
         opts.SetExcludeEdgeLayer(False)
     opts.SetUseGerberX2format(True)
     opts.SetUseGerberProtelExtensions(True)
     opts.SetIncludeGerberNetlistInfo(False)
     opts.SetCreateGerberJobFile(True)
     opts.SetSubtractMaskFromSilk(True)
-    
+
     # Define layers to plot
     layers_to_plot = [
         (pn.F_Cu, "F.Cu"),
@@ -1820,37 +2183,39 @@ def generate_gerbers():
         (pn.B_Paste, "B.Paste"),
         (pn.Edge_Cuts, "Edge.Cuts"),
     ]
-    
+
     plotted = []
     for layer_id, layer_name in layers_to_plot:
         ctrl.SetLayer(layer_id)
         try:
-            ctrl.OpenPlotfile(layer_name.replace(".", "_"), pn.PLOT_FORMAT_GERBER, layer_name)
+            ctrl.OpenPlotfile(
+                layer_name.replace(".", "_"), pn.PLOT_FORMAT_GERBER, layer_name
+            )
             ctrl.PlotLayer()
             plotted.append(layer_name)
         except Exception as e:
             print(f"    ⚠ Error plotting {layer_name}: {e}")
-    
+
     ctrl.ClosePlot()
-    
+
     # Generate NC drill files
     try:
         drill_writer = pn.EXCELLON_WRITER(board)
         drill_writer.SetFormat(True)  # Use metric
         # KiCad 9+ API uses VECTOR2I instead of wxPoint
-        if hasattr(pn, 'VECTOR2I'):
+        if hasattr(pn, "VECTOR2I"):
             drill_writer.SetOptions(False, False, pn.VECTOR2I(0, 0), False)
         else:
-            drill_writer.SetOptions(False, False, pn.wxPoint(0, 0), False)
+            drill_writer.SetOptions(False, False, pn.VECTOR2I(0, 0), False)
         drill_writer.CreateDrillandMapFilesSet(gerber_dir, True, False)
         plotted.append("NC Drill")
     except Exception as e:
         print(f"    ⚠ Error generating drill file: {e}")
-    
+
     print(f"  ✓ Generated {len(plotted)} files in {gerber_dir}/")
     for layer in plotted:
         print(f"    - {layer}")
-    
+
     return gerber_dir
 
 
@@ -1866,10 +2231,11 @@ def generate_netlist_string():
     lines.append(f"\n# Total connections: {total}")
     return "\n".join(lines)
 
+
 def main(argv=None):
     """
     Main entry point for KiCad project generation.
-    
+
     Args:
         argv: Command-line arguments (default: sys.argv[1:]).
               Pass [] to use all defaults.
@@ -1878,22 +2244,24 @@ def main(argv=None):
         argv = sys.argv[1:]
     # Save and restore sys.argv for argparser
     old_argv = sys.argv
-    sys.argv = ['generate_kicad.py'] + (argv if argv else [])
+    sys.argv = ["generate_kicad.py"] + (argv if argv else [])
     try:
         args = parse_args()
     finally:
         sys.argv = old_argv
     config = load_config(args.config)
-    
+
     print(f"=== MykoVolt KiCad Project Generator v{VERSION} ===\n")
     print(f"  Board: {config['board']['name']} rev{config['board']['revision']}")
-    print(f"  Size:  {config['board']['width_mm']}×{config['board']['height_mm']}mm, {config['board']['layers']}-layer")
+    print(
+        f"  Size:  {config['board']['width_mm']}×{config['board']['height_mm']}mm, {config['board']['layers']}-layer"
+    )
     print()
-    
+
     if args.variant:
         print(f"  Variant: {args.variant}")
         # Apply variant filters (future: component substitution)
-    
+
     # ── 1. Generate Project File ──
     print("Generating project file...")
     proj = generate_project()
@@ -1901,7 +2269,7 @@ def main(argv=None):
     with open(path, "w") as f:
         f.write(proj)
     print(f"  ✓ {BOARD_NAME}.kicad_pro ({len(proj)} bytes)")
-    
+
     # ── 2. Generate Schematic ──
     if not args.skip_schematic:
         print("Generating schematic...")
@@ -1914,12 +2282,14 @@ def main(argv=None):
                 sch_str = generate_schematic_string()
         else:
             sch_str = generate_schematic_string()
-        
+
         path = os.path.join(PROJECT_DIR, f"{BOARD_NAME}.kicad_sch")
         with open(path, "w") as f:
             f.write(sch_str)
-        print(f"  ✓ {BOARD_NAME}.kicad_sch ({len(sch_str)} bytes, {len(COMPONENTS)} components)")
-    
+        print(
+            f"  ✓ {BOARD_NAME}.kicad_sch ({len(sch_str)} bytes, {len(COMPONENTS)} components)"
+        )
+
     # ── 3. Generate PCB Layout ──
     if not args.skip_pcb:
         print("Generating PCB layout...")
@@ -1929,7 +2299,9 @@ def main(argv=None):
                 with open(pcb_path, "r") as f:
                     pcb_len = len(f.read())
                 fp_count = len([c for c in COMPONENTS if c[0] in PCB_POS])
-                print(f"  ✓ {os.path.basename(pcb_path)} ({pcb_len} bytes, {fp_count} footprints) [pcbnew]")
+                print(
+                    f"  ✓ {os.path.basename(pcb_path)} ({pcb_len} bytes, {fp_count} footprints) [pcbnew]"
+                )
             except Exception as e:
                 print(f"  ⚠ pcbnew failed ({e}), fallback")
                 pcb_str = generate_pcb_string()
@@ -1943,7 +2315,7 @@ def main(argv=None):
             with open(path, "w") as f:
                 f.write(pcb_str)
             print(f"  ✓ {BOARD_NAME}.kicad_pcb ({len(pcb_str)} bytes) [string]")
-    
+
     # ── 4. Generate Netlist ──
     print("Generating netlist...")
     net = generate_netlist_string()
@@ -1951,8 +2323,10 @@ def main(argv=None):
     with open(path, "w") as f:
         f.write(net)
     total_pins = sum(len(c[1]) for c in NETS)
-    print(f"  ✓ {BOARD_NAME}.net ({len(net)} bytes, {len(NETS)} nets, {total_pins} connections)")
-    
+    print(
+        f"  ✓ {BOARD_NAME}.net ({len(net)} bytes, {len(NETS)} nets, {total_pins} connections)"
+    )
+
     # ── Summary ──
     sep = chr(0x2500) * 62
     print(f"\n{sep}")
@@ -1964,7 +2338,7 @@ def main(argv=None):
     print(f"\n{chr(0x2500) * 62}")
     print(f"\n  Output: {PROJECT_DIR}/")
     print(f"  Open with: kicad hardware/kicad/{BOARD_NAME}.kicad_pro")
-    
+
     # ── Export Gerbers ──
     if HAVE_PCBNEW and not args.skip_gerber:
         print("\nExporting Gerber files...")
