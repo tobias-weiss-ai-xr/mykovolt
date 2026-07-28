@@ -26,31 +26,32 @@ extern "C" {
  * ======================================================================== */
 
 /* Load bank MOSFET gates (repurposed from dev kit) */
-#define PIN_LOAD_R1          GPIO_PIN_6    /* PA0 — 10 kΩ load (trickle) */
+#define PIN_LOAD_R1          GPIO_PIN_0    /* PA0 — 10 kΩ load (trickle) */
 #define PORT_LOAD_R1         GPIOA
-#define PIN_LOAD_R2          GPIO_PIN_7    /* PA1 — 100 Ω load (low) */
+#define PIN_LOAD_R2          GPIO_PIN_1    /* PA1 — 100 Ω load (low) */
 #define PORT_LOAD_R2         GPIOA
-#define PIN_LOAD_R3          GPIO_PIN_8    /* PA2 — 10 Ω load (medium) */
+#define PIN_LOAD_R3          GPIO_PIN_2    /* PA2 — 10 Ω load (medium) */
 #define PORT_LOAD_R3         GPIOA
-#define PIN_LOAD_R4          GPIO_PIN_9    /* PA3 — 1 Ω load (heavy) */
+#define PIN_LOAD_R4          GPIO_PIN_3    /* PA3 — 1 Ω load (heavy) */
 #define PORT_LOAD_R4         GPIOA
 
 /* Power management — BQ25570 */
-#define PIN_VBAT_OK          GPIO_PIN_14   /* PB1 — VBAT_OK indicator */
-#define PIN_LOAD_SW_GATE     GPIO_PIN_10   /* PA4 — Q1 gate control */
+#define PIN_VBAT_OK          GPIO_PIN_1    /* PB1 — VBAT_OK indicator */
+#define PORT_VBAT_OK         GPIOB
+#define PIN_LOAD_SW_GATE     GPIO_PIN_4    /* PA4 — Q1 gate control */
 
 /* NFC — ST25DV04K */
-#define PIN_NFC_IRQ          GPIO_PIN_11   /* PA5 — NFC interrupt */
+#define PIN_NFC_IRQ          GPIO_PIN_5    /* PA5 — NFC interrupt */
 
 /* RTC — PCF8523 */
-#define PIN_RTC_INT          GPIO_PIN_12   /* PA6 — RTC interrupt */
+#define PIN_RTC_INT          GPIO_PIN_6    /* PA6 — RTC interrupt */
 
 /* LED */
-#define PIN_LED_CTRL         GPIO_PIN_13   /* PA7 — yellow LED */
+#define PIN_LED_CTRL         GPIO_PIN_7    /* PA7 — yellow LED */
 
 /* I2C1 */
-#define PIN_I2C1_SCL         GPIO_PIN_17   /* PA9 */
-#define PIN_I2C1_SDA         GPIO_PIN_18   /* PA10 */
+#define PIN_I2C1_SCL         GPIO_PIN_9    /* PA9 */
+#define PIN_I2C1_SDA         GPIO_PIN_10   /* PA10 */
 
 /* ========================================================================
  *   I2C Address Map
