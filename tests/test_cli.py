@@ -20,3 +20,61 @@ def test_cli_help():
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
     assert "Usage:" in result.output
+
+
+def test_cli_subcommands_in_help():
+    from mykovolt.cli import cli
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["--help"])
+    assert result.exit_code == 0
+    assert "pipeline" in result.output
+    assert "fetch" in result.output
+    assert "parse" in result.output
+    assert "calibrate" in result.output
+    assert "plot" in result.output
+
+
+def test_cli_fetch_no_backend():
+    from mykovolt.cli import cli
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["fetch"])
+    assert result.exit_code != 0
+
+
+def test_cli_parse_help():
+    from mykovolt.cli import cli
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["parse", "--help"])
+    assert result.exit_code == 0
+    assert "INPUT" in result.output
+
+
+def test_cli_parse_valid_file(tmp_path):
+    import struct
+    from mykovolt.cli import cli
+
+    data = struct.pack(">HBH", 0x4D56, 0x01, 12)
+    data = data.ljust(256, b"\x00")
+    entry = struct.pack(">IHHHB", 1000, 12345, 3100, 1500, 0x01)
+    crc = 0
+    for b in entry:
+        crc ^= b
+    data += entry + bytes([crc])
+    fram_file = tmp_path / "fram.bin"
+    fram_file.write_bytes(data)
+    runner = CliRunner()
+    result = runner.invoke(cli, ["parse", str(fram_file)])
+    assert result.exit_code == 0
+    assert "1000" in result.output
+    assert "123.45" in result.output
+
+
+def test_cli_pipeline_help():
+    from mykovolt.cli import cli
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["pipeline", "--help"])
+    assert result.exit_code == 0
