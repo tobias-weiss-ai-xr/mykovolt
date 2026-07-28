@@ -172,6 +172,28 @@ def test_parse_entries_versioned_v2():
     assert isinstance(entries[0], TestFixtureEntry)
 
 
+def test_parse_entries_versioned_v2_empty():
+    from mykovolt.schema import FRAM_MAGIC, FRAM_ENTRY_SIZE_V2
+
+    header_data = struct.pack(">HBH", FRAM_MAGIC, 2, 0) + b"\x00" * 251
+    header = parse_header(header_data)
+    entries = parse_entries_versioned(header, b"\x00" * 100)
+    assert entries == []
+
+
+def test_parse_entries_versioned_v2_multiple():
+    from mykovolt.schema import FRAM_MAGIC, FRAM_ENTRY_SIZE_V2
+
+    header_data = (
+        struct.pack(">HBH", FRAM_MAGIC, 2, FRAM_ENTRY_SIZE_V2 * 3) + b"\x00" * 251
+    )
+    header = parse_header(header_data)
+    data = b"\x00" * (FRAM_ENTRY_SIZE_V2 * 5)
+    entries = parse_entries_versioned(header, data)
+    assert len(entries) == 3
+    assert all(isinstance(e, TestFixtureEntry) for e in entries)
+
+
 def test_parse_entries_versioned_unknown_version():
     from mykovolt.schema import FRAM_MAGIC
 

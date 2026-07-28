@@ -13,6 +13,26 @@ FRAM_MAX_ENTRIES = 149
 FRAM_MAX_ENTRIES_V2 = 137
 
 
+def _xor_crc(data: bytes) -> int:
+    crc = 0
+    for b in data:
+        crc ^= b
+    return crc
+
+
+def _parse_entries_impl(
+    data: bytes, count: int, entry_size: int, entry_cls: type
+) -> list:
+    entries = []
+    for i in range(count):
+        offset = i * entry_size
+        chunk = data[offset : offset + entry_size]
+        if len(chunk) < entry_size:
+            break
+        entries.append(entry_cls.from_bytes(chunk))
+    return entries
+
+
 @dataclass
 class RingBufferHeader:
     magic: int
@@ -35,9 +55,7 @@ class SensorEntry:
             raise ValueError(f"Need {FRAM_ENTRY_SIZE} bytes, got {len(data)}")
         ts, cap_x100, v_batt, v_sense, status = struct.unpack(">IHHHB", data[:11])
         stored_crc = data[11]
-        computed_crc = 0
-        for b in data[:11]:
-            computed_crc ^= b
+        computed_crc = _xor_crc(data[:11])
         return cls(
             timestamp=ts,
             capacitance_pf=cap_x100 / 100.0,
@@ -58,18 +76,13 @@ def parse_header(data: bytes) -> RingBufferHeader | None:
 
 
 def parse_entries(data: bytes, count: int) -> list[SensorEntry]:
-    entries = []
-    for i in range(count):
-        offset = i * FRAM_ENTRY_SIZE
-        chunk = data[offset : offset + FRAM_ENTRY_SIZE]
-        if len(chunk) < FRAM_ENTRY_SIZE:
-            break
-        entries.append(SensorEntry.from_bytes(chunk))
-    return entries
+    return _parse_entries_impl(data, count, FRAM_ENTRY_SIZE, SensorEntry)
 
 
 @dataclass
 class TestFixtureEntry:
+    __test__ = False
+
     timestamp: int
     voc_mv: int
     load_current_ma: int
@@ -87,16 +100,14 @@ class TestFixtureEntry:
             ">IHhBbBB", data[:12]
         )
         stored_crc = data[12]
-        computed_crc = 0
-        for b in data[:12]:
-            computed_crc ^= b
+        computed_crc = _xor_crc(data[:12])
         return cls(
             timestamp=ts,
             voc_mv=voc,
             load_current_ma=load_ma,
             load_resistor_index=resistor,
             temp_c=temp,
-            humidity_pct=max(rh, 0),
+            humidity_pct=rh,
             status=status,
             crc_ok=(stored_crc == computed_crc),
         )
@@ -113,13 +124,6 @@ def parse_entries_versioned(
     elif header.version == 2:
         entry_size = FRAM_ENTRY_SIZE_V2
         count = min(header.write_ptr // entry_size, FRAM_MAX_ENTRIES_V2)
-        entries = []
-        for i in range(count):
-            offset = i * entry_size
-            chunk = data[offset : offset + entry_size]
-            if len(chunk) < entry_size:
-                break
-            entries.append(TestFixtureEntry.from_bytes(chunk))
-        return entries
+        return _parse_entries_impl(data, count, entry_size, TestFixtureEntry)
     else:
         raise ValueError(f"Unknown FRAM version {header.version}")
