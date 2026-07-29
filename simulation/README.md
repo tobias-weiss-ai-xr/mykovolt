@@ -172,6 +172,6 @@ python3 product_explorer.py          # Level 10: 30 Produktkonzepte scannen
 python3 product_explorer.py --novel-only  # Nur die neuen Konzepte
 python3 product_explorer.py --concept "soil-moisture"  # Deep-Dive eines Konzepts
 python3 visualize.py                 # Plots
-pytest tests/                        # Run all 35 tests
+pytest tests/                        # Run full test suite
 ```
 

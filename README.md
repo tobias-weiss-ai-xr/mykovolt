@@ -2,6 +2,11 @@
 
 **A modular, compostable sensing platform for environments where sensors can be placed but never retrieved.**
 
+[![CI](https://github.com/tobias-weiss-ai-xr/mykovolt/actions/workflows/pcb-ci.yml/badge.svg)](https://github.com/tobias-weiss-ai-xr/mykovolt/actions/workflows/pcb-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Hardware: CERN-OHL-P](https://img.shields.io/badge/Hardware-CERN--OHL--P-blue.svg)](LICENSE_HARDWARE)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg)](pyproject.toml)
+
 ---
 
 ## The Idea
