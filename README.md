@@ -43,11 +43,12 @@ Each layer is documented in the [platform architecture](platform/architecture/ov
 | `hardware/kicad/` | PCB design (DevKit v0.1: 30×20mm, 4-layer, 57 components) |
 | `firmware/` | STM32L011 firmware (C, ARM GCC, zero warnings) |
 | `simulation/` | 11-level simulation pipeline (Bayesian optimization, degradation, BOM) |
-| `tests/` | 95 pytest tests (simulation, hardware, firmware, DRC, Gerber validation) |
+| `tests/` | 175 pytest tests (simulation, hardware, firmware, DRC, CLI) |
+| `mykovolt/` | Python CLI package (fetch, parse, calibrate, export, plot) |
 | `tools/` | CI/CD, Gerber validation, parametric sweep, test fixture generator |
 | `platform/architecture/` | Platform vision, layer specifications, research roadmap |
-| `applications/` | Application-specific designs (DevKit → future products) |
-| `docs/` | Business docs, grants, prototyping, technical specifications |
+| `applications/` | Application-specific designs |
+| `docs/` | Technical specifications, prototyping guides, product concepts |
 
 ---
 
