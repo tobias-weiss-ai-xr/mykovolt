@@ -96,6 +96,10 @@ python3 tools/validate_gerbers.py --thermal --bom
 
 ## License
 
-- **Hardware:** CERN-OHL-P v2
-- **Firmware & Software:** MIT
+- **Hardware:** [CERN-OHL-P v2](LICENSE_HARDWARE)
+- **Firmware & Software:** [MIT](LICENSE)
 - **Documentation:** CC-BY 4.0
+
+---
+
+*Built with curiosity for a planet that doesn't need more toxic waste in the ground.*
