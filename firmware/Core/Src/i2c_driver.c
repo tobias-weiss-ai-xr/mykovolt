@@ -37,7 +37,6 @@ void i2c_init(void) {
     RCC->APB1RSTR &= ~RCC_APB1RSTR_I2C1RST;
 
     /* Configure GPIO: PA9=SCL(AF1), PA10=SDA(AF1), open-drain */
-    GPIOA->MODER &= ~(GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
     GPIOA->MODER = (GPIOA->MODER & ~(GPIO_MODER_MODE9 | GPIO_MODER_MODE10)) | GPIO_MODER_MODE9_1 | GPIO_MODER_MODE10_1;  /* AF = 0b10 */
     GPIOA->OTYPER |= GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10; /* Open-drain */
     GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPD9 | GPIO_PUPDR_PUPD10);
@@ -109,8 +108,7 @@ bool i2c_write_reg(uint8_t addr, uint8_t reg, const uint8_t *data, uint16_t len)
     }
 
     /* Start: send slave address + W */
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
-    I2C1->CR2 |= (len + 1) | I2C_CR2_AUTOEND;  /* Nbytes = register + data */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | ((uint32_t)(len + 1)) | I2C_CR2_AUTOEND;
 
     if (!wait_for_flag(I2C_ISR_TXIS, true)) {
         i2c_busy = false;
@@ -156,8 +154,7 @@ bool i2c_read_reg(uint8_t addr, uint8_t reg, uint8_t *data, uint16_t len) {
     }
 
     /* Phase 1: Send register address (write) */
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
-    I2C1->CR2 |= 1;  /* Send 1 byte (register address) */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | 1;
 
     if (!wait_for_flag(I2C_ISR_TXIS, true)) {
         i2c_busy = false;
@@ -171,8 +168,7 @@ bool i2c_read_reg(uint8_t addr, uint8_t reg, uint8_t *data, uint16_t len) {
     }
 
     /* Phase 2: Restart + read */
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN;
-    I2C1->CR2 |= len | I2C_CR2_AUTOEND;
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN | ((uint32_t)len) | I2C_CR2_AUTOEND;
 
     for (uint16_t i = 0; i < len; i++) {
         if (!wait_for_flag(I2C_ISR_RXNE, true)) {
@@ -208,8 +204,7 @@ bool i2c_write_reg16(uint8_t addr, uint16_t reg, const uint8_t *data, uint16_t l
         return false;
     }
 
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
-    I2C1->CR2 |= (len + 2) | I2C_CR2_AUTOEND;
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | ((uint32_t)(len + 2)) | I2C_CR2_AUTOEND;
 
     if (!wait_for_flag(I2C_ISR_TXIS, true)) {
         i2c_busy = false;
@@ -257,8 +252,7 @@ bool i2c_read_reg16(uint8_t addr, uint16_t reg, uint8_t *data, uint16_t len)
     }
 
     /* Phase 1: Send 16-bit register address */
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START;
-    I2C1->CR2 |= 2;
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | 2;
 
     if (!wait_for_flag(I2C_ISR_TXIS, true)) {
         i2c_busy = false;
@@ -278,8 +272,42 @@ bool i2c_read_reg16(uint8_t addr, uint16_t reg, uint8_t *data, uint16_t len)
     }
 
     /* Phase 2: Restart + read */
-    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN;
-    I2C1->CR2 |= len | I2C_CR2_AUTOEND;
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN | ((uint32_t)len) | I2C_CR2_AUTOEND;
+
+    for (uint16_t i = 0; i < len; i++) {
+        if (!wait_for_flag(I2C_ISR_RXNE, true)) {
+            i2c_busy = false;
+            return false;
+        }
+        data[i] = I2C1->RXDR;
+    }
+
+    if (!wait_for_flag(I2C_ISR_STOPF, true)) {
+        i2c_busy = false;
+        return false;
+    }
+
+    I2C1->ICR = I2C_ICR_STOPCF;
+    i2c_busy = false;
+    return true;
+}
+
+/* ========================================================================
+ *   Raw read (no register address)
+ * ======================================================================== */
+
+bool i2c_read_raw(uint8_t addr, uint8_t *data, uint16_t len) {
+    if (i2c_busy || len == 0) return false;
+    i2c_busy = true;
+
+    if (!wait_for_flag(I2C_ISR_BUSY, false)) {
+        I2C1->ICR = 0xFFFFFFFF;
+        i2c_busy = false;
+        return false;
+    }
+
+    /* Start + read directly (no register address phase) */
+    I2C1->CR2 = (addr << 1) | I2C_CR2_START | I2C_CR2_RD_WRN | ((uint32_t)len) | I2C_CR2_AUTOEND;
 
     for (uint16_t i = 0; i < len; i++) {
         if (!wait_for_flag(I2C_ISR_RXNE, true)) {

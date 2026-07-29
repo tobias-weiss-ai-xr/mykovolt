@@ -16,7 +16,7 @@ extern "C" {
 /* ── Constants ── */
 
 #define MB85RC16_SIZE         2048  /* 16Kbit = 2KB */
-#define MB85RC16_PAGE_SIZE    4     /* Max bytes per write */
+#define MB85RC16_PAGE_SIZE    4     /* FRAM has no page restriction; kept for API compatibility */
 #define MB85RC16_ADDR_MAX     0x07FF
 
 /* ── Public API ── */

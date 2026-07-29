@@ -36,7 +36,7 @@ Level 7: Uncertainty-Aware Digital Twin (Bootstrap-Ensembles)
 | `pressling_viability.py` | 8 | **Pressling-Viability:** O2-Diffusion im Boden, Pressschäden, Monte-Carlo (deckt O2-Problem auf) |
 | `alternatives.py` | 9 | **Alternativen-Vergleich:** Air-Chimney, Mg-Air, Split-MFC, NFC-passiv, Tiefen-Sweep, Gewichtete Entscheidungsmatrix |
 | `product_explorer.py` | 10 | **Product Concept Scanner:** Bewertet 30+ Produktkonzepte gegen Batterie-Physik (Power, O2, Formfaktor, Markt) |
-| `manufacturing_bom.py` | 11 | **Manufacturing BOM:** Bottom-up Kostenmodell für alle 3 Pfade (Pressling, Mg-Air, NFC) in 3 Volumen-Stufen |
+| `manufacturing_bom.py` | 11 | *(cost model — see notes)* |
 | `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
 | `../docs/product/product_concepts.md` | — | 30 Produktkonzepte (15 bekannte + 15 neue) mit Machbarkeits-Scan |
 
@@ -171,9 +171,6 @@ python3 alternatives.py              # Level 9: Dual-Path-Vergleich
 python3 product_explorer.py          # Level 10: 30 Produktkonzepte scannen
 python3 product_explorer.py --novel-only  # Nur die neuen Konzepte
 python3 product_explorer.py --concept "soil-moisture"  # Deep-Dive eines Konzepts
-python3 manufacturing_bom.py         # Level 11: Kostenmodell
-python3 manufacturing_bom.py --itemized --path a  # Detailierte BOM für Pfad A
-python3 manufacturing_bom.py --sensitivity        # Monte-Carlo Kostenanalyse
 python3 visualize.py                 # Plots
 pytest tests/                        # Run all 35 tests
 ```

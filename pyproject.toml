@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mykovolt"
+version = "0.1.0"
+description = "CLI tooling for MykoVolt DevKit sensor platform"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+]
+
+[project.scripts]
+mykovolt = "mykovolt.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["mykovolt*"]

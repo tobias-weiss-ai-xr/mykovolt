@@ -63,3 +63,4 @@ skidl_REPL.sch
 *.erc
 *.kicad_prl
 fp-info-cache
+.superpowers/

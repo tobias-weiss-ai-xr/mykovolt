@@ -60,7 +60,7 @@ add_compile_options(
 
 add_compile_definitions(
     ${MCU_FAMILY}
-    HSE_VALUE=16000000
+    # HSE_VALUE not used (board has no HSE crystal, uses internal HSI 16MHz)
 )
 
 # ── Link options ──

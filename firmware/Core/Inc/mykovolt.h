@@ -18,35 +18,56 @@ extern "C" {
 #include "stm32l011xx.h"
 
 /* ========================================================================
+ *   GPIO Pin Bit Masks (replaces HAL GPIO_PIN_x macros)
+ * ======================================================================== */
+
+#define GPIO_PIN_0   (1U << 0)
+#define GPIO_PIN_1   (1U << 1)
+#define GPIO_PIN_2   (1U << 2)
+#define GPIO_PIN_3   (1U << 3)
+#define GPIO_PIN_4   (1U << 4)
+#define GPIO_PIN_5   (1U << 5)
+#define GPIO_PIN_6   (1U << 6)
+#define GPIO_PIN_7   (1U << 7)
+#define GPIO_PIN_8   (1U << 8)
+#define GPIO_PIN_9   (1U << 9)
+#define GPIO_PIN_10  (1U << 10)
+#define GPIO_PIN_11  (1U << 11)
+#define GPIO_PIN_12  (1U << 12)
+#define GPIO_PIN_13  (1U << 13)
+#define GPIO_PIN_14  (1U << 14)
+#define GPIO_PIN_15  (1U << 15)
+
+/* ========================================================================
  *   Pin Mappings (STM32L011F4Px TSSOP-20)
  * ======================================================================== */
 
 /* Power management — BQ25570 */
-#define PIN_VBAT_OK          GPIO_PIN_14   /* PB1  — VBAT_OK indicator */
-#define PIN_LOAD_SW_GATE     GPIO_PIN_10   /* PA4  — Q1 gate control */
+#define PIN_VBAT_OK          GPIO_PIN_1    /* PB1  — VBAT_OK indicator */
+#define PIN_LOAD_SW_GATE     GPIO_PIN_4    /* PA4  — Q1 gate control */
 
 /* NFC — ST25DV04K */
-#define PIN_NFC_IRQ          GPIO_PIN_11   /* PA5  — NFC interrupt */
+#define PIN_NFC_IRQ          GPIO_PIN_5    /* PA5  — NFC interrupt */
 
 /* RTC — PCF8523 */
-#define PIN_RTC_INT          GPIO_PIN_12   /* PA6  — RTC interrupt */
+#define PIN_RTC_INT          GPIO_PIN_6    /* PA6  — RTC interrupt */
 
 /* Capacitance sensor — FDC1004 */
-#define PIN_SENSOR_RDY       GPIO_PIN_7    /* PA1  — sensor ready */
+#define PIN_SENSOR_RDY       GPIO_PIN_1    /* PA1  — sensor ready */
 
 /* Debug / UART */
-#define PIN_USART_TX         GPIO_PIN_8    /* PA2  */
-#define PIN_USART_RX         GPIO_PIN_9    /* PA3  */
+#define PIN_USART_TX         GPIO_PIN_2    /* PA2  */
+#define PIN_USART_RX         GPIO_PIN_3    /* PA3  */
 
 /* LEDs */
-#define PIN_LED_CTRL         GPIO_PIN_13   /* PA7  — yellow LED (LED2) */
+#define PIN_LED_CTRL         GPIO_PIN_7    /* PA7  — yellow LED (LED2) */
 
 /* ADC */
-#define PIN_V_SENSE          GPIO_PIN_6    /* PA0  — battery voltage */
+#define PIN_V_SENSE          GPIO_PIN_0    /* PA0  — battery voltage */
 
 /* I2C1 */
-#define PIN_I2C1_SCL         GPIO_PIN_17   /* PA9  */
-#define PIN_I2C1_SDA         GPIO_PIN_18   /* PA10 */
+#define PIN_I2C1_SCL         GPIO_PIN_9    /* PA9  */
+#define PIN_I2C1_SDA         GPIO_PIN_10   /* PA10 */
 
 /* ========================================================================
  *   I2C Address Map
