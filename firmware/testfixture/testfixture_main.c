@@ -32,6 +32,10 @@
 
 #include <string.h>
 
+/* Busy-wait calibration: assumes HSI 16MHz with -Os optimisation.
+ * Each volatile loop iteration ≈ 8 cycles → ~0.5µs per iteration.
+ * Adjust multipliers if clock or optimisation changes. */
+
 /* ========================================================================
  *   Local state
  * ======================================================================== */
@@ -67,7 +71,7 @@ static bool fram_ringbuffer_write(uint32_t timestamp, uint16_t voc_mv,
                                    int16_t load_current_ma, uint8_t load_idx,
                                    int8_t temp_c, uint8_t rh_pct,
                                    uint8_t status);
-static uint8_t entry_crc(const uint8_t *data, uint8_t len);
+static uint8_t entry_checksum(const uint8_t *data, uint8_t len);
 
 /* ========================================================================
  *   main
@@ -145,7 +149,6 @@ static void system_clock_init(void) {
     while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_HSI);
 
     RCC->CFGR &= ~(RCC_CFGR_HPRE | RCC_CFGR_PPRE1 | RCC_CFGR_PPRE2);
-    RCC->CSR |= RCC_CSR_LSEON;
 }
 
 /* ========================================================================
@@ -248,9 +251,12 @@ static void enter_sleep(void) {
 static void do_measurement(void) {
     int8_t  temp_c = 0;
     uint8_t rh_pct = 0;
-    sht30_read(&temp_c, &rh_pct);
 
     uint8_t status = 0;
+    if (!sht30_read(&temp_c, &rh_pct)) {
+        status |= 0x04;  /* SHT30 sensor failure */
+    }
+
     if (bq25570_vbat_ok()) status |= 0x01;
     if (st25dv04k_rf_present()) status |= 0x02;
 
@@ -279,7 +285,7 @@ static void do_measurement(void) {
             for (int i = 0; i < 4; i++) {
                 load_bank_set(loads[i]);
                 /* Dwell SWEEP_DWELL_MS (approximate busy-wait) */
-                for (volatile int j = 0; j < SWEEP_DWELL_MS * 200; j++);
+                for (volatile int j = 0; j < SWEEP_DWELL_MS * 2000; j++);
                 uint16_t v = ina219_read_voltage_mv();
                 int16_t  i_ma = ina219_read_current_ma();
                 fram_ringbuffer_write(g_sleep_cycles, v, i_ma,
@@ -333,9 +339,15 @@ static void handle_nfc_access(void) {
         switch (cmd) {
         case 'M': /* Set mode */
             if (msg_len >= 2) {
-                g_mode = (measurement_mode_t)g_nfc_buffer[1];
+                uint8_t new_mode = g_nfc_buffer[1];
+                if (new_mode <= MODE_LOAD_LIFE) {
+                    g_mode = (measurement_mode_t)new_mode;
+                }
                 if (msg_len >= 3) {
-                    g_load_mask = g_nfc_buffer[2];
+                    uint8_t new_mask = g_nfc_buffer[2];
+                    if ((new_mask & ~0x0F) == 0 && new_mask != 0) {
+                        g_load_mask = new_mask;
+                    }
                 }
             }
             reply[0] = 'M';
@@ -355,14 +367,23 @@ static void handle_nfc_access(void) {
             reply[0] = 'R';
             reply[1] = (uint8_t)g_mode;
             reply[2] = g_load_mask;
-            /* Current V_OC and current */
-            load_bank_off();
-            uint16_t voc = ina219_read_voltage_mv();
-            reply[3] = (uint8_t)(voc >> 8);
-            reply[4] = (uint8_t)(voc);
-            int16_t cur = ina219_read_current_ma();
-            reply[5] = (uint8_t)((uint16_t)cur >> 8);
-            reply[6] = (uint8_t)((uint16_t)cur);
+            if (g_mode == MODE_LOAD_LIFE) {
+                /* Read under load, don't disturb the test */
+                uint16_t v = ina219_read_voltage_mv();
+                reply[3] = (uint8_t)(v >> 8);
+                reply[4] = (uint8_t)(v);
+                int16_t cur = ina219_read_current_ma();
+                reply[5] = (uint8_t)((uint16_t)cur >> 8);
+                reply[6] = (uint8_t)((uint16_t)cur);
+            } else {
+                load_bank_off();
+                uint16_t voc = ina219_read_voltage_mv();
+                reply[3] = (uint8_t)(voc >> 8);
+                reply[4] = (uint8_t)(voc);
+                int16_t cur = ina219_read_current_ma();
+                reply[5] = (uint8_t)((uint16_t)cur >> 8);
+                reply[6] = (uint8_t)((uint16_t)cur);
+            }
             /* Entry count */
             reply[7] = (uint8_t)(g_fram_entry_count >> 8);
             reply[8] = (uint8_t)(g_fram_entry_count);
@@ -411,7 +432,19 @@ static bool fram_ringbuffer_init(void) {
     } else {
         g_fram_write_pos = 0;
     }
+
+    uint8_t ver = mb85rc16_read_byte(0x02);
+    if (ver != FRAM_VERSION) {
+        /* Version mismatch — reinitialise */
+        g_fram_write_pos = 0;
+        g_fram_entry_count = 0;
+        return false;
+    }
+
     g_fram_entry_count = g_fram_write_pos / FRAM_ENTRY_SIZE;
+    if (g_fram_entry_count >= FRAM_MAX_ENTRIES) {
+        g_fram_entry_count = FRAM_MAX_ENTRIES;
+    }
     return true;
 }
 
@@ -434,11 +467,11 @@ static bool fram_ringbuffer_write(uint32_t timestamp, uint16_t voc_mv,
     entry[9] = (uint8_t)temp_c;
     entry[10] = rh_pct;
     entry[11] = status;
-    entry[12] = entry_crc(entry, FRAM_ENTRY_SIZE - 1);
+    entry[12] = entry_checksum(entry, FRAM_ENTRY_SIZE - 1);
 
     addr = FRAM_DATA_START + g_fram_write_pos;
 
-    if (g_fram_entry_count >= FRAM_MAX_ENTRIES) {
+    if (g_fram_write_pos >= (uint16_t)(FRAM_MAX_ENTRIES * FRAM_ENTRY_SIZE)) {
         g_fram_write_pos = 0;
         addr = FRAM_DATA_START;
     }
@@ -448,7 +481,7 @@ static bool fram_ringbuffer_write(uint32_t timestamp, uint16_t voc_mv,
     }
 
     g_fram_write_pos += FRAM_ENTRY_SIZE;
-    g_fram_entry_count++;
+    if (g_fram_entry_count < FRAM_MAX_ENTRIES) g_fram_entry_count++;
 
     uint8_t pos_buf[2];
     pos_buf[0] = (uint8_t)(g_fram_write_pos >> 8);
@@ -456,7 +489,7 @@ static bool fram_ringbuffer_write(uint32_t timestamp, uint16_t voc_mv,
     return mb85rc16_write(0x03, pos_buf, 2);
 }
 
-static uint8_t entry_crc(const uint8_t *data, uint8_t len) {
+static uint8_t entry_checksum(const uint8_t *data, uint8_t len) {
     uint8_t crc = 0;
     for (uint8_t i = 0; i < len; i++) {
         crc ^= data[i];
@@ -476,6 +509,7 @@ static void log_error(const char *msg) {
         GPIOA->BSRR = GPIO_BSRR_BR_7;
         for (volatile int j = 0; j < 200000; j++);
     }
+    g_app_state = APP_STATE_ERROR;
 }
 
 /* ========================================================================
