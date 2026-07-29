@@ -23,11 +23,13 @@
 /* ======== Private helpers ======== */
 
 static bool send_command(uint16_t cmd) {
-    /* Use i2c_write_reg16 with len=0 to send just the 2-byte command */
-    return i2c_write_reg16(I2C_ADDR_SHT30, cmd, (const uint8_t *)0, 0);
+    /* Use i2c_write_reg16 with len=0 to send just the 2-byte command.
+     * Pass a non-NULL dummy pointer to avoid undefined behaviour. */
+    uint8_t dummy = 0;
+    return i2c_write_reg16(I2C_ADDR_SHT30, cmd, &dummy, 0);
 }
 
-static uint8_t crc8(const uint8_t *data, uint8_t len) {
+uint8_t sht30_crc8(const uint8_t *data, uint8_t len) {
     uint8_t crc = 0xFF;
     for (uint8_t i = 0; i < len; i++) {
         crc ^= data[i];
@@ -58,7 +60,7 @@ bool sht30_init(void) {
         return false;
     }
     /* Verify CRC */
-    if (crc8(status, 2) != status[2]) {
+    if (sht30_crc8(status, 2) != status[2]) {
         return false;
     }
     return true;
@@ -77,10 +79,10 @@ bool sht30_read(int8_t *temp_c, uint8_t *rh_pct) {
     }
 
     /* Verify CRCs */
-    if (crc8(data, 2) != data[2]) {
+    if (sht30_crc8(data, 2) != data[2]) {
         return false;
     }
-    if (crc8(data + 3, 2) != data[5]) {
+    if (sht30_crc8(data + 3, 2) != data[5]) {
         return false;
     }
 
@@ -92,8 +94,8 @@ bool sht30_read(int8_t *temp_c, uint8_t *rh_pct) {
      * temp_c = -45 + (175 * raw_t) / 65535
      * To avoid overflow with 32-bit: (175 * raw_t) can be up to 175*65535 = 11,468,625 (fits in 32-bit) */
     int32_t temp_x100 = -4500 + (17500 * (int32_t)raw_t) / 65535;
-    /* Round to nearest degree */
-    int8_t temp = (int8_t)((temp_x100 + 50) / 100);
+    /* Symmetric rounding for signed values */
+    int8_t temp = (int8_t)((temp_x100 + (temp_x100 >= 0 ? 50 : -50)) / 100);
 
     /* RH = 100 * raw / 65535 → integer math:
      * rh = (100 * raw_rh) / 65535, clamped to [0, 100] */

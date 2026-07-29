@@ -42,6 +42,8 @@ bool sht30_init(void);
  */
 bool sht30_read(int8_t *temp_c, uint8_t *rh_pct);
 
+uint8_t sht30_crc8(const uint8_t *data, uint8_t len);
+
 #ifdef __cplusplus
 }
 #endif

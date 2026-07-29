@@ -43,6 +43,10 @@ bool ina219_init(void) {
     if (!write_reg_u16(INA219_REG_CONFIG, INA219_CONFIG_DEFAULT)) {
         return false;
     }
+    /* Write calibration register: 40.96mV / (10uV/LSB * 0.1Ohm) = 4096 = 0x1000 */
+    if (!write_reg_u16(INA219_REG_CALIBRATION, 0x1000)) {
+        return false;
+    }
     /* Verify by reading back config */
     uint16_t cfg = read_reg_u16(INA219_REG_CONFIG);
     if (cfg == 0xFFFF) {

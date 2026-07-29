@@ -21,7 +21,7 @@
 /* ── Mailbox constants ── */
 
 #define ST25DV04K_MB_CTRL_INIT   0x02   /* Enable mailbox mode */
-#define ST25DV04K_MB_MAX_LEN     256    /* Max mailbox message size */
+#define ST25DV04K_MB_MAX_LEN     255    /* Max mailbox message size (1-byte length field) */
 
 /* ========================================================================
  *   Public API
