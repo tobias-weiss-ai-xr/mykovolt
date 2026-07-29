@@ -20,6 +20,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include "stm32l011xx.h"
+#include "mykovolt.h"
 
 /* ========================================================================
  *   Pin Mappings (STM32L011F4Px TSSOP-20)
@@ -111,17 +112,6 @@ typedef enum {
 #define LSE_FREQ_HZ          32768
 #define HSI_FREQ_HZ          16000000
 #define SYSCLK_FREQ_HZ       16000000
-
-/* ========================================================================
- *   Application States
- * ======================================================================== */
-
-typedef enum {
-    APP_STATE_SLEEP,        /* Deep sleep, everything off */
-    APP_STATE_ACTIVE,       /* Measuring, I2C active */
-    APP_STATE_NFC_ACCESS,   /* NFC tag being read by external reader */
-    APP_STATE_ERROR         /* Error condition */
-} app_state_t;
 
 #ifdef __cplusplus
 }

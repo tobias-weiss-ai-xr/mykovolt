@@ -82,8 +82,6 @@ int main(void) {
     gpio_init();
     i2c_init();
 
-    bq25570_init();
-
     if (!ina219_init()) {
         log_error("INA219 init failed");
     }
