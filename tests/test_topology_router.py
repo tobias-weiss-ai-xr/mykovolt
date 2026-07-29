@@ -156,8 +156,17 @@ class TestCoordinateConversion:
 
 
 class TestTopologyRouter:
+    def _require_pcbnew(self):
+        """Skip test if pcbnew (KiCad Python bindings) is not installed."""
+        try:
+            import pcbnew as pn
+
+            return pn
+        except ImportError:
+            pytest.skip("pcbnew not available — install KiCad Python bindings")
+
     def test_route_all_creates_tracks(self):
-        import pcbnew as pn
+        pn = self._require_pcbnew()
 
         board = pn.BOARD()
         board.SetCopperLayerCount(4)
@@ -176,7 +185,7 @@ class TestTopologyRouter:
         assert track_count == 0
 
     def test_route_all_with_unmatched_net_skips(self):
-        import pcbnew as pn
+        pn = self._require_pcbnew()
 
         board = pn.BOARD()
         board.SetCopperLayerCount(4)
@@ -192,7 +201,7 @@ class TestTopologyRouter:
         router.route_all()
 
     def test_build_obstacle_grid_with_no_components(self):
-        import pcbnew as pn
+        pn = self._require_pcbnew()
 
         board = pn.BOARD()
 
@@ -202,7 +211,7 @@ class TestTopologyRouter:
         assert router.grid is not None
 
     def test_classify_affected_net_routing(self):
-        import pcbnew as pn
+        pn = self._require_pcbnew()
 
         board = pn.BOARD()
         board.SetCopperLayerCount(4)

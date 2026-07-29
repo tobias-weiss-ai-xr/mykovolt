@@ -204,6 +204,7 @@ jobs:
           python3 -c "
           # Verify all simulation modules import without error
           import importlib, os, sys
+          sys.path.insert(0, os.path.join(os.getcwd(), '..'))
           modules = [f[:-3] for f in os.listdir('.') if f.endswith('.py') and not f.startswith('__')]
           failed = []
           for m in modules:
