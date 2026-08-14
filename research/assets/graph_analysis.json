@@ -1,0 +1,601 @@
+{
+ "categories": [
+  {
+   "id": "application",
+   "name": "Application",
+   "count": 21,
+   "trajectory": {
+    "2015": 1,
+    "2018": 7,
+    "2019": 1,
+    "2020": 2,
+    "2021": 2,
+    "2022": 1,
+    "2023": 4,
+    "2024": 1,
+    "2025": 1,
+    "2026": 1
+   },
+   "momentum": {
+    "id": "application",
+    "name": "Application",
+    "total": 21,
+    "recent": 1,
+    "prior": 1,
+    "growth_pct": 0.0,
+    "recent_share": 0.048,
+    "papers_per_month": 0.1,
+    "score": 4.8
+   }
+  },
+  {
+   "id": "material",
+   "name": "Material",
+   "count": 20,
+   "trajectory": {
+    "2009": 1,
+    "2010": 1,
+    "2012": 1,
+    "2013": 1,
+    "2014": 1,
+    "2016": 3,
+    "2017": 3,
+    "2019": 1,
+    "2020": 2,
+    "2021": 1,
+    "2022": 2,
+    "2023": 2,
+    "2024": 1
+   },
+   "momentum": {
+    "id": "material",
+    "name": "Material",
+    "total": 20,
+    "recent": 0,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 0.0,
+    "papers_per_month": 0.0,
+    "score": 0.0
+   }
+  },
+  {
+   "id": "mechanism",
+   "name": "Mechanism",
+   "count": 32,
+   "trajectory": {
+    "2017": 2,
+    "2018": 3,
+    "2019": 1,
+    "2020": 1,
+    "2022": 4,
+    "2023": 3,
+    "2024": 3,
+    "2025": 5,
+    "2026": 10
+   },
+   "momentum": {
+    "id": "mechanism",
+    "name": "Mechanism",
+    "total": 32,
+    "recent": 10,
+    "prior": 5,
+    "growth_pct": 100.0,
+    "recent_share": 0.312,
+    "papers_per_month": 0.8,
+    "score": 131.2
+   }
+  },
+  {
+   "id": "survey",
+   "name": "Survey",
+   "count": 2,
+   "trajectory": {
+    "2017": 1,
+    "2024": 1
+   },
+   "momentum": {
+    "id": "survey",
+    "name": "Survey",
+    "total": 2,
+    "recent": 0,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 0.0,
+    "papers_per_month": 0.0,
+    "score": 0.0
+   }
+  }
+ ],
+ "subcategories": [
+  {
+   "id": "degradation",
+   "name": "Degradation",
+   "count": 18
+  },
+  {
+   "id": "eet",
+   "name": "Eet",
+   "count": 11
+  },
+  {
+   "id": "hybrid",
+   "name": "Hybrid",
+   "count": 22
+  },
+  {
+   "id": "laccase",
+   "name": "Laccase",
+   "count": 24
+  }
+ ],
+ "timeline": [
+  [
+   "2009-03",
+   "material",
+   "laccase"
+  ],
+  [
+   "2010-08",
+   "material",
+   "laccase"
+  ],
+  [
+   "2012-02",
+   "material",
+   "laccase"
+  ],
+  [
+   "2013-01",
+   "material",
+   "laccase"
+  ],
+  [
+   "2014-09",
+   "material",
+   "laccase"
+  ],
+  [
+   "2015-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2016-01",
+   "material",
+   "laccase"
+  ],
+  [
+   "2016-05",
+   "material",
+   "laccase"
+  ],
+  [
+   "2016-06",
+   "material",
+   "degradation"
+  ],
+  [
+   "2017-01",
+   "material",
+   "degradation"
+  ],
+  [
+   "2017-04",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2017-06",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2017-08",
+   "material",
+   "degradation"
+  ],
+  [
+   "2017-10",
+   "survey",
+   "hybrid"
+  ],
+  [
+   "2017-11",
+   "material",
+   "laccase"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2018-05",
+   "application",
+   "degradation"
+  ],
+  [
+   "2018-09",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2018-11",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2019-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2019-09",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2019-12",
+   "material",
+   "laccase"
+  ],
+  [
+   "2020-01",
+   "material",
+   "laccase"
+  ],
+  [
+   "2020-02",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2020-09",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2020-10",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2020-12",
+   "material",
+   "degradation"
+  ],
+  [
+   "2021-07",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2021-08",
+   "material",
+   "laccase"
+  ],
+  [
+   "2021-09",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2022-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2022-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2022-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2022-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2022-02",
+   "material",
+   "degradation"
+  ],
+  [
+   "2022-06",
+   "material",
+   "degradation"
+  ],
+  [
+   "2022-08",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2023-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2023-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2023-02",
+   "material",
+   "laccase"
+  ],
+  [
+   "2023-04",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2023-09",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2023-10",
+   "material",
+   "degradation"
+  ],
+  [
+   "2023-10",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2023-12",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2023-12",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2024-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2024-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2024-02",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2024-03",
+   "survey",
+   "hybrid"
+  ],
+  [
+   "2024-06",
+   "material",
+   "degradation"
+  ],
+  [
+   "2024-07",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2025-04",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2025-05",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2025-06",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-01",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2026-07",
+   "application",
+   "hybrid"
+  ]
+ ],
+ "venues": [
+  {
+   "name": "MED",
+   "papers": 18
+  },
+  {
+   "name": "Microbial Fuel Cell Technology for Bioelectricity",
+   "papers": 5
+  },
+  {
+   "name": "Biosensors and Bioelectronics",
+   "papers": 3
+  },
+  {
+   "name": "Fuel",
+   "papers": 3
+  },
+  {
+   "name": "Journal of Power Sources",
+   "papers": 3
+  },
+  {
+   "name": "Biosensors",
+   "papers": 3
+  },
+  {
+   "name": "Enzyme and Microbial Technology",
+   "papers": 2
+  },
+  {
+   "name": "Analytical Chemistry",
+   "papers": 2
+  },
+  {
+   "name": "Bioresource Technology",
+   "papers": 1
+  },
+  {
+   "name": "Environmental Science & Technology",
+   "papers": 1
+  },
+  {
+   "name": "Applied Biochemistry and Biotechnology",
+   "papers": 1
+  },
+  {
+   "name": "Journal of Biotechnology",
+   "papers": 1
+  },
+  {
+   "name": "Biotechnology Advances",
+   "papers": 1
+  },
+  {
+   "name": "Journal of microbiology, biotechnology and food sciences",
+   "papers": 1
+  },
+  {
+   "name": "Renewable and Sustainable Energy Reviews",
+   "papers": 1
+  }
+ ],
+ "keyword_bursts": [
+  {
+   "keyword": "human",
+   "recent": 2,
+   "total": 2,
+   "burst_score": 6.82,
+   "recent_share": 0.1818
+  },
+  {
+   "keyword": "tool",
+   "recent": 2,
+   "total": 3,
+   "burst_score": 4.55,
+   "recent_share": 0.1818
+  },
+  {
+   "keyword": "graph",
+   "recent": 1,
+   "total": 5,
+   "burst_score": 1.36,
+   "recent_share": 0.0909
+  },
+  {
+   "keyword": "transfer",
+   "recent": 1,
+   "total": 11,
+   "burst_score": 0.62,
+   "recent_share": 0.0909
+  }
+ ]
+}

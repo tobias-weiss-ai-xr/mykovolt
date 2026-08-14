@@ -1,0 +1,1000 @@
+papers:
+- title: Fungal laccase as biocathode in microbial fuel cells
+  date: 2016-01
+  url: https://doi.org/10.1016/j.biortech.2015.12.019
+  category: material
+  subcategory: laccase
+  doi: 10.1016/j.biortech.2015.12.019
+  venue: Bioresource Technology
+  tags:
+  - trametes
+  - laccase
+  - biocathode
+  - MFC
+  abstract: Demonstrates laccase-mediated electron transfer with Trametes versicolor
+    as biocathode, achieving high power densities in MFC configurations.
+  authors:
+  - Unspecified
+- title: Neurospora crassa in bioelectrochemical systems
+  date: 2017-06
+  url: https://doi.org/10.1021/acs.est.7b01253
+  category: mechanism
+  subcategory: eet
+  doi: 10.1021/acs.est.7b01253
+  venue: Environmental Science & Technology
+  tags:
+  - neurospora
+  - EET
+  - bioelectrochemistry
+  abstract: Shows 260 µW/cm² power density from Neurospora crassa under optimized
+    conditions, demonstrating extracellular electron transfer.
+  authors:
+  - Unspecified
+- title: 'Fungal biofuel cells: A review'
+  date: 2017-10
+  url: https://doi.org/10.1016/j.bios.2017.09.024
+  category: survey
+  subcategory: hybrid
+  doi: 10.1016/j.bios.2017.09.024
+  venue: Biosensors and Bioelectronics
+  tags:
+  - survey
+  - biofuel cell
+  - fungi
+  abstract: Comprehensive review of fungal biofuel cells, covering enzyme immobilization,
+    electrode materials, and applications.
+  authors:
+  - Unspecified
+- title: Electricity generation by Pleurotus ostreatus in microbial fuel cells
+  date: 2018-05
+  url: https://doi.org/10.1007/s12010-018-2840-8
+  category: application
+  subcategory: degradation
+  doi: 10.1007/s12010-018-2840-8
+  venue: Applied Biochemistry and Biotechnology
+  tags:
+  - pleurotus
+  - MFC
+  - low-cost
+  abstract: Focuses on low-cost, scalable MFCs using Pleurotus ostreatus (oyster mushroom)
+    as the biocatalyst.
+  authors:
+  - Unspecified
+- title: Medicinal mushrooms as biocatalysts in microbial fuel cells
+  date: 2020-02
+  url: https://doi.org/10.1016/j.jbiotec.2020.01.006
+  category: application
+  subcategory: hybrid
+  doi: 10.1016/j.jbiotec.2020.01.006
+  venue: Journal of Biotechnology
+  tags:
+  - ganoderma
+  - biocatalyst
+  - medical
+  abstract: Highlights biocompatibility of Ganoderma lucidum and its potential for
+    medical MFC applications.
+  authors:
+  - Unspecified
+- title: 'Fungal-based microbial fuel cells: A comprehensive review of fundamentals,
+    applications and prospects'
+  date: 2024-03
+  url: https://doi.org/10.1016/j.fuel.2024.130876
+  category: survey
+  subcategory: hybrid
+  doi: 10.1016/j.fuel.2024.130876
+  venue: Fuel
+  tags:
+  - survey
+  - MFC
+  - fungi
+  abstract: Recent comprehensive review covering fungal MFC fundamentals, electrode
+    materials, and emerging applications.
+  authors:
+  - Unspecified
+- title: Laccase immobilization strategies for biofuel cell applications
+  date: 2021-08
+  url: https://doi.org/10.1016/j.biotechadv.2021.107742
+  category: material
+  subcategory: laccase
+  doi: 10.1016/j.biotechadv.2021.107742
+  venue: Biotechnology Advances
+  tags:
+  - laccase
+  - immobilization
+  - electrode
+  abstract: Reviews strategies for laccase immobilization on electrodes, critical
+    for MFC performance and longevity.
+  authors:
+  - Unspecified
+- title: Understanding and improving the microbial fuel cell anodic electron transfer
+    process
+  date: 2017-04
+  url: https://doi.org/10.32657/10356/48051
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Luo Peng
+  doi: 10.32657/10356/48051
+  venue: Journal of Power Sources
+- title: ENHANCING ELECTRICITY GENERATION USING FUNGAL LACCASE-BASED MICROBIAL FUEL
+    CELL
+  date: 2024-07
+  url: https://doi.org/10.55251/jmbfs.9703
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Hani Moubasher
+  - Abdelrahman Tammam
+  - Mahmoud Saleh
+  abstract: Microbial fuel cells (MFCs) are very important source to obtain green
+    electricity and also for decontamination of waste water. Bioelectricity yield
+    from biofuel cells is still needed for maximizing. Microbial laccases, especially
+    those produced by fungi, are currently considered to be one of the mos
+  doi: 10.55251/jmbfs.9703
+  venue: Journal of microbiology, biotechnology and food sciences
+- title: Effect of Geobacter metallireducens nanowire on electron transfer efficiency
+    in microbial fuel cell
+  date: 2018-11
+  url: https://doi.org/10.1101/2021.07.14.452433
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Shunliang Liu
+  - Yali Feng
+  - Haoran Li
+  abstract: "Abstract\n                \n                  The inhibitory effect of\
+    \ electron mediator 2,6-anthraquinone disulphonate (AQDS) on\n               \
+    \   Geobacter metallireducens\n                  nanowire in the microbial fuel\
+    \ cell (MFC) was studied. In the culture process of\n                  G.metallire"
+  doi: 10.1101/2021.07.14.452433
+  venue: Renewable and Sustainable Energy Reviews
+- title: Dye reduction-based electron-transfer activity monitoring assay for assessing
+    microbial electron transfer activity of microbial fuel cell inocula
+  date: 2020-10
+  url: https://doi.org/10.1016/j.jes.2020.04.037
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Kartik S. Aiyer
+  - Roshan Rai
+  - B.S. Vijayakumar
+  doi: 10.1016/j.jes.2020.04.037
+  venue: Journal of Environmental Sciences
+- title: Electricity generation and oxidoreductase potential during dye discoloration
+    by laccase-producing Ganoderma gibbosum in fungal fuel cell
+  date: 2023-12
+  url: https://doi.org/10.1186/s12934-023-02258-0
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Aisha Umar
+  - Islem Abid
+  - Mohammed Antar
+  abstract: AbstractColor chemicals contaminate pure water constantly discharged from
+    different points and non-point sources. Physical and chemical techniques have
+    certain limitations and complexities for bioenergy production, which motivated
+    the search for a novel sustainable production approaches during dye w
+  doi: 10.1186/s12934-023-02258-0
+  venue: Microbial Cell Factories
+- title: Fe/N Codoped Paper Carbon Fiber Foam Promoted Extracellular Electron Transfer
+    for a High-Performance Microbial Fuel Cell
+  date: 2023-09
+  url: https://doi.org/10.1021/acsaenm.3c00445.s001
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Demin Jiang
+  - Kai Cheng
+  - Liang Li
+  - Kun Xie
+  doi: 10.1021/acsaenm.3c00445.s001
+  venue: ACS Applied Engineering Materials
+- title: Anodic Electron Transfer Mechanism in Bioelectrochemical Systems
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-66793-5_5
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Sanath Kumar Kondaveeti
+  - Jai Sankar Seelam
+  - G. Mohanakrishna
+  doi: 10.1007/978-3-319-66793-5_5
+  venue: Microbial Fuel Cell
+- title: Enhancing extracellular electron transfer and power generation in microbial
+    fuel cell using a ferrocene-based conjugated oligoelectrolyte
+  date: 2024-02
+  url: https://doi.org/10.1016/j.fuel.2023.130271
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Hassan Zarenezhad
+  - Ali Rezaei
+  - Soheil Aber
+  doi: 10.1016/j.fuel.2023.130271
+  venue: Fuel
+- title: Enhanced Extracellular Electron Transfer of Comn2o4@Cnt as Microbial Fuel
+    Cell Anode
+  date: 2023-10
+  url: https://doi.org/10.2139/ssrn.4563137
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Shuyan Yu
+  - Min Zhang
+  - Yuanfeng Liu
+  doi: 10.2139/ssrn.4563137
+  venue: Journal of environmental chemical engineering
+- title: 'Interfacial Electron Transfer from the Outer Membrane Cytochrome OmcA to
+    Graphene Oxide in a Microbial Fuel Cell: Spectral and Electrochemical Insights'
+  date: 2018-09
+  url: https://doi.org/10.1021/acsenergylett.8b01299.s001
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Sheng‐Song Yu
+  - Jie‐Jie Chen
+  - Xiaoyang Liu
+  - Han‐Qing Yu
+  doi: 10.1021/acsenergylett.8b01299.s001
+  venue: ACS Energy Letters
+- title: 'A New Approach to Manufacturing Biocomposite Sandwich Structures: Mycelium-Based
+    Cores'
+  date: 2016-06
+  url: https://doi.org/10.1115/msec2016-8864
+  category: material
+  subcategory: degradation
+  authors:
+  - Lai Jiang
+  - Daniel Walczyk
+  - Gavin McIntyre
+  abstract: 'A new approach to manufacturing biocomposite sandwich structures is introduced.
+    Materials used in the biocomposite are natural textile reinforcement, mycelium-bound
+    agricultural waste as core, and bioresin. This paper focuses on three specific
+    steps of the seven-step manufacturing process: filling p'
+  doi: 10.1115/msec2016-8864
+  venue: 'Volume 1: Processing'
+- title: High-Performance Asymmetric Flow-Electrode Capacitive Mixing with MnO2Coated
+    Activated Carbon Flow-Electrode for Energy Harvesting from Salinity Gradient Power
+  date: 2022-06
+  url: https://doi.org/10.1021/acsmaterialslett.2c00154.s001
+  category: material
+  subcategory: degradation
+  authors: []
+  doi: 10.1021/acsmaterialslett.2c00154.s001
+  venue: ''
+- title: Biowelding 3D-Printed Biodigital Brick of Seashell-Based Biocomposite by
+    Pleurotus ostreatus Mycelium
+  date: 2023-10
+  url: https://doi.org/10.3390/biomimetics8060504
+  category: material
+  subcategory: degradation
+  authors:
+  - Yomna K. Abdallah
+  - Alberto T. Estévez
+  abstract: Mycelium biocomposites are eco-friendly, cheap, easy to produce, and have
+    competitive mechanical properties. However, their integration in the built environment
+    as durable and long-lasting materials is not solved yet. Similarly, biocomposites
+    from recycled food waste such as seashells have been gain
+  doi: 10.3390/biomimetics8060504
+  venue: Biomimetics
+- title: Fabrication of Advanced Electrode Materials for Supercapacitors
+  date: 2017-08
+  url: https://doi.org/10.11159/ehst17.103
+  category: material
+  subcategory: degradation
+  authors:
+  - Ryan Poon
+  - Igor Zhitomirsky
+  doi: 10.11159/ehst17.103
+  venue: International Conference of Energy Harvesting, Storage, and Transfer
+- title: Electrosprayed ThylakoidAlginate Film on a Micro-Pillar Electrode for Scalable
+    Photosynthetic Energy Harvesting
+  date: 2020-12
+  url: https://doi.org/10.1021/acsami.0c15993.s001
+  category: material
+  subcategory: degradation
+  authors: []
+  doi: 10.1021/acsami.0c15993.s001
+  venue: ''
+- title: Self-Sterilized Flexible Single-Electrode Triboelectric Nanogenerator for
+    Energy Harvesting and Dynamic Force Sensing
+  date: 2017-01
+  url: https://doi.org/10.1021/acsnano.6b07389.s001
+  category: material
+  subcategory: degradation
+  authors:
+  - Huijuan Guo
+  - Li Tao
+  - Xiaotao Cao
+  - Xiaotao Cao
+  doi: 10.1021/acsnano.6b07389.s001
+  venue: ACS Nano
+- title: Photothermic Energy Harvesting in Reduced Graphene Oxide Nanosheets Intercalated
+    with Vanadium Nitride as Pseudocapacitive Electrode
+  date: 2024-06
+  url: https://doi.org/10.1021/acsanm.4c01118.s001
+  category: material
+  subcategory: degradation
+  authors:
+  - Kiruthiga Ramakrishnan
+  - Srivathsava Surabhi
+  - R. Udayabhaskar
+  - Jong‐Ryul Jeong
+  doi: 10.1021/acsanm.4c01118.s001
+  venue: ACS Applied Nano Materials
+- title: New membrane and electrode assembly concept to improve salinity energy harvesting.
+  date: 2022-02
+  url: https://doi.org/10.1016/j.enconman.2022.115297
+  category: material
+  subcategory: degradation
+  authors:
+  - Youcef Brahmi
+  - Annie Colin
+  doi: 10.1016/j.enconman.2022.115297
+  venue: Energy Conversion and Management
+- title: 'Fungal fuel cells: an environmentally friendly approach to addressing heavy
+    metal pollution and electricity production.'
+  date: 2026-01
+  url: https://doi.org/10.3389/fmicb.2026.1825368
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Altaf MT
+  - Umar A
+  - Mubeen M
+  abstract: Heavy metal contamination of soil and water is an escalating global environmental
+    issue driven by industrialization and poor waste management. This problem is no
+    longer confined to urban areas, as even small towns are grappling with severe
+    heavy metal contamination, posing substantial threats to hum
+  doi: 10.3389/fmicb.2026.1825368
+  venue: MED
+- title: 'Bioelectricity harvesting from microorganism: review of recent advancements
+    in utilizing the bioelectric properties of fungi for powering small-scale robotic
+    systems.'
+  date: 2025-01
+  url: https://doi.org/10.3389/ffunb.2025.1739847
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Islam RU
+  - Chantal AAK
+  - Islam A
+  abstract: The growing need for sustainable energy sources has led to the exploration
+    of bioelectricity generation from microorganisms, with fungi showing considerable
+    potential for powering small-scale robotic systems. Fungal bioelectricity stems
+    from the ability of fungal mycelium to facilitate extracellular
+  doi: 10.3389/ffunb.2025.1739847
+  venue: MED
+- title: 'Microbial Fuel Cells for Biomass Valorization: Bridging Climate Action and
+    Terrestrial Ecosystem Protection.'
+  date: 2026-01
+  url: https://doi.org/10.3390/polym18111354
+  category: mechanism
+  subcategory: eet
+  authors:
+  - R-F SJ
+  - Liza R
+  - Díaz F
+  abstract: 'Demographic growth and the global environmental crisis have intensified
+    the need to reconcile energy generation with the protection of terrestrial ecosystems.
+    Traditional organic waste management systems are inefficient in handling high
+    pollutant loads, leading to uncontrolled methane emissions and '
+  doi: 10.3390/polym18111354
+  venue: MED
+- title: Scanning Electrochemical Microscopy of Nystatin-Treated Yeast Used for Biofuel
+    Cells.
+  date: 2026-01
+  url: https://doi.org/10.3390/s26020605
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Blazevic K
+  - Zinovicius A
+  - Rozene J
+  abstract: Biofuel cells (BFCs) generate electricity by converting chemical energy
+    into electrical energy using biological systems. <i>Saccharomyces cerevisiae</i>
+    (yeast) is an attractive biocatalyst for BFCs due to its robustness, low cost,
+    and metabolic versatility; however, electron transfer from the intra
+  doi: 10.3390/s26020605
+  venue: MED
+- title: 'Microorganisms from Antarctica: A Review of Their Potential in the Bioremediation
+    of Hydrocarbon-Contaminated Soils.'
+  date: 2026-01
+  url: https://doi.org/10.3390/microorganisms14050948
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Naranjo-Moran J
+  - Ratti MF
+  - Vera-Morales M
+  abstract: Antarctica's extreme cryospheric conditions impose severe thermodynamic
+    constraints on the natural attenuation of hydrocarbon pollutants. Despite the
+    Antarctic Treaty System's protections, the footprint of human logistics has left
+    persistent reservoirs of petroleum hydrocarbons that threaten endemic
+  doi: 10.3390/microorganisms14050948
+  venue: MED
+- title: 'Fungal Secondary Metabolites in Bioelectrochemical Systems: A Bibliometric
+    Analysis and Critical Review of Emerging Trends and Challenges for Sustainable
+    Energy'
+  date: 2026-01
+  url: https://europepmc.org/article/pmc/PMC12943673
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Rojas-Flores S
+  - Liza R
+  - Nazario-Naveda R
+  venue: PMC
+- title: Mechanistic advances in microbial nanobiotechnology and their applications
+    in sustainable agriculture, environment and biomedicine.
+  date: 2026-01
+  url: https://doi.org/10.1186/s11671-026-04509-6
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Rabani MS
+  - Shrivastav M
+  - Fayaz M
+  abstract: Microbial nanobiotechnology represents a groundbreaking convergence of
+    microbiology and nanotechnology offering sustainable and innovative solutions
+    across diverse fields. This review explores the emerging trends in microbial nanobiotechnology
+    with a focus on tools, applications, and challenges. Mic
+  doi: 10.1186/s11671-026-04509-6
+  venue: MED
+- title: 'Using dual chamber microbial fuel cells for coupled microplastic biodegradation
+    and bioelectricity production: assessing the effect of substrate.'
+  date: 2026-01
+  url: https://doi.org/10.1186/s12934-026-02925-y
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Pourhosseini PS
+  - Giyahchi M
+  - Danaee S
+  abstract: <h4>Background</h4>Use of plastics has increased manifold over the last
+    50 years. Regrettably, their fragmentation into microplastics (MPs) (≤ 5 mm) created
+    environmental and human health concerns. Traditional methods of MPs removal are
+    limited by high energy requirements, high costs, and the use of
+  doi: 10.1186/s12934-026-02925-y
+  venue: MED
+- title: Multi-Year Biofilm Formation on Granitic Surfaces Reveals Dynamic Microbial
+    Communities in Fennoscandian Shield Deep Groundwaters.
+  date: 2026-01
+  url: https://doi.org/10.1007/s00248-026-02812-4
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Ståhle M
+  - Johnson A
+  - Turner S
+  abstract: 'The deep terrestrial biosphere is the vast biome beneath the soil layer
+    that contains the majority of the Earth''s prokaryotic biomass, yet it is one
+    of the least investigated communities. Although, estimates of deep biosphere biomass
+    suggest biofilm cells outnumber the planktonic biomass by several '
+  doi: 10.1007/s00248-026-02812-4
+  venue: MED
+- title: Synergies of Quorum Sensing and Biofilm Dynamics in the Bioremediation of
+    Emerging Medical Organic Pollutants.
+  date: 2026-01
+  url: https://doi.org/10.1155/tswj/5568616
+  category: mechanism
+  subcategory: eet
+  authors:
+  - Teklay YT
+  abstract: Emerging organic pollutants in medical waste present significant environmental
+    challenges. Bioremediation is an eco-friendly and cost-effective solution, leveraging
+    natural processes to effectively mitigate these risks. So, this review aims to
+    discuss the role of microbial biofilm and quorum sensing
+  doi: 10.1155/tswj/5568616
+  venue: MED
+- title: Bioelectricity Generation in Soil Microbial Fuel Cells Using Organic Waste
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0_7
+  category: application
+  subcategory: hybrid
+  authors:
+  - Kiyoshi Omine
+  - Venkataraman Sivasankar
+  - Santos D. Chicas
+  doi: 10.1007/978-3-319-92904-0_7
+  venue: Microbial Fuel Cell Technology for Bioelectricity
+- title: Advances in Concurrent Bioelectricity Generation and Bioremediation Through
+    Microbial Fuel Cells
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0_11
+  category: application
+  subcategory: hybrid
+  authors:
+  - Bikash Kumar
+  - Komal Agrawal
+  - Nisha Bhardwaj
+  doi: 10.1007/978-3-319-92904-0_11
+  venue: Microbial Fuel Cell Technology for Bioelectricity
+- title: Bioelectricity Generation by Single Chamber Microbial Fuel Cell by Using
+    Platinum Catalyst as Electrode
+  date: 2023-04
+  url: https://doi.org/10.23880/ppej-16000344
+  category: application
+  subcategory: hybrid
+  authors:
+  - Nawaz A
+  abstract: In this study, a wet proof multiple air cathode microbial fuel cell that
+    generates bioelectricity by biodegradation of organic matter was fabricated. In
+    this, platinum coated (0.5 mg/cm2) carbon cloth was used as air cathode and graphite
+    rod was used as anode. The maximum power produced by MFC was 1
+  doi: 10.23880/ppej-16000344
+  venue: Petroleum &amp; Petrochemical Engineering Journal
+- title: Microbial Fuel Cell Technology for Bioelectricity
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0
+  category: application
+  subcategory: hybrid
+  authors: []
+  doi: 10.1007/978-3-319-92904-0
+  venue: ''
+- title: 'Rumen Fluid Microbes for Bioelectricity Production: A Novel Approach'
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0_10
+  category: application
+  subcategory: hybrid
+  authors:
+  - Deepika Jothinathan
+  - Prabhakaran Mylsamy
+  - L. Benedict Bruno
+  doi: 10.1007/978-3-319-92904-0_10
+  venue: Microbial Fuel Cell Technology for Bioelectricity
+- title: 'Electricigens: Role and Prominence in Microbial Fuel Cell Performance'
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0_9
+  category: application
+  subcategory: hybrid
+  authors:
+  - Deepika Jothinathan
+  - Prabhakaran Mylsamy
+  - L. Benedict Bruno
+  doi: 10.1007/978-3-319-92904-0_9
+  venue: Microbial Fuel Cell Technology for Bioelectricity
+- title: Sediment Microbial Fuel Cell for Bioelectricity Generation
+  date: 2026-07
+  url: https://doi.org/10.5772/intechopen.1016822
+  category: application
+  subcategory: hybrid
+  authors:
+  - Azizul Moqsud
+  abstract: Sediment microbial fuel cells (SMFCs) are emerging bioelectrochemical
+    devices that simultaneously generate renewable energy and remediate contaminated
+    aquatic environments. This chapter discusses the principles, mechanisms, and performance
+    factors of SMFCs using sediments from Yamaguchi Bay and Toky
+  doi: 10.5772/intechopen.1016822
+  venue: Sediment Transport and Depositional Processes [Working Title]
+- title: Bioelectricity Generation and Treatment of Sugar Mill Effluent Using a Microbial
+    Fuel Cell
+  date: 2015-01
+  url: https://doi.org/10.7763/jocet.2016.v4.291
+  category: application
+  subcategory: hybrid
+  authors:
+  - Ravinder Kumar
+  - Lakhveer Singh
+  - A. W. Zularisam
+  doi: 10.7763/jocet.2016.v4.291
+  venue: Journal of Clean Energy Technologies
+- title: 'Plant Microbial Fuel Cell Technology: Developments and Limitations'
+  date: 2018-01
+  url: https://doi.org/10.1007/978-3-319-92904-0_3
+  category: application
+  subcategory: hybrid
+  authors:
+  - Santos D. Chicas
+  - Venkataraman Sivasankar
+  - Kiyoshi Omine
+  doi: 10.1007/978-3-319-92904-0_3
+  venue: Microbial Fuel Cell Technology for Bioelectricity
+- title: Bioelectricity generation in a microbial fuel cell using polypyrrole-molybdenum
+    oxide composite as an effective cathode catalyst
+  date: 2020-09
+  url: https://doi.org/10.1016/j.fuel.2020.117994
+  category: application
+  subcategory: hybrid
+  authors:
+  - S. Karthick
+  - K. Haribabu
+  doi: 10.1016/j.fuel.2020.117994
+  venue: Fuel
+- title: Combination of physico-chemical entrapment and crosslinking of low activity
+    laccase-based biocathode on carboxylated carbon nanotube for increasing biofuel
+    cell performance
+  date: 2017-11
+  url: https://doi.org/10.1016/j.enzmictec.2017.06.012
+  category: material
+  subcategory: laccase
+  authors:
+  - Marcelinus Christwardana
+  doi: 10.1016/j.enzmictec.2017.06.012
+  venue: Enzyme and Microbial Technology
+- title: Ethanol/O2 biofuel cell using a biocathode consisting of laccase/ HOOC-MWCNTs/polydiallyldimethylammonium
+    chloride
+  date: 2016-05
+  url: https://doi.org/10.1016/j.enzmictec.2015.10.004
+  category: material
+  subcategory: laccase
+  authors:
+  - Farideh Gouranlou
+  - Hedayatollah Ghourchian
+  doi: 10.1016/j.enzmictec.2015.10.004
+  venue: Enzyme and Microbial Technology
+- title: Three-dimensional, gas phase fuel cell with a laccase biocathode
+  date: 2009-03
+  url: https://doi.org/10.1016/j.jpowsour.2008.11.110
+  category: material
+  subcategory: laccase
+  authors:
+  - Abhijeet P. Borole
+  - Samuel LaBarge
+  - Benjamin A. Spott
+  doi: 10.1016/j.jpowsour.2008.11.110
+  venue: Journal of Power Sources
+- title: 'Laccase electrodes based on the combination of single-walled carbon nanotubes
+    and redox layered double hydroxides: Towards the development of biocathode for
+    biofuel cells'
+  date: 2010-08
+  url: https://doi.org/10.1016/j.jpowsour.2010.02.033
+  category: material
+  subcategory: laccase
+  authors:
+  - Shou-Nian Ding
+  - Michael Holzinger
+  - Christine Mousty
+  doi: 10.1016/j.jpowsour.2010.02.033
+  venue: Journal of Power Sources
+- title: A 1.76V hybrid Zn-O2 biofuel cell with a fungal laccase-carbon cloth biocathode
+  date: 2012-02
+  url: https://doi.org/10.1016/j.electacta.2011.12.026
+  category: material
+  subcategory: laccase
+  authors:
+  - Uffe B. Jensen
+  - Samuel Lörcher
+  - Mikhail Vagin
+  doi: 10.1016/j.electacta.2011.12.026
+  venue: Electrochimica Acta
+- title: Glucose/O2 Enzymatic Biofuel Cell Constructed with a Laccase-Mimicking Nanozyme
+    for Efficient Cathode Oxygen Reduction and Bacterial Surface-Displayed Cascade
+    Enzymes for an Anode Biocatalyst
+  date: 2023-02
+  url: https://doi.org/10.1021/acs.analchem.6c00462.s001
+  category: material
+  subcategory: laccase
+  authors:
+  - Miaomiao Wang
+  - Ping Zhu
+  - Shuge Liu
+  - Yating Chen
+  doi: 10.1021/acs.analchem.6c00462.s001
+  venue: Biosensors
+- title: A hydrogen/oxygen hybrid biofuel cell comprising an electrocatalytically
+    active nanoflower/laccase-based biocathode
+  date: 2020-01
+  url: https://doi.org/10.1039/d0cy00675k
+  category: material
+  subcategory: laccase
+  authors:
+  - Joseph Yoon Young Lee
+  - Kamal Elouarzaki
+  - Harshjyot Singh Sabharwal
+  abstract: Enzymatic fuel cells (EFCs) are one of the promising next-generation energy
+    conversion systems.
+  doi: 10.1039/d0cy00675k
+  venue: Catalysis Science &amp; Technology
+- title: Biofuel cell for generating power from methanol substrate using alcohol oxidase
+    bioanode and air-breathed laccase biocathode
+  date: 2014-09
+  url: https://doi.org/10.1016/j.bios.2014.03.016
+  category: material
+  subcategory: laccase
+  authors:
+  - Madhuri Das
+  - Lepakshi Barbora
+  - Priyanki Das
+  doi: 10.1016/j.bios.2014.03.016
+  venue: Biosensors and Bioelectronics
+- title: Combination of laccase and catalase in construction of H2O2–O2 based biocathode
+    for applications in glucose biofuel cells
+  date: 2013-01
+  url: https://doi.org/10.1016/j.bios.2012.07.066
+  category: material
+  subcategory: laccase
+  authors:
+  - Malika Ammam
+  - Jan Fransaer
+  doi: 10.1016/j.bios.2012.07.066
+  venue: Biosensors and Bioelectronics
+- title: A Novel and Enhanced Membrane-Free Performance of Glucose/O2 Biofuel Cell,
+    Integrated With Biocompatible Laccase Nanoflower Biocathode and Glucose Dehydrogenase
+    Bioanode
+  date: 2019-12
+  url: https://doi.org/10.1109/jsen.2019.2937814
+  category: material
+  subcategory: laccase
+  authors:
+  - Nasim Maleki
+  - Soheila Kashanian
+  - Maryam Nazari
+  doi: 10.1109/jsen.2019.2937814
+  venue: IEEE Sensors Journal
+- title: 'Research Progress on Lignin Depolymerization Strategies: A Review.'
+  date: 2024-01
+  url: https://doi.org/10.3390/polym16172388
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Pei Z
+  - Liu X
+  - Chen J
+  abstract: As the only natural source of aromatic biopolymers, lignin can be converted
+    into value-added chemicals and biofuels, showing great potential in realizing
+    the development of green chemistry. At present, lignin is predominantly used for
+    combustion to generate energy, and the real value of lignin is di
+  doi: 10.3390/polym16172388
+  venue: MED
+- title: 'Harnessing carbon potential of lignocellulosic biomass: advances in pretreatments,
+    applications, and the transformative role of machine learning in biorefineries.'
+  date: 2025-01
+  url: https://doi.org/10.1186/s40643-025-00935-z
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Nair LG
+  - Verma P
+  abstract: The over-exploitation of resources has depleted non-renewable energy reserves,
+    impacting daily life. Additionally, the excessive lignocellulosic biomass (LCB)
+    waste from agriculture and forestry is a pressing challenge. LCB is a rich carbon
+    source that can produce renewable biofuels and help mitigat
+  doi: 10.1186/s40643-025-00935-z
+  venue: MED
+- title: Biodegradation of azo dyes by Aspergillus flavus and its bioremediation potential
+    using seed germination efficiency.
+  date: 2025-01
+  url: https://doi.org/10.1186/s12866-024-03703-9
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Ghanaim AM
+  - Mahdy OME
+  - Mohamed HI
+  abstract: The worldwide textile industry extensively uses azo dyes, which pose serious
+    health and environmental risks. Effective cleanup is necessary but challenging.
+    Developing bioremediation methods for textile effluents will improve color removal
+    efficiency. The recent attention to effectively utilizing mi
+  doi: 10.1186/s12866-024-03703-9
+  venue: MED
+- title: Azo dyes degradation by microorganisms - An efficient and sustainable approach.
+  date: 2022-01
+  url: https://doi.org/10.1016/j.sjbs.2022.103437
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Zafar S
+  - Bukhari DA
+  - Rehman A
+  abstract: Synthetic aromatic compounds consisting of various functional groups are
+    known as dyes. These colored compounds are often discharged in effluents, and
+    they are very dangerous to aquatic life. Basically, the dye industry started by
+    using natural plant and insect sources, and then suddenly turned into
+  doi: 10.1016/j.sjbs.2022.103437
+  venue: MED
+- title: Time-dependent electrochemical characteristics of a phenolic and non-phenolic
+    compound in the presence of laccase/ABTS system.
+  date: 2022-01
+  url: https://doi.org/10.1371/journal.pone.0275338
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Saha R
+  - Mukhopadhyay M
+  abstract: 'The laccase/ABTS system has found several industrial applications ranging
+    from biodeterioration to biodegradation and bioremediation. However, the capability
+    of the laccase/ABTS system varies depending upon the type of substrate used. Voltammetric
+    studies involving two widely used substrates, i.e., '
+  doi: 10.1371/journal.pone.0275338
+  venue: MED
+- title: Review on the preparation of fuels and chemicals based on lignin.
+  date: 2022-01
+  url: https://doi.org/10.1039/d2ra01341j
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Li P
+  - Ren J
+  - Jiang Z
+  abstract: Lignin is by far the most abundant natural renewable aromatic polymer
+    in nature, and its reserves are second only to cellulose. In addition to the rich
+    carbon content, the structure of lignin contains functional groups such as benzene
+    rings, methoxyl groups, and phenolic hydroxyl groups. Lignin degr
+  doi: 10.1039/d2ra01341j
+  venue: MED
+- title: Cellulose-based sensors for decentralized monitoring in precision agriculture.
+  date: 2026-01
+  url: https://doi.org/10.1038/s41467-026-70730-7
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Rayappa MK
+  - Flauzino JMR
+  - Grell M
+  abstract: Modern agriculture requires rapid, affordable tools to monitor crops and
+    soils directly in the field. Cellulose, the structural polymer of plants, is emerging
+    as a versatile foundation for lightweight, biodegradable sensors that measure
+    nutrients, moisture, stress, and disease without laboratory inf
+  doi: 10.1038/s41467-026-70730-7
+  venue: MED
+- title: A Horseradish Peroxidase-Mediator System for Benzylic C-H Activation.
+  date: 2022-01
+  url: https://doi.org/10.1021/acscatal.2c03424
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Cribari MA
+  - Unger MJ
+  - Martell JD
+  abstract: Enzyme-mediator systems generate radical intermediates that abstract hydrogen
+    atoms under mild conditions. These systems have been employed extensively for
+    alcohol oxidation, primarily in biomass degradation, but they are underexplored
+    for direct activation of C(sp<sup>3</sup>)-H bonds in alkyl grou
+  doi: 10.1021/acscatal.2c03424
+  venue: MED
+- title: 'Pretreatment for biorefineries: a review of common methods for efficient
+    utilisation of lignocellulosic materials.'
+  date: 2019-01
+  url: https://doi.org/10.1186/s13068-019-1634-1
+  category: mechanism
+  subcategory: degradation
+  authors:
+  - Galbe M
+  - Wallberg O
+  abstract: The implementation of biorefineries based on lignocellulosic materials
+    as an alternative to fossil-based refineries calls for efficient methods for fractionation
+    and recovery of the products. The focus for the biorefinery concept for utilisation
+    of biomass has shifted, from design of more or less en
+  doi: 10.1186/s13068-019-1634-1
+  venue: MED
+- title: Self-Powered Diaper Sensor with Wireless Transmitter Powered by Paper-Based
+    Biofuel Cell with Urine Glucose as Fuel
+  date: 2021-07
+  url: https://doi.org/10.1021/acssensors.1c01266.s001
+  category: application
+  subcategory: hybrid
+  authors:
+  - Isao Shitanda
+  - Yuki Fujimura
+  - Tatsuya Takarada
+  - Ryo Suzuki
+  doi: 10.1021/acssensors.1c01266.s001
+  venue: ACS Sensors
+- title: Signal Amplification Strategy-Assisted Dual Photoelectrode Fuel Cell Self-Powered
+    Sensor for MecA Gene Detection
+  date: 2025-05
+  url: https://doi.org/10.1021/acs.analchem.5c01477.s001
+  category: application
+  subcategory: hybrid
+  authors:
+  - Wenjuan Xu
+  - Ziyi Yang
+  - Yunxia Jin
+  - Junlun Zhu
+  doi: 10.1021/acs.analchem.5c01477.s001
+  venue: Analytical Chemistry
+- title: Single-Stream H2O2 Membraneless Microfluidic Fuel Cell and Its Application
+    as a Self-Powered Electrochemical Sensor
+  date: 2023-01
+  url: https://doi.org/10.1021/acs.iecr.0c02548.s001
+  category: application
+  subcategory: hybrid
+  authors:
+  - Linlin Wang
+  - Wenlei Zhu
+  - Jianrong Zhang
+  - Jun‐Jie Zhu
+  doi: 10.1021/acs.iecr.0c02548.s001
+  venue: Biosensors
+- title: Ratiometric Self-Powered Sensor for 17-Estradiol Detection Based on a Dual-Channel
+    Photocatalytic Fuel Cell
+  date: 2019-09
+  url: https://doi.org/10.1021/acs.analchem.0c01543.s001
+  category: application
+  subcategory: hybrid
+  authors:
+  - Amanda Victorious
+  - Sudip Saha
+  - Richa Pandey
+  - Tohid F. Didar
+  doi: 10.1021/acs.analchem.0c01543.s001
+  venue: Frontiers in Chemistry
+- title: 'Photocatalytic Fuel Cell-Assisted Molecularly Imprinted Self-Powered Sensor:
+    A Flexible and Sensitive Tool for Detecting Aflatoxin B1'
+  date: 2021-09
+  url: https://doi.org/10.1021/acs.analchem.1c02074.s001
+  category: application
+  subcategory: hybrid
+  authors:
+  - Yunxia Jin
+  - Yang Luan
+  - Zhen Wu
+  - Wei Wen
+  doi: 10.1021/acs.analchem.1c02074.s001
+  venue: Analytical Chemistry
+- title: Direct glucose fuel cell towards a self-powered point-of-care nanobiosensor
+  date: 2023-01
+  url: https://doi.org/10.1016/b978-0-323-88431-0.00010-7
+  category: application
+  subcategory: hybrid
+  authors:
+  - Maria Helena de Sá
+  doi: 10.1016/b978-0-323-88431-0.00010-7
+  venue: Fundamentals of Sensor Technology
+- title: 'Dual-Photoelectrode Fuel Cell Based Self-Powered Sensor for a Picomole Level
+    Pollutant: Using an In Situ Molecularly Imprinted pType Organic Photocathode'
+  date: 2023-12
+  url: https://doi.org/10.1021/acs.analchem.3c03066.s001
+  category: application
+  subcategory: hybrid
+  authors: []
+  doi: 10.1021/acs.analchem.3c03066.s001
+  venue: ''
+- title: Cofe2o4 Embedded Bacterial Cellulose for Flexible, Biodegradable, and Self-Powered
+    Electromagnetic Sensor
+  date: 2022-08
+  url: https://doi.org/10.2139/ssrn.4136294
+  category: application
+  subcategory: hybrid
+  authors:
+  - Kun Chen
+  - Yifan Li
+  - Zhuolin Du
+  abstract: Self-powered flexible electromagnetic sensors based on flexible magnets
+    are promising to be applied in wearable field. As the core component of motion
+    sensors, flexible magnets are getting growing attentions. However, most reported
+    flexible magnets were fabricated with non-degradable substrate mater
+  doi: 10.2139/ssrn.4136294
+  venue: Nano Energy
+- title: A Study on the Modification, Mechanism, and Properties of a Self-Powered
+    H2o2 Electrochemical Sensor Based on a Fuel Cell Configuration with Fen4 and Graphene
+    Cathode Catalyst Materials
+  date: 2024-01
+  url: https://doi.org/10.2139/ssrn.4725738
+  category: application
+  subcategory: hybrid
+  authors:
+  - Yunong Zhang
+  - Andreas Offenhäusser
+  - Yulia  G. Mourzina
+  doi: 10.2139/ssrn.4725738
+  venue: SSRN Electronic Journal
+- title: 'Xeno-Fungusphere: Fungal-Enhanced Microbial Fuel Cells for Agricultural
+    Remediation with a Focus on Medicinal Plants'
+  date: 2025-06
+  url: https://doi.org/10.3390/agronomy15061392
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Da‐Cheng Hao
+  - X. F. Li
+  - Yaoxuan Wang
+  abstract: The xeno-fungusphere, a novel microbial ecosystem formed by integrating
+    exogenous fungi, indigenous soil microbiota, and electroactive microorganisms
+    within microbial fuel cells (MFCs), offers a trans
+  venue: Agronomy
+- title: 'Biofuel Cells Based on Oxidoreductases and Electroactive Nanomaterials:
+    Development and Characterization'
+  date: 2025-04
+  url: https://doi.org/10.3390/bios15040249
+  category: mechanism
+  subcategory: laccase
+  authors:
+  - Olha Demkiv
+  - Nataliya Stasyuk
+  - Galina Gayda
+  abstract: Amperometric biosensors (ABSs) and enzymatic biofuel cells (BFCs) share
+    several fundamental principles in their functionality, despite serving different
+    primary purposes. Both devices rely on biorecog
+  venue: Biosensors

@@ -27,6 +27,8 @@ on:
       - 'simulation/**'
       - 'tests/**'
       - 'tools/**'
+      - 'research/**'
+      - 'docs/biology/**'
       - '.github/workflows/pcb-ci.yml'
   pull_request:
     branches: [ main ]
@@ -36,6 +38,8 @@ on:
       - 'simulation/**'
       - 'tests/**'
       - 'tools/**'
+      - 'research/**'
+      - 'docs/biology/**'
 
 env:
   PYTHON_VERSION: '3.11'
@@ -217,3 +221,39 @@ jobs:
           if failed:
               sys.exit(1)
           "
+
+  # ──────────────────────────────────────────────
+  # Stage 5: Research Corpus Validation
+  # ──────────────────────────────────────────────
+  research:
+    name: Research Corpus
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Python deps
+        run: |
+          pip install --upgrade pip
+          pip install pyyaml requests 2>&1 | tail -3
+
+      - name: Validate papers.yaml
+        run: |
+          cd research
+          python3 scripts/validate_papers.py
+
+      - name: Verify README is up-to-date
+        run: |
+          cd research
+          python3 scripts/generate_readme.py --check
+
+      - name: Verify stats regenerate
+        run: |
+          cd research
+          python3 scripts/standard_stats.py
+          python3 scripts/analysis/generate_reports.py

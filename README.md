@@ -54,6 +54,8 @@ Each layer is documented in the [platform architecture](platform/architecture/ov
 | `platform/architecture/` | Platform vision, layer specifications, research roadmap |
 | `applications/` | Application-specific designs |
 | `docs/` | Technical specifications, prototyping guides, product concepts |
+| `docs/biology/` | Fungal species selection, cultivation protocols, ordering guide |
+| `research/` | MFC literature corpus (75 papers, auto-updated via arXiv/CrossRef/OpenAlex) |
 
 ---
 
@@ -69,6 +71,41 @@ This platform exists because of a fundamental problem: **Li-ion batteries are di
 | Board substrate | FR-4 (not biodegradable) | Cellulose PCB research (TRL 2-3) |
 
 **The DevKit works today within these constraints.** The platform is designed to evolve as each layer improves.
+
+---
+
+## 📚 Research Corpus
+
+MykoVolt maintains an **auto-updated MFC literature corpus** in [`research/`](research/README.md):
+
+- **75 papers** on fungal bioelectrochemistry, discovered via arXiv, CrossRef, EuropePMC, and OpenAlex
+- **Auto-validated** pipeline (`research/scripts/validate_papers.py`)
+- **Deep-dive review** for our species selection: [MFC Literature Review](research/docs/research/mfc_literature_review.md)
+- **Update anytime:** `cd research && python3 scripts/fetch/fetch_other_sources.py`
+
+---
+
+## Fungal Species for MykoVolt MFCs
+
+We've evaluated **6 fungal species** for compatibility with the DevKit's power requirements (BQ25570 energy harvester: **0.33–5 V input**, FDC1004 capacitance sensor, ST25DV04K NFC) and MykoVolt's use cases. The table below ranks them by **technical suitability, power output, and ease of integration** with the existing hardware design.
+
+| Species | Eignung für MykoVolt | Primäre Anwendungen | Stromausbeute | Lebensdauer | Substrat | Verfügbarkeit | Kosten (pro Kultur) |
+|---------|----------------------|---------------------|----------------|--------------|----------|--------------|---------------------|
+| **Trametes versicolor** (Schmetterlingstramete) | ⭐⭐⭐⭐⭐ | **DevKit, Soil Moisture Sensor, Compost Monitor, Smart Packaging** | **100–200 µW/cm²** | 3–4 Wochen | Lignin (Holzspäne, Agrarreste) | **Hoch** (DSMZ, ATCC, Pilzzüchter) | €15–25 |
+| **Neurospora crassa** | ⭐⭐⭐⭐⭐ | **High-Performance MFCs (Forschung, Medizin), Soil Carbon Verification** | **200–260 µW/cm²** | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 |
+| **Aspergillus niger** | ⭐⭐⭐⭐ | **Mg-Air-Hybrid-Systeme (Permafrost, Landfill), Smart City Infrastructure** | 150–180 µW/cm² | 4–6 Wochen | Industrielle Abfälle (Pektin, Zellulose) | **Sehr hoch** | €10–20 |
+| **Pleurotus ostreatus** (Austernpilz) | ⭐⭐⭐ | **Passive NFC DevKit, Edu Kit, Living Art (günstig & einfach)** | 50–80 µW/cm² | 2 Wochen | Stroh, Kaffeesatz, Cellulose | **Sehr hoch** (lokal, Supermarkt) | €5–15 |
+| **Ganoderma lucidum** (Reishi) | ⭐⭐ | **Smart Wound Dressing (medizinisch, biocompatibel)** | 30–50 µW/cm² | 3–4 Wochen | Cellulose (Wundauflagen), Holz | Hoch | €25–40 |
+| **Pestalotiopsis microspora** | ⭐⭐ | **Bioelektronik (Graphen-Produktion), Future Research** | 40–60 µW/cm² | 4–6 Wochen | Lignocellulose | Mittel | €30–50 |
+
+### 🎯 Quick Start Recommendations
+| Use Case | Recommended Species | Why |
+|----------|---------------------|-----|
+| **DevKit v0.1 (NFC, Capacitive Sensing)** | *Pleurotus ostreatus* | Low cost, easy to source, **sufficient for passive NFC** (1–5 µW) |
+| **Soil Moisture Sensor, Compost Monitor** | *Trametes versicolor* | High laccase activity, **compatible with BQ25570**, lignin substrates available |
+| **High-Performance Research (260 µW target)** | *Neurospora crassa* | **Highest power density**, genetically well-characterized |
+| **Mg-Air Hybrid Systems (Permafrost, Landfill)** | *Aspergillus niger* | Industrial robustness, **works with metallic electrodes (Mg)** |
+| **Medical/Biocompatible Applications** | *Ganoderma lucidum* | **Biocompatible**, low power needs (0.5–5 µW) |
 
 ---
 

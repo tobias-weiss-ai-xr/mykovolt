@@ -1,0 +1,92 @@
+# ⚙️ MykoVolt Research Taxonomy & Discovery Config
+#
+# Microbial Fuel Cells (MFCs) with focus on fungal bioelectrochemistry.
+# Pipeline:  config/taxonomy.yaml → papers.yaml → validate → README → reports
+
+# ── Topic ────────────────────────────────────────────────────────────────────
+topic:
+  name: "Microbial Fuel Cells — Fungal Bioelectrochemistry"
+  short: "mykovolt-mfc"
+  description: "Microbial fuel cells (MFCs) powered by fungal metabolism, with focus on laccase-mediated electron transfer, mycelial electrode integration, biodegradable power sources, and application in vanishing electronics."
+
+# ── Taxonomy ─────────────────────────────────────────────────────────────────
+# Categories = the main axis of your review (e.g. methods, applications, …).
+# Subcategories = the secondary axis (e.g. architectures, benchmarks, …).
+taxonomy:
+  categories:
+    - id: mechanism
+      display: "Bioelectrochemical Mechanisms"
+    - id: material
+      display: "Electrode & Material Systems"
+    - id: application
+      display: "Applications & Devices"
+    - id: survey
+      display: "Surveys & Reviews"
+  subcategories:
+    - id: laccase
+      display: "Laccase-Mediated"
+    - id: eet
+      display: "Extracellular Electron Transfer"
+    - id: hybrid
+      display: "Hybrid / Co-Culture"
+    - id: degradation
+      display: "Degradation & Lifespan"
+
+# ── Discovery: arXiv queries ─────────────────────────────────────────────────
+arxiv_queries:
+  - 'cat:q-bio.BM AND (abs:"microbial fuel cell" OR abs:"bioelectrochemistry")'
+  - 'cat:cond-mat.mtrl-sci AND (abs:"fungal electrode" OR abs:"mycelium composite")'
+  - 'cat:physics.app-ph AND (abs:"biofuel cell" OR abs:"enzymatic fuel cell")'
+  - 'cat:q-bio.BM AND abs:"laccase"'
+
+# ── Discovery: multi-source queries (dblp, crossref, europepmc) ──────────────
+other_sources_queries:
+  - source: crossref
+    query: fungal microbial fuel cell laccase
+    category: mechanism
+    subcategory_hint: laccase
+  - source: crossref
+    query: mycelium electrode biodegradable power
+    category: material
+    subcategory_hint: degradation
+  - source: europepmc
+    query: fungal extracellular electron transfer microbial fuel cell
+    category: mechanism
+    subcategory_hint: eet
+  - source: crossref
+    query: ganoderma trametes bioelectricity fuel cell
+    category: application
+    subcategory_hint: hybrid
+  - source: dblp
+    query: biofuel cell energy harvesting
+    category: survey
+    subcategory_hint: hybrid
+
+# ── OpenAlex bulk fetch ──────────────────────────────────────────────────────
+openalex_queries:
+  - category: mechanism
+    query: "fungal laccase microbial fuel cell electron transfer"
+  - category: material
+    query: "mycelium electrode biocomposite energy harvesting"
+  - category: application
+    query: "fungal biofuel cell biodegradable sensor power"
+  - category: survey
+    query: "microbial fuel cell review fungal bioelectrochemistry"
+
+# ── GitHub repository discovery ──────────────────────────────────────────────
+github_queries:
+  - query: "topic:microbial-fuel-cell+stars:>10"
+    category: application
+  - query: "microbial fuel cell MFC+stars:>20"
+    category: material
+  - query: "bioelectrochemistry+fungi+stars:>5"
+    category: mechanism
+
+# ── Relevance signals ────────────────────────────────────────────────────────
+repo_signals:
+  - "microbial fuel cell"
+  - "biofuel cell"
+  - "laccase"
+  - "bioelectrochemistry"
+  - "mycelium"
+  - "fungal electrode"

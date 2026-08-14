@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "total_papers": 75,
+    "generated_date": "2026-07",
+    "taxonomy": {
+      "categories": 4,
+      "subcategories": 4,
+      "total_cells": 16,
+      "filled_cells": 8,
+      "saturation": 50.0,
+      "empty_cells": 8
+    },
+    "analysis_window": {
+      "last_12m_start": "2025-08"
+    }
+  },
+  "by_category": {
+    "application": 21,
+    "material": 20,
+    "mechanism": 32,
+    "survey": 2
+  },
+  "by_subcategory": {
+    "degradation": 18,
+    "eet": 11,
+    "hybrid": 22,
+    "laccase": 24
+  },
+  "by_year": {
+    "2009": 1,
+    "2010": 1,
+    "2012": 1,
+    "2013": 1,
+    "2014": 1,
+    "2015": 1,
+    "2016": 3,
+    "2017": 6,
+    "2018": 10,
+    "2019": 3,
+    "2020": 5,
+    "2021": 3,
+    "2022": 7,
+    "2023": 9,
+    "2024": 6,
+    "2025": 6,
+    "2026": 11
+  },
+  "by_cell": {
+    "application/hybrid": 20,
+    "material/laccase": 12,
+    "mechanism/laccase": 12,
+    "mechanism/eet": 11,
+    "mechanism/degradation": 9,
+    "material/degradation": 8,
+    "survey/hybrid": 2,
+    "application/degradation": 1
+  },
+  "emerging_themes_12m": [
+    {
+      "keyword": "human",
+      "papers": 2
+    },
+    {
+      "keyword": "tool",
+      "papers": 2
+    },
+    {
+      "keyword": "graph",
+      "papers": 1
+    },
+    {
+      "keyword": "transfer",
+      "papers": 1
+    }
+  ],
+  "momentum": [
+    {
+      "id": "mechanism",
+      "name": "Mechanism",
+      "total": 32,
+      "recent": 10,
+      "prior": 5,
+      "growth_pct": 100.0,
+      "recent_share": 0.312,
+      "papers_per_month": 0.8,
+      "score": 131.2
+    },
+    {
+      "id": "application",
+      "name": "Application",
+      "total": 21,
+      "recent": 1,
+      "prior": 1,
+      "growth_pct": 0.0,
+      "recent_share": 0.048,
+      "papers_per_month": 0.1,
+      "score": 4.8
+    },
+    {
+      "id": "material",
+      "name": "Material",
+      "total": 20,
+      "recent": 0,
+      "prior": 0,
+      "growth_pct": null,
+      "recent_share": 0.0,
+      "papers_per_month": 0.0,
+      "score": 0.0
+    },
+    {
+      "id": "survey",
+      "name": "Survey",
+      "total": 2,
+      "recent": 0,
+      "prior": 0,
+      "growth_pct": null,
+      "recent_share": 0.0,
+      "papers_per_month": 0.0,
+      "score": 0.0
+    }
+  ],
+  "category_trajectory": {
+    "application": {
+      "2015": 1,
+      "2018": 7,
+      "2019": 1,
+      "2020": 2,
+      "2021": 2,
+      "2022": 1,
+      "2023": 4,
+      "2024": 1,
+      "2025": 1,
+      "2026": 1
+    },
+    "material": {
+      "2009": 1,
+      "2010": 1,
+      "2012": 1,
+      "2013": 1,
+      "2014": 1,
+      "2016": 3,
+      "2017": 3,
+      "2019": 1,
+      "2020": 2,
+      "2021": 1,
+      "2022": 2,
+      "2023": 2,
+      "2024": 1
+    },
+    "mechanism": {
+      "2017": 2,
+      "2018": 3,
+      "2019": 1,
+      "2020": 1,
+      "2022": 4,
+      "2023": 3,
+      "2024": 3,
+      "2025": 5,
+      "2026": 10
+    },
+    "survey": {
+      "2017": 1,
+      "2024": 1
+    }
+  },
+  "keyword_bursts": [
+    {
+      "keyword": "human",
+      "recent": 2,
+      "total": 2,
+      "burst_score": 6.82,
+      "recent_share": 0.1818
+    },
+    {
+      "keyword": "tool",
+      "recent": 2,
+      "total": 3,
+      "burst_score": 4.55,
+      "recent_share": 0.1818
+    },
+    {
+      "keyword": "graph",
+      "recent": 1,
+      "total": 5,
+      "burst_score": 1.36,
+      "recent_share": 0.0909
+    },
+    {
+      "keyword": "transfer",
+      "recent": 1,
+      "total": 11,
+      "burst_score": 0.62,
+      "recent_share": 0.0909
+    }
+  ],
+  "source_breakdown": {
+    "arxiv": 0,
+    "doi": 74,
+    "other": 1
+  },
+  "venues": [
+    {
+      "name": "MED",
+      "papers": 18
+    },
+    {
+      "name": "Microbial Fuel Cell Technology for Bioelectricity",
+      "papers": 5
+    },
+    {
+      "name": "Biosensors and Bioelectronics",
+      "papers": 3
+    },
+    {
+      "name": "Fuel",
+      "papers": 3
+    },
+    {
+      "name": "Journal of Power Sources",
+      "papers": 3
+    },
+    {
+      "name": "Biosensors",
+      "papers": 3
+    },
+    {
+      "name": "Enzyme and Microbial Technology",
+      "papers": 2
+    },
+    {
+      "name": "Analytical Chemistry",
+      "papers": 2
+    },
+    {
+      "name": "Bioresource Technology",
+      "papers": 1
+    },
+    {
+      "name": "Environmental Science & Technology",
+      "papers": 1
+    },
+    {
+      "name": "Applied Biochemistry and Biotechnology",
+      "papers": 1
+    },
+    {
+      "name": "Journal of Biotechnology",
+      "papers": 1
+    },
+    {
+      "name": "Biotechnology Advances",
+      "papers": 1
+    },
+    {
+      "name": "Journal of microbiology, biotechnology and food sciences",
+      "papers": 1
+    },
+    {
+      "name": "Renewable and Sustainable Energy Reviews",
+      "papers": 1
+    }
+  ],
+  "gaps": {
+    "thinnest_cells": [
+      {
+        "cell": "application/degradation",
+        "papers": 1
+      },
+      {
+        "cell": "survey/hybrid",
+        "papers": 2
+      },
+      {
+        "cell": "material/degradation",
+        "papers": 8
+      },
+      {
+        "cell": "mechanism/degradation",
+        "papers": 9
+      },
+      {
+        "cell": "mechanism/eet",
+        "papers": 11
+      },
+      {
+        "cell": "material/laccase",
+        "papers": 12
+      },
+      {
+        "cell": "mechanism/laccase",
+        "papers": 12
+      },
+      {
+        "cell": "application/hybrid",
+        "papers": 20
+      }
+    ],
+    "white_space": [
+      {
+        "cell": "mechanism/eet",
+        "total": 11,
+        "recent": 9,
+        "recent_share": 0.82
+      }
+    ]
+  },
+  "top_authors": [
+    {
+      "name": "Unspecified",
+      "papers": 7
+    },
+    {
+      "name": "Xiaotao Cao",
+      "papers": 2
+    },
+    {
+      "name": "Liza R",
+      "papers": 2
+    },
+    {
+      "name": "Kiyoshi Omine",
+      "papers": 2
+    },
+    {
+      "name": "Venkataraman Sivasankar",
+      "papers": 2
+    },
+    {
+      "name": "Santos D. Chicas",
+      "papers": 2
+    },
+    {
+      "name": "Deepika Jothinathan",
+      "papers": 2
+    },
+    {
+      "name": "Prabhakaran Mylsamy",
+      "papers": 2
+    },
+    {
+      "name": "L. Benedict Bruno",
+      "papers": 2
+    },
+    {
+      "name": "Yunxia Jin",
+      "papers": 2
+    },
+    {
+      "name": "Luo Peng",
+      "papers": 1
+    },
+    {
+      "name": "Hani Moubasher",
+      "papers": 1
+    },
+    {
+      "name": "Abdelrahman Tammam",
+      "papers": 1
+    },
+    {
+      "name": "Mahmoud Saleh",
+      "papers": 1
+    },
+    {
+      "name": "Shunliang Liu",
+      "papers": 1
+    }
+  ]
+}

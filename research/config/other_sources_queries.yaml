@@ -1,0 +1,38 @@
+# Multi-source discovery queries (fetch_other_sources.py)
+# Sources supported: dblp, crossref, europepmc, openalex, semantic_scholar
+# Topic: Microbial Fuel Cells — Fungal Bioelectrochemistry
+
+- source: crossref
+  query: fungal microbial fuel cell laccase electron transfer
+  category: mechanism
+  subcategory_hint: laccase
+
+- source: crossref
+  query: mycelium electrode biocomposite energy harvesting
+  category: material
+  subcategory_hint: degradation
+
+- source: europepmc
+  query: "fungal extracellular electron transfer microbial fuel cell"
+  category: mechanism
+  subcategory_hint: eet
+
+- source: crossref
+  query: ganoderma trametes bioelectricity fuel cell
+  category: application
+  subcategory_hint: hybrid
+
+- source: crossref
+  query: "enzymatic biofuel cell laccase biocathode power"
+  category: material
+  subcategory_hint: laccase
+
+- source: europepmc
+  query: "white rot fungi lignin degradation electrochemistry"
+  category: mechanism
+  subcategory_hint: degradation
+
+- source: crossref
+  query: "fungal fuel cell biodegradable sensor self-powered"
+  category: application
+  subcategory_hint: hybrid
