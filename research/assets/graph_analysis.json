@@ -3,7 +3,7 @@
   {
    "id": "application",
    "name": "Application",
-   "count": 21,
+   "count": 24,
    "trajectory": {
     "2015": 1,
     "2018": 7,
@@ -11,27 +11,27 @@
     "2020": 2,
     "2021": 2,
     "2022": 1,
-    "2023": 4,
-    "2024": 1,
+    "2023": 6,
+    "2024": 2,
     "2025": 1,
     "2026": 1
    },
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 21,
+    "total": 24,
     "recent": 1,
-    "prior": 1,
-    "growth_pct": 0.0,
-    "recent_share": 0.048,
+    "prior": 2,
+    "growth_pct": -50.0,
+    "recent_share": 0.042,
     "papers_per_month": 0.1,
-    "score": 4.8
+    "score": -45.8
    }
   },
   {
    "id": "material",
    "name": "Material",
-   "count": 20,
+   "count": 25,
    "trajectory": {
     "2009": 1,
     "2010": 1,
@@ -45,24 +45,25 @@
     "2021": 1,
     "2022": 2,
     "2023": 2,
-    "2024": 1
+    "2024": 5,
+    "2025": 1
    },
    "momentum": {
     "id": "material",
     "name": "Material",
-    "total": 20,
+    "total": 25,
     "recent": 0,
-    "prior": 0,
-    "growth_pct": null,
+    "prior": 2,
+    "growth_pct": -100.0,
     "recent_share": 0.0,
     "papers_per_month": 0.0,
-    "score": 0.0
+    "score": -100.0
    }
   },
   {
    "id": "mechanism",
    "name": "Mechanism",
-   "count": 32,
+   "count": 37,
    "trajectory": {
     "2017": 2,
     "2018": 3,
@@ -70,40 +71,40 @@
     "2020": 1,
     "2022": 4,
     "2023": 3,
-    "2024": 3,
-    "2025": 5,
+    "2024": 6,
+    "2025": 7,
     "2026": 10
    },
    "momentum": {
     "id": "mechanism",
     "name": "Mechanism",
-    "total": 32,
+    "total": 37,
     "recent": 10,
-    "prior": 5,
-    "growth_pct": 100.0,
-    "recent_share": 0.312,
+    "prior": 7,
+    "growth_pct": 42.9,
+    "recent_share": 0.27,
     "papers_per_month": 0.8,
-    "score": 131.2
+    "score": 69.9
    }
   },
   {
    "id": "survey",
    "name": "Survey",
-   "count": 2,
+   "count": 4,
    "trajectory": {
     "2017": 1,
-    "2024": 1
+    "2024": 3
    },
    "momentum": {
     "id": "survey",
     "name": "Survey",
-    "total": 2,
+    "total": 4,
     "recent": 0,
-    "prior": 0,
-    "growth_pct": null,
+    "prior": 2,
+    "growth_pct": -100.0,
     "recent_share": 0.0,
     "papers_per_month": 0.0,
-    "score": 0.0
+    "score": -100.0
    }
   }
  ],
@@ -111,22 +112,22 @@
   {
    "id": "degradation",
    "name": "Degradation",
-   "count": 18
+   "count": 23
   },
   {
    "id": "eet",
    "name": "Eet",
-   "count": 11
+   "count": 13
   },
   {
    "id": "hybrid",
    "name": "Hybrid",
-   "count": 22
+   "count": 26
   },
   {
    "id": "laccase",
    "name": "Laccase",
-   "count": 24
+   "count": 28
   }
  ],
  "timeline": [
@@ -381,6 +382,16 @@
    "laccase"
   ],
   [
+   "2023-11",
+   "application",
+   "degradation"
+  ],
+  [
+   "2023-12",
+   "application",
+   "hybrid"
+  ],
+  [
    "2023-12",
    "application",
    "hybrid"
@@ -403,12 +414,37 @@
   [
    "2024-02",
    "mechanism",
+   "hybrid"
+  ],
+  [
+   "2024-02",
+   "mechanism",
    "laccase"
+  ],
+  [
+   "2024-03",
+   "mechanism",
+   "degradation"
   ],
   [
    "2024-03",
    "survey",
    "hybrid"
+  ],
+  [
+   "2024-04",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2024-05",
+   "material",
+   "laccase"
+  ],
+  [
+   "2024-06",
+   "material",
+   "degradation"
   ],
   [
    "2024-06",
@@ -417,8 +453,38 @@
   ],
   [
    "2024-07",
+   "material",
+   "hybrid"
+  ],
+  [
+   "2024-07",
    "mechanism",
    "laccase"
+  ],
+  [
+   "2024-08",
+   "survey",
+   "laccase"
+  ],
+  [
+   "2024-09",
+   "survey",
+   "hybrid"
+  ],
+  [
+   "2024-11",
+   "material",
+   "laccase"
+  ],
+  [
+   "2024-12",
+   "application",
+   "degradation"
+  ],
+  [
+   "2025-01",
+   "material",
+   "degradation"
   ],
   [
    "2025-01",
@@ -434,6 +500,16 @@
    "2025-01",
    "mechanism",
    "eet"
+  ],
+  [
+   "2025-02",
+   "mechanism",
+   "eet"
+  ],
+  [
+   "2025-03",
+   "mechanism",
+   "laccase"
   ],
   [
    "2025-04",
@@ -517,6 +593,10 @@
   },
   {
    "name": "Biosensors and Bioelectronics",
+   "papers": 4
+  },
+  {
+   "name": "Biosensors",
    "papers": 3
   },
   {
@@ -528,43 +608,39 @@
    "papers": 3
   },
   {
-   "name": "Biosensors",
-   "papers": 3
+   "name": "Analytical Chemistry",
+   "papers": 2
+  },
+  {
+   "name": "Electrochimica Acta",
+   "papers": 2
+  },
+  {
+   "name": "Microbial Cell Factories",
+   "papers": 2
+  },
+  {
+   "name": "ACS Nano",
+   "papers": 2
   },
   {
    "name": "Enzyme and Microbial Technology",
    "papers": 2
   },
   {
-   "name": "Analytical Chemistry",
-   "papers": 2
-  },
-  {
-   "name": "Bioresource Technology",
+   "name": "Sediment Transport and Depositional Processes [Working Title]",
    "papers": 1
   },
   {
-   "name": "Environmental Science & Technology",
+   "name": "PMC",
    "papers": 1
   },
   {
-   "name": "Applied Biochemistry and Biotechnology",
+   "name": "Agronomy",
    "papers": 1
   },
   {
-   "name": "Journal of Biotechnology",
-   "papers": 1
-  },
-  {
-   "name": "Biotechnology Advances",
-   "papers": 1
-  },
-  {
-   "name": "Journal of microbiology, biotechnology and food sciences",
-   "papers": 1
-  },
-  {
-   "name": "Renewable and Sustainable Energy Reviews",
+   "name": "Scientific Reports",
    "papers": 1
   }
  ],
@@ -573,28 +649,28 @@
    "keyword": "human",
    "recent": 2,
    "total": 2,
-   "burst_score": 6.82,
+   "burst_score": 8.18,
    "recent_share": 0.1818
   },
   {
    "keyword": "tool",
    "recent": 2,
    "total": 3,
-   "burst_score": 4.55,
+   "burst_score": 5.45,
    "recent_share": 0.1818
   },
   {
    "keyword": "graph",
    "recent": 1,
-   "total": 5,
+   "total": 6,
    "burst_score": 1.36,
    "recent_share": 0.0909
   },
   {
    "keyword": "transfer",
    "recent": 1,
-   "total": 11,
-   "burst_score": 0.62,
+   "total": 17,
+   "burst_score": 0.48,
    "recent_share": 0.0909
   }
  ]

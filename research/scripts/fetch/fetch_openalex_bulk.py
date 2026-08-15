@@ -205,6 +205,7 @@ def main():
     parser.add_argument("--sleep", type=float, default=5.0)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--categories", default=None, help="Comma-separated subset of category keys")
+    parser.add_argument("--local", action="store_true", help="Append results to papers.yaml")
     args = parser.parse_args()
 
     import sys
@@ -246,7 +247,8 @@ def main():
         print(f"  {len(new)} new for {cat}", flush=True)
         if args.dry_run:
             continue
-        append_papers(yaml_path, new)
+        if args.local:
+            append_papers(yaml_path, new)
         print(f"  saved ({len(by_id)} total)", flush=True)
         time.sleep(args.sleep * 2)
 

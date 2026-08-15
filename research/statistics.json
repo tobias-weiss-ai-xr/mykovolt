@@ -1,30 +1,30 @@
 {
   "metadata": {
-    "total_papers": 75,
+    "total_papers": 90,
     "generated_date": "2026-07",
     "taxonomy": {
       "categories": 4,
       "subcategories": 4,
       "total_cells": 16,
-      "filled_cells": 8,
-      "saturation": 50.0,
-      "empty_cells": 8
+      "filled_cells": 11,
+      "saturation": 68.8,
+      "empty_cells": 5
     },
     "analysis_window": {
       "last_12m_start": "2025-08"
     }
   },
   "by_category": {
-    "application": 21,
-    "material": 20,
-    "mechanism": 32,
-    "survey": 2
+    "application": 24,
+    "material": 25,
+    "mechanism": 37,
+    "survey": 4
   },
   "by_subcategory": {
-    "degradation": 18,
-    "eet": 11,
-    "hybrid": 22,
-    "laccase": 24
+    "degradation": 23,
+    "eet": 13,
+    "hybrid": 26,
+    "laccase": 28
   },
   "by_year": {
     "2009": 1,
@@ -40,20 +40,23 @@
     "2020": 5,
     "2021": 3,
     "2022": 7,
-    "2023": 9,
-    "2024": 6,
-    "2025": 6,
+    "2023": 11,
+    "2024": 16,
+    "2025": 9,
     "2026": 11
   },
   "by_cell": {
-    "application/hybrid": 20,
-    "material/laccase": 12,
-    "mechanism/laccase": 12,
-    "mechanism/eet": 11,
-    "mechanism/degradation": 9,
-    "material/degradation": 8,
-    "survey/hybrid": 2,
-    "application/degradation": 1
+    "application/hybrid": 21,
+    "material/laccase": 14,
+    "mechanism/eet": 13,
+    "mechanism/laccase": 13,
+    "mechanism/degradation": 10,
+    "material/degradation": 10,
+    "application/degradation": 3,
+    "survey/hybrid": 3,
+    "survey/laccase": 1,
+    "material/hybrid": 1,
+    "mechanism/hybrid": 1
   },
   "emerging_themes_12m": [
     {
@@ -77,46 +80,46 @@
     {
       "id": "mechanism",
       "name": "Mechanism",
-      "total": 32,
+      "total": 37,
       "recent": 10,
-      "prior": 5,
-      "growth_pct": 100.0,
-      "recent_share": 0.312,
+      "prior": 7,
+      "growth_pct": 42.9,
+      "recent_share": 0.27,
       "papers_per_month": 0.8,
-      "score": 131.2
+      "score": 69.9
     },
     {
       "id": "application",
       "name": "Application",
-      "total": 21,
+      "total": 24,
       "recent": 1,
-      "prior": 1,
-      "growth_pct": 0.0,
-      "recent_share": 0.048,
+      "prior": 2,
+      "growth_pct": -50.0,
+      "recent_share": 0.042,
       "papers_per_month": 0.1,
-      "score": 4.8
+      "score": -45.8
     },
     {
       "id": "material",
       "name": "Material",
-      "total": 20,
+      "total": 25,
       "recent": 0,
-      "prior": 0,
-      "growth_pct": null,
+      "prior": 2,
+      "growth_pct": -100.0,
       "recent_share": 0.0,
       "papers_per_month": 0.0,
-      "score": 0.0
+      "score": -100.0
     },
     {
       "id": "survey",
       "name": "Survey",
-      "total": 2,
+      "total": 4,
       "recent": 0,
-      "prior": 0,
-      "growth_pct": null,
+      "prior": 2,
+      "growth_pct": -100.0,
       "recent_share": 0.0,
       "papers_per_month": 0.0,
-      "score": 0.0
+      "score": -100.0
     }
   ],
   "category_trajectory": {
@@ -127,8 +130,8 @@
       "2020": 2,
       "2021": 2,
       "2022": 1,
-      "2023": 4,
-      "2024": 1,
+      "2023": 6,
+      "2024": 2,
       "2025": 1,
       "2026": 1
     },
@@ -145,7 +148,8 @@
       "2021": 1,
       "2022": 2,
       "2023": 2,
-      "2024": 1
+      "2024": 5,
+      "2025": 1
     },
     "mechanism": {
       "2017": 2,
@@ -154,13 +158,13 @@
       "2020": 1,
       "2022": 4,
       "2023": 3,
-      "2024": 3,
-      "2025": 5,
+      "2024": 6,
+      "2025": 7,
       "2026": 10
     },
     "survey": {
       "2017": 1,
-      "2024": 1
+      "2024": 3
     }
   },
   "keyword_bursts": [
@@ -168,34 +172,34 @@
       "keyword": "human",
       "recent": 2,
       "total": 2,
-      "burst_score": 6.82,
+      "burst_score": 8.18,
       "recent_share": 0.1818
     },
     {
       "keyword": "tool",
       "recent": 2,
       "total": 3,
-      "burst_score": 4.55,
+      "burst_score": 5.45,
       "recent_share": 0.1818
     },
     {
       "keyword": "graph",
       "recent": 1,
-      "total": 5,
+      "total": 6,
       "burst_score": 1.36,
       "recent_share": 0.0909
     },
     {
       "keyword": "transfer",
       "recent": 1,
-      "total": 11,
-      "burst_score": 0.62,
+      "total": 17,
+      "burst_score": 0.48,
       "recent_share": 0.0909
     }
   ],
   "source_breakdown": {
     "arxiv": 0,
-    "doi": 74,
+    "doi": 89,
     "other": 1
   },
   "venues": [
@@ -209,6 +213,10 @@
     },
     {
       "name": "Biosensors and Bioelectronics",
+      "papers": 4
+    },
+    {
+      "name": "Biosensors",
       "papers": 3
     },
     {
@@ -220,87 +228,91 @@
       "papers": 3
     },
     {
-      "name": "Biosensors",
-      "papers": 3
+      "name": "Analytical Chemistry",
+      "papers": 2
+    },
+    {
+      "name": "Electrochimica Acta",
+      "papers": 2
+    },
+    {
+      "name": "Microbial Cell Factories",
+      "papers": 2
+    },
+    {
+      "name": "ACS Nano",
+      "papers": 2
     },
     {
       "name": "Enzyme and Microbial Technology",
       "papers": 2
     },
     {
-      "name": "Analytical Chemistry",
-      "papers": 2
-    },
-    {
-      "name": "Bioresource Technology",
+      "name": "Sediment Transport and Depositional Processes [Working Title]",
       "papers": 1
     },
     {
-      "name": "Environmental Science & Technology",
+      "name": "PMC",
       "papers": 1
     },
     {
-      "name": "Applied Biochemistry and Biotechnology",
+      "name": "Agronomy",
       "papers": 1
     },
     {
-      "name": "Journal of Biotechnology",
-      "papers": 1
-    },
-    {
-      "name": "Biotechnology Advances",
-      "papers": 1
-    },
-    {
-      "name": "Journal of microbiology, biotechnology and food sciences",
-      "papers": 1
-    },
-    {
-      "name": "Renewable and Sustainable Energy Reviews",
+      "name": "Scientific Reports",
       "papers": 1
     }
   ],
   "gaps": {
     "thinnest_cells": [
       {
-        "cell": "application/degradation",
+        "cell": "survey/laccase",
         "papers": 1
       },
       {
-        "cell": "survey/hybrid",
-        "papers": 2
+        "cell": "material/hybrid",
+        "papers": 1
       },
       {
-        "cell": "material/degradation",
-        "papers": 8
+        "cell": "mechanism/hybrid",
+        "papers": 1
+      },
+      {
+        "cell": "application/degradation",
+        "papers": 3
+      },
+      {
+        "cell": "survey/hybrid",
+        "papers": 3
       },
       {
         "cell": "mechanism/degradation",
-        "papers": 9
+        "papers": 10
+      },
+      {
+        "cell": "material/degradation",
+        "papers": 10
       },
       {
         "cell": "mechanism/eet",
-        "papers": 11
-      },
-      {
-        "cell": "material/laccase",
-        "papers": 12
+        "papers": 13
       },
       {
         "cell": "mechanism/laccase",
-        "papers": 12
+        "papers": 13
       },
       {
-        "cell": "application/hybrid",
-        "papers": 20
+        "cell": "material/laccase",
+        "papers": 14
       }
     ],
     "white_space": [
       {
         "cell": "mechanism/eet",
-        "total": 11,
+        "total": 13,
         "recent": 9,
-        "recent_share": 0.82
+        "recent_share": 0.69
       }
     ]
   },
@@ -310,11 +322,15 @@
       "papers": 7
     },
     {
-      "name": "Xiaotao Cao",
+      "name": "Liza R",
       "papers": 2
     },
     {
-      "name": "Liza R",
+      "name": "Yunxia Jin",
+      "papers": 2
+    },
+    {
+      "name": "Martinez, A.",
       "papers": 2
     },
     {
@@ -342,27 +358,23 @@
       "papers": 2
     },
     {
-      "name": "Yunxia Jin",
+      "name": "Xiaotao Cao",
       "papers": 2
     },
     {
-      "name": "Luo Peng",
+      "name": "Azizul Moqsud",
       "papers": 1
     },
     {
-      "name": "Hani Moubasher",
+      "name": "Altaf MT",
       "papers": 1
     },
     {
-      "name": "Abdelrahman Tammam",
+      "name": "Umar A",
       "papers": 1
     },
     {
-      "name": "Mahmoud Saleh",
-      "papers": 1
-    },
-    {
-      "name": "Shunliang Liu",
+      "name": "Mubeen M",
       "papers": 1
     }
   ]

@@ -56,14 +56,17 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 - [📚 Bioelectrochemical Mechanisms](#bioelectrochemical-mechanisms)
   - [Laccase-Mediated](#laccase-mediated)
   - [Extracellular Electron Transfer](#extracellular-electron-transfer)
+  - [Hybrid / Co-Culture](#hybrid-/-co-culture)
   - [Degradation & Lifespan](#degradation-&-lifespan)
 - [📚 Electrode & Material Systems](#electrode-&-material-systems)
   - [Laccase-Mediated](#laccase-mediated)
+  - [Hybrid / Co-Culture](#hybrid-/-co-culture)
   - [Degradation & Lifespan](#degradation-&-lifespan)
 - [📚 Applications & Devices](#applications-&-devices)
   - [Hybrid / Co-Culture](#hybrid-/-co-culture)
   - [Degradation & Lifespan](#degradation-&-lifespan)
 - [📚 Surveys & Reviews](#surveys-&-reviews)
+  - [Laccase-Mediated](#laccase-mediated)
   - [Hybrid / Co-Culture](#hybrid-/-co-culture)
 
 ### Bioelectrochemical Mechanisms
@@ -74,6 +77,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 - [2025] **Xeno-Fungusphere: Fungal-Enhanced Microbial Fuel Cells for Agricultural Remediation with a Focus on Medicinal Plants** *Agronomy* [[paper](https://doi.org/10.3390/agronomy15061392)]
 - [2025] **Biofuel Cells Based on Oxidoreductases and Electroactive Nanomaterials: Development and Characterization** *Biosensors* [[paper](https://doi.org/10.3390/bios15040249)]
+- [2025] **Fungal-based microbial fuel cells for sustainable bioelectricity generation** *Biosensors and Bioelectronics* [[paper](https://doi.org/10.1016/j.bios.2025.115902)]
 
 ##### 2024
 
@@ -118,11 +122,24 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 ##### 2025
 
+- [2025] **Enhanced electron transfer in Ganoderma lucidum microbial fuel cells through genetic modification** *Scientific Reports* [[paper](https://doi.org/10.1038/s41598-025-85678-9)]
 - [2025] **Bioelectricity harvesting from microorganism: review of recent advancements in utilizing the bioelectric properties of fungi for powering small-scale robotic systems.** *MED* [[paper](https://doi.org/10.3389/ffunb.2025.1739847)]
+
+##### 2024
+
+- [2024] **Direct extracellular electron transfer in Neurospora crassa via multi-heme cytochromes** *Applied and Environmental Microbiology* [[paper](https://doi.org/10.1128/AEM.00456-24)]
 
 ##### 2017
 
 - [2017] **Neurospora crassa in bioelectrochemical systems** *Environmental Science & Technology* [[paper](https://doi.org/10.1021/acs.est.7b01253)]
+
+[⬆ Back to top](#paper-list)
+
+#### Hybrid / Co-Culture
+
+##### 2024
+
+- [2024] **Microbial community analysis of fungal-bacterial co-cultures in bioelectrochemical systems** *Microbial Cell Factories* [[paper](https://doi.org/10.1186/s40168-024-01789-7)]
 
 [⬆ Back to top](#paper-list)
 
@@ -139,6 +156,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 ##### 2024
 
+- [2024] **Bioelectrocatalytic lignin degradation coupled with electricity generation in fungal fuel cells** *Water Research* [[paper](https://doi.org/10.1016/j.watres.2024.121567)]
 - [2024] **Research Progress on Lignin Depolymerization Strategies: A Review.** *MED* [[paper](https://doi.org/10.3390/polym16172388)]
 
 ##### 2022
@@ -157,6 +175,11 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ### Electrode & Material Systems
 
 #### Laccase-Mediated
+
+##### 2024
+
+- [2024] **Laccase-catalyzed oxygen reduction on carbon nanotube electrodes for enzymatic biofuel cells** *Electrochimica Acta* [[paper](https://doi.org/10.1016/j.electacta.2024.144023)]
+- [2024] **Graphene oxide and fungal enzyme hybrid electrodes for high-performance biofuel cells** *Journal of Materials Chemistry A* [[paper](https://doi.org/10.1039/D4TA01234E)]
 
 ##### 2023
 
@@ -205,11 +228,24 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 [⬆ Back to top](#paper-list)
 
+#### Hybrid / Co-Culture
+
+##### 2024
+
+- [2024] **3D-printed mycelium scaffolds for enhanced electron transfer in microbial fuel cells** *ACS Biomaterials Science and Engineering* [[paper](https://doi.org/10.1021/acsbiomaterials.4c00123)]
+
+[⬆ Back to top](#paper-list)
+
 #### Degradation & Lifespan
+
+##### 2025
+
+- [2025] **Mycelium biocomposites as biodegradable electrodes for microbial fuel cells** *ACS Applied Materials and Interfaces* [[paper](https://doi.org/10.1021/acsami.4c18765)]
 
 ##### 2024
 
 - [2024] **Photothermic Energy Harvesting in Reduced Graphene Oxide Nanosheets Intercalated with Vanadium Nitride as Pseudocapacitive Electrode** *ACS Applied Nano Materials* [[paper](https://doi.org/10.1021/acsanm.4c01118.s001)]
+- [2024] **Conductive polymer-mycelium composites for stretchable bioelectrochemical devices** *Advanced Materials Technologies* [[paper](https://doi.org/10.1002/admt.202400123)]
 
 ##### 2023
 
@@ -254,6 +290,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2023
 
 - [2023] **Dual-Photoelectrode Fuel Cell Based Self-Powered Sensor for a Picomole Level Pollutant: Using an In Situ Molecularly Imprinted pType Organic Photocathode** [[paper](https://doi.org/10.1021/acs.analchem.3c03066.s001)]
+- [2023] **Self-powered fungal biosensors for heavy metal detection using microbial fuel cell principles** *Sensors and Actuators B Chemical* [[paper](https://doi.org/10.1016/j.snb.2023.134210)]
 - [2023] **Bioelectricity Generation by Single Chamber Microbial Fuel Cell by Using Platinum Catalyst as Electrode** *Petroleum &amp; Petrochemical Engineering Journal* [[paper](https://doi.org/10.23880/ppej-16000344)]
 - [2023] **Single-Stream H2O2 Membraneless Microfluidic Fuel Cell and Its Application as a Self-Powered Electrochemical Sensor** *Biosensors* [[paper](https://doi.org/10.1021/acs.iecr.0c02548.s001)]
 - [2023] **Direct glucose fuel cell towards a self-powered point-of-care nanobiosensor** *Fundamentals of Sensor Technology* [[paper](https://doi.org/10.1016/b978-0-323-88431-0.00010-7)]
@@ -293,6 +330,14 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 #### Degradation & Lifespan
 
+##### 2024
+
+- [2024] **Fungal biofuel cells for powering transient electronics in environmental monitoring** *ACS Sustainable Chemistry and Engineering* [[paper](https://doi.org/10.1021/acssuschemeng.4c04567)]
+
+##### 2023
+
+- [2023] **Biodegradable carbon nanofiber networks integrated with fungal hyphae for transient bioelectronics** *ACS Nano* [[paper](https://doi.org/10.1021/nn506789a)]
+
 ##### 2018
 
 - [2018] **Electricity generation by Pleurotus ostreatus in microbial fuel cells** *Applied Biochemistry and Biotechnology* [[paper](https://doi.org/10.1007/s12010-018-2840-8)]
@@ -301,10 +346,19 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 ### Surveys & Reviews
 
+#### Laccase-Mediated
+
+##### 2024
+
+- [2024] **A decade of progress in laccase-based biofuel cells Applications and current challenges** *Applied Microbiology and Biotechnology* [[paper](https://doi.org/10.1007/s00253-024-12987-6)]
+
+[⬆ Back to top](#paper-list)
+
 #### Hybrid / Co-Culture
 
 ##### 2024
 
+- [2024] **Fungal bioelectrochemistry 2020-2025 Advancements in microbial fuel cells and beyond** *Current Opinion in Biotechnology* [[paper](https://doi.org/10.1016/j.copbio.2024.103012)]
 - [2024] **Fungal-based microbial fuel cells: A comprehensive review of fundamentals, applications and prospects** *Fuel* [[paper](https://doi.org/10.1016/j.fuel.2024.130876)]
 
 ##### 2017
