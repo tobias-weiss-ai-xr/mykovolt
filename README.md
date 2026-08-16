@@ -55,7 +55,8 @@ Each layer is documented in the [platform architecture](platform/architecture/ov
 | `applications/` | Application-specific designs |
 | `docs/` | Technical specifications, prototyping guides, product concepts |
 | `docs/biology/` | Fungal species selection, cultivation protocols, ordering guide |
-| `research/` | MFC literature corpus (75 papers, auto-updated via arXiv/CrossRef/OpenAlex) |
+| `research/` | MFC literature corpus (90 papers, auto-updated via arXiv/CrossRef/OpenAlex) |
+| `docs/projects/` | SOHO Lab pipeline — 15 experiments for Pi 5 + Hailo + 3D printers |
 
 ---
 

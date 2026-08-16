@@ -219,6 +219,8 @@ Medical Patch    Mass Production
 - ✅ **Strain optimization:** 50 µW/cm² in lab
 - ✅ **Rehydration:** 3× cycle validated
 - ✅ **Manufacturing:** Compression molding at €0.50/unit
+- ✅ **SOHO Lab:** 90 papers being validated experimentally (Pi 5 + Hailo + 3D printers)
+- ✅ **Open Data:** First fungal bioelectricity monitoring dataset (standard-setter)
 
 **Next milestones:**
 - 🟡 **Q4 2026:** First DevKit shipments

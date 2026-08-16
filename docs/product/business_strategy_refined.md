@@ -322,8 +322,10 @@ Phase 4 (36+ mo):  Sensor-as-a-Service → €0.05/data-point (recurring)
 - ✅ **T-243h:** P. chrysosporium pellet: 50 µW/cm² validated
 - ✅ **T-192h:** Rehydration: 3× cycle validated
 - ✅ **T-0:** NFXCDevKit: First customer shipment
+- 🟡 **SOHO Lab:** Validate papers experimentally with Pi 5 + Hailo + 3D printers ([SOHO Lab Pipeline](../projects/SOHO_LAB_PIPELINE.md))
+- 🟡 **Open Datasets:** Publish first fungal bioelectricity monitoring data
 
-**Budget:** €50K (Hessen Ideen grant)
+**Budget:** €50K (Hessen Ideen grant) + €745 (lab materials)
 
 ### Phase 1: Early Adopter Validation (2027)
 

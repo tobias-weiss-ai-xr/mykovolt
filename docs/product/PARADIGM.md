@@ -323,12 +323,14 @@ Traditional competitors would:
 - Launch DevKit v0.1
 - Establish knowledgebase as reference
 - First ecosystem partnerships
+- **SOHO Lab experiments**: validate papers with Pi 5 + Hailo + 3D printers → first open datasets ([SOHO Lab Pipeline](../projects/SOHO_LAB_PIPELINE.md))
 
 ### **2027: Acceleration**
 - 200+ papers in knowledgebase
 - Agentic Harness v1.0 (Enterprise)
 - 100+ DevKits in the wild
 - First industry pilots
+- **SOHO Lab products**: Portable MFC Charger (€99), DevKit v0.2 with Pi 5 integration, Autonomous Fungal Farm
 
 ### **2028: Standardization**
 - MykoVolt = De-facto standard in fungal bioelectrochemistry
@@ -367,6 +369,25 @@ Traditional competitors would:
 5. **Network effects compound** — Every new participant makes the whole ecosystem more valuable
 
 **This is not just a business strategy. It's a paradigm shift for how technology companies should operate in the 21st century.**
+
+---
+
+## SOHO Lab Integration
+
+The [SOHO Lab Pipeline](../projects/SOHO_LAB_PIPELINE.md) operationalizes this paradigm using accessible hardware:
+
+| Hardware | Role | Pillar |
+|----------|------|--------|
+| Pi 5 + Hailo-8 | Edge AI inference, data collection | Knowledgebase + Harness |
+| Anycubic Kobra S1 | MFC prototypes, robot parts | Hardware Platform |
+| Ender 3 (print + laser) | PCB prototyping, enclosures | Hardware Platform |
+
+**15 projects** across 3 phases, each producing open data that feeds the flywheel:
+```
+SOHO Experiments → Open Datasets → Researchers Cite Us → Ecosystem Grows → More Experiments
+```
+
+This is the paradigm in action: **every experiment makes the knowledgebase more valuable, which makes MykoVolt more indispensable.**
 
 ---
 

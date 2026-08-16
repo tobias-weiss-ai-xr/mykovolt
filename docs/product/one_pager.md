@@ -103,6 +103,8 @@ MykoVolt batteries:      Naturally decompose      →  No retrieval needed
 ### Phase 0: Validation (2026)
 - ✅ **PoC:** Reproduce Empa baseline (12.5 µW/cm²)
 - ✅ **DevKit:** NFC evaluation platform
+- 🟡 **SOHO Lab:** Pi 5 + Hailo + 3D printers validate 90 papers experimentally
+- 🟡 **Open Data:** First fungal bioelectricity monitoring dataset
 - 🎯 **Goal:** First 100 DevKits to research labs
 
 ### Phase 1: Early Adopters (2027)
