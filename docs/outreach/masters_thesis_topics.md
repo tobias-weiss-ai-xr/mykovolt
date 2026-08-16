@@ -1,387 +1,360 @@
 # MykoVolt — Master's Thesis Topics
 
-## Strategy
-
-Master's theses are a **cost-effective R&D engine** for early-stage startups:
-- Students get real-world problems, publications, IP experience
-- You get 6 months of focused research per topic (€0 direct cost if university-funded)
-- Builds IP portfolio before grant applications
-- De-risks technology for investors (peer-reviewed validation)
-
-**Ideal timing:** Start thesis recruitment 3-6 months before grant deadlines. Thesis results feed directly into Hessen Ideen / EXIST applications as "preliminary data".
-
-**Current status (July 2026):** **Design complete, recruiting team to build first prototype.** Master's students will **build and validate** the prototype (not optimize existing hardware). Hessen Ideen application Q4 2026 / Q1 2027, EXIST Q1 2027.
+> **11 topics · 5 work packages · Start: Q4 2026**
+>
+> Strategy doc: [`PARADIGM.md`](../strategy/PARADIGM.md) · Lab setup: [`SOHO_LAB_PIPELINE.md`](../lab/SOHO_LAB_PIPELINE.md)
 
 ---
 
-## Thesis Topics by Work Package
+## Why Master's Theses?
 
-### WP1: Fungal Strain Optimization & Power Density
+Master's students are a **zero-cost R&D engine** for pre-seed startups:
 
-#### Topic 1.1: High-Performance Fungal Strains for MFCs
+| MykoVolt gets | Student gets |
+|----------------|--------------|
+| 6 months focused research (€0 if uni-funded) | Real-world problem, not toy project |
+| IP + publications for grant applications | Co-authorship on papers |
+| Peer-reviewed validation for investors | Patent inventor credit |
+| Pilot data for Hessen Ideen / EXIST | Industry network & startup experience |
+
+**Timing:** Results feed directly into Hessen Ideen (Q1 2027) and EXIST (Q2 2027) applications as preliminary data.
+
+**SOHO Lab:** Most topics can start on MykoVolt's in-house hardware (Pi 5 + Hailo-8 + Anycubic Kobra S1 + Ender 3). Students who need wet-lab access work at their university but validate against our prototypes.
+
+---
+
+## WP1: Fungal Bioelectrochemistry
+
+### 1.1 — Strain Screening for Maximum Power Density
 **Degree:** M.Sc. Biotechnology / Microbiology
-**Duration:** 6 months
-**Start:** Q4 2026 / Q1 2027 (results for EXIST application Q3 2027)
+**Start:** Q4 2026 · **SOHO Lab:** Soil MFC + 3D-Printed MFC (Phase 1)
+**Papers:** #2 (sediment MFC), #5 (*Ganoderma* growth), #8 (optimal conditions), #10 (soil microbes), #14 (wastewater fungi), #33 (soil bioelectrogenesis)
 
-**Research Question:** Which fungal strains maximize power density in MFCs? Can we reproduce Empa baseline (12.5 µW/cm²) and exceed it?
+**Research question:** Which fungal species produce the highest stable power output in a low-cost MFC, and can we beat the Empa baseline of 12.5 µW/cm²?
 
-**Tasks:**
-- Build MFC test setup (3D-printed or compression-molded pellets)
-- Screen 5-10 fungal strains (*Trametes*, *Phanerochaete*, *Pleurotus*, *Ganoderma*)
-- Measure power density (µW/cm²), OCV, longevity
-- Test strain combinations (anode yeast + cathode white-rot)
-- Optimize inoculation density, nutrient composition
+**Approach:**
+- Build 10 identical MFC chambers (3D-printed, from our [lab pipeline](../lab/SOHO_LAB_PIPELINE.md))
+- Screen 8-10 strains: *Trametes versicolor*, *Phanerochaete chrysosporium*, *Pleurotus ostreatus*, *Ganoderma lucidum*, *Neurospora crassa*, *Aspergillus niger*, plus 2-3 soil isolates
+- Measure: OCV, power density (µW/cm²), polarization curves, longevity (>30 days)
+- Test co-cultures (white-rot anode + yeast cathode) for synergistic effects
 
-**Target Metrics:**
-- Baseline: 12.5 µW/cm² (Empa *T. pubescens* — literature)
-- Target: 50-100 µW/cm² (Phase 1), 260 µW/cm² (Phase 2)
+**Target:** 50 µW/cm² stable output (4× Empa baseline)
 
 **Deliverables:**
-- **Functional MFC prototype** (first light!)
-- Strain ranking (power density, growth rate, stability)
-- Optimized co-culture protocol
-
-**Deliverables:**
-- Strain ranking (power density, growth rate, stability)
-- Optimized co-culture protocol
-- 1 journal publication (Bioresour. Technol. / Bioelectrochemistry)
-- Patent: Strain combination + formulation
-
-**Grant Relevance:** EXIST (technology validation), Horizon Europe (bio-based materials)
+- Open strain-performance dataset (published on GitHub → feeds Knowledgebase pillar)
+- Optimized inoculation protocol
+- 1 paper (*Bioelectrochemistry* / *Bioresour. Technol.*)
+- Patent: top-performing strain combinations
 
 ---
 
-#### Topic 1.2: Enzyme Engineering for Laccase Optimization
+### 1.2 — Laccase Immobilization on Carbon Electrodes
 **Degree:** M.Sc. Biochemistry / Molecular Biology
-**Duration:** 6 months
 **Start:** Q2 2027
+**Papers:** #15 (mycelial electron transfer), #20 (electrode materials), #23 (electrode placement), #35 (power density improvements)
 
-**Research Question:** Can laccase activity be enhanced through protein engineering or immobilization?
+**Research question:** Can immobilized fungal laccase on carbon cloth electrodes sustain direct electron transfer without mediators, and for how long?
 
-**Tasks:**
-- Express recombinant laccase variants (site-directed mutagenesis)
-- Test immobilization on carbon electrodes (covalent vs. adsorption)
-- Measure electron transfer kinetics (cyclic voltammetry)
-- Optimize pH, temperature, mediator concentration (ABTS vs. direct)
+**Approach:**
+- Extract laccase from *T. versicolor* (commercial or in-house)
+- Immobilize on carbon cloth via: (a) physical adsorption, (b) covalent (glutaraldehyde), (c) entrapment (alginate)
+- Cyclic voltammetry + chronoamperometry to characterize electron transfer kinetics
+- Test stability: daily measurements over 21 days
 
-**Target Metrics:**
-- 2-5× laccase activity vs. wild-type
-- Stable enzyme lifetime >14 days
+**Target:** 2-5× current density vs. free enzyme; >14 days stable activity
 
 **Deliverables:**
-- Engineered laccase variant (or immobilization protocol)
+- Immobilization protocol (open, feeds Knowledgebase)
 - Kinetic parameters (Km, Vmax, kcat)
-- 1 journal publication (ACS Catalysis / Enzyme Microb. Technol.)
-
-**Grant Relevance:** BMBF (bioeconomy), Horizon Europe (industrial biotechnology)
+- 1 paper (*ACS Applied Materials* / *Enzyme Microb. Technol.*)
 
 ---
 
-### WP2: Manufacturing Process & Materials
+## WP2: Manufacturing & Materials
 
-#### Topic 2.1: Compression-Molded Fungal MFC Pellets
+### 2.1 — Compression-Molded MFC Pellets
 **Degree:** M.Sc. Materials Science / Chemical Engineering
-**Duration:** 6 months
-**Start:** Q4 2026 / Q1 2027 (critical for Hessen Ideen + EXIST applications)
+**Start:** Q4 2026 · **SOHO Lab:** 3D-Printed MFC → compression mold tooling (Ender 3 laser)
+**Papers:** #8 (chamber geometry), #12 (substrate comparison), #35 (power density), #47 (monitoring protocols)
+**Priority:** 🔴 **Critical** — core manufacturing IP for Hessen Ideen + EXIST
 
-**Research Question:** Can we build functional MFCs via compression molding (not 3D printing)? What parameters maximize conductivity and fungal viability?
+**Research question:** Can compression-molded cellulose-carbon-graphite pellets host living fungi and produce usable power? What formulation and process parameters maximize both conductivity and fungal viability?
 
-**Tasks:**
-- **Build first compression-molded MFC prototype**
-- Formulate cellulose-carbon-graphite composite (vary ratios)
-- Optimize compression pressure (10-100 bar), temperature (20-80°C), time (1-60 min)
-- Characterize conductivity, porosity, mechanical strength
-- Test fungal viability post-compression (CFU counts, metabolic activity)
-- Compare: 3D-printed (Empa) vs. compression-molded (MykoVolt) performance
+**Approach:**
+- Design compression mold (laser-cut acrylic from Ender 3, or 3D-printed on Kobra S1)
+- Formulate composites: cellulose (30-60%) + carbon black (10-30%) + graphite (10-30%)
+- Vary: pressure (10-100 bar), temperature (20-80°C), dwell time (1-60 min)
+- Characterize: bulk conductivity (4-point probe), porosity (mercury intrusion), crush strength
+- Test fungal viability post-compression: CFU counts, metabolic activity (CO₂ evolution)
+- Head-to-head: 3D-printed (Empa-style) vs. compression-molded (MykoVolt-style)
 
-**Target Metrics:**
-- Conductivity: >10 S/m (sufficient for µW-scale MFCs)
-- Fungal viability: >80% survival post-compression
-- Compressibility: 1.5 mm thickness, IP67 integrity
+**Target:** >10 S/m conductivity + >80% fungal survival + 50 µW/cm² output
 
 **Deliverables:**
-- Optimized formulation (cellulose : carbon : graphite ratio)
-- Process parameters (pressure, temp, time window)
-- 1 journal publication (Green Chem. / ACS Sustainable Chem. Eng.)
-- Patent: Compression-molded fungal MFC architecture
-
-**Grant Relevance:** Hessen Ideen (core technology), EXIST (manufacturing IP)
+- Optimized formulation + process window (feeds Hardware Platform pillar)
+- 1 paper (*Green Chemistry* / *ACS Sustainable Chem. Eng.*)
+- Patent: compression-molded MFC architecture
+- Preliminary data for Hessen Ideen application (Q1 2027)
 
 ---
 
-#### Topic 2.2: Biodegradable Encapsulation for IP67 Protection
+### 2.2 — Biodegradable IP67 Encapsulation
 **Degree:** M.Sc. Materials Science / Polymer Chemistry
-**Duration:** 6 months
-**Start:** Q2 2027
+**Start:** Q2 2027 · **SOHO Lab:** 3D-printed test fixtures for coating trials
+**Papers:** #12 (substrate compatibility), regulatory context from compliance roadmap
 
-**Research Question:** Can we formulate a compostable coating that provides IP67 protection for 7-30 days, then degrades?
+**Research question:** Can a compostable coating provide IP67 water protection for 7-30 days, then fully degrade in soil?
 
-**Tasks:**
-- Test biodegradable polymers (PLA, PHA, starch blends, beeswax)
-- Measure water ingress (gravimetric, impedance)
-- Accelerated aging (humidity, temperature cycling)
-- Compostability testing (EN 13432 protocol)
+**Approach:**
+- Screen biopolymers: PLA, PHA, starch-PLA blends, shellac, beeswax
+- Apply dip-coating and spray-coating on MFC pellets
+- Water ingress: gravimetric (weight gain) + electrical (impedance change)
+- Accelerated aging: 40°C/90% RH cycling
+- Compostability: EN 13432 disintegration test (industrial compost, 12 weeks)
 
-**Target Metrics:**
-- IP67 integrity: 7 days (Phase 1), 30 days (Phase 2)
-- Full biodegradation: 30-90 days in compost
-- Cost: <€0.05/unit
+**Target:** 14-day IP67 @ <€0.05/unit; full degradation in 90 days (compost)
 
 **Deliverables:**
-- Coating formulation (polymer + plasticizer + filler)
-- Degradation kinetics model
-- EN 13432 certification (preliminary data)
-- 1 journal publication (Polym. Degrad. Stab.)
-
-**Grant Relevance:** DBU (environmental innovation), Horizon Europe (circular economy)
+- Coating formulation + application protocol
+- 1 paper (*Polymer Degradation and Stability*)
+- EN 13432 preliminary data (for DBU application)
 
 ---
 
-### WP3: Electronics & Energy Management
+## WP3: Electronics & Embedded Systems
 
-#### Topic 3.1: Ultra-Low-Power MCU Firmware for Energy Harvesting
+### 3.1 — Ultra-Low-Power Firmware for µW-Scale Energy Harvesting
 **Degree:** M.Sc. Electrical Engineering / Embedded Systems
-**Duration:** 6 months
-**Start:** Q4 2026 / Q1 2027
+**Start:** Q4 2026 · **SOHO Lab:** Existing sensor board design + Pi 5 for profiling
+**Papers:** #47 (monitoring protocols) + KiCad design in `hardware/kicad/`
 
-**Research Question:** How to maximize sensor lifetime under µW-scale energy budgets? **Build the first working sensor node.**
+**Research question:** What is the minimum energy budget for a capacitive soil sensor reading + NFC transmission, and how close can we get STM32L0 firmware to the theoretical limit?
 
-**Tasks:**
-- **Design + build PCB prototype** (STM32L0, boost converter, capacitive sensor)
-- STM32L0 firmware (sleep modes, interrupt-driven sensing)
-- Energy profiling (MCU, sensor, comms)
-- Adaptive sampling (adjust interval based on energy availability)
-- Boost converter optimization (0.45V → 3.3V efficiency)
+**Approach:**
+- Start from existing [sensor board design](../technical/sensor_board_design.md) (STM32L0 + BQ25570 + FDC1004)
+- Profile every subsystem: MCU (STOP/LPSLEEP), FDC1004 (single conversion), ST25DV (passive NFC), PCF8523 (RTC wakeup)
+- Implement adaptive sampling: vary measurement interval based on harvested energy (BQ25570 VBAT_OK)
+- Build energy budget model: µJ per measurement cycle, µJ per day, days to depletion
+- Optimize: gate clock domains, minimize wake time, batch measurements
 
-**Target Metrics:**
-- Average power: <40 µW (7-day runtime @ 15-min intervals)
-- Sleep current: <0.5 µA
-- Boost efficiency: >85%
+**Target:** <30 µW average (improves on current 4.6 µA @ 3.3V ≈ 15 µW by 2× duty cycle margin)
 
 **Deliverables:**
-- **First working sensor node** (MFC + electronics + firmware)
-- Open-source firmware (GitHub)
-
-**Deliverables:**
-- Open-source firmware (GitHub)
-- Energy profiling tool (Python + INA219)
-- 1 conference paper (SenSys / IPSN)
-- Hardware design files (KiCad, open-source)
-
-**Grant Relevance:** EXIST (functional prototype), Hessen Ideen (system integration)
+- Open-source firmware ([GitHub](https://github.com/tobias-weiss-ai-xr/mykovolt), MIT)
+- Energy profiling toolkit (Python + INA219 scripts)
+- 1 paper (*SenSys* / *IEEE Sensors Journal*)
+- Hardware files (KiCad, CERN-OHL-P)
 
 ---
 
-#### Topic 3.2: Capacitive Soil Moisture Sensor Calibration
-**Degree:** M.Sc. Environmental Engineering / Agri-Tech
-**Duration:** 6 months
-**Start:** Q2 2026
+### 3.2 — AI-Optimized Fungal Growth Detection
+**Degree:** M.Sc. Computer Science / AI & Vision
+**Start:** Q1 2027 · **SOHO Lab:** Pi 5 + Hailo-8 + Camera → [Edge AI Vision](../lab/SOHO_LAB_PIPELINE.md)
+**Papers:** #5 (*Ganoderma* growth patterns), #15 (electrical signaling), #47 (monitoring)
+**NEW topic** — replaces generic soil calibration
 
-**Research Question:** Can low-cost capacitive sensors achieve ±1% volumetric water content accuracy across soil types?
+**Research question:** Can a Hailo-8 neural network running on a Raspberry Pi 5 segment fungal growth from time-lapse images with >95% accuracy, enabling automated MFC monitoring?
 
-**Tasks:**
-- Design interdigitated electrode PCB (100 kHz excitation)
-- Calibrate vs. soil type (sand, loam, clay, organic matter)
-- Temperature compensation (NTC thermistor)
-- Field validation (vs. reference: TDR, gravimetric)
+**Approach:**
+- Collect time-lapse dataset: daily photos of MFC chambers (10+ strains, 30+ days each)
+- Annotate: fungal coverage (% area), growth stage, contamination
+- Train MobileNetV2 / YOLOv8-nano on Hailo-8 (26 TOPS, <4W)
+- Deploy on Pi 5 for real-time inference (target: 30 FPS)
+- Integrate with voltage measurement (ADC) → correlate growth phase with bioelectricity output
+- Publish open dataset (first of its kind → feeds Knowledgebase pillar)
 
-**Target Metrics:**
-- Accuracy: ±1% VWC (volumetric water content)
-- Soil types: sand, loam, clay (3 calibration curves)
-- Temperature range: 0-40°C
+**Target:** >95% segmentation accuracy; <10ms inference per frame; <5W total system power
 
 **Deliverables:**
-- Calibration model (capacitance → VWC, soil-specific)
-- Open-source calibration software (Python)
-- 1 journal publication (Soil Sci. Soc. Am. J. / Sensors)
-- Field dataset (100+ measurements)
-
-**Grant Relevance:** EXIST (product validation), DBU (environmental monitoring)
+- Open fungal growth image dataset (feeds Knowledgebase pillar)
+- Hailo-8 optimized model + Pi 5 deployment code
+- 1 paper (*Computers and Electronics in Agriculture* / *Sensors*)
+- Foundation for [Agentic Harness](../strategy/PARADIGM.md) offering
 
 ---
 
-### WP4: Environmental Impact & Lifecycle
+## WP4: Environment & Lifecycle
 
-#### Topic 4.1: Life Cycle Assessment (LCA) of Fungal MFCs
-**Degree:** M.Sc. Environmental Engineering / Sustainability Science
-**Duration:** 6 months
-**Start:** Q1 2026
+### 4.1 — Cradle-to-Grave LCA: Fungal MFC vs. Li-ion CR2032
+**Degree:** M.Sc. Environmental Engineering / Sustainability
+**Start:** Q1 2027 · **SOHO Lab:** Not needed — desk study + OpenLCA
+**Papers:** All 90 papers inform boundary conditions and assumptions
 
-**Research Question:** What is the carbon footprint of fungal MFCs vs. Li-ion batteries for disposable sensors?
+**Research question:** Over its full lifecycle, does a fungal MFC sensor have a lower carbon footprint than a Li-ion-powered equivalent, and by how much?
 
-**Tasks:**
-- Cradle-to-grave LCA (ISO 14040/44)
-- Compare: fungal MFC (cellulose, carbon, fungi) vs. Li-ion CR2032
-- Impact categories: GWP, eutrophication, resource depletion, e-waste
-- Sensitivity analysis (scale-up scenarios: 1k → 1M units/year)
+**Approach:**
+- Functional unit: 1 soil moisture measurement per day for 30 days
+- Compare: (a) MykoVolt fungal MFC + NFC, (b) CR2032 Li-ion + BLE
+- System boundaries: cradle-to-grave (raw materials → manufacturing → use → disposal/compost)
+- Impact categories: GWP100, eutrophication, acidification, cumulative energy demand, e-waste
+- Sensitivity analysis: scale (1K → 1M units/year), power density improvements, pellet formulation
 
-**Target Metrics:**
-- GWP reduction: >50% vs. Li-ion (hypothesis)
-- E-waste reduction: 90% (compostable pellet)
+**Target:** >50% GWP reduction vs. Li-ion; publish as open LCA dataset
 
 **Deliverables:**
-- Full LCA report (SimaPro / OpenLCA)
-- 1 journal publication (J. Cleaner Production / Int. J. LCA)
+- Full LCA model (OpenLCA, open-source)
 - Environmental product declaration (EPD, preliminary)
-
-**Grant Relevance:** DBU (environmental benefit), Horizon Europe (circular economy), BMBF (climate tech)
+- 1 paper (*Journal of Cleaner Production*)
 
 ---
 
-#### Topic 4.2: Biodegradation Kinetics in Soil
+### 4.2 — Soil Biodegradation Kinetics of MFC Pellets
 **Degree:** M.Sc. Soil Science / Environmental Microbiology
-**Duration:** 6 months
-**Start:** Q2 2026
+**Start:** Q1 2027 · **SOHO Lab:** 3D-printed test fixtures for field burial
+**Papers:** #2 (sediment MFC), #12 (substrate), #14 (wastewater)
 
-**Research Question:** How fast do fungal MFC pellets degrade under field conditions?
+**Research question:** How fast do compression-molded MFC pellets degrade across soil types, temperatures, and moisture levels?
 
-**Tasks:**
-- Bury pellets in soil (field + lab mesocosms)
-- Monitor mass loss, CO2 evolution (respirometry)
-- Metagenomic analysis (succession of decomposer microbes)
-- Model degradation kinetics (first-order, Arrhenius)
+**Approach:**
+- Bury pellets in 3 soil types (sand, loam, clay) at 2 depths (10 cm, 30 cm)
+- Monitor: mass loss (weekly), CO₂ evolution (alkali trap), visual degradation
+- Lab mesocosms for controlled temperature (10°C, 20°C, 30°C) and moisture (30%, 60%, 90% field capacity)
+- Model: first-order + Arrhenius temperature dependence
+- Analyze residual: heavy metals (ICP-MS), persistent organics (GC-MS)
 
-**Target Metrics:**
-- 90% mass loss: 30-90 days (compost), 180 days (soil)
-- No toxic residues (heavy metals, persistent organics)
+**Target:** 90% mass loss in <90 days (compost), <180 days (soil); zero toxic residues
 
 **Deliverables:**
-- Degradation rate constants (temperature, moisture, soil type)
-- Metagenomic dataset (16S rRNA sequencing)
-- 1 journal publication (Soil Biol. Biochem. / Environ. Sci. Technol.)
-- OK Compost certification (preliminary data)
-
-**Grant Relevance:** DBU (environmental safety), Horizon Europe (bio-based materials)
+- Degradation rate model (open-source Python)
+- 1 paper (*Soil Biology & Biochemistry*)
+- OK Compost preliminary data (for certification)
 
 ---
 
-### WP5: Application-Specific Optimization
+## WP5: Applications & Field Validation
 
-#### Topic 5.1: Precision Agriculture Sensor Networks
-**Degree:** M.Sc. Agronomy / Precision Agriculture
-**Duration:** 6 months
-**Start:** Q2 2026
+### 5.1 — Precision Agriculture: Sensor Density Optimization
+**Degree:** M.Sc. Agronomy / Precision Agriculture / Agri-Tech
+**Start:** Q2 2027 · **SOHO Lab:** Prototypes for field deployment
+**Papers:** #2 (sediment), #10 (soil), #33 (soil bioelectrogenesis)
 
-**Research Question:** What sensor density and deployment depth optimizes irrigation decisions in row crops?
+**Research question:** What sensor density and deployment depth maximize irrigation water savings in row crops, using MykoVolt's compostable sensors?
 
-**Tasks:**
-- Deploy 50-100 MykoVolt sensors in field (corn, wheat, vineyard)
-- Vary depth (10, 20, 30 cm), density (10, 50, 100 sensors/ha)
-- Correlate soil moisture with crop yield, water use efficiency
-- Economic analysis (water saved, yield gain vs. sensor cost)
+**Approach:**
+- Partner with 1-2 farms (Hessen region)
+- Deploy MykoVolt sensors at 3 depths (10, 20, 30 cm) × 3 densities (10, 50, 100/ha)
+- Reference measurement: TDR probe + gravimetric sampling
+- Correlate soil moisture with crop stress indicators (NDVI from drone/satellite)
+- Economic model: water saved × water price vs. sensor cost per hectare
 
-**Target Metrics:**
-- Water savings: >20% vs. farmer practice
-- Yield gain: >5% (drought stress avoidance)
-- ROI: <1 season (€0.15/sensor × 100/ha = €15/ha vs. €200/ha water savings)
+**Target:** >20% irrigation savings; ROI <1 growing season
 
 **Deliverables:**
-- Deployment guidelines (depth, density, crop-specific)
-- Economic model (ROI calculator)
-- 1 journal publication (Agric. Water Manage. / Precision Ag)
-- Pilot customer testimonial (farm partner)
-
-**Grant Relevance:** EXIST (market validation), DBU (resource efficiency)
+- Deployment protocol (depth, density, crop-specific)
+- ROI calculator (open-source spreadsheet)
+- 1 paper (*Agricultural Water Management*)
+- Pilot customer testimonial → EXIST validation
 
 ---
 
-#### Topic 5.2: Compost Process Monitoring
+### 5.2 — Compost Process Monitoring with Disposable Sensors
 **Degree:** M.Sc. Waste Management / Bioprocess Engineering
-**Duration:** 6 months
-**Start:** Q2 2026
+**Start:** Q2 2027 · **SOHO Lab:** Prototypes for industrial deployment
+**Papers:** #2 (sediment MFC), #10 (soil microbes)
 
-**Research Question:** Can distributed MykoVolt sensors optimize industrial composting (temperature, moisture, aeration)?
+**Research question:** Can MykoVolt sensors embedded in compost windrows provide actionable temperature/moisture data for process optimization, then decompose with the compost?
 
-**Tasks:**
-- Deploy sensors in compost windrows (municipal, industrial)
-- Monitor temperature, moisture, O2 (multi-parameter nodes)
-- Correlate with compost quality (C/N ratio, pathogen reduction, maturity)
-- Optimize aeration schedule (energy savings)
+**Approach:**
+- Partner with municipal or industrial composting facility (Hessen region)
+- Embed sensors in windrows at 3 positions (core, mid, surface)
+- Monitor: temperature, moisture (capacitive), O₂ (if multi-parameter node)
+- Correlate with compost quality: C/N ratio, pathogen reduction (E. coli, Salmonella), maturity (germination test)
+- Compare: sensor-optimized aeration vs. standard schedule
 
-**Target Metrics:**
-- Composting time reduction: >20% (optimized aeration)
-- Energy savings: >15% (turning, forced aeration)
-- Compost quality: EN 13432 certification maintained
+**Target:** >15% reduction in composting time or energy use
 
 **Deliverables:**
-- Process control algorithm (aeration based on sensor data)
-- 1 journal publication (Waste Manage. / Bioresour. Technol.)
-- Pilot customer (composting facility partner)
-
-**Grant Relevance:** DBU (waste innovation), Horizon Europe (circular economy)
+- Process control algorithm (open-source)
+- 1 paper (*Waste Management* / *Bioresour. Technol.*)
+- Pilot facility partnership → DBU validation
 
 ---
 
-## Recruitment Timeline
+## Priority Matrix
 
-| Thesis Start | Application Deadline | Results Ready For |
-|--------------|----------------------|-------------------|
-| **Q4 2026 (Oct-Dec)** | Hessen Ideen (Q1 2027) | EXIST (Q2 2027) |
-| **Q1 2027 (Jan-Mar)** | EXIST (Q2 2027) | Horizon Europe (Q3 2027) |
-| **Q2 2027 (Apr-Jun)** | Horizon Europe (Q3 2027) | DBU (Q4 2027) |
+Which topics to recruit first:
 
-**Recruitment channels:**
-- University job boards (TU Darmstadt, KIT, RWTH, ETH Zürich)
-- Professor networks (fungal biology, materials science, embedded systems)
-- LinkedIn, ResearchGate, Twitter (#AcademicChatter)
-- Career fairs (BioTech, GreenTech, IoT)
+| Priority | Topic | Why | Grant Impact |
+|:--------:|-------|-----|:------------:|
+| 🔴 P0 | **2.1 Compression-Molded Pellets** | Core manufacturing IP | Hessen Ideen |
+| 🔴 P0 | **3.1 Ultra-Low-Power Firmware** | Functional prototype | Hessen Ideen + EXIST |
+| 🟡 P1 | **1.1 Strain Screening** | Power density data | EXIST |
+| 🟡 P1 | **4.1 LCA** | Environmental narrative | All grants |
+| 🟢 P2 | **3.2 AI Growth Detection** | Novel dataset + Agentic Harness | Horizon Europe |
+| 🟢 P2 | **2.2 Biodegradable Encapsulation** | IP67 validation | DBU |
+| 🟢 P2 | **1.2 Laccase Immobilization** | Electrode science | BMBF |
+| ⚪ P3 | **4.2 Biodegradation Kinetics** | Certification data | DBU |
+| ⚪ P3 | **5.1 Precision Agriculture** | Market validation | EXIST |
+| ⚪ P3 | **5.2 Compost Monitoring** | Market validation | DBU |
 
-**Funding options:**
-- University-funded (professor's grant, departmental budget)
-- Industry collaboration (MykoVolt provides stipend: €500-1000/month)
-- DAAD (international students)
-- Women in Tech / Diversity scholarships
+**Recommendation:** Recruit 2 P0 students immediately (Q4 2026) + 1-2 P1 students (Q1 2027).
 
 ---
 
-## IP & Publication Strategy
+## How Topics Map to the Three Pillars
+
+| Pillar | Topics | Output |
+|--------|--------|--------|
+| **Open Knowledgebase** | 1.1, 1.2, 3.2, 4.1 | Open datasets, strain rankings, growth images, LCA model |
+| **Agentic Harness** | 3.2 | AI growth detection model → foundation for enterprise tool |
+| **Hardware Platform** | 2.1, 2.2, 3.1 | Pellet formulation, coating, firmware, sensor board |
+
+---
+
+## IP & Publication Policy
 
 | Aspect | Policy |
 |--------|--------|
-| **IP ownership** | MykoVolt retains IP; student is inventor (named in patents) |
-| **Publication** | Allowed after patent filing (3-6 month delay) |
-| **Thesis embargo** | Optional (1-2 years if sensitive) |
-| **Authorship** | Student is first author on papers; MykoVolt team is co-author |
-| **Open source** | Firmware, calibration software (GitHub, MIT license) |
+| **IP ownership** | MykoVolt retains IP; student is named inventor |
+| **Publication** | Allowed after patent filing (3-month delay) |
+| **Authorship** | Student = first author; MykoVolt = co-author |
+| **Open source** | All code, data, firmware published on GitHub (MIT / CERN-OHL-P) |
+| **Thesis access** | Public after grade awarded (no embargo) |
 
-**Patent pipeline:**
-1. Compression-molded fungal MFC architecture (Q2 2026)
-2. Strain combination + formulation (Q3 2026)
-3. Biodegradable encapsulation (Q4 2026)
-4. Ultra-low-power energy harvesting firmware (Q1 2027)
-
----
-
-## Success Metrics
-
-| Metric | Target (12 months) |
-|--------|---------------------|
-| Theses completed | 6-8 |
-| Journal publications | 4-6 (peer-reviewed) |
-| Patents filed | 2-3 |
-| Pilot customers | 3-5 (farms, composting, construction) |
-| Grant success rate | >50% (Hessen Ideen, EXIST) |
+**Patent pipeline (from thesis work):**
+1. Compression-molded MFC pellet formulation (from 2.1, Q2 2027)
+2. Top-performing strain combinations (from 1.1, Q3 2027)
+3. Biodegradable encapsulation coating (from 2.2, Q4 2027)
+4. AI fungal growth detection method (from 3.2, Q1 2028)
 
 ---
 
-## Next Steps
+## Recruitment
 
-1. **Identify supervising professors** (fungal biology, materials, electronics) — *Q3 2026*
-   - Empa (CH): Dr. Gustav Nyström (cellulose, 3D printing)
-   - TU Darmstadt: Prof. Alexander Böker (materials)
-   - KIT: Prof. Christoph Syldatk (industrial biotech)
-   - Local: Frankfurt/Fulda universities (check biotech programs)
+### Target Universities (Hessen region)
+- **TU Darmstadt** — Materials science, embedded systems
+- **Goethe Uni Frankfurt** — Biochemistry, microbiology
+- **Uni Marburg** — Fungal biology (excellent mycology group)
+- **JLU Giessen** — Agricultural science, soil science
+- **Uni Kassel** — Environmental engineering
+- **KIT Karlsruhe** (reachable) — Industrial biotech
 
-2. **Draft thesis descriptions** (2-page PDF per topic) — *Q3 2026*
+### Supervision Model
+Each student has:
+- **Academic supervisor** (professor at their university — provides lab access + grading)
+- **Industry mentor** (MykoVolt — provides problem definition, hardware, data, IP guidance)
 
-3. **Post openings** (university portals, LinkedIn, Twitter) — *Q3-Q4 2026*
-
-4. **Interview candidates** — *Q4 2026*
-
-5. **Onboard students** — *Q4 2026 / Q1 2027*
-
-**Immediate priority:** Find co-founders + students to **build the first prototype**.
+### Funding
+| Source | Amount | Covers |
+|--------|--------|--------|
+| University grant | €0-450/month | Standard thesis funding |
+| MykoVolt stipend | €500/month | If uni-funded insufficient |
+| HiWi (student assistant) | €13.50/hr | Up to 10 hrs/week |
+| DAAD | varies | International students |
 
 ---
 
-*Last updated: 2026-07-20 (Q3 2026) — Pre-prototype, recruiting team*
+## 12-Month Targets
+
+| Metric | Target |
+|--------|--------|
+| Active theses | 4 (2× P0 + 1× P1 + 1× P2) |
+| Completed theses | 2-3 |
+| Journal submissions | 3-4 |
+| Patents filed | 1-2 |
+| Open datasets published | 3-4 |
+| Grant applications with thesis data | 2-3 (Hessen Ideen, EXIST, DBU) |
+
+---
+
+*Last updated: 2026-08-16 — [SOHO Lab](../lab/SOHO_LAB_PIPELINE.md) operational, recruiting P0 students for Q4 2026*
