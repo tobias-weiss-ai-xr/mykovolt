@@ -206,7 +206,7 @@ A: Yes! Top performers may be offered PhD positions or full-time roles as we sca
 ## Learn More
 
 🔗 **GitHub:** github.com/tobias-weiss-ai-xr/mykovolt
-📄 **Full topic descriptions:** See `docs/team/masters_thesis_topics.md` in repo
+📄 **Full topic descriptions:** See `docs/outreach/masters_thesis_topics.md` in repo
 📧 **Questions?** tobias.weiss.ai.xr@gmail.com
 
 ---

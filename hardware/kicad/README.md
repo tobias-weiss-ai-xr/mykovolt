@@ -104,7 +104,7 @@ Key nets (full list in `mykovolt_devkit.net`):
 
 ## BOM Reference
 
-Full BOM with Mouser SKUs, Conrad search links, and prices: `../../docs/hardware/shopping_list.md`
+Full BOM with Mouser SKUs, Conrad search links, and prices: `../../docs/technical/shopping_list.md`
 
 ## Generating from Scratch
 
@@ -117,5 +117,5 @@ python3 hardware/kicad/generate_kicad.py
 
 ---
 
-*Layout SVG reference: `../../docs/hardware/sensor_board_layout.svg`*  
-*Full design doc: `../../docs/hardware/sensor_board_design.md`*
+*Layout SVG reference: `../../docs/technical/sensor_board_layout.svg`*  
+*Full design doc: `../../docs/technical/sensor_board_design.md`*

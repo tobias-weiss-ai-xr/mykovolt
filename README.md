@@ -51,12 +51,16 @@ Each layer is documented in the [platform architecture](platform/architecture/ov
 | `tests/` | 175 pytest tests (simulation, hardware, firmware, DRC, CLI) |
 | `mykovolt/` | Python CLI package (fetch, parse, calibrate, export, plot) |
 | `tools/` | CI/CD, Gerber validation, parametric sweep, test fixture generator |
-| `platform/architecture/` | Platform vision, layer specifications, research roadmap |
-| `applications/` | Application-specific designs |
-| `docs/` | Technical specifications, prototyping guides, product concepts |
-| `docs/biology/` | Fungal species selection, cultivation protocols, ordering guide |
-| `research/` | MFC literature corpus (90 papers, auto-updated via arXiv/CrossRef/OpenAlex) |
-| `docs/projects/` | SOHO Lab pipeline — 15 experiments for Pi 5 + Hailo + 3D printers |
+| `platform/` | Platform architecture and research roadmap |
+| `applications/` | Application-specific designs (e.g. DevKit) |
+| `protocols/` | Lab protocols (e.g. Empa replication) |
+| `papers/` | Our scientific publications (preprints, LaTeX) |
+| `research/` | Literature corpus (90 papers, auto-updated via arXiv/OpenAlex) |
+| `docs/strategy/` | Business strategy, paradigm, pitch materials |
+| `docs/technical/` | Engineering specs (sensor board, biology, compliance) |
+| `docs/lab/` | SOHO Lab pipeline — 15 experiments for Pi 5 + Hailo + 3D printers |
+| `docs/outreach/` | Fundraising, recruitment, cofounder search |
+| `docs/plans/` | Development plans and design specs |
 
 ---
 

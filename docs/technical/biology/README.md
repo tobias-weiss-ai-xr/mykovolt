@@ -334,7 +334,7 @@ For **immediate prototyping**, we recommend ordering the following cultures and 
 
 ## 🧪 Experiment Tracker
 
-Use this template to **track your fungal MFC experiments** (copy into `docs/biology/experiments/`):
+Use this template to **track your fungal MFC experiments** (copy into `docs/technical/biology/experiments/`):
 
 ```markdown
 # Experiment [ID] — [Species] + [Hardware]
@@ -470,7 +470,7 @@ We welcome contributions to the MykoVolt Biology Layer! Here’s how you can hel
 **How to contribute:**
 - Fork the repo and submit a **Pull Request** with your changes.
 - Open an **Issue** to discuss new ideas or report bugs.
-- Share your **experimental data** in `docs/biology/experiments/`.
+- Share your **experimental data** in `docs/technical/biology/experiments/`.
 
 ---
 

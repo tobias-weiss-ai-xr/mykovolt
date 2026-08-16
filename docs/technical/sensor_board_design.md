@@ -310,6 +310,6 @@ One-click Mouser basket for prototype batch (5 boards + spares):
 
 ---
 
-*Design files: `docs/hardware/sensor_board_block_diagram.svg`, `sensor_board_layout.svg`*  
-*Full BOM + shopping list: `docs/hardware/shopping_list.md`*  
+*Design files: `docs/technical/sensor_board_block_diagram.svg`, `sensor_board_layout.svg`*  
+*Full BOM + shopping list: `docs/technical/shopping_list.md`*  
 *Power simulation: `simulation/pcb_power_sim.py`*

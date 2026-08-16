@@ -38,7 +38,7 @@ Level 7: Uncertainty-Aware Digital Twin (Bootstrap-Ensembles)
 | `product_explorer.py` | 10 | **Product Concept Scanner:** Bewertet 30+ Produktkonzepte gegen Batterie-Physik (Power, O2, Formfaktor, Markt) |
 | `manufacturing_bom.py` | 11 | *(cost model — see notes)* |
 | `product_analysis.md` | — | Analyse alternativer Formgebungsverfahren + Produktkonzepte |
-| `../docs/product/product_concepts.md` | — | 30 Produktkonzepte (15 bekannte + 15 neue) mit Machbarkeits-Scan |
+| `../docs/strategy/product_concepts.md` | — | 30 Produktkonzepte (15 bekannte + 15 neue) mit Machbarkeits-Scan |
 
 ## Ergebnisse
 
@@ -90,7 +90,7 @@ Parameter ranking by impact on power:
 | Leistung | 260 µW¹ | 5000 µW | 10 mW |
 | Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
 
-> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MVP_DESIGN.md](../MVP_DESIGN.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
+> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MVP_DESIGN.md](../docs/archive/MVP_DESIGN.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
 >
 > ² Simulationsziel aus Bayesian Optimization (260 µW = 20× Empa-Baseline). Experimentell bislang nur 12.5 µW/cm² (Empa 2024) bestätigt. Der tatsächlich erreichbare Wert hängt von Tintenformulierung und Zellgeometrie ab.
 

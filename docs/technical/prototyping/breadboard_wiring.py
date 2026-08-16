@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a visual SVG breadboard wiring diagram for the MykoVolt DevKit prototype.
 
-Output: docs/prototyping/breadboard_wiring.svg
+Output: docs/technical/prototyping/breadboard_wiring.svg
 """
 
 import os

@@ -392,6 +392,6 @@ The research has **validated our thesis** and **expanded our opportunity**.
 
 ---
 
-**Documents Location:** `/home/weissto_local/git/mykovolt/docs/product/`  
+**Documents Location:** `/home/weissto_local/git/mykovolt/docs/strategy/`  
 **Research Location:** `/home/weissto_local/git/mykovolt/research/`  
 **Contact:** tobias.weiss.ai.xr@gmail.com | linkedin.com/company/mykovolt

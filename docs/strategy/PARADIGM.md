@@ -400,7 +400,7 @@ This is the paradigm in action: **every experiment makes the knowledgebase more 
 | **Author** | MykoVolt Team |
 | **Status** | Active Paradigm |
 | **Next Review** | Q1 2027 |
-| **Location** | `/docs/product/PARADIGM.md` |
+| **Location** | `/docs/strategy/PARADIGM.md` |
 
 ---
 

@@ -28,7 +28,7 @@ on:
       - 'tests/**'
       - 'tools/**'
       - 'research/**'
-      - 'docs/biology/**'
+      - 'docs/technical/biology/**'
       - '.github/workflows/pcb-ci.yml'
   pull_request:
     branches: [ main ]
@@ -39,7 +39,7 @@ on:
       - 'tests/**'
       - 'tools/**'
       - 'research/**'
-      - 'docs/biology/**'
+      - 'docs/technical/biology/**'
 
 env:
   PYTHON_VERSION: '3.11'
