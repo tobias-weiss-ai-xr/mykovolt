@@ -223,8 +223,8 @@ MykoVolt batteries:      Naturally decompose      →  No retrieval needed
 
 **Resources:**
 - Website: [mykovolt.com](https://mykovolt.com) (coming soon)
-- GitHub: [github.com/mykovolt](https://github.com/mykovolt)
-- Research: [github.com/mykovolt/research](https://github.com/mykovolt/research) (90+ papers)
+- GitHub: [github.com/tobias-weiss-ai-xr/mykovolt](https://github.com/tobias-weiss-ai-xr/mykovolt)
+- Research: [github.com/tobias-weiss-ai-xr/mykovolt/research](https://github.com/tobias-weiss-ai-xr/mykovolt/blob/main/research/README.md) (90+ papers)
 - Docs: [docs.mykovolt.com](https://docs.mykovolt.com) (technical deep dives)
 
 ---

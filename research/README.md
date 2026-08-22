@@ -377,7 +377,7 @@ If you use this corpus for a project, please cite:
   title = {MykoVolt MFC Research Corpus: Fungal Bioelectrochemistry Literature},
   year = {2026},
   publisher = {GitHub},
-  url = {https://github.com/tobias-weiss-ai-xr/mykovolt/tree/main/research}
+  url = {https://github.com/tobias-weiss-ai-xr/mykovolt/blob/main/research/README.md}
 }
 ```
 
