@@ -3,108 +3,114 @@
   {
    "id": "application",
    "name": "Application",
-   "count": 24,
+   "count": 25,
    "trajectory": {
     "2015": 1,
-    "2018": 7,
-    "2019": 1,
-    "2020": 2,
-    "2021": 2,
+    "2016": 1,
+    "2018": 6,
+    "2019": 2,
+    "2020": 1,
+    "2021": 4,
     "2022": 1,
-    "2023": 6,
-    "2024": 2,
+    "2023": 4,
+    "2024": 3,
     "2025": 1,
     "2026": 1
    },
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 24,
+    "total": 25,
     "recent": 1,
-    "prior": 2,
-    "growth_pct": -50.0,
-    "recent_share": 0.042,
+    "prior": 1,
+    "growth_pct": 0.0,
+    "recent_share": 0.04,
     "papers_per_month": 0.1,
-    "score": -45.8
+    "score": 4.0
    }
   },
   {
    "id": "material",
    "name": "Material",
-   "count": 25,
+   "count": 30,
    "trajectory": {
+    "2004": 1,
+    "2006": 1,
     "2009": 1,
     "2010": 1,
     "2012": 1,
-    "2013": 1,
-    "2014": 1,
-    "2016": 3,
+    "2013": 2,
+    "2014": 2,
+    "2015": 1,
+    "2016": 2,
     "2017": 3,
+    "2018": 1,
     "2019": 1,
-    "2020": 2,
+    "2020": 3,
     "2021": 1,
-    "2022": 2,
-    "2023": 2,
-    "2024": 5,
-    "2025": 1
+    "2022": 3,
+    "2023": 3,
+    "2024": 1,
+    "2026": 2
    },
    "momentum": {
     "id": "material",
     "name": "Material",
-    "total": 25,
-    "recent": 0,
-    "prior": 2,
-    "growth_pct": -100.0,
-    "recent_share": 0.0,
-    "papers_per_month": 0.0,
-    "score": -100.0
+    "total": 30,
+    "recent": 2,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 0.067,
+    "papers_per_month": 0.2,
+    "score": 6.7
    }
   },
   {
    "id": "mechanism",
    "name": "Mechanism",
-   "count": 37,
+   "count": 40,
    "trajectory": {
+    "2011": 1,
+    "2014": 2,
     "2017": 2,
-    "2018": 3,
-    "2019": 1,
+    "2018": 5,
+    "2019": 2,
     "2020": 1,
-    "2022": 4,
-    "2023": 3,
-    "2024": 6,
-    "2025": 7,
-    "2026": 10
+    "2022": 5,
+    "2023": 4,
+    "2024": 3,
+    "2025": 6,
+    "2026": 9
    },
    "momentum": {
     "id": "mechanism",
     "name": "Mechanism",
-    "total": 37,
+    "total": 40,
     "recent": 10,
-    "prior": 7,
-    "growth_pct": 42.9,
-    "recent_share": 0.27,
+    "prior": 5,
+    "growth_pct": 100.0,
+    "recent_share": 0.25,
     "papers_per_month": 0.8,
-    "score": 69.9
+    "score": 125.0
    }
   },
   {
    "id": "survey",
    "name": "Survey",
-   "count": 4,
+   "count": 1,
    "trajectory": {
-    "2017": 1,
-    "2024": 3
+    "2021": 1
    },
    "momentum": {
     "id": "survey",
     "name": "Survey",
-    "total": 4,
+    "total": 1,
     "recent": 0,
-    "prior": 2,
-    "growth_pct": -100.0,
+    "prior": 0,
+    "growth_pct": null,
     "recent_share": 0.0,
     "papers_per_month": 0.0,
-    "score": -100.0
+    "score": 0.0
    }
   }
  ],
@@ -112,25 +118,35 @@
   {
    "id": "degradation",
    "name": "Degradation",
-   "count": 23
+   "count": 21
   },
   {
    "id": "eet",
    "name": "Eet",
-   "count": 13
+   "count": 11
   },
   {
    "id": "hybrid",
    "name": "Hybrid",
-   "count": 26
+   "count": 35
   },
   {
    "id": "laccase",
    "name": "Laccase",
-   "count": 28
+   "count": 29
   }
  ],
  "timeline": [
+  [
+   "2004-01",
+   "material",
+   "laccase"
+  ],
+  [
+   "2006-10",
+   "material",
+   "eet"
+  ],
   [
    "2009-03",
    "material",
@@ -139,6 +155,11 @@
   [
    "2010-08",
    "material",
+   "laccase"
+  ],
+  [
+   "2011-12",
+   "mechanism",
    "laccase"
   ],
   [
@@ -152,6 +173,26 @@
    "laccase"
   ],
   [
+   "2013-06",
+   "material",
+   "eet"
+  ],
+  [
+   "2014-03",
+   "material",
+   "hybrid"
+  ],
+  [
+   "2014-03",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2014-07",
+   "mechanism",
+   "degradation"
+  ],
+  [
    "2014-09",
    "material",
    "laccase"
@@ -162,7 +203,7 @@
    "hybrid"
   ],
   [
-   "2016-01",
+   "2015-12",
    "material",
    "laccase"
   ],
@@ -177,6 +218,11 @@
    "degradation"
   ],
   [
+   "2016-09",
+   "application",
+   "hybrid"
+  ],
+  [
    "2017-01",
    "material",
    "degradation"
@@ -187,19 +233,9 @@
    "laccase"
   ],
   [
-   "2017-06",
-   "mechanism",
-   "eet"
-  ],
-  [
    "2017-08",
    "material",
    "degradation"
-  ],
-  [
-   "2017-10",
-   "survey",
-   "hybrid"
   ],
   [
    "2017-11",
@@ -207,8 +243,8 @@
    "laccase"
   ],
   [
-   "2018-01",
-   "application",
+   "2017-12",
+   "mechanism",
    "hybrid"
   ],
   [
@@ -234,17 +270,32 @@
   [
    "2018-01",
    "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "material",
+   "degradation"
+  ],
+  [
+   "2018-01",
+   "mechanism",
+   "hybrid"
+  ],
+  [
+   "2018-01",
+   "mechanism",
    "hybrid"
   ],
   [
    "2018-01",
    "mechanism",
    "laccase"
-  ],
-  [
-   "2018-05",
-   "application",
-   "degradation"
   ],
   [
    "2018-09",
@@ -262,8 +313,18 @@
    "degradation"
   ],
   [
+   "2019-04",
+   "application",
+   "hybrid"
+  ],
+  [
    "2019-09",
    "application",
+   "hybrid"
+  ],
+  [
+   "2019-11",
+   "mechanism",
    "hybrid"
   ],
   [
@@ -277,9 +338,9 @@
    "laccase"
   ],
   [
-   "2020-02",
-   "application",
-   "hybrid"
+   "2020-01",
+   "material",
+   "laccase"
   ],
   [
    "2020-09",
@@ -297,17 +358,32 @@
    "degradation"
   ],
   [
+   "2021-06",
+   "application",
+   "hybrid"
+  ],
+  [
    "2021-07",
    "application",
    "hybrid"
   ],
   [
-   "2021-08",
+   "2021-07",
    "material",
-   "laccase"
+   "hybrid"
   ],
   [
    "2021-09",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2021-09",
+   "survey",
+   "hybrid"
+  ],
+  [
+   "2021-11",
    "application",
    "hybrid"
   ],
@@ -337,6 +413,11 @@
    "degradation"
   ],
   [
+   "2022-02",
+   "material",
+   "hybrid"
+  ],
+  [
    "2022-06",
    "material",
    "degradation"
@@ -347,6 +428,11 @@
    "hybrid"
   ],
   [
+   "2022-11",
+   "mechanism",
+   "degradation"
+  ],
+  [
    "2023-01",
    "application",
    "hybrid"
@@ -354,6 +440,16 @@
   [
    "2023-01",
    "application",
+   "hybrid"
+  ],
+  [
+   "2023-01",
+   "material",
+   "hybrid"
+  ],
+  [
+   "2023-01",
+   "mechanism",
    "hybrid"
   ],
   [
@@ -382,16 +478,6 @@
    "laccase"
   ],
   [
-   "2023-11",
-   "application",
-   "degradation"
-  ],
-  [
-   "2023-12",
-   "application",
-   "hybrid"
-  ],
-  [
    "2023-12",
    "application",
    "hybrid"
@@ -413,7 +499,7 @@
   ],
   [
    "2024-02",
-   "mechanism",
+   "application",
    "hybrid"
   ],
   [
@@ -423,93 +509,33 @@
   ],
   [
    "2024-03",
-   "mechanism",
-   "degradation"
-  ],
-  [
-   "2024-03",
-   "survey",
-   "hybrid"
-  ],
-  [
-   "2024-04",
-   "mechanism",
-   "eet"
-  ],
-  [
-   "2024-05",
-   "material",
-   "laccase"
-  ],
-  [
-   "2024-06",
-   "material",
-   "degradation"
-  ],
-  [
-   "2024-06",
-   "material",
-   "degradation"
-  ],
-  [
-   "2024-07",
-   "material",
-   "hybrid"
-  ],
-  [
-   "2024-07",
-   "mechanism",
-   "laccase"
-  ],
-  [
-   "2024-08",
-   "survey",
-   "laccase"
-  ],
-  [
-   "2024-09",
-   "survey",
-   "hybrid"
-  ],
-  [
-   "2024-11",
-   "material",
-   "laccase"
-  ],
-  [
-   "2024-12",
    "application",
-   "degradation"
+   "laccase"
   ],
   [
-   "2025-01",
+   "2024-06",
    "material",
    "degradation"
   ],
   [
-   "2025-01",
-   "mechanism",
-   "degradation"
-  ],
-  [
-   "2025-01",
-   "mechanism",
-   "degradation"
-  ],
-  [
-   "2025-01",
-   "mechanism",
-   "eet"
-  ],
-  [
-   "2025-02",
-   "mechanism",
-   "eet"
-  ],
-  [
-   "2025-03",
+   "2024-07",
    "mechanism",
    "laccase"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "degradation"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "eet"
   ],
   [
    "2025-04",
@@ -527,6 +553,11 @@
    "laccase"
   ],
   [
+   "2025-08",
+   "mechanism",
+   "hybrid"
+  ],
+  [
    "2026-01",
    "mechanism",
    "degradation"
@@ -572,9 +603,14 @@
    "eet"
   ],
   [
-   "2026-01",
-   "mechanism",
-   "eet"
+   "2026-02",
+   "material",
+   "degradation"
+  ],
+  [
+   "2026-03",
+   "material",
+   "laccase"
   ],
   [
    "2026-07",
@@ -588,23 +624,23 @@
    "papers": 18
   },
   {
+   "name": "Biosensors",
+   "papers": 5
+  },
+  {
    "name": "Microbial Fuel Cell Technology for Bioelectricity",
    "papers": 5
   },
   {
-   "name": "Biosensors and Bioelectronics",
+   "name": "Journal of Power Sources",
    "papers": 4
-  },
-  {
-   "name": "Biosensors",
-   "papers": 3
   },
   {
    "name": "Fuel",
    "papers": 3
   },
   {
-   "name": "Journal of Power Sources",
+   "name": "Bioelectrochemistry",
    "papers": 3
   },
   {
@@ -612,15 +648,7 @@
    "papers": 2
   },
   {
-   "name": "Electrochimica Acta",
-   "papers": 2
-  },
-  {
-   "name": "Microbial Cell Factories",
-   "papers": 2
-  },
-  {
-   "name": "ACS Nano",
+   "name": "Microbial Fuel Cell",
    "papers": 2
   },
   {
@@ -628,11 +656,11 @@
    "papers": 2
   },
   {
-   "name": "Sediment Transport and Depositional Processes [Working Title]",
-   "papers": 1
+   "name": "Biosensors and Bioelectronics",
+   "papers": 2
   },
   {
-   "name": "PMC",
+   "name": "Sediment Transport and Depositional Processes [Working Title]",
    "papers": 1
   },
   {
@@ -640,7 +668,15 @@
    "papers": 1
   },
   {
-   "name": "Scientific Reports",
+   "name": "Journal of microbiology, biotechnology and food sciences",
+   "papers": 1
+  },
+  {
+   "name": "ACS Applied Nano Materials",
+   "papers": 1
+  },
+  {
+   "name": "SSRN Electronic Journal",
    "papers": 1
   }
  ],
@@ -649,29 +685,29 @@
    "keyword": "human",
    "recent": 2,
    "total": 2,
-   "burst_score": 8.18,
-   "recent_share": 0.1818
+   "burst_score": 7.38,
+   "recent_share": 0.1538
   },
   {
    "keyword": "tool",
    "recent": 2,
    "total": 3,
-   "burst_score": 5.45,
-   "recent_share": 0.1818
+   "burst_score": 4.92,
+   "recent_share": 0.1538
   },
   {
    "keyword": "graph",
    "recent": 1,
-   "total": 6,
-   "burst_score": 1.36,
-   "recent_share": 0.0909
+   "total": 5,
+   "burst_score": 1.48,
+   "recent_share": 0.0769
   },
   {
    "keyword": "transfer",
    "recent": 1,
-   "total": 17,
-   "burst_score": 0.48,
-   "recent_share": 0.0909
+   "total": 11,
+   "burst_score": 0.67,
+   "recent_share": 0.0769
   }
  ]
 }

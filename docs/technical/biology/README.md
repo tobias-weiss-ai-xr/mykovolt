@@ -69,6 +69,8 @@ This table shows **which species work best with MykoVolt's hardware components**
 
 ## 🧪 Cultivation Protocols
 
+> ⚠️ **Evidence-Audit 2026-08:** Diverse µW/cm²-Werte in dieser Tabelle und in den Protokollen stammten aus nicht verifizierbaren Quellen (Halluzinations-DOIs, zwei Sessions). Sie wurden zurückgezogen; siehe [Gap-Analyse](../../../research/docs/research/gap_analysis.md). Verifizierte Basis: *Trametes*-DET, *S. cerevisiae*-MFC, *A. niger*-Bioelectricity. *Neurospora crassa* hat **keine** verifizierbare Elektrochemie-Literatur — pursuing it ist genuine Forschungs-Lücke, keine etablierte Basis.
+
 ### **⏳ Lifespan Extension (Literature-Grounded Solutions)**
 
 The **pellet lifespan is the critical constraint** (as flagged by Prof. Zorn). The research corpus provides four evidence-backed strategies:
@@ -426,25 +428,29 @@ All recommended species are **classified as Biosafety Level 1 (BSL-1)** by the *
 ## 📚 References
 
 ### **Key Papers**
-1. **Trametes versicolor in MFCs:**
-   - ["Fungal laccase as biocathode in microbial fuel cells"](https://doi.org/10.1016/j.biortech.2015.12.019) (DOI: 10.1016/j.biortech.2015.12.019)
-   - Demonstrates **laccase-mediated electron transfer** with high power densities.
+1. **Trametes (hirsuta/versicolor) in MFCs:**
+   - [Direct Heterogeneous Electron Transfer Reactions of *Trametes hirsuta* Laccases](https://doi.org/10.1002/elan.200603600) (DOI: 10.1002/elan.200603600)
+   - [Direct electron transfer of *Trametes hirsuta* laccase adsorbed at electrode](https://doi.org/10.1016/j.bioelechem.2012.11.001) (DOI: 10.1016/j.bioelechem.2012.11.001)
+   - Verified foundational work on **laccase direct electron transfer** at electrodes (Shleev-line research).
 
 2. **Neurospora crassa:**
-   - ["Neurospora crassa in Bioelectrochemical Systems"](https://doi.org/10.1021/acs.est.7b01253) (DOI: 10.1021/acs.est.7b01253)
-   - Shows **260 µW/cm²** power density under optimized conditions.
+   - ⚠️ **No verifiable electrochemistry literature exists** (verified via CrossRef/OpenAlex full-corpus audit, 2026-08). Earlier claims of 260 µW/cm² were based on an unverifiable source and have been **retracted**. If pursued, this is genuine research whitespace, not established fact.
 
 3. **Aspergillus niger:**
-   - ["Fungal Biofuel Cells: A Review"](https://doi.org/10.1016/j.bios.2017.09.024) (DOI: 10.1016/j.bios.2017.09.024)
-   - Discusses **industrial applications** and **hybrid systems**.
+   - [Bioelectricity Generation and Dye Decolorization by *Aspergillus niger*](https://doi.org/10.4172/2155-6199.1000446) (DOI: 10.4172/2155-6199.1000446)
+   - Verified demonstration of **bioelectricity generation** with simultaneous dye decolorization.
 
 4. **Pleurotus ostreatus:**
-   - ["Electricity generation by Pleurotus ostreatus in MFCs"](https://doi.org/10.1007/s12010-018-2840-8) (DOI: 10.1007/s12010-018-2840-8)
-   - Focuses on **low-cost, scalable MFCs**.
+   - [Biowelding 3D-Printed Biodigital Brick by *Pleurotus ostreatus* Mycelium](https://doi.org/10.3390/biomimetics8060504) (DOI: 10.3390/biomimetics8060504)
+   - Verified for **mycelial substrate integration** (biowelding). Note: direct electricity-generation evidence for *P. ostreatus* is thin; treat power claims as unproven.
 
-5. **Ganoderma lucidum:**
-   - ["Medicinal mushrooms as biocatalysts in MFCs"](https://doi.org/10.1016/j.jbiotec.2020.01.006) (DOI: 10.1016/j.jbiotec.2020.01.006)
-   - Highlights **biocompatibility** and **medical applications**.
+5. **Saccharomyces cerevisiae:**
+   - [Polypyrrole-Modified *Saccharomyces cerevisiae* in Microbial Fuel Cells](https://doi.org/10.3390/bios15080519) (DOI: 10.3390/bios15080519)
+   - [Effects of electrode size on power generation by *S. cerevisiae* MFC](https://doi.org/10.1007/s11581-021-04162-2) (DOI: 10.1007/s11581-021-04162-2)
+   - Verified yeast-MFC line — directly relevant to our **electrode geometry (2 cm²)** design.
+
+6. **Ganoderma lucidum:**
+   - ⚠️ Earlier "medicinal mushrooms as biocatalysts" citation was **unverifiable and retracted**. No verified electrochemistry literature; keep *Ganoderma* only as biocompatibility/material candidate.
 
 ### **Databases**
 - [DSMZ Catalogue](https://www.dsmz.de/catalogues/catalogue-microorganisms/fungi)

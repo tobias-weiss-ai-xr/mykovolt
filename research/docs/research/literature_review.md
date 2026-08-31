@@ -1,7 +1,7 @@
 # Literature Review
 
-**Generated:** 2026-08-15  
-**Corpus:** 90 papers across 4 categories
+**Generated:** 2026-08-31  
+**Corpus:** 96 papers across 4 categories
 
 > Synthesis of the corpus. Category insights are grounded in title/abstract analysis of the papers themselves.
 
@@ -11,13 +11,13 @@
 
 | Rank | Category | Papers |
 |------|----------|--------|
-| 1 | Bioelectrochemical Mechanisms | 37 |
-| 2 | Electrode & Material Systems | 25 |
-| 3 | Applications & Devices | 24 |
-| 4 | Surveys & Reviews | 4 |
+| 1 | Bioelectrochemical Mechanisms | 40 |
+| 2 | Electrode & Material Systems | 30 |
+| 3 | Applications & Devices | 25 |
+| 4 | Surveys & Reviews | 1 |
 
-**Time span:** 2009–2026 (median year 2018)
-**Dominant aspects:** Laccase-Mediated (28), Hybrid / Co-Culture (26), Degradation & Lifespan (23)
+**Time span:** 2004–2026 (median year 2017)
+**Dominant aspects:** Hybrid / Co-Culture (35), Laccase-Mediated (29), Degradation & Lifespan (21)
 
 ---
 
@@ -25,10 +25,10 @@
 
 | Category | Total | Last 12m | Prior 12m | Growth | 12-m share | Papers/mo |
 |----------|------:|---------:|----------:|-------:|----------:|----------:|
-| Mechanism | 37 | 10 | 7 | +43% | 27% | 0.8 |
-| Application | 24 | 1 | 2 | -50% | 4% | 0.1 |
-| Material | 25 | 0 | 2 | -100% | 0% | 0.0 |
-| Survey | 4 | 0 | 2 | -100% | 0% | 0.0 |
+| Mechanism | 40 | 10 | 5 | +100% | 25% | 0.8 |
+| Material | 30 | 2 | 0 | — | 7% | 0.2 |
+| Application | 25 | 1 | 1 | +0% | 4% | 0.1 |
+| Survey | 1 | 0 | 0 | — | 0% | 0.0 |
 
 ---
 
@@ -36,14 +36,14 @@
 
 | Cell | Papers |
 |------|--------:|
-| `survey/laccase` | 1 |
-| `material/hybrid` | 1 |
-| `mechanism/hybrid` | 1 |
-| `application/degradation` | 3 |
-| `survey/hybrid` | 3 |
-| `mechanism/degradation` | 10 |
+| `application/laccase` | 1 |
+| `survey/hybrid` | 1 |
+| `material/eet` | 2 |
+| `material/hybrid` | 4 |
+| `mechanism/hybrid` | 6 |
+| `mechanism/eet` | 9 |
 | `material/degradation` | 10 |
-| `mechanism/eet` | 13 |
+| `mechanism/degradation` | 11 |
 
 ---
 
@@ -52,7 +52,7 @@
 
 ### Bioelectrochemical Mechanisms (`mechanism`)
 
-**Corpus size:** 37 papers
+**Corpus size:** 40 papers
 
 **Recent papers:**
 
@@ -64,37 +64,35 @@
 
 ### Electrode & Material Systems (`material`)
 
-**Corpus size:** 25 papers
+**Corpus size:** 30 papers
 
 **Recent papers:**
 
-- [2025-01] Mycelium biocomposites as biodegradable electrodes for microbial fuel cells — https://doi.org/10.1021/acsami.4c18765
-- [2024-11] Laccase-catalyzed oxygen reduction on carbon nanotube electrodes for enzymatic biofuel cells — https://doi.org/10.1016/j.electacta.2024.144023
-- [2024-07] 3D-printed mycelium scaffolds for enhanced electron transfer in microbial fuel cells — https://doi.org/10.1021/acsbiomaterials.4c00123
+- [2026-03] Enhanced stability and reusability of metagenomic laccase via immobilization on functionalized  — https://doi.org/10.1038/s41598-026-40065-w
+- [2026-02] Biodegradable Transient Electronics: Sustainable Materials and Architectures for Circular IoT a — https://doi.org/10.62311/nesx/rb-978-81-999904-4-9
+- [2024-06] Photothermic Energy Harvesting in Reduced Graphene Oxide Nanosheets Intercalated with Vanadium  — https://doi.org/10.1021/acsanm.4c01118.s001
 
 ---
 
 ### Applications & Devices (`application`)
 
-**Corpus size:** 24 papers
+**Corpus size:** 25 papers
 
 **Recent papers:**
 
 - [2026-07] Sediment Microbial Fuel Cell for Bioelectricity Generation — https://doi.org/10.5772/intechopen.1016822
 - [2025-05] Signal Amplification Strategy-Assisted Dual Photoelectrode Fuel Cell Self-Powered Sensor for Me — https://doi.org/10.1021/acs.analchem.5c01477.s001
-- [2024-12] Fungal biofuel cells for powering transient electronics in environmental monitoring — https://doi.org/10.1021/acssuschemeng.4c04567
+- [2024-03] Towards a Self-Powered Amperometric Glucose Biosensor Based on a Single-Enzyme Biofuel Cell — https://doi.org/10.3390/bios14030138
 
 ---
 
 ### Surveys & Reviews (`survey`)
 
-**Corpus size:** 4 papers
+**Corpus size:** 1 papers
 
 **Recent papers:**
 
-- [2024-09] Fungal bioelectrochemistry 2020-2025 Advancements in microbial fuel cells and beyond — https://doi.org/10.1016/j.copbio.2024.103012
-- [2024-08] A decade of progress in laccase-based biofuel cells Applications and current challenges — https://doi.org/10.1007/s00253-024-12987-6
-- [2024-03] Fungal-based microbial fuel cells: A comprehensive review of fundamentals, applications and pro — https://doi.org/10.1016/j.fuel.2024.130876
+- [2021-09] Material Function of Mycelium-Based Bio-Composite: A Review — https://doi.org/10.3389/fmats.2021.737377
 
 ---
 

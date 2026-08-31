@@ -70,7 +70,7 @@ This platform exists because of a fundamental problem: **Li-ion batteries are di
 
 | Constraint | Current Limit | Path to Improvement |
 |------------|---------------|---------------------|
-| Power | 25 µW (7 days) | Better strain + formulation → 260 µW simulated |
+| Power | 25 µW (7 days) | Better strain + formulation → 260 µW *target hypothesis*¹ |
 | O₂ requirement | Can't bury >5cm without air chimney | Mg-Air fallback, surface deployment |
 | NFC range | 2-5 cm | BLE add-on (more power budget needed) |
 | Board substrate | FR-4 (not biodegradable) | Cellulose PCB research (TRL 2-3) |
@@ -97,18 +97,20 @@ We've evaluated **6 fungal species** for compatibility with the DevKit's power r
 | Species | Eignung für MykoVolt | Primäre Anwendungen | Stromausbeute | Lebensdauer | Substrat | Verfügbarkeit | Kosten (pro Kultur) |
 |---------|----------------------|---------------------|----------------|--------------|----------|--------------|---------------------|
 | **Trametes versicolor** (Schmetterlingstramete) | ⭐⭐⭐⭐⭐ | **DevKit, Soil Moisture Sensor, Compost Monitor, Smart Packaging** | **100–200 µW/cm²** | 3–4 Wochen | Lignin (Holzspäne, Agrarreste) | **Hoch** (DSMZ, ATCC, Pilzzüchter) | €15–25 |
-| **Neurospora crassa** | ⭐⭐⭐⭐⭐ | **High-Performance MFCs (Forschung, Medizin), Soil Carbon Verification** | **200–260 µW/cm²** | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 |
-| **Aspergillus niger** | ⭐⭐⭐⭐ | **Mg-Air-Hybrid-Systeme (Permafrost, Landfill), Smart City Infrastructure** | 150–180 µW/cm² | 4–6 Wochen | Industrielle Abfälle (Pektin, Zellulose) | **Sehr hoch** | €10–20 |
-| **Pleurotus ostreatus** (Austernpilz) | ⭐⭐⭐ | **Passive NFC DevKit, Edu Kit, Living Art (günstig & einfach)** | 50–80 µW/cm² | 2 Wochen | Stroh, Kaffeesatz, Cellulose | **Sehr hoch** (lokal, Supermarkt) | €5–15 |
-| **Ganoderma lucidum** (Reishi) | ⭐⭐ | **Smart Wound Dressing (medizinisch, biocompatibel)** | 30–50 µW/cm² | 3–4 Wochen | Cellulose (Wundauflagen), Holz | Hoch | €25–40 |
-| **Pestalotiopsis microspora** | ⭐⭐ | **Bioelektronik (Graphen-Produktion), Future Research** | 40–60 µW/cm² | 4–6 Wochen | Lignocellulose | Mittel | €30–50 |
+| **Neurospora crassa** | ⭐⭐⭐⭐⭐ | **High-Performance MFCs (Forschung), Soil Carbon Verification** | **⚠️ unbelegt**¹ (Ziel: 260 µW/cm²) | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 |
+| **Aspergillus niger** | ⭐⭐⭐⭐ | **Mg-Air-Hybrid-Systeme (Permafrost, Landfill), Smart City Infrastructure** | ⚠️ nur qualitativ belegt¹ (Bioelectricity + Dye Decolorization, JBR 2016) | 4–6 Wochen | Industrielle Abfälle (Pektin, Zellulose) | **Sehr hoch** | €10–20 |
+| **Pleurotus ostreatus** (Austernpilz) | ⭐⭐⭐ | **Passive NFC DevKit, Edu Kit, Living Art (günstig & einfach)** | ⚠️ unbelegt¹ (Biowelding belegt, Stromerzeugung nicht) | 2 Wochen | Stroh, Kaffeesatz, Cellulose | **Sehr hoch** (lokal, Supermarkt) | €5–15 |
+| **Ganoderma lucidum** (Reishi) | ⭐⭐ | **Smart Wound Dressing (medizinisch, biocompatibel)** | ⚠️ unbelegt¹ | 3–4 Wochen | Cellulose (Wundauflagen), Holz | Hoch | €25–40 |
+| **Pestalotiopsis microspora** | ⭐⭐ | **Bioelektronik (Graphen-Produktion), Future Research** | ⚠️ unbelegt¹ | 4–6 Wochen | Lignocellulose | Mittel | €30–50 |
+
+> ¹ **Evidence-Audit 2026-08:** Spezifische µW/cm²-Werte stammten aus nicht verifizierbaren Quellen und wurden zurückgezogen ([Gap-Analyse](research/docs/research/gap_analysis.md)). Verifizierte Evidenz: *Trametes*-Laccase-DET (Bioelectrochemistry 2013, Electroanalysis 2006), *S. cerevisiae*-MFC mit Elektroden-Geometrie (Ionics 2021, Biosensors 2025), *A. niger*-Bioelectricity (JBR 2016), 1-Jahr-stabile Enzym-BFC (Bioelectrochemistry 2015). Alle Zahlen sind Design-Hypothesen bis eigene Messungen (Phase E) sie belegen.
 
 ### 🎯 Quick Start Recommendations
 | Use Case | Recommended Species | Why |
 |----------|---------------------|-----|
 | **DevKit v0.1 (NFC, Capacitive Sensing)** | *Pleurotus ostreatus* | Low cost, easy to source, **sufficient for passive NFC** (1–5 µW) |
 | **Soil Moisture Sensor, Compost Monitor** | *Trametes versicolor* | High laccase activity, **compatible with BQ25570**, lignin substrates available |
-| **High-Performance Research (260 µW target)** | *Neurospora crassa* | **Highest power density**, genetically well-characterized |
+| **High-Performance Research (260 µW target)** | *Saccharomyces cerevisiae* (PPy-modifiziert) | **Genau verifiziert**: Polypyrrol-modifizierte Hefen zeigen echte MFC-Leistung; Elektroden-Geometrie direkt übertragbar auf unsere 2-cm²-Elektroden |
 | **Mg-Air Hybrid Systems (Permafrost, Landfill)** | *Aspergillus niger* | Industrial robustness, **works with metallic electrodes (Mg)** |
 | **Medical/Biocompatible Applications** | *Ganoderma lucidum* | **Biocompatible**, low power needs (0.5–5 µW) |
 

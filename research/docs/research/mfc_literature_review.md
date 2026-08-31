@@ -1,8 +1,9 @@
 # MFC Literature Review — MykoVolt Deep Dive
 
-**Generated:** 2026-08-14  
-**Corpus:** 75 papers (45 directly relevant to fungal MFCs)  
-**Purpose:** Practical synthesis of MFC literature for MykoVolt's fungal bio-battery development
+**Generated:** 2026-08-15 (rev. 2 — post evidence audit)  
+**Corpus:** 96 papers (36 directly relevant to fungal MFCs; 100% DOI-verified)  
+**Purpose:** Practical synthesis of MFC literature for MykoVolt's fungal bio-battery development  
+> ⚠️ Rev. 2 removes 23 unverifiable entries found in the 2026-08 DOI audit (incl. the "Neurospora 260 µW/cm²" claim). See [gap_analysis.md](gap_analysis.md).
 
 ---
 
@@ -24,7 +25,7 @@ The strongest evidence base in the corpus is **laccase-mediated biocathodes** (1
 `mechanism/eet` has **82% recent share** (9 of 11 papers in last 12 months) — the hottest research cell:
 
 - [Bioelectricity harvesting review (2025)](https://doi.org/10.3389/ffunb.2025.1739847) — advances in microbial EET
-- [Neurospora crassa in BES (2017)](https://doi.org/10.1021/acs.est.7b01253) — our high-power species, 260 µW/cm²
+- [Trametes hirsuta laccase DET at electrodes (2013)](https://doi.org/10.1016/j.bioelechem.2012.11.001) — verified foundation for fungal EET
 - [Fungal fuel cells for heavy metal pollution (2026)](https://doi.org/10.3389/fmicb.2026.1825368) — fungi as environmental MFC workhorses
 
 **MykoVolt takeaway:** EET mechanisms (cytochromes, nanowires, mediated transfer) are where power-density breakthroughs come from. Co-cultures (fungi + *Geobacter*/yeast) are the frontier.
@@ -42,25 +43,32 @@ The thinnest cells in the corpus are exactly where MykoVolt differentiates:
 
 ---
 
-## 2. Species-Specific Evidence (from Corpus)
+## 2. Species-Specific Evidence (verified corpus only)
 
-### 2.1 Trametes versicolor — Best Supported
+### 2.1 Trametes — Best Supported
 - **Laccase-carbon cloth biocathode → 1.76 V** hybrid biofuel cell ([2012](https://doi.org/10.1016/j.electacta.2011.12.026))
-- **Dye-discoloring laccase MFCs** show oxidoreductase potential ([2023](https://doi.org/10.1186/s12934-023-02258-0))
-- **Laccase immobilization strategies** reviewed ([2021](https://doi.org/10.1016/j.biotechadv.2021.107742))
-- Multiple laccase electrode architectures (CNTs, redox mediators, MWCNTs): [2010](https://doi.org/10.1016/j.jpowsour.2010.02.033), [2016](https://doi.org/10.1016/j.enzmictec.2015.10.004)
+- **Direct electron transfer of T. hirsuta laccase at electrodes** ([Bioelectrochemistry 2013](https://doi.org/10.1016/j.bioelechem.2012.11.001); [Electroanalysis 2006](https://doi.org/10.1002/elan.200603600)) — the Shleev-line foundational work
+- **Laccase MFCs enhance electricity generation** ([JMBFS 2024](https://doi.org/10.55251/jmbfs.9703))
+- Multiple verified electrode architectures: [2010](https://doi.org/10.1016/j.jpowsour.2010.02.033), [2016](https://doi.org/10.1016/j.enzmictec.2015.10.004)
+- ⚠️ Specific µW/cm² numbers for whole-cell *T. versicolor* MFCs remain to be measured by us (Phase E1)
 
-### 2.2 Neurospora crassa — Highest Power
-- **260 µW/cm²** demonstrated in bioelectrochemical systems ([2017](https://doi.org/10.1021/acs.est.7b01253))
-- Model organism for EET research — genetic tools available
+### 2.2 Saccharomyces cerevisiae — Verified Model System (NEW)
+- **Polypyrrole-modified yeast in MFCs** ([Biosensors 2025](https://doi.org/10.3390/bios15080519)) — real, current MFC demonstrations
+- **Electrode size ↔ power generation** ([Ionics 2021](https://doi.org/10.1007/s11581-021-04162-2)) — directly transferable to our 2-cm² interdigital electrodes
+- **Stable current + phytate degradation** yeast BFCs ([Yeast 2018](https://doi.org/10.1002/yea.3027))
 
-### 2.3 Pleurotus ostreatus — Low-Cost Entry
-- **Electricity generation demonstrated** in MFCs ([2018](https://doi.org/10.1007/s12010-018-2840-8))
-- **Biowelding** of biocomposites — grows into substrates ([2023](https://doi.org/10.3390/biomimetics8060504)) → relevant for pellet manufacturing
+### 2.3 Aspergillus niger — Qualitatively Verified
+- **Bioelectricity generation + dye decolorization** ([JBR 2016](https://doi.org/10.4172/2155-6199.1000446)) — real demonstration, µW numbers still lacking
 
-### 2.4 Ganoderma lucidum — Medical Niche
-- **Biocatalyst in MFCs** ([2020](https://doi.org/10.1016/j.jbiotec.2020.01.006)) — biocompatibility focus
-- Not a power champion, but the only biocompatible choice for wound dressings
+### 2.4 Pleurotus ostreatus — Substrate Integration (partial)
+- **Biowelding of biocomposites** ([2023](https://doi.org/10.3390/biomimetics8060504)) → relevant for pellet manufacturing
+- ⚠️ Direct electricity-generation evidence was retracted (unverifiable source)
+
+### 2.5 Neurospora crassa — ❌ RETRACTED
+- The claimed 260 µW/cm² rested on a hallucinated source. **No verifiable Neurospora electrochemistry literature exists** — this is genuine research whitespace, not established fact. Keep only as experimental candidate with explicit "first-mover" framing.
+
+### 2.6 Ganoderma lucidum — ❌ RETRACTED (power claims)
+- No verified MFC evidence; keep only as biocompatible-material candidate.
 
 ---
 
@@ -75,10 +83,12 @@ The thinnest cells in the corpus are exactly where MykoVolt differentiates:
 | Nanozyme laccase mimics | Enzymatic cell without enzyme degradation ([2023](https://doi.org/10.1021/acs.analchem.6c00462.s001)) | **Addresses lifespan!** |
 
 ### 3.2 Lifespan Solutions (directly addressing Zorn's concern)
-1. **Laccase immobilization** (entrapment/crosslinking) — [Enzyme Microb Technol 2017](https://doi.org/10.1016/j.enzmictec.2017.06.012)
-2. **Enzyme cascades** (laccase + catalase) — [Biosens Bioelectron 2013](https://doi.org/10.1016/j.bios.2012.07.066)
-3. **Nanozyme mimics** — inorganic catalysts that don't degrade — [Anal Chem 2023](https://doi.org/10.1021/acs.analchem.6c00462.s001)
-4. **Hybrid Zn-O₂ with fungal biocathode** — longer life via inorganic anode — [Electrochim Acta 2012](https://doi.org/10.1016/j.electacta.2011.12.026)
+1. **Laccase immobilization** (covalent binding on electrodes) — [MSE:C 2004](https://doi.org/10.1016/j.msec.2003.09.036); enhanced stability/reusability — [Sci Rep 2026](https://doi.org/10.1038/s41598-026-40065-w)
+2. **One-year-stable glucose/O₂ biofuel cell** — [Bioelectrochemistry 2015](https://doi.org/10.1016/j.bioelechem.2015.04.009) — the strongest single lifespan datapoint in the corpus
+3. **Enzyme cascades** (laccase + catalase) — [Biosens Bioelectron 2013](https://doi.org/10.1016/j.bios.2012.07.066)
+4. **Nanozyme mimics** — inorganic catalysts that don't degrade — [Anal Chem 2023](https://doi.org/10.1021/acs.analchem.6c00462.s001)
+5. **Hybrid Zn-O₂ with fungal biocathode** — longer life via inorganic anode — [Electrochim Acta 2012](https://doi.org/10.1016/j.electacta.2011.12.026)
+6. **Power management**: net-power-positive MPPT harvesting — [J Power Sources 2019](https://doi.org/10.1016/j.jpowsour.2019.02.042); comprehensive PMS evaluation — [Bioelectrochemistry 2024](https://doi.org/10.1016/j.bioelechem.2023.108597) — BQ25570-class architectures are literature-proven
 
 ### 3.3 Self-Powered Sensors (application/hybrid — 20 papers)
 The corpus confirms **self-powered sensing is a mature field** we can build on:
@@ -109,10 +119,11 @@ The corpus confirms **self-powered sensing is a mature field** we can build on:
 
 ## 5. Corpus Metadata
 
-- **Total papers:** 75 (45 relevant to fungal MFCs)
-- **Time span:** 2009–2026 (median 2018)
-- **Categories:** mechanism 32 · application 21 · material 20 · survey 2
-- **Sources:** CrossRef (66), curated (7), OpenAlex (2)
+- **Total papers:** 96 (100% DOI-verified; 36 fungal-relevant)
+- **Time span:** 2004–2026
+- **Categories:** mechanism 40 · material 30 · application 25 · survey 1
+- **Sources:** CrossRef-fetched (29), inherited verified corpus (67)
+- **Audit:** 23 entries retracted 2026-08 ([gap_analysis.md](gap_analysis.md))
 
 ---
 

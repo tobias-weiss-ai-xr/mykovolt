@@ -74,19 +74,6 @@
       "venue": "MED"
     },
     {
-      "title": "Fungal Secondary Metabolites in Bioelectrochemical Systems: A Bibliometric Analysis and Critical Review of Emerging Trends and Challenges for Sustainable Energy",
-      "date": "2026-01",
-      "url": "https://europepmc.org/article/pmc/PMC12943673",
-      "category": "mechanism",
-      "subcategory": "eet",
-      "authors": [
-        "Rojas-Flores S",
-        "Liza R",
-        "Nazario-Naveda R"
-      ],
-      "venue": "PMC"
-    },
-    {
       "title": "Mechanistic advances in microbial nanobiotechnology and their applications in sustainable agriculture, environment and biomedicine.",
       "date": "2026-01",
       "url": "https://doi.org/10.1186/s11671-026-04509-6",
@@ -203,47 +190,6 @@
       "venue": "Biosensors"
     },
     {
-      "title": "Fungal-based microbial fuel cells for sustainable bioelectricity generation",
-      "date": "2025-03",
-      "url": "https://doi.org/10.1016/j.bios.2025.115902",
-      "category": "mechanism",
-      "subcategory": "laccase",
-      "venue": "Biosensors and Bioelectronics",
-      "abstract": "Comprehensive review of fungal MFC mechanisms with focus on laccase-mediated extracellular electron transfer pathways. Discusses optimization of fungal strains including Trametes, Pleurotus, and Ganoderma for enhanced power output.",
-      "authors": [
-        "Zhang, W.",
-        "Wang, L.",
-        "Chen, S."
-      ],
-      "doi": "10.1016/j.bios.2025.115902",
-      "tags": [
-        "fungal MFC",
-        "laccase",
-        "extracellular electron transfer"
-      ]
-    },
-    {
-      "title": "Enhanced electron transfer in Ganoderma lucidum microbial fuel cells through genetic modification",
-      "date": "2025-02",
-      "url": "https://doi.org/10.1038/s41598-025-85678-9",
-      "category": "mechanism",
-      "subcategory": "eet",
-      "venue": "Scientific Reports",
-      "abstract": "Genetic engineering of Ganoderma lucidum laccase genes to enhance extracellular electron transfer efficiency. Achieved 3.2x increase in current density compared to wild-type strains.",
-      "authors": [
-        "Kim, T.",
-        "Park, S.",
-        "Lee, J."
-      ],
-      "doi": "10.1038/s41598-025-85678-9",
-      "tags": [
-        "Ganoderma",
-        "genetic modification",
-        "laccase",
-        "electron transfer"
-      ]
-    },
-    {
       "title": "Bioelectricity harvesting from microorganism: review of recent advancements in utilizing the bioelectric properties of fungi for powering small-scale robotic systems.",
       "date": "2025-01",
       "url": "https://doi.org/10.3389/ffunb.2025.1739847",
@@ -288,111 +234,6 @@
       "venue": "MED"
     },
     {
-      "title": "Mycelium biocomposites as biodegradable electrodes for microbial fuel cells",
-      "date": "2025-01",
-      "url": "https://doi.org/10.1021/acsami.4c18765",
-      "category": "material",
-      "subcategory": "degradation",
-      "venue": "ACS Applied Materials and Interfaces",
-      "abstract": "Development of fully biodegradable mycelium-chitosan composite electrodes that decompose naturally after use. Demonstrates 180 days of continuous power generation with 45% power retention.",
-      "authors": [
-        "Martinez, A.",
-        "Rodriguez, C.",
-        "Garcia, M."
-      ],
-      "doi": "10.1021/acsami.4c18765",
-      "tags": [
-        "mycelium electrode",
-        "biodegradable",
-        "chitosan",
-        "sustainable"
-      ]
-    },
-    {
-      "title": "Fungal biofuel cells for powering transient electronics in environmental monitoring",
-      "date": "2024-12",
-      "url": "https://doi.org/10.1021/acssuschemeng.4c04567",
-      "category": "application",
-      "subcategory": "degradation",
-      "venue": "ACS Sustainable Chemistry and Engineering",
-      "abstract": "Field deployment of fungal MFCs for powering soil moisture and temperature sensors. Demonstrated 6 months of continuous operation in forest environments with natural degradation of electrodes.",
-      "authors": [
-        "Thompson, R.",
-        "Johnson, M.",
-        "Williams, P."
-      ],
-      "doi": "10.1021/acssuschemeng.4c04567",
-      "tags": [
-        "transient electronics",
-        "environmental monitoring",
-        "field deployment",
-        "biodegradable"
-      ]
-    },
-    {
-      "title": "Laccase-catalyzed oxygen reduction on carbon nanotube electrodes for enzymatic biofuel cells",
-      "date": "2024-11",
-      "url": "https://doi.org/10.1016/j.electacta.2024.144023",
-      "category": "material",
-      "subcategory": "laccase",
-      "venue": "Electrochimica Acta",
-      "abstract": "Immobilization of Trametes versicolor laccase on carbon nanotube arrays for enhanced bioelectrocatalytic oxygen reduction. Power density of 2.1 mW/cm² achieved.",
-      "authors": [
-        "Zhao, Y.",
-        "Liu, X.",
-        "Wang, Q."
-      ],
-      "doi": "10.1016/j.electacta.2024.144023",
-      "tags": [
-        "carbon nanotube",
-        "laccase",
-        "enzymatic biofuel cell",
-        "oxygen reduction"
-      ]
-    },
-    {
-      "title": "Fungal bioelectrochemistry 2020-2025 Advancements in microbial fuel cells and beyond",
-      "date": "2024-09",
-      "url": "https://doi.org/10.1016/j.copbio.2024.103012",
-      "category": "survey",
-      "subcategory": "hybrid",
-      "venue": "Current Opinion in Biotechnology",
-      "abstract": "Systematic review of advances in fungal bioelectrochemical systems from 2020-2025. Covers 237 new publications, categorizes by fungal species, electrode materials, and applications.",
-      "authors": [
-        "Huber, A.",
-        "Schmidt, T.",
-        "Harreither, W."
-      ],
-      "doi": "10.1016/j.copbio.2024.103012",
-      "tags": [
-        "survey",
-        "review",
-        "fungal bioelectrochemistry",
-        "2020-2025"
-      ]
-    },
-    {
-      "title": "A decade of progress in laccase-based biofuel cells Applications and current challenges",
-      "date": "2024-08",
-      "url": "https://doi.org/10.1007/s00253-024-12987-6",
-      "category": "survey",
-      "subcategory": "laccase",
-      "venue": "Applied Microbiology and Biotechnology",
-      "abstract": "Comprehensive survey of laccase applications in biofuel cells over the past decade. Discusses enzyme immobilization techniques, electron transfer mechanisms, and scale-up challenges.",
-      "authors": [
-        "Rodriguez, E.",
-        "Sanchez, J.",
-        "pojawi, C."
-      ],
-      "doi": "10.1007/s00253-024-12987-6",
-      "tags": [
-        "survey",
-        "laccase",
-        "biofuel cell",
-        "review"
-      ]
-    },
-    {
       "title": "ENHANCING ELECTRICITY GENERATION USING FUNGAL LACCASE-BASED MICROBIAL FUEL CELL",
       "date": "2024-07",
       "url": "https://doi.org/10.55251/jmbfs.9703",
@@ -406,26 +247,6 @@
       "abstract": "Microbial fuel cells (MFCs) are very important source to obtain green electricity and also for decontamination of waste water. Bioelectricity yield from biofuel cells is still needed for maximizing. Microbial laccases, especially those produced by fungi, are currently considered to be one of the mos",
       "doi": "10.55251/jmbfs.9703",
       "venue": "Journal of microbiology, biotechnology and food sciences"
-    },
-    {
-      "title": "3D-printed mycelium scaffolds for enhanced electron transfer in microbial fuel cells",
-      "date": "2024-07",
-      "url": "https://doi.org/10.1021/acsbiomaterials.4c00123",
-      "category": "material",
-      "subcategory": "hybrid",
-      "venue": "ACS Biomaterials Science and Engineering",
-      "abstract": "3D printing of Ganoderma lucidum mycelium into porous scaffold structures for enhanced electron transfer pathways. Demonstrates 40% improvement in current density compared to flat electrodes.",
-      "authors": [
-        "Chen, L.",
-        "Liu, Y.",
-        "Zhang, M."
-      ],
-      "doi": "10.1021/acsbiomaterials.4c00123",
-      "tags": [
-        "3D printing",
-        "mycelium scaffold",
-        "Ganoderma"
-      ]
     },
     {
       "title": "Photothermic Energy Harvesting in Reduced Graphene Oxide Nanosheets Intercalated with Vanadium Nitride as Pseudocapacitive Electrode",
@@ -443,105 +264,6 @@
       "venue": "ACS Applied Nano Materials"
     },
     {
-      "title": "Conductive polymer-mycelium composites for stretchable bioelectrochemical devices",
-      "date": "2024-06",
-      "url": "https://doi.org/10.1002/admt.202400123",
-      "category": "material",
-      "subcategory": "degradation",
-      "venue": "Advanced Materials Technologies",
-      "abstract": "Development of PEDOT:PSS and mycelium composite materials that are stretchable and biodegradable. Applications in wearable and transient bioelectronic devices.",
-      "authors": [
-        "Park, K.",
-        "Kim, S.",
-        "Jung, H."
-      ],
-      "doi": "10.1002/admt.202400123",
-      "tags": [
-        "conductive polymer",
-        "PEDOT:PSS",
-        "stretchable",
-        "biodegradable"
-      ]
-    },
-    {
-      "title": "Graphene oxide and fungal enzyme hybrid electrodes for high-performance biofuel cells",
-      "date": "2024-05",
-      "url": "https://doi.org/10.1039/D4TA01234E",
-      "category": "material",
-      "subcategory": "laccase",
-      "venue": "Journal of Materials Chemistry A",
-      "abstract": "Covalent immobilization of laccase on graphene oxide sheets functionalized with carboxylate groups. Achieved power density of 3.4 mW/cm² and operational stability of 30 days.",
-      "authors": [
-        "Wang, X.",
-        "Li, Y.",
-        "Zhao, J."
-      ],
-      "doi": "10.1039/D4TA01234E",
-      "tags": [
-        "graphene oxide",
-        "laccase",
-        "biofuel cell"
-      ]
-    },
-    {
-      "title": "Direct extracellular electron transfer in Neurospora crassa via multi-heme cytochromes",
-      "date": "2024-04",
-      "url": "https://doi.org/10.1128/AEM.00456-24",
-      "category": "mechanism",
-      "subcategory": "eet",
-      "venue": "Applied and Environmental Microbiology",
-      "abstract": "Discovery of multi-heme cytochrome pathway for direct extracellular electron transfer in Neurospora crassa. Provides molecular basis for enhanced bioelectrocatalysis.",
-      "authors": [
-        "Smith, A.",
-        "Johnson, L.",
-        "Brown, K."
-      ],
-      "doi": "10.1128/AEM.00456-24",
-      "tags": [
-        "Neurospora crassa",
-        "cytochrome",
-        "direct electron transfer"
-      ]
-    },
-    {
-      "title": "Fungal-based microbial fuel cells: A comprehensive review of fundamentals, applications and prospects",
-      "date": "2024-03",
-      "url": "https://doi.org/10.1016/j.fuel.2024.130876",
-      "category": "survey",
-      "subcategory": "hybrid",
-      "doi": "10.1016/j.fuel.2024.130876",
-      "venue": "Fuel",
-      "tags": [
-        "survey",
-        "MFC",
-        "fungi"
-      ],
-      "abstract": "Recent comprehensive review covering fungal MFC fundamentals, electrode materials, and emerging applications.",
-      "authors": [
-        "Unspecified"
-      ]
-    },
-    {
-      "title": "Bioelectrocatalytic lignin degradation coupled with electricity generation in fungal fuel cells",
-      "date": "2024-03",
-      "url": "https://doi.org/10.1016/j.watres.2024.121567",
-      "category": "mechanism",
-      "subcategory": "degradation",
-      "venue": "Water Research",
-      "abstract": "Simultaneous lignin degradation and electricity generation using Pleurotus ostreatus in microbial fuel cells. Demonstrated 78% lignin removal efficiency with 0.5 mW/cm² power output.",
-      "authors": [
-        "Garcia, H.",
-        "Martinez, A.",
-        "Lopez, C."
-      ],
-      "doi": "10.1016/j.watres.2024.121567",
-      "tags": [
-        "lignin degradation",
-        "Pleurotus ostreatus",
-        "wastewater"
-      ]
-    },
-    {
       "title": "Enhancing extracellular electron transfer and power generation in microbial fuel cell using a ferrocene-based conjugated oligoelectrolyte",
       "date": "2024-02",
       "url": "https://doi.org/10.1016/j.fuel.2023.130271",
@@ -554,27 +276,6 @@
       ],
       "doi": "10.1016/j.fuel.2023.130271",
       "venue": "Fuel"
-    },
-    {
-      "title": "Microbial community analysis of fungal-bacterial co-cultures in bioelectrochemical systems",
-      "date": "2024-02",
-      "url": "https://doi.org/10.1186/s40168-024-01789-7",
-      "category": "mechanism",
-      "subcategory": "hybrid",
-      "venue": "Microbial Cell Factories",
-      "abstract": "16S rRNA sequencing of fungal-bacterial co-cultures in MFCs. Revealed synergistic relationships between Trametes versicolor and Pseudomonas aeruginosa for enhanced electron transfer.",
-      "authors": [
-        "Davis, R.",
-        "Miller, T.",
-        "Wilson, S."
-      ],
-      "doi": "10.1186/s40168-024-01789-7",
-      "tags": [
-        "co-culture",
-        "fungal-bacterial",
-        "16S rRNA",
-        "synergistic"
-      ]
     },
     {
       "title": "Research Progress on Lignin Depolymerization Strategies: A Review.",
@@ -629,47 +330,6 @@
       "authors": [],
       "doi": "10.1021/acs.analchem.3c03066.s001",
       "venue": ""
-    },
-    {
-      "title": "Self-powered fungal biosensors for heavy metal detection using microbial fuel cell principles",
-      "date": "2023-12",
-      "url": "https://doi.org/10.1016/j.snb.2023.134210",
-      "category": "application",
-      "subcategory": "hybrid",
-      "venue": "Sensors and Actuators B Chemical",
-      "abstract": "Development of fungal MFC-based biosensors for detection of copper, lead, and cadmium ions. Detection limits of 0.1-1 µM achieved with self-powered operation.",
-      "authors": [
-        "Zhang, Q.",
-        "Li, X.",
-        "Wang, Y."
-      ],
-      "doi": "10.1016/j.snb.2023.134210",
-      "tags": [
-        "biosensor",
-        "heavy metal",
-        "self-powered",
-        "detection"
-      ]
-    },
-    {
-      "title": "Biodegradable carbon nanofiber networks integrated with fungal hyphae for transient bioelectronics",
-      "date": "2023-11",
-      "url": "https://doi.org/10.1021/nn506789a",
-      "category": "application",
-      "subcategory": "degradation",
-      "venue": "ACS Nano",
-      "abstract": "Transient bioelectronic devices using carbon nanofiber networks colonized by fungal hyphae. Devices fully degrade within 90 days in soil while maintaining electrical connectivity.",
-      "authors": [
-        "Thompson, P.",
-        "Robinson, L.",
-        "Harris, M."
-      ],
-      "doi": "10.1021/nn506789a",
-      "tags": [
-        "transient bioelectronics",
-        "carbon nanofiber",
-        "biodegradable"
-      ]
     },
     {
       "title": "Enhanced Extracellular Electron Transfer of Comn2o4@Cnt as Microbial Fuel Cell Anode",
@@ -882,24 +542,6 @@
       "venue": "Analytical Chemistry"
     },
     {
-      "title": "Laccase immobilization strategies for biofuel cell applications",
-      "date": "2021-08",
-      "url": "https://doi.org/10.1016/j.biotechadv.2021.107742",
-      "category": "material",
-      "subcategory": "laccase",
-      "doi": "10.1016/j.biotechadv.2021.107742",
-      "venue": "Biotechnology Advances",
-      "tags": [
-        "laccase",
-        "immobilization",
-        "electrode"
-      ],
-      "abstract": "Reviews strategies for laccase immobilization on electrodes, critical for MFC performance and longevity.",
-      "authors": [
-        "Unspecified"
-      ]
-    },
-    {
       "title": "Self-Powered Diaper Sensor with Wireless Transmitter Powered by Paper-Based Biofuel Cell with Urine Glucose as Fuel",
       "date": "2021-07",
       "url": "https://doi.org/10.1021/acssensors.1c01266.s001",
@@ -950,24 +592,6 @@
       ],
       "doi": "10.1016/j.fuel.2020.117994",
       "venue": "Fuel"
-    },
-    {
-      "title": "Medicinal mushrooms as biocatalysts in microbial fuel cells",
-      "date": "2020-02",
-      "url": "https://doi.org/10.1016/j.jbiotec.2020.01.006",
-      "category": "application",
-      "subcategory": "hybrid",
-      "doi": "10.1016/j.jbiotec.2020.01.006",
-      "venue": "Journal of Biotechnology",
-      "tags": [
-        "ganoderma",
-        "biocatalyst",
-        "medical"
-      ],
-      "abstract": "Highlights biocompatibility of Ganoderma lucidum and its potential for medical MFC applications.",
-      "authors": [
-        "Unspecified"
-      ]
     },
     {
       "title": "A hydrogen/oxygen hybrid biofuel cell comprising an electrocatalytically active nanoflower/laccase-based biocathode",
@@ -1056,24 +680,6 @@
       ],
       "doi": "10.1021/acsenergylett.8b01299.s001",
       "venue": "ACS Energy Letters"
-    },
-    {
-      "title": "Electricity generation by Pleurotus ostreatus in microbial fuel cells",
-      "date": "2018-05",
-      "url": "https://doi.org/10.1007/s12010-018-2840-8",
-      "category": "application",
-      "subcategory": "degradation",
-      "doi": "10.1007/s12010-018-2840-8",
-      "venue": "Applied Biochemistry and Biotechnology",
-      "tags": [
-        "pleurotus",
-        "MFC",
-        "low-cost"
-      ],
-      "abstract": "Focuses on low-cost, scalable MFCs using Pleurotus ostreatus (oyster mushroom) as the biocatalyst.",
-      "authors": [
-        "Unspecified"
-      ]
     },
     {
       "title": "Anodic Electron Transfer Mechanism in Bioelectrochemical Systems",
@@ -1182,24 +788,6 @@
       "venue": "Enzyme and Microbial Technology"
     },
     {
-      "title": "Fungal biofuel cells: A review",
-      "date": "2017-10",
-      "url": "https://doi.org/10.1016/j.bios.2017.09.024",
-      "category": "survey",
-      "subcategory": "hybrid",
-      "doi": "10.1016/j.bios.2017.09.024",
-      "venue": "Biosensors and Bioelectronics",
-      "tags": [
-        "survey",
-        "biofuel cell",
-        "fungi"
-      ],
-      "abstract": "Comprehensive review of fungal biofuel cells, covering enzyme immobilization, electrode materials, and applications.",
-      "authors": [
-        "Unspecified"
-      ]
-    },
-    {
       "title": "Fabrication of Advanced Electrode Materials for Supercapacitors",
       "date": "2017-08",
       "url": "https://doi.org/10.11159/ehst17.103",
@@ -1211,24 +799,6 @@
       ],
       "doi": "10.11159/ehst17.103",
       "venue": "International Conference of Energy Harvesting, Storage, and Transfer"
-    },
-    {
-      "title": "Neurospora crassa in bioelectrochemical systems",
-      "date": "2017-06",
-      "url": "https://doi.org/10.1021/acs.est.7b01253",
-      "category": "mechanism",
-      "subcategory": "eet",
-      "doi": "10.1021/acs.est.7b01253",
-      "venue": "Environmental Science & Technology",
-      "tags": [
-        "neurospora",
-        "EET",
-        "bioelectrochemistry"
-      ],
-      "abstract": "Shows 260 µW/cm² power density from Neurospora crassa under optimized conditions, demonstrating extracellular electron transfer.",
-      "authors": [
-        "Unspecified"
-      ]
     },
     {
       "title": "Understanding and improving the microbial fuel cell anodic electron transfer process",
@@ -1284,25 +854,6 @@
       ],
       "doi": "10.1016/j.enzmictec.2015.10.004",
       "venue": "Enzyme and Microbial Technology"
-    },
-    {
-      "title": "Fungal laccase as biocathode in microbial fuel cells",
-      "date": "2016-01",
-      "url": "https://doi.org/10.1016/j.biortech.2015.12.019",
-      "category": "material",
-      "subcategory": "laccase",
-      "doi": "10.1016/j.biortech.2015.12.019",
-      "venue": "Bioresource Technology",
-      "tags": [
-        "trametes",
-        "laccase",
-        "biocathode",
-        "MFC"
-      ],
-      "abstract": "Demonstrates laccase-mediated electron transfer with Trametes versicolor as biocathode, achieving high power densities in MFC configurations.",
-      "authors": [
-        "Unspecified"
-      ]
     },
     {
       "title": "Bioelectricity Generation and Treatment of Sugar Mill Effluent Using a Microbial Fuel Cell",
@@ -1386,6 +937,390 @@
       ],
       "doi": "10.1016/j.jpowsour.2008.11.110",
       "venue": "Journal of Power Sources"
+    },
+    {
+      "title": "Direct electron transfer of Trametes hirsuta laccase adsorbed at unmodified nanoporous gold electrodes",
+      "date": "2013-06",
+      "url": "https://doi.org/10.1016/j.bioelechem.2012.11.001",
+      "category": "material",
+      "subcategory": "eet",
+      "doi": "10.1016/j.bioelechem.2012.11.001",
+      "venue": "Bioelectrochemistry",
+      "authors": [
+        "Urszula Salaj-Kosla",
+        "Sascha Pöller",
+        "Wolfgang Schuhmann"
+      ]
+    },
+    {
+      "title": "Direct Heterogeneous Electron Transfer Reactions of <i>Trametes hirsuta</i> Laccase at Bare and Thiol‐Modified Gold Electrodes",
+      "date": "2006-10",
+      "url": "https://doi.org/10.1002/elan.200603600",
+      "category": "material",
+      "subcategory": "eet",
+      "doi": "10.1002/elan.200603600",
+      "venue": "Electroanalysis",
+      "authors": [
+        "Sergey Shleev",
+        "Marcos Pita",
+        "Alexander I. Yaropolov"
+      ]
+    },
+    {
+      "title": "Fungal oxidoreductases and CAZymes effectively degrade lignocellulosic component of switchgrass for bioethanol production",
+      "date": "2022-11",
+      "url": "https://doi.org/10.1016/j.fuel.2022.125341",
+      "category": "mechanism",
+      "subcategory": "degradation",
+      "doi": "10.1016/j.fuel.2022.125341",
+      "venue": "Fuel",
+      "authors": [
+        "Sonu Saini",
+        "Amit Kumar",
+        "Barkha Singhal"
+      ]
+    },
+    {
+      "title": "Platinum Nanoparticles (PtNPs) - Laccase Assisted Biocathode Reduction of Oxygen for Biofuel Cells",
+      "date": "2011-12",
+      "url": "https://doi.org/10.1016/s1452-3981(23)19689-1",
+      "category": "mechanism",
+      "subcategory": "laccase",
+      "doi": "10.1016/s1452-3981(23)19689-1",
+      "venue": "International Journal of Electrochemical Science",
+      "authors": [
+        "Ying Li",
+        "Shen-Ming Chen",
+        "Wan-Chun Chen"
+      ]
+    },
+    {
+      "title": "One-year stability for a glucose/oxygen biofuel cell combined with pH reactivation of the laccase/carbon nanotube biocathode",
+      "date": "2015-12",
+      "url": "https://doi.org/10.1016/j.bioelechem.2015.04.009",
+      "category": "material",
+      "subcategory": "laccase",
+      "doi": "10.1016/j.bioelechem.2015.04.009",
+      "venue": "Bioelectrochemistry",
+      "authors": [
+        "Bertrand Reuillard",
+        "Caroline Abreu",
+        "Noémie Lalaoui"
+      ]
+    },
+    {
+      "title": "Living mycelium composites discern weights via patterns of electrical activity",
+      "date": "2022-02",
+      "url": "https://doi.org/10.1016/j.jobab.2021.09.003",
+      "category": "material",
+      "subcategory": "hybrid",
+      "doi": "10.1016/j.jobab.2021.09.003",
+      "venue": "Journal of Bioresources and Bioproducts",
+      "authors": [
+        "Andrew Adamatzky",
+        "Antoni Gandia"
+      ]
+    },
+    {
+      "title": "Living Mycelium Composites Discern Weights via Patterns of the Electrical Activity",
+      "date": "2023-01",
+      "url": "https://doi.org/10.1007/978-3-031-38336-6_6",
+      "category": "material",
+      "subcategory": "hybrid",
+      "doi": "10.1007/978-3-031-38336-6_6",
+      "venue": "Emergence, Complexity and Computation",
+      "authors": [
+        "Andrew Adamatzky",
+        "Antoni Gandia"
+      ]
+    },
+    {
+      "title": "Net power positive maximum power point tracking energy harvesting system for microbial fuel cell",
+      "date": "2019-04",
+      "url": "https://doi.org/10.1016/j.jpowsour.2019.02.042",
+      "category": "application",
+      "subcategory": "hybrid",
+      "doi": "10.1016/j.jpowsour.2019.02.042",
+      "venue": "Journal of Power Sources",
+      "authors": [
+        "Muhannad Alaraj",
+        "Jae-Do Park"
+      ]
+    },
+    {
+      "title": "Evaluation of a comprehensive power management system with maximum power point tracking algorithm for multiple microbial fuel cell energy harvesting",
+      "date": "2024-02",
+      "url": "https://doi.org/10.1016/j.bioelechem.2023.108597",
+      "category": "application",
+      "subcategory": "hybrid",
+      "doi": "10.1016/j.bioelechem.2023.108597",
+      "venue": "Bioelectrochemistry",
+      "authors": [
+        "Rodrigo Fernandez Feito",
+        "Tahreem Younas",
+        "Richard M. Dinsdale"
+      ]
+    },
+    {
+      "title": "Towards a Self-Powered Amperometric Glucose Biosensor Based on a Single-Enzyme Biofuel Cell",
+      "date": "2024-03",
+      "url": "https://doi.org/10.3390/bios14030138",
+      "category": "application",
+      "subcategory": "laccase",
+      "doi": "10.3390/bios14030138",
+      "venue": "Biosensors",
+      "authors": [
+        "Asta Kausaite-Minkstimiene",
+        "Algimantas Kaminskas",
+        "Galina Gayda"
+      ]
+    },
+    {
+      "title": "Magnesium–Air Battery",
+      "date": "2016-09",
+      "url": "https://doi.org/10.1201/9781315372280-12",
+      "category": "application",
+      "subcategory": "hybrid",
+      "doi": "10.1201/9781315372280-12",
+      "venue": "Metal-Air and Metal-Sulfur Batteries",
+      "authors": []
+    },
+    {
+      "title": "Microstructure and battery performance of Mg-Zn-Sn alloys as anodes for magnesium-air battery",
+      "date": "2021-11",
+      "url": "https://doi.org/10.1016/j.jma.2021.08.022",
+      "category": "application",
+      "subcategory": "hybrid",
+      "doi": "10.1016/j.jma.2021.08.022",
+      "venue": "Journal of Magnesium and Alloys",
+      "authors": [
+        "Fanglei Tong",
+        "Xize Chen",
+        "Shanghai Wei"
+      ]
+    },
+    {
+      "title": "Enhanced response of microbial fuel cell using sulfonated poly ether ether ketone membrane as a biochemical oxygen demand sensor",
+      "date": "2014-03",
+      "url": "https://doi.org/10.1016/j.aca.2014.01.059",
+      "category": "material",
+      "subcategory": "hybrid",
+      "doi": "10.1016/j.aca.2014.01.059",
+      "venue": "Analytica Chimica Acta",
+      "authors": [
+        "Sivasankaran Ayyaru",
+        "Sangeetha Dharmalingam"
+      ]
+    },
+    {
+      "title": "Material Function of Mycelium-Based Bio-Composite: A Review",
+      "date": "2021-09",
+      "url": "https://doi.org/10.3389/fmats.2021.737377",
+      "category": "survey",
+      "subcategory": "hybrid",
+      "doi": "10.3389/fmats.2021.737377",
+      "venue": "Frontiers in Materials",
+      "authors": [
+        "Libin Yang",
+        "Daekwon Park",
+        "Zhao Qin"
+      ]
+    },
+    {
+      "title": "Biodegradable Transient Electronics: Sustainable Materials and Architectures for Circular IoT and Computing",
+      "date": "2026-02",
+      "url": "https://doi.org/10.62311/nesx/rb-978-81-999904-4-9",
+      "category": "material",
+      "subcategory": "degradation",
+      "doi": "10.62311/nesx/rb-978-81-999904-4-9",
+      "venue": "",
+      "authors": [
+        "Murali Krishna Pasupuleti"
+      ]
+    },
+    {
+      "title": "New biodegradable nano-composites for transient electronics devices",
+      "date": "2018-01",
+      "url": "https://doi.org/10.1063/1.5047766",
+      "category": "material",
+      "subcategory": "degradation",
+      "doi": "10.1063/1.5047766",
+      "venue": "AIP Conference Proceedings",
+      "authors": [
+        "Giovanni Landi",
+        "Heinz Christoph Neitzert",
+        "Andrea Sorrentino"
+      ]
+    },
+    {
+      "title": "Pleurotus ostreatus (oyster mushroom)",
+      "date": "2019-11",
+      "url": "https://doi.org/10.1079/cabicompendium.42037",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.1079/cabicompendium.42037",
+      "venue": "CABI Compendium",
+      "authors": [
+        ""
+      ]
+    },
+    {
+      "title": "Modification of electrode surface for covalent immobilization of laccase",
+      "date": "2004-01",
+      "url": "https://doi.org/10.1016/j.msec.2003.09.036",
+      "category": "material",
+      "subcategory": "laccase",
+      "doi": "10.1016/j.msec.2003.09.036",
+      "venue": "Materials Science and Engineering: C",
+      "authors": [
+        "De Quan",
+        "Woonsup Shin"
+      ]
+    },
+    {
+      "title": "Enhanced stability and reusability of metagenomic laccase via immobilization on functionalized mesoporous silica for antibiotic contaminant removal",
+      "date": "2026-03",
+      "url": "https://doi.org/10.1038/s41598-026-40065-w",
+      "category": "material",
+      "subcategory": "laccase",
+      "doi": "10.1038/s41598-026-40065-w",
+      "venue": "Scientific Reports",
+      "authors": [
+        "Shohreh Ariaeenejad",
+        "Sedigheh Abedanzadeh"
+      ]
+    },
+    {
+      "title": "Sediment microbial fuel cell (SMFCs)",
+      "date": "2023-01",
+      "url": "https://doi.org/10.1016/b978-0-323-85711-6.00004-7",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.1016/b978-0-323-85711-6.00004-7",
+      "venue": "Biological Fuel Cells",
+      "authors": [
+        "Atieh Zabihollahpoor",
+        "Mostafa Rahimnejad"
+      ]
+    },
+    {
+      "title": "Sediment Microbial Fuel Cell and Constructed Wetland Assisted with It: Challenges and Future Prospects",
+      "date": "2017-12",
+      "url": "https://doi.org/10.1007/978-3-319-66793-5_17",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.1007/978-3-319-66793-5_17",
+      "venue": "Microbial Fuel Cell",
+      "authors": [
+        "Md. T. Noori",
+        "M. M. Ghangrekar",
+        "C. K. Mukherjee"
+      ]
+    },
+    {
+      "title": "Abiotic (Nonenzymatic) Implantable Biofuel Cells",
+      "date": "2014-03",
+      "url": "https://doi.org/10.1002/9783527673148.ch14",
+      "category": "mechanism",
+      "subcategory": "laccase",
+      "doi": "10.1002/9783527673148.ch14",
+      "venue": "Implantable Bioelectronics",
+      "authors": [
+        "Sven Kerzenmacher"
+      ]
+    },
+    {
+      "title": "Implantable Biofuel Cells for Biomedical Applications",
+      "date": "2021-06",
+      "url": "https://doi.org/10.1002/9781119725008.ch3",
+      "category": "application",
+      "subcategory": "hybrid",
+      "doi": "10.1002/9781119725008.ch3",
+      "venue": "Biofuel Cells",
+      "authors": [
+        "Arushi Chauhan",
+        "Pramod Avti"
+      ]
+    },
+    {
+      "title": "Cellulose nanofiber-based electrode as a component of an enzyme-catalyzed biofuel cell",
+      "date": "2020-01",
+      "url": "https://doi.org/10.1039/d0ra03476b",
+      "category": "material",
+      "subcategory": "laccase",
+      "doi": "10.1039/d0ra03476b",
+      "venue": "RSC Advances",
+      "authors": [
+        "Masato Tominaga",
+        "Kazufumi Kuwahara",
+        "Masayuki Tsushida"
+      ]
+    },
+    {
+      "title": "Polypyrrole-Modified Saccharomyces cerevisiae Used in Microbial Fuel Cell",
+      "date": "2025-08",
+      "url": "https://doi.org/10.3390/bios15080519",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.3390/bios15080519",
+      "venue": "Biosensors",
+      "authors": [
+        "Kasparas Kižys",
+        "Domas Pirštelis",
+        "Ingrida Bružaitė"
+      ]
+    },
+    {
+      "title": "Effects of electrode size on the power generation of the microbial fuel cell by Saccharomyces cerevisiae",
+      "date": "2021-07",
+      "url": "https://doi.org/10.1007/s11581-021-04162-2",
+      "category": "material",
+      "subcategory": "hybrid",
+      "doi": "10.1007/s11581-021-04162-2",
+      "venue": "Ionics",
+      "authors": [
+        "A. Shirpay"
+      ]
+    },
+    {
+      "title": "Bioelectricity Generation and Dye Decolorization by Aspergillus niger and Trichoderma harzianum",
+      "date": "2018-01",
+      "url": "https://doi.org/10.4172/2155-6199.1000446",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.4172/2155-6199.1000446",
+      "venue": "Journal of Bioremediation &amp; Biodegradation",
+      "authors": [
+        "Osman ME",
+        "Khattab OH",
+        "Elnasr AA"
+      ]
+    },
+    {
+      "title": "Stable current outputs and phytate degradation by yeast-based biofuel cell",
+      "date": "2014-07",
+      "url": "https://doi.org/10.1002/yea.3027",
+      "category": "mechanism",
+      "subcategory": "degradation",
+      "doi": "10.1002/yea.3027",
+      "venue": "Yeast",
+      "authors": [
+        "Yolina Hubenova",
+        "Danail Georgiev",
+        "Mario Mitov"
+      ]
+    },
+    {
+      "title": "Yeast-Based Biofuel Cells",
+      "date": "2018-01",
+      "url": "https://doi.org/10.1016/b978-0-12-409547-2.13467-5",
+      "category": "mechanism",
+      "subcategory": "hybrid",
+      "doi": "10.1016/b978-0-12-409547-2.13467-5",
+      "venue": "Encyclopedia of Interfacial Chemistry",
+      "authors": [
+        "YV Hubenova"
+      ]
     }
   ]
 }
