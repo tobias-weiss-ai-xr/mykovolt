@@ -25,7 +25,7 @@ The following table ranks **6 fungal species** by their suitability for MykoVolt
 | Species | Scientific Name | Eignung für MykoVolt | **Primäre Anwendungen** | Stromausbeute | Lebensdauer | Substrat | Verfügbarkeit | Kosten (pro Kultur) | TRL | Notes |
 |---------|------------------|----------------------|-------------------------|----------------|--------------|----------|--------------|---------------------|-----|-------|
 | **Trametes versicolor** | *Trametes versicolor* | ⭐⭐⭐⭐⭐ | **DevKit, Soil Moisture Sensor, Compost Monitor, Smart Packaging, Forestry Under-Canopy** | **100–200 µW/cm²** | 3–4 Wochen | Lignin (Holzspäne, Agrarreste), Cellulose | **Hoch** (DSMZ, ATCC, Pilzzüchter) | €15–25 | 5 | **Best all-round choice** for most MykoVolt use cases. High laccase activity (10,000–20,000 U/L). Compatible with **BQ25570** and **interdigital electrodes**. |
-| **Neurospora crassa** | *Neurospora crassa* | ⭐⭐⭐⭐⭐ | **High-Performance MFCs (Forschung, Medizin), Soil Carbon Verification, Agricultural Network** | **200–260 µW/cm²** | 2–3 Wochen | Glucose (Vogel’s Medium), Saccharose | Mittel (FGSC, DSMZ) | €20–30 | 4 | **Highest power density** of all tested species. Genetically well-characterized. Requires **specific medium (Vogel’s)**. |
+| **Neurospora crassa** | *Neurospora crassa* | ⭐⭐⭐ (explorativ) | **Research-Whitespace, Soil Carbon Verification** | ⚠️ **unbelegt¹** (Ziel: 50 µW/cm²) | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 | 4 | ⚠️ **Keine verifizierbare Literatur.** Nur experimenteller Kandidat. Siehe [Evidence-Audit](../../../research/docs/research/gap_analysis.md). |
 | **Aspergillus niger** | *Aspergillus niger* | ⭐⭐⭐⭐ | **Mg-Air Hybrid Systems (Permafrost, Landfill), Smart City Infrastructure, Industrial Sensors** | 150–180 µW/cm² | 4–6 Wochen | Industrielle Abfälle (Pektin, Zellulose), Melasse | **Sehr hoch** | €10–20 | 5 | **Industrially robust**. Works well with **Mg-Air backup batteries**. **Caution:** Potential mycotoxin production (use safe strains like ATCC 1015). |
 | **Pleurotus ostreatus** | *Pleurotus ostreatus* | ⭐⭐⭐ | **Passive NFC DevKit, Edu Kit, Living Art, Low-Cost Experiments** | 50–80 µW/cm² | 2 Wochen | Stroh, Kaffeesatz, Cellulose, Agrarreste | **Sehr hoch** (lokal, Supermarkt, Pilzzüchter) | €5–15 | 3 | **Cheapest and easiest** to source. Ideal for **NFC-based prototypes** (low power requirements: 1–5 µW). |
 | **Ganoderma lucidum** | *Ganoderma lucidum* (Reishi) | ⭐⭐ | **Smart Wound Dressing (medizinisch), Biocompatible Applications, Bio-Art Installations** | 30–50 µW/cm² | 3–4 Wochen | Cellulose (Wundauflagen), Holz, Reisig | Hoch (Myzel-Spezialisten, Asia) | €25–40 | 4 | **Biocompatible** and **medically safe** (used in traditional medicine). Low power output, but ideal for **medical sensors**. |
@@ -200,7 +200,7 @@ flowchart TD
    - Add **fresh Vogel’s Medium** (50 ml).
 5. **Power Harvesting:**
    - Measure voltage (expected: **0.6–0.9 V**).
-   - Peak power: **200–260 µW/cm²** (after 5–7 days).
+   - ⚠️ **No verifiable power data** (audit-retracted). Evidence target: 50 µW/cm²; measure in Phase E2.
 
 ---
 

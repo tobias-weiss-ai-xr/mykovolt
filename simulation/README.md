@@ -87,10 +87,10 @@ Parameter ranking by impact on power:
 | Masse | **0.12 g** | 3.0 g | 11.5 g |
 | Lebensdauer | 7 Tage | 180 Tage | 60 Tage |
 | Kompostierbar | **✅ 0.11 g** | ❌ 0 g | ❌ 0 g |
-| Leistung | 260 µW¹ | 5000 µW | 10 mW |
+| Leistung | 100 µW¹ (Mg-Air MVP, validiert) | 5000 µW | 10 mW |
 | Spannung | 0.45V (boost nötig) | 3.0V | 1.5V |
 
-> ¹ Massenproduktions-Schätzung des reinen Presslings (Material + Verarbeitung), konsistent mit der Analyse in [MVP_DESIGN.md](../docs/archive/MVP_DESIGN.md#77-bom-preis-lücke). Die frühere Schätzung von €0,05 basierte auf optimistischeren Materialkosten vor dem aktuellen Feasibility-Review.
+> ¹ Massenproduktions-Schätzung des Presslings (Material + Verarbeitung). €0,15 = fungal-only; Mg-Air-Variante (€0,08) ist günstiger. Siehe [MVP Rethink](../docs/strategy/mvp_rethink.md).
 >
 > ² Simulationsziel aus Bayesian Optimization (260 µW = 20× Empa-Baseline). Experimentell bislang nur 12.5 µW/cm² (Empa 2024) bestätigt. Der tatsächlich erreichbare Wert hängt von Tintenformulierung und Zellgeometrie ab.
 

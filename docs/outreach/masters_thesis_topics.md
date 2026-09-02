@@ -28,13 +28,16 @@ Master's students are a **zero-cost R&D engine** for pre-seed startups:
 ### 1.1 — Strain Screening for Maximum Power Density
 **Degree:** M.Sc. Biotechnology / Microbiology
 **Start:** Q4 2026 · **SOHO Lab:** Soil MFC + 3D-Printed MFC (Phase 1)
-**Papers:** #2 (sediment MFC), #5 (*Ganoderma* growth), #8 (optimal conditions), #10 (soil microbes), #14 (wastewater fungi), #33 (soil bioelectrogenesis)
+**Context:** This screens for a *performance upgrade* over the Mg-Air baseline MVP (50–500 µW). Fungal presslings must demonstrably exceed Mg-Air-only power to justify the added biology. **Evidence ground truth:** only *Trametes* Empa-baseline (12,5 µW/cm²) is verified; see [MVP Rethink](../strategy/mvp_rethink.md) & [Gap Analysis](../research/docs/research/gap_analysis.md).
 
-**Research question:** Which fungal species produce the highest stable power output in a low-cost MFC, and can we beat the Empa baseline of 12.5 µW/cm²?
+**Papers:** see `research/papers.yaml` (categories mechanism/eet, material/laccase, application/hybrid). Key evidence anchors: laccase DET (Bioelectrochemistry 2013, Electroanalysis 2006), S. cerevisiae electrode geometry (Ionics 2021), co-culture (Sci Total Environ 2020).
+
+**Research question:** Which fungal species produce the highest *incremental* power over the Mg-Air baseline, and can we sustain >12,5 µW/cm² for >30 days?
 
 **Approach:**
 - Build 10 identical MFC chambers (3D-printed, from our [lab pipeline](../lab/SOHO_LAB_PIPELINE.md))
-- Screen 8-10 strains: *Trametes versicolor*, *Phanerochaete chrysosporium*, *Pleurotus ostreatus*, *Ganoderma lucidum*, *Neurospora crassa*, *Aspergillus niger*, plus 2-3 soil isolates
+- Screen 8–10 strains: *Trametes versicolor*, *Phanerochaete chrysosporium*, *Pleurotus ostreatus*, *Ganoderma lucidum*, *Aspergillus niger*, *Saccharomyces cerevisiae*, *Pestalotiopsis microspora*, plus 2–3 soil isolates
+- ⚠️ *Neurospora crassa*: **no verifiable electrochemical literature exists** (audit-proven). Include *only* as exploratory risk — report null results as a preprint (first-mover).
 - Measure: OCV, power density (µW/cm²), polarization curves, longevity (>30 days)
 - Test co-cultures (white-rot anode + yeast cathode) for synergistic effects
 
@@ -51,9 +54,9 @@ Master's students are a **zero-cost R&D engine** for pre-seed startups:
 ### 1.2 — Laccase Immobilization on Carbon Electrodes
 **Degree:** M.Sc. Biochemistry / Molecular Biology
 **Start:** Q2 2027
-**Papers:** #15 (mycelial electron transfer), #20 (electrode materials), #23 (electrode placement), #35 (power density improvements)
+**Evidence:** Verified laccase-immobilization papers in `research/papers.yaml` (material/laccase: *T. hirsuta* DET, 1-year-stability BFC Bioelectrochemistry 2015, metagenomic laccase SciRep 2026) + the 1,76 V laccase-carbon-cloth hybrid-Zn-O₂ biocathode (Electrochimica Acta 2012) — directly enabling a **Mg-air + fungal-laccase hybrid** upgrade track.
 
-**Research question:** Can immobilized fungal laccase on carbon cloth electrodes sustain direct electron transfer without mediators, and for how long?
+**Research question (hybrid reframing):** Can immobilized fungal laccase serve as a biocathode in a **Mg-air + laccase-hybrid cell** (leveraging the verified 1,76 V laccase-carbon-cloth literature), improving voltage/cost-stability over Mg-air alone, and for how long?
 
 **Approach:**
 - Extract laccase from *T. versicolor* (commercial or in-house)

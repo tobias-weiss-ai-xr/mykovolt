@@ -97,7 +97,7 @@ We've evaluated **6 fungal species** for compatibility with the DevKit's power r
 | Species | Eignung für MykoVolt | Primäre Anwendungen | Stromausbeute | Lebensdauer | Substrat | Verfügbarkeit | Kosten (pro Kultur) |
 |---------|----------------------|---------------------|----------------|--------------|----------|--------------|---------------------|
 | **Trametes versicolor** (Schmetterlingstramete) | ⭐⭐⭐⭐⭐ | **DevKit, Soil Moisture Sensor, Compost Monitor, Smart Packaging** | **100–200 µW/cm²** | 3–4 Wochen | Lignin (Holzspäne, Agrarreste) | **Hoch** (DSMZ, ATCC, Pilzzüchter) | €15–25 |
-| **Neurospora crassa** | ⭐⭐⭐⭐⭐ | **High-Performance MFCs (Forschung), Soil Carbon Verification** | **⚠️ unbelegt**¹ (Ziel: 260 µW/cm²) | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 |
+| **Neurospora crassa** | ⭐⭐ (explorativ) | **Research-Whitespace, Carbon Monitoring** | ⚠️ **unbelegt**¹ (Ziel: 50 µW/cm²) | 2–3 Wochen | Glucose (Vogel’s Medium) | Mittel (FGSC, DSMZ) | €20–30 |
 | **Aspergillus niger** | ⭐⭐⭐⭐ | **Mg-Air-Hybrid-Systeme (Permafrost, Landfill), Smart City Infrastructure** | ⚠️ nur qualitativ belegt¹ (Bioelectricity + Dye Decolorization, JBR 2016) | 4–6 Wochen | Industrielle Abfälle (Pektin, Zellulose) | **Sehr hoch** | €10–20 |
 | **Pleurotus ostreatus** (Austernpilz) | ⭐⭐⭐ | **Passive NFC DevKit, Edu Kit, Living Art (günstig & einfach)** | ⚠️ unbelegt¹ (Biowelding belegt, Stromerzeugung nicht) | 2 Wochen | Stroh, Kaffeesatz, Cellulose | **Sehr hoch** (lokal, Supermarkt) | €5–15 |
 | **Ganoderma lucidum** (Reishi) | ⭐⭐ | **Smart Wound Dressing (medizinisch, biocompatibel)** | ⚠️ unbelegt¹ | 3–4 Wochen | Cellulose (Wundauflagen), Holz | Hoch | €25–40 |

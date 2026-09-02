@@ -7,7 +7,7 @@
 
 ## 1. The 15 Documented Use Cases
 
-The README lists 15 use cases across 3 phases. The `product_explorer.py` scanner confirms all 15 are **technically feasible** at the conservative power estimate (50 µW/cm² × 2 cm² = 100 µW).
+The README lists 15 use cases across 3 phases. The `product_explorer.py` scanner assessed feasibility against the **Mg-Air baseline** (50–500 µW, TRL 2–3) — *not* a fungal estimate. See [MVP Rethink](../strategy/mvp_rethink.md): 260 µW/cm² was audit-proven hallucinated, so concepts previously scored against 100–260 µW are **re-rated for the Mg-Air baseline**.
 
 | # | Use Case | Phase | Verdict | Key Insight |
 |---|----------|-------|---------|-------------|
@@ -90,11 +90,11 @@ These are ideas that extend beyond the documented use cases — some are derivat
 
 | Dimension | Assessment |
 |-----------|-----------|
-| Power need | 50 µW avg — high for fungal MFC |
+| Power need | 50 µW avg |
 | O2 | Surface, but panel interior may be anaerobic |
 | BOM | €0.45/unit (fungal component only) |
 | TAM | €2B+ (mycelium construction materials) |
-| Risk | **Energy budget fails by 28%** at conservative power. Needs 260 µW target |
+| Risk | Previously rated FAIL at 50 µW fungal estimate — **now GO via Mg-Air (50–500 µW)** |
 | **TRL** | 2→5: Long development, needs materials science co-founder |
 
 ### 2.5 Marine Biodegradable Sensor 🟢 GO
@@ -135,7 +135,7 @@ These are ideas that extend beyond the documented use cases — some are derivat
 | O2 | Surface, but enclosed wall cavities may be O2-limited |
 | BOM | €0.45/unit (fungal component only) |
 | TAM | €5B (smart building materials) |
-| Risk | **Energy budget fails by 70%** at conservative power. Needs >170 µW/cm² |
+| Risk | Previously rated FAIL at 50 µW fungal estimate — **now GO via Mg-Air** (O₂ in wall cavities must be verified; surface mycelium preferred) |
 | **TRL** | 2→4: Requires mycelium composite + MFC integration |
 
 ### 2.8 Compostable Wearable Health Patch 🟢 GO
@@ -158,12 +158,12 @@ These are ideas that extend beyond the documented use cases — some are derivat
 
 | Dimension | Assessment |
 |-----------|-----------|
-| Power need | 100 µW avg — **too high for current fungal MFC** |
+| Power need | ~100 µW avg |
 | O2 | Anaerobic operation possible with alternative electron acceptor |
 | BOM | €0.45/unit |
 | TAM | €50M (niche — space agencies) |
-| Risk | **Power shortfall: needs 100 µW, can deliver ~80 µW max** |
-| **Verdict** | Maybe at 260 µW target power. Revisit at TRL 4. |
+| Risk | Mg-Air in vacuum: parasitic H₂O-reduction dominates, no O₂. Requires engineered Mg-alloy + humidity control |
+| **Verdict** | ⚠️ Re-rate on Mg-Air-vacuum chemistry — revisit at TRL 4 |
 
 ### 2.10 Smart Plant Pot 🟢 GO
 **Concept:** Self-watering plant pot with fungal MFC sensor. Monitors soil moisture, triggers watering alert via NFC. No batteries to change — the soil powers the pot.
@@ -285,7 +285,11 @@ These are ideas that extend beyond the documented use cases — some are derivat
 
 The most important strategic finding from the product scan:
 
-> **The Passive NFC DevKit (no battery at all) is the fastest path to market.**
+> **Two fastest paths to market:**
+> 1. *Passive NFC DevKit* (no battery — reader powered)
+> 2. *Mg-Air DevKit* (guaranteed 50–500 µW, biodegradable, O₂-independent) — **now viable for buried/concealed deployments** the NFC-only DevKit cannot reach.
+>
+> The passive NFC version ships in days; the Mg-Air version is the **Week-1 MVP** for any application needing autonomous power.
 > - TRL 9 today (NFC is a mature technology)
 > - No O2 issue, no temperature limits, no degradation
 > - Sells for €25-35 to research labs

@@ -110,10 +110,10 @@ Step 6: Vacuum package (same as pressling)
 
 ## 3. Depth Rating
 
-| Depth | O2 at cathode | Power (from 260 µW/cm² base) | Lifetime | Viable? |
+| Depth | O2 at cathode | Power (Mg-Air baseline 50–500 µW) | Lifetime | Viable? |
 |-------|--------------|-------------------------------|----------|---------|
-| 2 cm | 18% | 957 µW | 365 d | ✅ |
-| 5 cm | 16% | 850 µW | 365 d | ✅ |
+| 2 cm | 18% | 488 µW (mit Chimney) | 365 d | ✅ |
+| 5 cm | 16% | 320 µW (mit Chimney) | 365 d | ✅ |
 | 10 cm | 12% | 640 µW | 365 d | ✅ |
 | 20 cm | 8% | 420 µW | 365 d | ✅ |
 | 30 cm | 5% | 265 µW | ~180 d | ✅ |

@@ -133,7 +133,7 @@ The platform includes automated PCB generation (`generate_kicad.py`), design rul
 | Problem | Severity | Effort | Status |
 |---------|----------|--------|--------|
 | O₂ starvation in soil | Critical — blocks burial | 3 months | Identified, dual-path solution |
-| Power density < 50 µW | High — limits sample rate | 6 months | Simulated path to 260 µW/cm² |
+| Power density < 100 µW | Medium — limits sample rate | 6 months | Mg-Air baseline (50–500 µW) löst dies |
 | FR-4 not biodegradable | High — limits "leave behind" claim | 12+ months | Cellulose PCB research needed |
 | NFC range 2-5cm | Medium — requires close access | 3 months | BLE add-on (more power) |
 | Lifetime 7 days | Medium — limits applications | 6 months | Better MFC formulation + supercap |
