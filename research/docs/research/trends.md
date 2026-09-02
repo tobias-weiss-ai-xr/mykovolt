@@ -1,27 +1,27 @@
 # Trends (12-Month View)
 
-**Generated:** 2026-08-31  
-**Window:** since 2025-08 — 13 of 96 papers
+**Generated:** 2026-09-02  
+**Window:** since 2025-09 — 14 of 125 papers
 
 ## 🔥 Keyword Bursts
 
 | Keyword | Recent | Total | Burst |
 |---------|--------|-------|-------|
-| human | 2 | 2 | 7.4× |
-| tool | 2 | 3 | 4.9× |
-| generate | 2 | 5 | 3.0× |
-| graph | 1 | 5 | 1.5× |
-| transfer | 1 | 11 | 0.7× |
+| human | 2 | 2 | 8.9× |
+| tool | 2 | 3 | 6.0× |
+| generate | 2 | 5 | 3.6× |
+| graph | 1 | 5 | 1.8× |
+| transfer | 1 | 13 | 0.7× |
 
 ## 📈 Fastest-Growing Cells
 
 | Cell | Recent | Total | Recent Share |
 |------|--------|-------|--------------|
-| `mechanism/eet` | 8 | 9 | 89% |
-| `mechanism/hybrid` | 1 | 6 | 17% |
+| `application/degradation` | 1 | 1 | 100% |
+| `mechanism/eet` | 8 | 12 | 67% |
+| `mechanism/degradation` | 2 | 16 | 12% |
 | `material/degradation` | 1 | 10 | 10% |
-| `mechanism/degradation` | 1 | 11 | 9% |
-| `material/laccase` | 1 | 14 | 7% |
-| `application/hybrid` | 1 | 24 | 4% |
+| `material/laccase` | 1 | 15 | 7% |
+| `application/hybrid` | 1 | 30 | 3% |
 
 Regenerate with `python3 tools/trend_scanner.py --months 12`.

@@ -1,7 +1,7 @@
 # Literature Review
 
-**Generated:** 2026-08-31  
-**Corpus:** 96 papers across 4 categories
+**Generated:** 2026-09-02  
+**Corpus:** 125 papers across 4 categories
 
 > Synthesis of the corpus. Category insights are grounded in title/abstract analysis of the papers themselves.
 
@@ -11,13 +11,13 @@
 
 | Rank | Category | Papers |
 |------|----------|--------|
-| 1 | Bioelectrochemical Mechanisms | 40 |
-| 2 | Electrode & Material Systems | 30 |
-| 3 | Applications & Devices | 25 |
+| 1 | Bioelectrochemical Mechanisms | 59 |
+| 2 | Applications & Devices | 33 |
+| 3 | Electrode & Material Systems | 32 |
 | 4 | Surveys & Reviews | 1 |
 
 **Time span:** 2004–2026 (median year 2017)
-**Dominant aspects:** Hybrid / Co-Culture (35), Laccase-Mediated (29), Degradation & Lifespan (21)
+**Dominant aspects:** Hybrid / Co-Culture (50), Laccase-Mediated (33), Degradation & Lifespan (27)
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Category | Total | Last 12m | Prior 12m | Growth | 12-m share | Papers/mo |
 |----------|------:|---------:|----------:|-------:|----------:|----------:|
-| Mechanism | 40 | 10 | 5 | +100% | 25% | 0.8 |
-| Material | 30 | 2 | 0 | — | 7% | 0.2 |
-| Application | 25 | 1 | 1 | +0% | 4% | 0.1 |
+| Mechanism | 59 | 10 | 7 | +43% | 17% | 0.8 |
+| Material | 32 | 2 | 0 | — | 6% | 0.2 |
+| Application | 33 | 2 | 2 | +0% | 6% | 0.2 |
 | Survey | 1 | 0 | 0 | — | 0% | 0.0 |
 
 ---
@@ -38,12 +38,12 @@
 |------|--------:|
 | `application/laccase` | 1 |
 | `survey/hybrid` | 1 |
+| `application/eet` | 1 |
+| `application/degradation` | 1 |
 | `material/eet` | 2 |
-| `material/hybrid` | 4 |
-| `mechanism/hybrid` | 6 |
-| `mechanism/eet` | 9 |
+| `material/hybrid` | 5 |
 | `material/degradation` | 10 |
-| `mechanism/degradation` | 11 |
+| `mechanism/eet` | 12 |
 
 ---
 
@@ -52,37 +52,37 @@
 
 ### Bioelectrochemical Mechanisms (`mechanism`)
 
-**Corpus size:** 40 papers
+**Corpus size:** 59 papers
 
 **Recent papers:**
 
+- [2026-07] Bioresorbable and Transient Bioelectronics — https://doi.org/10.4018/979-8-2600-0060-1.ch012
 - [2026-01] Fungal fuel cells: an environmentally friendly approach to addressing heavy metal pollution and — https://doi.org/10.3389/fmicb.2026.1825368
 - [2026-01] Microbial Fuel Cells for Biomass Valorization: Bridging Climate Action and Terrestrial Ecosyste — https://doi.org/10.3390/polym18111354
-- [2026-01] Scanning Electrochemical Microscopy of Nystatin-Treated Yeast Used for Biofuel Cells. — https://doi.org/10.3390/s26020605
+
+---
+
+### Applications & Devices (`application`)
+
+**Corpus size:** 33 papers
+
+**Recent papers:**
+
+- [2026-07] Sediment Microbial Fuel Cell for Bioelectricity Generation — https://doi.org/10.5772/intechopen.1016822
+- [2025-10] 3D‐Printed Macroporous Resin Anode in Microbial Fuel Cell‐Based Biosensors for Efficient Biodeg — https://doi.org/10.1002/adsr.202500072
+- [2025-05] Signal Amplification Strategy-Assisted Dual Photoelectrode Fuel Cell Self-Powered Sensor for Me — https://doi.org/10.1021/acs.analchem.5c01477.s001
 
 ---
 
 ### Electrode & Material Systems (`material`)
 
-**Corpus size:** 30 papers
+**Corpus size:** 32 papers
 
 **Recent papers:**
 
 - [2026-03] Enhanced stability and reusability of metagenomic laccase via immobilization on functionalized  — https://doi.org/10.1038/s41598-026-40065-w
 - [2026-02] Biodegradable Transient Electronics: Sustainable Materials and Architectures for Circular IoT a — https://doi.org/10.62311/nesx/rb-978-81-999904-4-9
 - [2024-06] Photothermic Energy Harvesting in Reduced Graphene Oxide Nanosheets Intercalated with Vanadium  — https://doi.org/10.1021/acsanm.4c01118.s001
-
----
-
-### Applications & Devices (`application`)
-
-**Corpus size:** 25 papers
-
-**Recent papers:**
-
-- [2026-07] Sediment Microbial Fuel Cell for Bioelectricity Generation — https://doi.org/10.5772/intechopen.1016822
-- [2025-05] Signal Amplification Strategy-Assisted Dual Photoelectrode Fuel Cell Self-Powered Sensor for Me — https://doi.org/10.1021/acs.analchem.5c01477.s001
-- [2024-03] Towards a Self-Powered Amperometric Glucose Biosensor Based on a Single-Enzyme Biofuel Cell — https://doi.org/10.3390/bios14030138
 
 ---
 

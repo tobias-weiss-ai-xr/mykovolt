@@ -1,0 +1,59 @@
+name: Research Audit
+
+# DOI/title integrity audit of research/papers.yaml.
+# Runs on every change to research/** AND weekly on Sunday — catches
+# hallucinated/DOI-mismatched papers before they reach the corpus.
+#
+# Motivation: an earlier session merged 23 unverifiable entries (404 DOIs,
+# title mismatches pointing to unrelated papers). This workflow fails the
+# build on any corruption so it cannot be silently merged again.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/**'
+  schedule:
+    - cron: '0 5 * * 0'   # weekly, Sunday 05:00 UTC
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  doi-audit:
+    name: DOI Integrity (papers.yaml)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install deps
+        run: pip install pyyaml requests 2>&1 | tail -1
+
+      - name: Validate taxonomy
+        run: cd research && python3 scripts/validate_papers.py
+
+      - name: Audit DOIs (fail on corruption, tolerate network)
+        run: |
+          cd research
+          python3 scripts/doi_audit.py
+          echo "audit complete — exit code $?"
+
+      - name: Verify README is in sync
+        run: cd research && python3 scripts/generate_readme.py --check
+
+      - name: Regenerate stats & reports
+        run: |
+          cd research
+          python3 scripts/standard_stats.py
+          python3 scripts/analysis/generate_reports.py

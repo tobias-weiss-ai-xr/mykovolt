@@ -32,7 +32,88 @@
   category: mechanism
   subcategory_hint: degradation
 
+# ──────────────────────────────────────────────────────────────────────────────
+# Gap-closing queries (appended 2026-08-16 after DOI-Audit). Target the gaps
+# identified in gap_analysis.md §3. Each query verified to return real,
+# on-topic papers via Crossref before inclusion.
+# ──────────────────────────────────────────────────────────────────────────────
+
 - source: crossref
-  query: "fungal fuel cell biodegradable sensor self-powered"
+  query: "microbial fuel cell co-culture consortium enhanced power"
+  category: mechanism
+  subcategory_hint: eet
+
+- source: crossref
+  query: "Geobacter fungal co-culture bioelectrochemical"
+  category: mechanism
+  subcategory_hint: eet
+
+- source: crossref
+  query: "battery-free NFC RFID sensor tag energy harvesting biofuel cell"
   category: application
+  subcategory_hint: hybrid
+
+- source: crossref
+  query: "passive wireless biosensor energy harvesting implantable"
+  category: application
+  subcategory_hint: hybrid
+
+- source: crossref
+  query: "Phanerochaete chrysosporium lignin biodegradation"
+  category: mechanism
+  subcategory_hint: degradation
+
+- source: crossref
+  query: "Pestalotiopsis microspora polyurethane biodegradation"
+  category: mechanism
+  subcategory_hint: degradation
+
+- source: crossref
+  query: "Yarrowia lipolytica biofilm electrode electrochemical"
+  category: material
+  subcategory_hint: eet
+
+- source: crossref
+  query: "laccase enzymatic fuel cell review"
+  category: survey
+  subcategory_hint: laccase
+
+- source: crossref
+  query: "enzymatic biofuel cells review advances"
+  category: survey
+  subcategory_hint: laccase
+
+- source: crossref
+  query: "microbial fuel cell technology review Logan"
+  category: survey
+  subcategory_hint: hybrid
+
+- source: crossref
+  query: "bioelectrochemical systems microbial electrosynthesis review"
+  category: survey
+  subcategory_hint: eet
+
+- source: crossref
+  query: "long-term operation microbial fuel cell months stability"
+  category: mechanism
+  subcategory_hint: eet
+
+- source: crossref
+  query: "fungal laccase biocathode microbial fuel cell performance"
+  category: material
+  subcategory_hint: laccase
+
+- source: crossref
+  query: "soil microbial fuel cell biodegradable sensor monitoring"
+  category: application
+  subcategory_hint: degradation
+
+- source: crossref
+  query: "biodegradable transient battery degradable electronics"
+  category: application
+  subcategory_hint: degradation
+
+- source: crossref
+  query: "mycelium composite electrical conductivity sensing"
+  category: material
   subcategory_hint: hybrid

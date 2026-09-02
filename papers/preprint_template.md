@@ -304,7 +304,7 @@ The author thanks the Empa Cellulose & Wood Materials lab for publishing the bas
 3. Sekrecka-Belniak, A. & Toczyłowska-Mamińska, R. "Fungi-Based Microbial Fuel Cells." *Energies*, 11(10), 2827, 2018. DOI: 10.3390/en11102827
 4. Umar, A. et al. "Harnessing fungal bio-electricity: a promising path to a cleaner environment." *Frontiers in Microbiology*, 2024. DOI: 10.3389/fmicb.2023.1291904
 5. Sukri, S. et al. "Self-Sustaining Bioelectrochemical Cell from Fungal Degradation of Lignin-Rich Agrowaste." *Energies*, 14(8), 2098, 2021. DOI: 10.3390/en14082098
-6. Xeno-Fungusphere. "Fungal-Enhanced MFCs for Agricultural Remediation." *Agriculture*, 15(6), 1392, 2025. DOI: 10.3390/agriculture15061392
+6. Altaf, M.T. et al. "Fungal fuel cells: an environmentally friendly approach to addressing heavy metal pollution and electricity production." *Frontiers in Microbiology*, 2026. DOI: 10.3389/fmicb.2026.1825368
 7. Texas Instruments. "BQ25570 Ultra Low Power Boost Converter with Battery Management." Datasheet SLVSAB4A, 2014.
 8. STMicroelectronics. "STM32L011K4 Ultra-low-power 32-bit MCU." Datasheet DM00206519, 2019.
 9. Texas Instruments. "FDC1004 4-Channel Capacitive Sensor." Datasheet SNOSCX9, 2015.

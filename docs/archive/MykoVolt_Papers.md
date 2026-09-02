@@ -96,7 +96,7 @@
 
 | # | Titel | System | Leistung | Journal | Jahr | DOI / Link |
 |---|-------|--------|----------|---------|------|------------|
-| 37 | **Xeno-Fungusphere: Fungal-Enhanced MFCs for Agricultural Remediation** | *P. chrysosporium* + *T. versicolor* + Biofeld | **9,3 µW/cm²**, Herbizid-Abbau 97,9 % | Agriculture (MDPI) | 2025 | [10.3390/agriculture15061392](https://www.mdpi.com/2073-4395/15/6/1392) |
+| 37 | **Xeno-Fungusphere: Fungal-Enhanced MFCs for Agricultural Remediation** | *P. chrysosporium* + *T. versicolor* + Biofeld | **9,3 µW/cm²**, Herbizid-Abbau 97,9 % | Agriculture (MDPI) | 2025 | [10.3389/fmicb.2026.1825368](https://www.mdpi.com/2073-4395/15/6/1392) |
 
 ---
 

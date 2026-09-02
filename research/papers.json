@@ -12,6 +12,18 @@
   "venue": "Sediment Transport and Depositional Processes [Working Title]"
  },
  {
+  "title": "Bioresorbable and Transient Bioelectronics",
+  "date": "2026-07",
+  "url": "https://doi.org/10.4018/979-8-2600-0060-1.ch012",
+  "category": "mechanism",
+  "subcategory": "degradation",
+  "authors": [
+   "G. Boopathi Raja"
+  ],
+  "abstract": "",
+  "venue": "Next-Generation Biodegradable and Bioactive Biomaterials"
+ },
+ {
   "title": "Enhanced stability and reusability of metagenomic laccase via immobilization on functionalized mesoporous silica for antibiotic contaminant removal",
   "date": "2026-03",
   "url": "https://doi.org/10.1038/s41598-026-40065-w",
@@ -161,6 +173,20 @@
   "venue": "MED"
  },
  {
+  "title": "3D\u2010Printed Macroporous Resin Anode in Microbial Fuel Cell\u2010Based Biosensors for Efficient Biodegradable Organic Carbon Monitoring",
+  "date": "2025-10",
+  "url": "https://doi.org/10.1002/adsr.202500072",
+  "category": "application",
+  "subcategory": "degradation",
+  "authors": [
+   "Anna Salvian",
+   "Junbin Huang",
+   "Daniel Farkas"
+  ],
+  "abstract": "",
+  "venue": "Advanced Sensor Research"
+ },
+ {
   "title": "Polypyrrole-Modified Saccharomyces cerevisiae Used in Microbial Fuel Cell",
   "date": "2025-08",
   "url": "https://doi.org/10.3390/bios15080519",
@@ -257,6 +283,32 @@
   ],
   "abstract": "The worldwide textile industry extensively uses azo dyes, which pose serious health and environmental risks. Effective cleanup is necessary but challenging. Developing bioremediation methods for textile effluents will improve color removal efficiency. The recent attention to effectively utilizing mi",
   "venue": "MED"
+ },
+ {
+  "title": "Solutions for Space Waste: Biodegradation of Polyurethane by Pestalotiopsis Microspora in Microgravity",
+  "date": "2025-01",
+  "url": "https://doi.org/10.21275/sr241230151350",
+  "category": "mechanism",
+  "subcategory": "degradation",
+  "authors": [
+   "Aarna Agarwal",
+   "Sohrab Mehra",
+   "Ian Wilson"
+  ],
+  "abstract": "",
+  "venue": "International Journal of Science and Research (IJSR)"
+ },
+ {
+  "title": "Industrial applications of Yarrowia lipolytica",
+  "date": "2025-01",
+  "url": "https://doi.org/10.1016/b978-0-443-22092-0.00005-0",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Ahmet T\u00fclek"
+  ],
+  "abstract": "",
+  "venue": "Yarrowia Lipolytica Yeast"
  },
  {
   "title": "ENHANCING ELECTRICITY GENERATION USING FUNGAL LACCASE-BASED MICROBIAL FUEL CELL",
@@ -356,6 +408,19 @@
   ],
   "abstract": "",
   "venue": "SSRN Electronic Journal"
+ },
+ {
+  "title": "Electron transfer in enzymatic biofuel cells",
+  "date": "2024-01",
+  "url": "https://doi.org/10.1016/b978-0-443-13835-5.00008-5",
+  "category": "mechanism",
+  "subcategory": "eet",
+  "authors": [
+   "Jianqi Ye",
+   "Dan Wen"
+  ],
+  "abstract": "",
+  "venue": "Biofuel Cells"
  },
  {
   "title": "Electricity generation and oxidoreductase potential during dye discoloration by laccase-producing Ganoderma gibbosum in fungal fuel cell",
@@ -532,6 +597,19 @@
   "venue": "Nano Energy"
  },
  {
+  "title": "A Solar-Cell-Assisted, 99% Biofuel Cell Area Reduced, Biofuel-Cell-Powered Wireless Biosensing System in 65nm CMOS for Continuous Glucose Monitoring Contact Lenses",
+  "date": "2022-07",
+  "url": "https://doi.org/10.1587/transele.2021cds0002",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Guowei CHEN",
+   "Kiichi NIITSU"
+  ],
+  "abstract": "",
+  "venue": "IEICE Transactions on Electronics"
+ },
+ {
   "title": "High-Performance Asymmetric Flow-Electrode Capacitive Mixing with MnO2Coated Activated Carbon Flow-Electrode for Energy Harvesting from Salinity Gradient Power",
   "date": "2022-06",
   "url": "https://doi.org/10.1021/acsmaterialslett.2c00154.s001",
@@ -623,6 +701,19 @@
   "venue": "MED"
  },
  {
+  "title": "Competitive advantage of oxygen-tolerant bioanodes of Geobacter sulfurreducens in bioelectrochemical systems",
+  "date": "2021-12",
+  "url": "https://doi.org/10.1016/j.bioflm.2021.100052",
+  "category": "application",
+  "subcategory": "eet",
+  "authors": [
+   "Allison M. Speers",
+   "Gemma Reguera"
+  ],
+  "abstract": "",
+  "venue": "Biofilm"
+ },
+ {
   "title": "Microstructure and battery performance of Mg-Zn-Sn alloys as anodes for magnesium-air battery",
   "date": "2021-11",
   "url": "https://doi.org/10.1016/j.jma.2021.08.022",
@@ -706,6 +797,34 @@
   "venue": "Biofuel Cells"
  },
  {
+  "title": "Comprehensive in silico and gene expression profiles of MnP family genes in Phanerochaete chrysosporium towards lignin biodegradation",
+  "date": "2021-02",
+  "url": "https://doi.org/10.1016/j.ibiod.2020.105143",
+  "category": "mechanism",
+  "subcategory": "degradation",
+  "authors": [
+   "Sree Preethy Kuppuraj",
+   "Baskar Venkidasamy",
+   "Dhivya Selvaraj"
+  ],
+  "abstract": "",
+  "venue": "International Biodeterioration &amp; Biodegradation"
+ },
+ {
+  "title": "&lt;i&gt;In Situ&lt;/i&gt; Laccase Biocathode Performance Assessment in Dual-Chamber Microbial Fuel Cells",
+  "date": "2021-01",
+  "url": "https://doi.org/10.2139/ssrn.3954809",
+  "category": "mechanism",
+  "subcategory": "laccase",
+  "authors": [
+   "Cristiane Ottoni",
+   "Caterina Trotta",
+   "Gilberto Martins"
+  ],
+  "abstract": "",
+  "venue": "SSRN Electronic Journal"
+ },
+ {
   "title": "Electrosprayed ThylakoidAlginate Film on a Micro-Pillar Electrode for Scalable Photosynthetic Energy Harvesting",
   "date": "2020-12",
   "url": "https://doi.org/10.1021/acsami.0c15993.s001",
@@ -714,6 +833,32 @@
   "authors": [],
   "abstract": "",
   "venue": ""
+ },
+ {
+  "title": "The endophytic fungi pestalotiopsis what\u2019s for it and what\u2019s on it?",
+  "date": "2020-12",
+  "url": "https://doi.org/10.31579/2693-7247/032",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Waill Elkhateeb"
+  ],
+  "abstract": "",
+  "venue": "Pharmaceutics and Pharmacology Research"
+ },
+ {
+  "title": "Impact of cathodic electron acceptor on microbial fuel cell internal resistance",
+  "date": "2020-11",
+  "url": "https://doi.org/10.1016/j.biortech.2020.123919",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Kathryn Lawson",
+   "Ruggero Rossi",
+   "John M. Regan"
+  ],
+  "abstract": "",
+  "venue": "Bioresource Technology"
  },
  {
   "title": "Dye reduction-based electron-transfer activity monitoring assay for assessing microbial electron transfer activity of microbial fuel cell inocula",
@@ -730,6 +875,20 @@
   "venue": "Journal of Environmental Sciences"
  },
  {
+  "title": "Microbial synergistic interactions enhanced power generation in co-culture driven microbial fuel cell",
+  "date": "2020-10",
+  "url": "https://doi.org/10.1016/j.scitotenv.2020.140138",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "M. Amirul Islam",
+   "Ahasanul Karim",
+   "Puranjan Mishra"
+  ],
+  "abstract": "",
+  "venue": "Science of The Total Environment"
+ },
+ {
   "title": "Bioelectricity generation in a microbial fuel cell using polypyrrole-molybdenum oxide composite as an effective cathode catalyst",
   "date": "2020-09",
   "url": "https://doi.org/10.1016/j.fuel.2020.117994",
@@ -741,6 +900,20 @@
   ],
   "abstract": "",
   "venue": "Fuel"
+ },
+ {
+  "title": "Performance Modelling of the Bioelectrochemical Glycerol Oxidation by a Co\u2010Culture of <i>Geobacter Sulfurreducens</i> and <i>Raoultella Electrica</i>",
+  "date": "2020-03",
+  "url": "https://doi.org/10.1002/celc.202000027",
+  "category": "mechanism",
+  "subcategory": "eet",
+  "authors": [
+   "Fabian Kubannek",
+   "Simone Thiel",
+   "Boyke Bunk"
+  ],
+  "abstract": "",
+  "venue": "ChemElectroChem"
  },
  {
   "title": "A hydrogen/oxygen hybrid biofuel cell comprising an electrocatalytically active nanoflower/laccase-based biocathode",
@@ -812,6 +985,34 @@
   "venue": "Frontiers in Chemistry"
  },
  {
+  "title": "NFC Hybrid Harvester for Battery-free Agricultural Sensor Nodes",
+  "date": "2019-09",
+  "url": "https://doi.org/10.1109/rfid-ta.2019.8892237",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Spyridon Nektarios Daskalakis",
+   "George Goussetis",
+   "Apostolos Georgiadis"
+  ],
+  "abstract": "",
+  "venue": "2019 IEEE International Conference on RFID Technology and Applications (RFID-TA)"
+ },
+ {
+  "title": "Characterization of electricity generation and microbial community structure over long-term operation of a microbial fuel cell",
+  "date": "2019-08",
+  "url": "https://doi.org/10.1016/j.biortech.2019.121395",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Xizi Long",
+   "Xian Cao",
+   "Hailiang Song"
+  ],
+  "abstract": "",
+  "venue": "Bioresource Technology"
+ },
+ {
   "title": "Net power positive maximum power point tracking energy harvesting system for microbial fuel cell",
   "date": "2019-04",
   "url": "https://doi.org/10.1016/j.jpowsour.2019.02.042",
@@ -823,6 +1024,20 @@
   ],
   "abstract": "",
   "venue": "Journal of Power Sources"
+ },
+ {
+  "title": "Assessment of Electron Transfer Mechanisms during a Long-Term Sediment Microbial Fuel Cell Operation",
+  "date": "2019-02",
+  "url": "https://doi.org/10.3390/en12030481",
+  "category": "mechanism",
+  "subcategory": "eet",
+  "authors": [
+   "Luciana Peixoto",
+   "Pier Parpot",
+   "Gilberto Martins"
+  ],
+  "abstract": "",
+  "venue": "Energies"
  },
  {
   "title": "Pretreatment for biorefineries: a review of common methods for efficient utilisation of lignocellulosic materials.",
@@ -865,6 +1080,16 @@
   ],
   "abstract": "",
   "venue": "ACS Energy Letters"
+ },
+ {
+  "title": "Quantifying long-term electrode performance",
+  "date": "2018-09",
+  "url": "https://doi.org/10.1201/b19640-9",
+  "category": "material",
+  "subcategory": "hybrid",
+  "authors": [],
+  "abstract": "",
+  "venue": "Neuroprosthetics"
  },
  {
   "title": "Anodic Electron Transfer Mechanism in Bioelectrochemical Systems",
@@ -1001,6 +1226,30 @@
   "venue": "Encyclopedia of Interfacial Chemistry"
  },
  {
+  "title": "Heavy Metal Sensor Research Based on Microbial Fuel Cell",
+  "date": "2018-01",
+  "url": "https://doi.org/10.11648/j.ijema.20180602.13",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Yining Wu"
+  ],
+  "abstract": "",
+  "venue": "International Journal of Environmental Monitoring and Analysis"
+ },
+ {
+  "title": "PHBVTM Biodegradable Polyester",
+  "date": "2018-01",
+  "url": "https://doi.org/10.1201/9781351071321-3",
+  "category": "mechanism",
+  "subcategory": "degradation",
+  "authors": [
+   "T.J. Galvin"
+  ],
+  "abstract": "",
+  "venue": "Degradable Materials"
+ },
+ {
   "title": "Sediment Microbial Fuel Cell and Constructed Wetland Assisted with It: Challenges and Future Prospects",
   "date": "2017-12",
   "url": "https://doi.org/10.1007/978-3-319-66793-5_17",
@@ -1013,6 +1262,20 @@
   ],
   "abstract": "",
   "venue": "Microbial Fuel Cell"
+ },
+ {
+  "title": "Battery-Free and Energy-Effective RFID Sensor Tag for Health Monitoring in Smart Grid",
+  "date": "2017-12",
+  "url": "https://doi.org/10.1109/ams.2017.35",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Qiwu Luo",
+   "Tao Wang",
+   "Yigang He"
+  ],
+  "abstract": "",
+  "venue": "2017 Asia Modelling Symposium (AMS)"
  },
  {
   "title": "Combination of physico-chemical entrapment and crosslinking of low activity laccase-based biocathode on carboxylated carbon nanotube for increasing biofuel cell performance",
@@ -1052,6 +1315,19 @@
   "venue": "Journal of Power Sources"
  },
  {
+  "title": "Self-sustaining, solar-driven bioelectricity generation in micro-sized microbial fuel cell using co-culture of heterotrophic and photosynthetic bacteria",
+  "date": "2017-04",
+  "url": "https://doi.org/10.1016/j.jpowsour.2017.03.014",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Lin Liu",
+   "Seokheun Choi"
+  ],
+  "abstract": "",
+  "venue": "Journal of Power Sources"
+ },
+ {
   "title": "Self-Sterilized Flexible Single-Electrode Triboelectric Nanogenerator for Energy Harvesting and Dynamic Force Sensing",
   "date": "2017-01",
   "url": "https://doi.org/10.1021/acsnano.6b07389.s001",
@@ -1065,6 +1341,20 @@
   ],
   "abstract": "",
   "venue": "ACS Nano"
+ },
+ {
+  "title": "Decolourisation of Acid orange 7 in a microbial fuel cell with a laccase-based biocathode: Influence of mitigating pH changes in the cathode chamber",
+  "date": "2017-01",
+  "url": "https://doi.org/10.1016/j.enzmictec.2016.10.012",
+  "category": "mechanism",
+  "subcategory": "laccase",
+  "authors": [
+   "Priyadharshini Mani",
+   "Taj Keshavarz",
+   "T.S Chandra"
+  ],
+  "abstract": "",
+  "venue": "Enzyme and Microbial Technology"
  },
  {
   "title": "Magnesium\u2013Air Battery",
@@ -1212,6 +1502,60 @@
   "venue": "Biosensors and Bioelectronics"
  },
  {
+  "title": "Fuel Cell Operating Conditions",
+  "date": "2013-01",
+  "url": "https://doi.org/10.1016/b978-0-12-387710-9.00005-9",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Frano Barbir"
+  ],
+  "abstract": "",
+  "venue": "PEM Fuel Cells"
+ },
+ {
+  "title": "A Self-Powered Acetaldehyde Sensor Based on Biofuel Cell",
+  "date": "2012-11",
+  "url": "https://doi.org/10.1021/ac302414a",
+  "category": "application",
+  "subcategory": "hybrid",
+  "authors": [
+   "Lingling Zhang",
+   "Ming Zhou",
+   "Shaojun Dong"
+  ],
+  "abstract": "",
+  "venue": "Analytical Chemistry"
+ },
+ {
+  "title": "Selective removal of lignin in steam-exploded rice straw by Phanerochaete chrysosporium",
+  "date": "2012-11",
+  "url": "https://doi.org/10.1016/j.ibiod.2012.09.003",
+  "category": "mechanism",
+  "subcategory": "degradation",
+  "authors": [
+   "Shengli Zhang",
+   "Man Jiang",
+   "Zuowan Zhou"
+  ],
+  "abstract": "",
+  "venue": "International Biodeterioration &amp; Biodegradation"
+ },
+ {
+  "title": "Fully enzymatic mediatorless fuel cell with efficient naphthylated carbon nanotube\u2013laccase composite cathodes",
+  "date": "2012-07",
+  "url": "https://doi.org/10.1016/j.elecom.2012.04.011",
+  "category": "material",
+  "subcategory": "laccase",
+  "authors": [
+   "Maciej Kara\u015bkiewicz",
+   "Ewa Nazaruk",
+   "Kamila \u017belechowska"
+  ],
+  "abstract": "",
+  "venue": "Electrochemistry Communications"
+ },
+ {
   "title": "A 1.76V hybrid Zn-O2 biofuel cell with a fungal laccase-carbon cloth biocathode",
   "date": "2012-02",
   "url": "https://doi.org/10.1016/j.electacta.2011.12.026",
@@ -1224,6 +1568,18 @@
   ],
   "abstract": "",
   "venue": "Electrochimica Acta"
+ },
+ {
+  "title": "Bioelectrochemical Systems, Energy Production and Electrosynthesis",
+  "date": "2012-01",
+  "url": "https://doi.org/10.4172/1948-5948.1000e112",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Abhijeet P. Borole"
+  ],
+  "abstract": "",
+  "venue": "Journal of Microbial &amp; Biochemical Technology"
  },
  {
   "title": "Platinum Nanoparticles (PtNPs) - Laccase Assisted Biocathode Reduction of Oxygen for Biofuel Cells",
@@ -1240,6 +1596,20 @@
   "venue": "International Journal of Electrochemical Science"
  },
  {
+  "title": "Anode microbial communities produced by changing from microbial fuel cell to microbial electrolysis cell operation using two different wastewaters",
+  "date": "2011-01",
+  "url": "https://doi.org/10.1016/j.biortech.2010.05.019",
+  "category": "mechanism",
+  "subcategory": "hybrid",
+  "authors": [
+   "Patrick D. Kiely",
+   "Roland Cusick",
+   "Douglas F. Call"
+  ],
+  "abstract": "",
+  "venue": "Bioresource Technology"
+ },
+ {
   "title": "Laccase electrodes based on the combination of single-walled carbon nanotubes and redox layered double hydroxides: Towards the development of biocathode for biofuel cells",
   "date": "2010-08",
   "url": "https://doi.org/10.1016/j.jpowsour.2010.02.033",
@@ -1252,6 +1622,20 @@
   ],
   "abstract": "",
   "venue": "Journal of Power Sources"
+ },
+ {
+  "title": "Silica Encapsulated Laccase/CNT Catalysts for Enzymatic Fuel Cell Cathodes",
+  "date": "2009-05",
+  "url": "https://doi.org/10.1149/ma2009-01/43/1452",
+  "category": "mechanism",
+  "subcategory": "laccase",
+  "authors": [
+   "Ramaraja P. Ramasamy",
+   "Heather Luckarift",
+   "Dmitri Ivnitski"
+  ],
+  "abstract": "",
+  "venue": "ECS Meeting Abstracts"
  },
  {
   "title": "Three-dimensional, gas phase fuel cell with a laccase biocathode",

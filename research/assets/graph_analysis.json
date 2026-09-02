@@ -3,48 +3,50 @@
   {
    "id": "application",
    "name": "Application",
-   "count": 25,
+   "count": 33,
    "trajectory": {
+    "2012": 1,
     "2015": 1,
     "2016": 1,
-    "2018": 6,
-    "2019": 2,
+    "2017": 1,
+    "2018": 7,
+    "2019": 3,
     "2020": 1,
-    "2021": 4,
-    "2022": 1,
+    "2021": 5,
+    "2022": 2,
     "2023": 4,
     "2024": 3,
-    "2025": 1,
+    "2025": 3,
     "2026": 1
    },
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 25,
-    "recent": 1,
-    "prior": 1,
+    "total": 33,
+    "recent": 2,
+    "prior": 2,
     "growth_pct": 0.0,
-    "recent_share": 0.04,
-    "papers_per_month": 0.1,
-    "score": 4.0
+    "recent_share": 0.061,
+    "papers_per_month": 0.2,
+    "score": 6.1
    }
   },
   {
    "id": "material",
    "name": "Material",
-   "count": 30,
+   "count": 32,
    "trajectory": {
     "2004": 1,
     "2006": 1,
     "2009": 1,
     "2010": 1,
-    "2012": 1,
+    "2012": 2,
     "2013": 2,
     "2014": 2,
     "2015": 1,
     "2016": 2,
     "2017": 3,
-    "2018": 1,
+    "2018": 2,
     "2019": 1,
     "2020": 3,
     "2021": 1,
@@ -56,42 +58,46 @@
    "momentum": {
     "id": "material",
     "name": "Material",
-    "total": 30,
+    "total": 32,
     "recent": 2,
     "prior": 0,
     "growth_pct": null,
-    "recent_share": 0.067,
+    "recent_share": 0.062,
     "papers_per_month": 0.2,
-    "score": 6.7
+    "score": 6.2
    }
   },
   {
    "id": "mechanism",
    "name": "Mechanism",
-   "count": 40,
+   "count": 59,
    "trajectory": {
-    "2011": 1,
+    "2009": 1,
+    "2011": 2,
+    "2012": 2,
+    "2013": 1,
     "2014": 2,
-    "2017": 2,
-    "2018": 5,
-    "2019": 2,
-    "2020": 1,
+    "2017": 4,
+    "2018": 6,
+    "2019": 4,
+    "2020": 5,
+    "2021": 2,
     "2022": 5,
     "2023": 4,
-    "2024": 3,
-    "2025": 6,
-    "2026": 9
+    "2024": 4,
+    "2025": 7,
+    "2026": 10
    },
    "momentum": {
     "id": "mechanism",
     "name": "Mechanism",
-    "total": 40,
+    "total": 59,
     "recent": 10,
-    "prior": 5,
-    "growth_pct": 100.0,
-    "recent_share": 0.25,
+    "prior": 7,
+    "growth_pct": 42.9,
+    "recent_share": 0.169,
     "papers_per_month": 0.8,
-    "score": 125.0
+    "score": 59.8
    }
   },
   {
@@ -118,22 +124,22 @@
   {
    "id": "degradation",
    "name": "Degradation",
-   "count": 21
+   "count": 27
   },
   {
    "id": "eet",
    "name": "Eet",
-   "count": 11
+   "count": 15
   },
   {
    "id": "hybrid",
    "name": "Hybrid",
-   "count": 35
+   "count": 50
   },
   {
    "id": "laccase",
    "name": "Laccase",
-   "count": 29
+   "count": 33
   }
  ],
  "timeline": [
@@ -153,9 +159,19 @@
    "laccase"
   ],
   [
+   "2009-05",
+   "mechanism",
+   "laccase"
+  ],
+  [
    "2010-08",
    "material",
    "laccase"
+  ],
+  [
+   "2011-01",
+   "mechanism",
+   "hybrid"
   ],
   [
    "2011-12",
@@ -163,14 +179,39 @@
    "laccase"
   ],
   [
+   "2012-01",
+   "mechanism",
+   "hybrid"
+  ],
+  [
    "2012-02",
    "material",
    "laccase"
   ],
   [
+   "2012-07",
+   "material",
+   "laccase"
+  ],
+  [
+   "2012-11",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2012-11",
+   "mechanism",
+   "degradation"
+  ],
+  [
    "2013-01",
    "material",
    "laccase"
+  ],
+  [
+   "2013-01",
+   "mechanism",
+   "hybrid"
   ],
   [
    "2013-06",
@@ -228,6 +269,16 @@
    "degradation"
   ],
   [
+   "2017-01",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2017-04",
+   "mechanism",
+   "hybrid"
+  ],
+  [
    "2017-04",
    "mechanism",
    "laccase"
@@ -241,6 +292,11 @@
    "2017-11",
    "material",
    "laccase"
+  ],
+  [
+   "2017-12",
+   "application",
+   "hybrid"
   ],
   [
    "2017-12",
@@ -279,7 +335,17 @@
   ],
   [
    "2018-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2018-01",
    "material",
+   "degradation"
+  ],
+  [
+   "2018-01",
+   "mechanism",
    "degradation"
   ],
   [
@@ -299,6 +365,11 @@
   ],
   [
    "2018-09",
+   "material",
+   "hybrid"
+  ],
+  [
+   "2018-09",
    "mechanism",
    "laccase"
   ],
@@ -313,7 +384,22 @@
    "degradation"
   ],
   [
+   "2019-02",
+   "mechanism",
+   "eet"
+  ],
+  [
    "2019-04",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2019-08",
+   "mechanism",
+   "hybrid"
+  ],
+  [
+   "2019-09",
    "application",
    "hybrid"
   ],
@@ -343,8 +429,18 @@
    "laccase"
   ],
   [
+   "2020-03",
+   "mechanism",
+   "eet"
+  ],
+  [
    "2020-09",
    "application",
+   "hybrid"
+  ],
+  [
+   "2020-10",
+   "mechanism",
    "hybrid"
   ],
   [
@@ -353,8 +449,28 @@
    "laccase"
   ],
   [
+   "2020-11",
+   "mechanism",
+   "hybrid"
+  ],
+  [
    "2020-12",
    "material",
+   "degradation"
+  ],
+  [
+   "2020-12",
+   "mechanism",
+   "hybrid"
+  ],
+  [
+   "2021-01",
+   "mechanism",
+   "laccase"
+  ],
+  [
+   "2021-02",
+   "mechanism",
    "degradation"
   ],
   [
@@ -386,6 +502,11 @@
    "2021-11",
    "application",
    "hybrid"
+  ],
+  [
+   "2021-12",
+   "application",
+   "eet"
   ],
   [
    "2022-01",
@@ -421,6 +542,11 @@
    "2022-06",
    "material",
    "degradation"
+  ],
+  [
+   "2022-07",
+   "application",
+   "hybrid"
   ],
   [
    "2022-08",
@@ -498,6 +624,11 @@
    "degradation"
   ],
   [
+   "2024-01",
+   "mechanism",
+   "eet"
+  ],
+  [
    "2024-02",
    "application",
    "hybrid"
@@ -521,6 +652,16 @@
    "2024-07",
    "mechanism",
    "laccase"
+  ],
+  [
+   "2025-01",
+   "application",
+   "hybrid"
+  ],
+  [
+   "2025-01",
+   "mechanism",
+   "degradation"
   ],
   [
    "2025-01",
@@ -556,6 +697,11 @@
    "2025-08",
    "mechanism",
    "hybrid"
+  ],
+  [
+   "2025-10",
+   "application",
+   "degradation"
   ],
   [
    "2026-01",
@@ -616,6 +762,11 @@
    "2026-07",
    "application",
    "hybrid"
+  ],
+  [
+   "2026-07",
+   "mechanism",
+   "degradation"
   ]
  ],
  "venues": [
@@ -633,10 +784,18 @@
   },
   {
    "name": "Journal of Power Sources",
-   "papers": 4
+   "papers": 5
+  },
+  {
+   "name": "Analytical Chemistry",
+   "papers": 3
   },
   {
    "name": "Fuel",
+   "papers": 3
+  },
+  {
+   "name": "Enzyme and Microbial Technology",
    "papers": 3
   },
   {
@@ -644,7 +803,11 @@
    "papers": 3
   },
   {
-   "name": "Analytical Chemistry",
+   "name": "Bioresource Technology",
+   "papers": 3
+  },
+  {
+   "name": "SSRN Electronic Journal",
    "papers": 2
   },
   {
@@ -652,31 +815,19 @@
    "papers": 2
   },
   {
-   "name": "Enzyme and Microbial Technology",
-   "papers": 2
-  },
-  {
    "name": "Biosensors and Bioelectronics",
    "papers": 2
   },
   {
+   "name": "Biofuel Cells",
+   "papers": 2
+  },
+  {
+   "name": "International Biodeterioration &amp; Biodegradation",
+   "papers": 2
+  },
+  {
    "name": "Sediment Transport and Depositional Processes [Working Title]",
-   "papers": 1
-  },
-  {
-   "name": "Agronomy",
-   "papers": 1
-  },
-  {
-   "name": "Journal of microbiology, biotechnology and food sciences",
-   "papers": 1
-  },
-  {
-   "name": "ACS Applied Nano Materials",
-   "papers": 1
-  },
-  {
-   "name": "SSRN Electronic Journal",
    "papers": 1
   }
  ],
@@ -685,29 +836,29 @@
    "keyword": "human",
    "recent": 2,
    "total": 2,
-   "burst_score": 7.38,
-   "recent_share": 0.1538
+   "burst_score": 8.93,
+   "recent_share": 0.1429
   },
   {
    "keyword": "tool",
    "recent": 2,
    "total": 3,
-   "burst_score": 4.92,
-   "recent_share": 0.1538
+   "burst_score": 5.95,
+   "recent_share": 0.1429
   },
   {
    "keyword": "graph",
    "recent": 1,
    "total": 5,
-   "burst_score": 1.48,
-   "recent_share": 0.0769
+   "burst_score": 1.79,
+   "recent_share": 0.0714
   },
   {
    "keyword": "transfer",
    "recent": 1,
-   "total": 11,
-   "burst_score": 0.67,
-   "recent_share": 0.0769
+   "total": 13,
+   "burst_score": 0.69,
+   "recent_share": 0.0714
   }
  ]
 }

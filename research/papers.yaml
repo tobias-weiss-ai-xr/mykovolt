@@ -1194,3 +1194,318 @@ papers:
   venue: Encyclopedia of Interfacial Chemistry
   authors:
   - YV Hubenova
+- title: Microbial synergistic interactions enhanced power generation in co-culture
+    driven microbial fuel cell
+  date: 2020-10
+  url: https://doi.org/10.1016/j.scitotenv.2020.140138
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/j.scitotenv.2020.140138
+  venue: Science of The Total Environment
+  authors:
+  - M. Amirul Islam
+  - Ahasanul Karim
+  - Puranjan Mishra
+- title: Self-sustaining, solar-driven bioelectricity generation in micro-sized microbial
+    fuel cell using co-culture of heterotrophic and photosynthetic bacteria
+  date: 2017-04
+  url: https://doi.org/10.1016/j.jpowsour.2017.03.014
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/j.jpowsour.2017.03.014
+  venue: Journal of Power Sources
+  authors:
+  - Lin Liu
+  - Seokheun Choi
+- title: Performance Modelling of the Bioelectrochemical Glycerol Oxidation by a Co‐Culture
+    of <i>Geobacter Sulfurreducens</i> and <i>Raoultella Electrica</i>
+  date: 2020-03
+  url: https://doi.org/10.1002/celc.202000027
+  category: mechanism
+  subcategory: eet
+  doi: 10.1002/celc.202000027
+  venue: ChemElectroChem
+  authors:
+  - Fabian Kubannek
+  - Simone Thiel
+  - Boyke Bunk
+- title: Competitive advantage of oxygen-tolerant bioanodes of Geobacter sulfurreducens
+    in bioelectrochemical systems
+  date: 2021-12
+  url: https://doi.org/10.1016/j.bioflm.2021.100052
+  category: application
+  subcategory: eet
+  doi: 10.1016/j.bioflm.2021.100052
+  venue: Biofilm
+  authors:
+  - Allison M. Speers
+  - Gemma Reguera
+- title: Battery-Free and Energy-Effective RFID Sensor Tag for Health Monitoring in
+    Smart Grid
+  date: 2017-12
+  url: https://doi.org/10.1109/ams.2017.35
+  category: application
+  subcategory: hybrid
+  doi: 10.1109/ams.2017.35
+  venue: 2017 Asia Modelling Symposium (AMS)
+  authors:
+  - Qiwu Luo
+  - Tao Wang
+  - Yigang He
+- title: NFC Hybrid Harvester for Battery-free Agricultural Sensor Nodes
+  date: 2019-09
+  url: https://doi.org/10.1109/rfid-ta.2019.8892237
+  category: application
+  subcategory: hybrid
+  doi: 10.1109/rfid-ta.2019.8892237
+  venue: 2019 IEEE International Conference on RFID Technology and Applications (RFID-TA)
+  authors:
+  - Spyridon Nektarios Daskalakis
+  - George Goussetis
+  - Apostolos Georgiadis
+- title: A Solar-Cell-Assisted, 99% Biofuel Cell Area Reduced, Biofuel-Cell-Powered
+    Wireless Biosensing System in 65nm CMOS for Continuous Glucose Monitoring Contact
+    Lenses
+  date: 2022-07
+  url: https://doi.org/10.1587/transele.2021cds0002
+  category: application
+  subcategory: hybrid
+  doi: 10.1587/transele.2021cds0002
+  venue: IEICE Transactions on Electronics
+  authors:
+  - Guowei CHEN
+  - Kiichi NIITSU
+- title: A Self-Powered Acetaldehyde Sensor Based on Biofuel Cell
+  date: 2012-11
+  url: https://doi.org/10.1021/ac302414a
+  category: application
+  subcategory: hybrid
+  doi: 10.1021/ac302414a
+  venue: Analytical Chemistry
+  authors:
+  - Lingling Zhang
+  - Ming Zhou
+  - Shaojun Dong
+- title: Comprehensive in silico and gene expression profiles of MnP family genes
+    in Phanerochaete chrysosporium towards lignin biodegradation
+  date: 2021-02
+  url: https://doi.org/10.1016/j.ibiod.2020.105143
+  category: mechanism
+  subcategory: degradation
+  doi: 10.1016/j.ibiod.2020.105143
+  venue: International Biodeterioration &amp; Biodegradation
+  authors:
+  - Sree Preethy Kuppuraj
+  - Baskar Venkidasamy
+  - Dhivya Selvaraj
+- title: Selective removal of lignin in steam-exploded rice straw by Phanerochaete
+    chrysosporium
+  date: 2012-11
+  url: https://doi.org/10.1016/j.ibiod.2012.09.003
+  category: mechanism
+  subcategory: degradation
+  doi: 10.1016/j.ibiod.2012.09.003
+  venue: International Biodeterioration &amp; Biodegradation
+  authors:
+  - Shengli Zhang
+  - Man Jiang
+  - Zuowan Zhou
+- title: 'Solutions for Space Waste: Biodegradation of Polyurethane by Pestalotiopsis
+    Microspora in Microgravity'
+  date: 2025-01
+  url: https://doi.org/10.21275/sr241230151350
+  category: mechanism
+  subcategory: degradation
+  doi: 10.21275/sr241230151350
+  venue: International Journal of Science and Research (IJSR)
+  authors:
+  - Aarna Agarwal
+  - Sohrab Mehra
+  - Ian Wilson
+- title: The endophytic fungi pestalotiopsis what’s for it and what’s on it?
+  date: 2020-12
+  url: https://doi.org/10.31579/2693-7247/032
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.31579/2693-7247/032
+  venue: Pharmaceutics and Pharmacology Research
+  authors:
+  - Waill Elkhateeb
+- title: Industrial applications of Yarrowia lipolytica
+  date: 2025-01
+  url: https://doi.org/10.1016/b978-0-443-22092-0.00005-0
+  category: application
+  subcategory: hybrid
+  doi: 10.1016/b978-0-443-22092-0.00005-0
+  venue: Yarrowia Lipolytica Yeast
+  authors:
+  - Ahmet Tülek
+- title: Silica Encapsulated Laccase/CNT Catalysts for Enzymatic Fuel Cell Cathodes
+  date: 2009-05
+  url: https://doi.org/10.1149/ma2009-01/43/1452
+  category: mechanism
+  subcategory: laccase
+  doi: 10.1149/ma2009-01/43/1452
+  venue: ECS Meeting Abstracts
+  authors:
+  - Ramaraja P. Ramasamy
+  - Heather Luckarift
+  - Dmitri Ivnitski
+- title: Fully enzymatic mediatorless fuel cell with efficient naphthylated carbon
+    nanotube–laccase composite cathodes
+  date: 2012-07
+  url: https://doi.org/10.1016/j.elecom.2012.04.011
+  category: material
+  subcategory: laccase
+  doi: 10.1016/j.elecom.2012.04.011
+  venue: Electrochemistry Communications
+  authors:
+  - Maciej Karaśkiewicz
+  - Ewa Nazaruk
+  - Kamila Żelechowska
+- title: Electron transfer in enzymatic biofuel cells
+  date: 2024-01
+  url: https://doi.org/10.1016/b978-0-443-13835-5.00008-5
+  category: mechanism
+  subcategory: eet
+  doi: 10.1016/b978-0-443-13835-5.00008-5
+  venue: Biofuel Cells
+  authors:
+  - Jianqi Ye
+  - Dan Wen
+- title: Characterization of electricity generation and microbial community structure
+    over long-term operation of a microbial fuel cell
+  date: 2019-08
+  url: https://doi.org/10.1016/j.biortech.2019.121395
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/j.biortech.2019.121395
+  venue: Bioresource Technology
+  authors:
+  - Xizi Long
+  - Xian Cao
+  - Hailiang Song
+- title: Assessment of Electron Transfer Mechanisms during a Long-Term Sediment Microbial
+    Fuel Cell Operation
+  date: 2019-02
+  url: https://doi.org/10.3390/en12030481
+  category: mechanism
+  subcategory: eet
+  doi: 10.3390/en12030481
+  venue: Energies
+  authors:
+  - Luciana Peixoto
+  - Pier Parpot
+  - Gilberto Martins
+- title: Quantifying long-term electrode performance
+  date: 2018-09
+  url: https://doi.org/10.1201/b19640-9
+  category: material
+  subcategory: hybrid
+  doi: 10.1201/b19640-9
+  venue: Neuroprosthetics
+  authors: []
+- title: Anode microbial communities produced by changing from microbial fuel cell
+    to microbial electrolysis cell operation using two different wastewaters
+  date: 2011-01
+  url: https://doi.org/10.1016/j.biortech.2010.05.019
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/j.biortech.2010.05.019
+  venue: Bioresource Technology
+  authors:
+  - Patrick D. Kiely
+  - Roland Cusick
+  - Douglas F. Call
+- title: Impact of cathodic electron acceptor on microbial fuel cell internal resistance
+  date: 2020-11
+  url: https://doi.org/10.1016/j.biortech.2020.123919
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/j.biortech.2020.123919
+  venue: Bioresource Technology
+  authors:
+  - Kathryn Lawson
+  - Ruggero Rossi
+  - John M. Regan
+- title: Bioelectrochemical Systems, Energy Production and Electrosynthesis
+  date: 2012-01
+  url: https://doi.org/10.4172/1948-5948.1000e112
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.4172/1948-5948.1000e112
+  venue: Journal of Microbial &amp; Biochemical Technology
+  authors:
+  - Abhijeet P. Borole
+- title: Fuel Cell Operating Conditions
+  date: 2013-01
+  url: https://doi.org/10.1016/b978-0-12-387710-9.00005-9
+  category: mechanism
+  subcategory: hybrid
+  doi: 10.1016/b978-0-12-387710-9.00005-9
+  venue: PEM Fuel Cells
+  authors:
+  - Frano Barbir
+- title: 3D‐Printed Macroporous Resin Anode in Microbial Fuel Cell‐Based Biosensors
+    for Efficient Biodegradable Organic Carbon Monitoring
+  date: 2025-10
+  url: https://doi.org/10.1002/adsr.202500072
+  category: application
+  subcategory: degradation
+  doi: 10.1002/adsr.202500072
+  venue: Advanced Sensor Research
+  authors:
+  - Anna Salvian
+  - Junbin Huang
+  - Daniel Farkas
+- title: Heavy Metal Sensor Research Based on Microbial Fuel Cell
+  date: 2018-01
+  url: https://doi.org/10.11648/j.ijema.20180602.13
+  category: application
+  subcategory: hybrid
+  doi: 10.11648/j.ijema.20180602.13
+  venue: International Journal of Environmental Monitoring and Analysis
+  authors:
+  - Yining Wu
+- title: Bioresorbable and Transient Bioelectronics
+  date: 2026-07
+  url: https://doi.org/10.4018/979-8-2600-0060-1.ch012
+  category: mechanism
+  subcategory: degradation
+  doi: 10.4018/979-8-2600-0060-1.ch012
+  venue: Next-Generation Biodegradable and Bioactive Biomaterials
+  authors:
+  - G. Boopathi Raja
+- title: PHBVTM Biodegradable Polyester
+  date: 2018-01
+  url: https://doi.org/10.1201/9781351071321-3
+  category: mechanism
+  subcategory: degradation
+  doi: 10.1201/9781351071321-3
+  venue: Degradable Materials
+  authors:
+  - T.J. Galvin
+- title: 'Decolourisation of Acid orange 7 in a microbial fuel cell with a laccase-based
+    biocathode: Influence of mitigating pH changes in the cathode chamber'
+  date: 2017-01
+  url: https://doi.org/10.1016/j.enzmictec.2016.10.012
+  category: mechanism
+  subcategory: laccase
+  doi: 10.1016/j.enzmictec.2016.10.012
+  venue: Enzyme and Microbial Technology
+  authors:
+  - Priyadharshini Mani
+  - Taj Keshavarz
+  - T.S Chandra
+- title: '&lt;i&gt;In Situ&lt;/i&gt; Laccase Biocathode Performance Assessment in
+    Dual-Chamber Microbial Fuel Cells'
+  date: 2021-01
+  url: https://doi.org/10.2139/ssrn.3954809
+  category: mechanism
+  subcategory: laccase
+  doi: 10.2139/ssrn.3954809
+  venue: SSRN Electronic Journal
+  authors:
+  - Cristiane Ottoni
+  - Caterina Trotta
+  - Gilberto Martins

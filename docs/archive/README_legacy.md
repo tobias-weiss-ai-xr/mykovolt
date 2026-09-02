@@ -237,8 +237,8 @@ Die Pilze werden in eine **cellulosebasierte 3D-Druck-Tinte** eingemischt, die e
 - **Appl. Sci.** (2023): *Performance of the Dual-Chamber Fungal Fuel Cell in Treating Tannery Wastewater*. MDPI 13(19), 10710.
   - DOI: [10.3390/app131910710](https://doi.org/10.3390/app131910710)
 
-- **Agriculture** (2025): *Xeno-Fungusphere: Fungal-Enhanced MFCs for Agricultural Remediation*. MDPI 15(6), 1392.
-  - DOI: [10.3390/agriculture15061392](https://doi.org/10.3390/agriculture15061392)
+- **Frontiers in Microbiology** (2026): *Fungal fuel cells: an environmentally friendly approach to addressing heavy metal pollution and electricity production*. Altaf, M.T. et al.
+  - DOI: [10.3389/fmicb.2026.1825368](https://doi.org/10.3389/fmicb.2026.1825368)
 
 - **Yeast bio-batteries** — Crespilho, F.N. (2024): RSC Environ. Sci.: Energy.
   - URL: [pubs.rsc.org/en/content/articlepdf/2024/se/d4se00903g](https://pubs.rsc.org/en/content/articlepdf/2024/se/d4se00903g)

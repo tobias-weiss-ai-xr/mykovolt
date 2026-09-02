@@ -1,65 +1,67 @@
 {
   "metadata": {
-    "total_papers": 96,
+    "total_papers": 125,
     "generated_date": "2026-07",
     "taxonomy": {
       "categories": 4,
       "subcategories": 4,
       "total_cells": 16,
-      "filled_cells": 11,
-      "saturation": 68.8,
-      "empty_cells": 5
+      "filled_cells": 13,
+      "saturation": 81.2,
+      "empty_cells": 3
     },
     "analysis_window": {
-      "last_12m_start": "2025-08"
+      "last_12m_start": "2025-09"
     }
   },
   "by_category": {
-    "application": 25,
-    "material": 30,
-    "mechanism": 40,
+    "application": 33,
+    "material": 32,
+    "mechanism": 59,
     "survey": 1
   },
   "by_subcategory": {
-    "degradation": 21,
-    "eet": 11,
-    "hybrid": 35,
-    "laccase": 29
+    "degradation": 27,
+    "eet": 15,
+    "hybrid": 50,
+    "laccase": 33
   },
   "by_year": {
     "2004": 1,
     "2006": 1,
-    "2009": 1,
+    "2009": 2,
     "2010": 1,
-    "2011": 1,
-    "2012": 1,
-    "2013": 2,
+    "2011": 2,
+    "2012": 5,
+    "2013": 3,
     "2014": 4,
     "2015": 2,
     "2016": 3,
-    "2017": 5,
-    "2018": 12,
-    "2019": 5,
-    "2020": 5,
-    "2021": 6,
-    "2022": 9,
+    "2017": 8,
+    "2018": 15,
+    "2019": 8,
+    "2020": 9,
+    "2021": 9,
+    "2022": 10,
     "2023": 11,
-    "2024": 7,
-    "2025": 7,
-    "2026": 12
+    "2024": 8,
+    "2025": 10,
+    "2026": 13
   },
   "by_cell": {
-    "application/hybrid": 24,
-    "mechanism/laccase": 14,
-    "material/laccase": 14,
-    "mechanism/degradation": 11,
+    "application/hybrid": 30,
+    "mechanism/laccase": 17,
+    "mechanism/degradation": 16,
+    "material/laccase": 15,
+    "mechanism/hybrid": 14,
+    "mechanism/eet": 12,
     "material/degradation": 10,
-    "mechanism/eet": 9,
-    "mechanism/hybrid": 6,
-    "material/hybrid": 4,
+    "material/hybrid": 5,
     "material/eet": 2,
     "application/laccase": 1,
-    "survey/hybrid": 1
+    "survey/hybrid": 1,
+    "application/eet": 1,
+    "application/degradation": 1
   },
   "emerging_themes_12m": [
     {
@@ -83,35 +85,35 @@
     {
       "id": "mechanism",
       "name": "Mechanism",
-      "total": 40,
+      "total": 59,
       "recent": 10,
-      "prior": 5,
-      "growth_pct": 100.0,
-      "recent_share": 0.25,
+      "prior": 7,
+      "growth_pct": 42.9,
+      "recent_share": 0.169,
       "papers_per_month": 0.8,
-      "score": 125.0
+      "score": 59.8
     },
     {
       "id": "material",
       "name": "Material",
-      "total": 30,
+      "total": 32,
       "recent": 2,
       "prior": 0,
       "growth_pct": null,
-      "recent_share": 0.067,
+      "recent_share": 0.062,
       "papers_per_month": 0.2,
-      "score": 6.7
+      "score": 6.2
     },
     {
       "id": "application",
       "name": "Application",
-      "total": 25,
-      "recent": 1,
-      "prior": 1,
+      "total": 33,
+      "recent": 2,
+      "prior": 2,
       "growth_pct": 0.0,
-      "recent_share": 0.04,
-      "papers_per_month": 0.1,
-      "score": 4.0
+      "recent_share": 0.061,
+      "papers_per_month": 0.2,
+      "score": 6.1
     },
     {
       "id": "survey",
@@ -127,16 +129,18 @@
   ],
   "category_trajectory": {
     "application": {
+      "2012": 1,
       "2015": 1,
       "2016": 1,
-      "2018": 6,
-      "2019": 2,
+      "2017": 1,
+      "2018": 7,
+      "2019": 3,
       "2020": 1,
-      "2021": 4,
-      "2022": 1,
+      "2021": 5,
+      "2022": 2,
       "2023": 4,
       "2024": 3,
-      "2025": 1,
+      "2025": 3,
       "2026": 1
     },
     "material": {
@@ -144,13 +148,13 @@
       "2006": 1,
       "2009": 1,
       "2010": 1,
-      "2012": 1,
+      "2012": 2,
       "2013": 2,
       "2014": 2,
       "2015": 1,
       "2016": 2,
       "2017": 3,
-      "2018": 1,
+      "2018": 2,
       "2019": 1,
       "2020": 3,
       "2021": 1,
@@ -160,17 +164,21 @@
       "2026": 2
     },
     "mechanism": {
-      "2011": 1,
+      "2009": 1,
+      "2011": 2,
+      "2012": 2,
+      "2013": 1,
       "2014": 2,
-      "2017": 2,
-      "2018": 5,
-      "2019": 2,
-      "2020": 1,
+      "2017": 4,
+      "2018": 6,
+      "2019": 4,
+      "2020": 5,
+      "2021": 2,
       "2022": 5,
       "2023": 4,
-      "2024": 3,
-      "2025": 6,
-      "2026": 9
+      "2024": 4,
+      "2025": 7,
+      "2026": 10
     },
     "survey": {
       "2021": 1
@@ -181,34 +189,34 @@
       "keyword": "human",
       "recent": 2,
       "total": 2,
-      "burst_score": 7.38,
-      "recent_share": 0.1538
+      "burst_score": 8.93,
+      "recent_share": 0.1429
     },
     {
       "keyword": "tool",
       "recent": 2,
       "total": 3,
-      "burst_score": 4.92,
-      "recent_share": 0.1538
+      "burst_score": 5.95,
+      "recent_share": 0.1429
     },
     {
       "keyword": "graph",
       "recent": 1,
       "total": 5,
-      "burst_score": 1.48,
-      "recent_share": 0.0769
+      "burst_score": 1.79,
+      "recent_share": 0.0714
     },
     {
       "keyword": "transfer",
       "recent": 1,
-      "total": 11,
-      "burst_score": 0.67,
-      "recent_share": 0.0769
+      "total": 13,
+      "burst_score": 0.69,
+      "recent_share": 0.0714
     }
   ],
   "source_breakdown": {
     "arxiv": 0,
-    "doi": 96,
+    "doi": 125,
     "other": 0
   },
   "venues": [
@@ -226,10 +234,18 @@
     },
     {
       "name": "Journal of Power Sources",
-      "papers": 4
+      "papers": 5
+    },
+    {
+      "name": "Analytical Chemistry",
+      "papers": 3
     },
     {
       "name": "Fuel",
+      "papers": 3
+    },
+    {
+      "name": "Enzyme and Microbial Technology",
       "papers": 3
     },
     {
@@ -237,7 +253,11 @@
       "papers": 3
     },
     {
-      "name": "Analytical Chemistry",
+      "name": "Bioresource Technology",
+      "papers": 3
+    },
+    {
+      "name": "SSRN Electronic Journal",
       "papers": 2
     },
     {
@@ -245,31 +265,19 @@
       "papers": 2
     },
     {
-      "name": "Enzyme and Microbial Technology",
-      "papers": 2
-    },
-    {
       "name": "Biosensors and Bioelectronics",
       "papers": 2
     },
     {
+      "name": "Biofuel Cells",
+      "papers": 2
+    },
+    {
+      "name": "International Biodeterioration &amp; Biodegradation",
+      "papers": 2
+    },
+    {
       "name": "Sediment Transport and Depositional Processes [Working Title]",
-      "papers": 1
-    },
-    {
-      "name": "Agronomy",
-      "papers": 1
-    },
-    {
-      "name": "Journal of microbiology, biotechnology and food sciences",
-      "papers": 1
-    },
-    {
-      "name": "ACS Applied Nano Materials",
-      "papers": 1
-    },
-    {
-      "name": "SSRN Electronic Journal",
       "papers": 1
     }
   ],
@@ -284,44 +292,44 @@
         "papers": 1
       },
       {
+        "cell": "application/eet",
+        "papers": 1
+      },
+      {
+        "cell": "application/degradation",
+        "papers": 1
+      },
+      {
         "cell": "material/eet",
         "papers": 2
       },
       {
         "cell": "material/hybrid",
-        "papers": 4
-      },
-      {
-        "cell": "mechanism/hybrid",
-        "papers": 6
-      },
-      {
-        "cell": "mechanism/eet",
-        "papers": 9
+        "papers": 5
       },
       {
         "cell": "material/degradation",
         "papers": 10
       },
       {
-        "cell": "mechanism/degradation",
-        "papers": 11
+        "cell": "mechanism/eet",
+        "papers": 12
       },
       {
-        "cell": "mechanism/laccase",
+        "cell": "mechanism/hybrid",
         "papers": 14
       },
       {
         "cell": "material/laccase",
-        "papers": 14
+        "papers": 15
       }
     ],
     "white_space": [
       {
         "cell": "mechanism/eet",
-        "total": 9,
+        "total": 12,
         "recent": 8,
-        "recent_share": 0.89
+        "recent_share": 0.67
       }
     ]
   },
@@ -363,6 +371,10 @@
       "papers": 2
     },
     {
+      "name": "Abhijeet P. Borole",
+      "papers": 2
+    },
+    {
       "name": "Andrew Adamatzky",
       "papers": 2
     },
@@ -371,19 +383,15 @@
       "papers": 2
     },
     {
+      "name": "Gilberto Martins",
+      "papers": 2
+    },
+    {
       "name": "Azizul Moqsud",
       "papers": 1
     },
     {
       "name": "Altaf MT",
-      "papers": 1
-    },
-    {
-      "name": "Umar A",
-      "papers": 1
-    },
-    {
-      "name": "Mubeen M",
       "papers": 1
     }
   ]

@@ -65,7 +65,9 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
   - [Degradation & Lifespan](#degradation-&-lifespan)
 - [📚 Applications & Devices](#applications-&-devices)
   - [Laccase-Mediated](#laccase-mediated)
+  - [Extracellular Electron Transfer](#extracellular-electron-transfer)
   - [Hybrid / Co-Culture](#hybrid-/-co-culture)
+  - [Degradation & Lifespan](#degradation-&-lifespan)
 - [📚 Surveys & Reviews](#surveys-&-reviews)
   - [Hybrid / Co-Culture](#hybrid-/-co-culture)
 
@@ -89,6 +91,10 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 - [2023] **Enhanced Extracellular Electron Transfer of Comn2o4@Cnt as Microbial Fuel Cell Anode** *Journal of environmental chemical engineering* [[paper](https://doi.org/10.2139/ssrn.4563137)]
 - [2023] **Fe/N Codoped Paper Carbon Fiber Foam Promoted Extracellular Electron Transfer for a High-Performance Microbial Fuel Cell** *ACS Applied Engineering Materials* [[paper](https://doi.org/10.1021/acsaenm.3c00445.s001)]
 
+##### 2021
+
+- [2021] **&lt;i&gt;In Situ&lt;/i&gt; Laccase Biocathode Performance Assessment in Dual-Chamber Microbial Fuel Cells** *SSRN Electronic Journal* [[paper](https://doi.org/10.2139/ssrn.3954809)]
+
 ##### 2020
 
 - [2020] **Dye reduction-based electron-transfer activity monitoring assay for assessing microbial electron transfer activity of microbial fuel cell inocula** *Journal of Environmental Sciences* [[paper](https://doi.org/10.1016/j.jes.2020.04.037)]
@@ -102,6 +108,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2017
 
 - [2017] **Understanding and improving the microbial fuel cell anodic electron transfer process** *Journal of Power Sources* [[paper](https://doi.org/10.32657/10356/48051)]
+- [2017] **Decolourisation of Acid orange 7 in a microbial fuel cell with a laccase-based biocathode: Influence of mitigating pH changes in the cathode chamber** *Enzyme and Microbial Technology* [[paper](https://doi.org/10.1016/j.enzmictec.2016.10.012)]
 
 ##### 2014
 
@@ -110,6 +117,10 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2011
 
 - [2011] **Platinum Nanoparticles (PtNPs) - Laccase Assisted Biocathode Reduction of Oxygen for Biofuel Cells** *International Journal of Electrochemical Science* [[paper](https://doi.org/10.1016/s1452-3981(23)19689-1)]
+
+##### 2009
+
+- [2009] **Silica Encapsulated Laccase/CNT Catalysts for Enzymatic Fuel Cell Cathodes** *ECS Meeting Abstracts* [[paper](https://doi.org/10.1149/ma2009-01/43/1452)]
 
 [⬆ Back to top](#paper-list)
 
@@ -130,6 +141,18 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 - [2025] **Bioelectricity harvesting from microorganism: review of recent advancements in utilizing the bioelectric properties of fungi for powering small-scale robotic systems.** *MED* [[paper](https://doi.org/10.3389/ffunb.2025.1739847)]
 
+##### 2024
+
+- [2024] **Electron transfer in enzymatic biofuel cells** *Biofuel Cells* [[paper](https://doi.org/10.1016/b978-0-443-13835-5.00008-5)]
+
+##### 2020
+
+- [2020] **Performance Modelling of the Bioelectrochemical Glycerol Oxidation by a Co‐Culture of <i>Geobacter Sulfurreducens</i> and <i>Raoultella Electrica</i>** *ChemElectroChem* [[paper](https://doi.org/10.1002/celc.202000027)]
+
+##### 2019
+
+- [2019] **Assessment of Electron Transfer Mechanisms during a Long-Term Sediment Microbial Fuel Cell Operation** *Energies* [[paper](https://doi.org/10.3390/en12030481)]
+
 [⬆ Back to top](#paper-list)
 
 #### Hybrid / Co-Culture
@@ -142,9 +165,16 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 - [2023] **Sediment microbial fuel cell (SMFCs)** *Biological Fuel Cells* [[paper](https://doi.org/10.1016/b978-0-323-85711-6.00004-7)]
 
+##### 2020
+
+- [2020] **The endophytic fungi pestalotiopsis what’s for it and what’s on it?** *Pharmaceutics and Pharmacology Research* [[paper](https://doi.org/10.31579/2693-7247/032)]
+- [2020] **Impact of cathodic electron acceptor on microbial fuel cell internal resistance** *Bioresource Technology* [[paper](https://doi.org/10.1016/j.biortech.2020.123919)]
+- [2020] **Microbial synergistic interactions enhanced power generation in co-culture driven microbial fuel cell** *Science of The Total Environment* [[paper](https://doi.org/10.1016/j.scitotenv.2020.140138)]
+
 ##### 2019
 
 - [2019] **Pleurotus ostreatus (oyster mushroom)** *CABI Compendium* [[paper](https://doi.org/10.1079/cabicompendium.42037)]
+- [2019] **Characterization of electricity generation and microbial community structure over long-term operation of a microbial fuel cell** *Bioresource Technology* [[paper](https://doi.org/10.1016/j.biortech.2019.121395)]
 
 ##### 2018
 
@@ -154,6 +184,19 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2017
 
 - [2017] **Sediment Microbial Fuel Cell and Constructed Wetland Assisted with It: Challenges and Future Prospects** *Microbial Fuel Cell* [[paper](https://doi.org/10.1007/978-3-319-66793-5_17)]
+- [2017] **Self-sustaining, solar-driven bioelectricity generation in micro-sized microbial fuel cell using co-culture of heterotrophic and photosynthetic bacteria** *Journal of Power Sources* [[paper](https://doi.org/10.1016/j.jpowsour.2017.03.014)]
+
+##### 2013
+
+- [2013] **Fuel Cell Operating Conditions** *PEM Fuel Cells* [[paper](https://doi.org/10.1016/b978-0-12-387710-9.00005-9)]
+
+##### 2012
+
+- [2012] **Bioelectrochemical Systems, Energy Production and Electrosynthesis** *Journal of Microbial &amp; Biochemical Technology* [[paper](https://doi.org/10.4172/1948-5948.1000e112)]
+
+##### 2011
+
+- [2011] **Anode microbial communities produced by changing from microbial fuel cell to microbial electrolysis cell operation using two different wastewaters** *Bioresource Technology* [[paper](https://doi.org/10.1016/j.biortech.2010.05.019)]
 
 [⬆ Back to top](#paper-list)
 
@@ -161,12 +204,14 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 ##### 2026
 
+- [2026] **Bioresorbable and Transient Bioelectronics** *Next-Generation Biodegradable and Bioactive Biomaterials* [[paper](https://doi.org/10.4018/979-8-2600-0060-1.ch012)]
 - [2026] **Cellulose-based sensors for decentralized monitoring in precision agriculture.** *MED* [[paper](https://doi.org/10.1038/s41467-026-70730-7)]
 
 ##### 2025
 
 - [2025] **Harnessing carbon potential of lignocellulosic biomass: advances in pretreatments, applications, and the transformative role of machine learning in biorefineries.** *MED* [[paper](https://doi.org/10.1186/s40643-025-00935-z)]
 - [2025] **Biodegradation of azo dyes by Aspergillus flavus and its bioremediation potential using seed germination efficiency.** *MED* [[paper](https://doi.org/10.1186/s12866-024-03703-9)]
+- [2025] **Solutions for Space Waste: Biodegradation of Polyurethane by Pestalotiopsis Microspora in Microgravity** *International Journal of Science and Research (IJSR)* [[paper](https://doi.org/10.21275/sr241230151350)]
 
 ##### 2024
 
@@ -180,13 +225,25 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 - [2022] **Review on the preparation of fuels and chemicals based on lignin.** *MED* [[paper](https://doi.org/10.1039/d2ra01341j)]
 - [2022] **A Horseradish Peroxidase-Mediator System for Benzylic C-H Activation.** *MED* [[paper](https://doi.org/10.1021/acscatal.2c03424)]
 
+##### 2021
+
+- [2021] **Comprehensive in silico and gene expression profiles of MnP family genes in Phanerochaete chrysosporium towards lignin biodegradation** *International Biodeterioration &amp; Biodegradation* [[paper](https://doi.org/10.1016/j.ibiod.2020.105143)]
+
 ##### 2019
 
 - [2019] **Pretreatment for biorefineries: a review of common methods for efficient utilisation of lignocellulosic materials.** *MED* [[paper](https://doi.org/10.1186/s13068-019-1634-1)]
 
+##### 2018
+
+- [2018] **PHBVTM Biodegradable Polyester** *Degradable Materials* [[paper](https://doi.org/10.1201/9781351071321-3)]
+
 ##### 2014
 
 - [2014] **Stable current outputs and phytate degradation by yeast-based biofuel cell** *Yeast* [[paper](https://doi.org/10.1002/yea.3027)]
+
+##### 2012
+
+- [2012] **Selective removal of lignin in steam-exploded rice straw by Phanerochaete chrysosporium** *International Biodeterioration &amp; Biodegradation* [[paper](https://doi.org/10.1016/j.ibiod.2012.09.003)]
 
 [⬆ Back to top](#paper-list)
 
@@ -233,6 +290,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 ##### 2012
 
+- [2012] **Fully enzymatic mediatorless fuel cell with efficient naphthylated carbon nanotube–laccase composite cathodes** *Electrochemistry Communications* [[paper](https://doi.org/10.1016/j.elecom.2012.04.011)]
 - [2012] **A 1.76V hybrid Zn-O2 biofuel cell with a fungal laccase-carbon cloth biocathode** *Electrochimica Acta* [[paper](https://doi.org/10.1016/j.electacta.2011.12.026)]
 
 ##### 2010
@@ -274,6 +332,10 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2021
 
 - [2021] **Effects of electrode size on the power generation of the microbial fuel cell by Saccharomyces cerevisiae** *Ionics* [[paper](https://doi.org/10.1007/s11581-021-04162-2)]
+
+##### 2018
+
+- [2018] **Quantifying long-term electrode performance** *Neuroprosthetics* [[paper](https://doi.org/10.1201/b19640-9)]
 
 ##### 2014
 
@@ -329,6 +391,14 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 
 [⬆ Back to top](#paper-list)
 
+#### Extracellular Electron Transfer
+
+##### 2021
+
+- [2021] **Competitive advantage of oxygen-tolerant bioanodes of Geobacter sulfurreducens in bioelectrochemical systems** *Biofilm* [[paper](https://doi.org/10.1016/j.bioflm.2021.100052)]
+
+[⬆ Back to top](#paper-list)
+
 #### Hybrid / Co-Culture
 
 ##### 2026
@@ -338,6 +408,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2025
 
 - [2025] **Signal Amplification Strategy-Assisted Dual Photoelectrode Fuel Cell Self-Powered Sensor for MecA Gene Detection** *Analytical Chemistry* [[paper](https://doi.org/10.1021/acs.analchem.5c01477.s001)]
+- [2025] **Industrial applications of Yarrowia lipolytica** *Yarrowia Lipolytica Yeast* [[paper](https://doi.org/10.1016/b978-0-443-22092-0.00005-0)]
 
 ##### 2024
 
@@ -354,6 +425,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2022
 
 - [2022] **Cofe2o4 Embedded Bacterial Cellulose for Flexible, Biodegradable, and Self-Powered Electromagnetic Sensor** *Nano Energy* [[paper](https://doi.org/10.2139/ssrn.4136294)]
+- [2022] **A Solar-Cell-Assisted, 99% Biofuel Cell Area Reduced, Biofuel-Cell-Powered Wireless Biosensing System in 65nm CMOS for Continuous Glucose Monitoring Contact Lenses** *IEICE Transactions on Electronics* [[paper](https://doi.org/10.1587/transele.2021cds0002)]
 
 ##### 2021
 
@@ -369,6 +441,7 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2019
 
 - [2019] **Ratiometric Self-Powered Sensor for 17-Estradiol Detection Based on a Dual-Channel Photocatalytic Fuel Cell** *Frontiers in Chemistry* [[paper](https://doi.org/10.1021/acs.analchem.0c01543.s001)]
+- [2019] **NFC Hybrid Harvester for Battery-free Agricultural Sensor Nodes** *2019 IEEE International Conference on RFID Technology and Applications (RFID-TA)* [[paper](https://doi.org/10.1109/rfid-ta.2019.8892237)]
 - [2019] **Net power positive maximum power point tracking energy harvesting system for microbial fuel cell** *Journal of Power Sources* [[paper](https://doi.org/10.1016/j.jpowsour.2019.02.042)]
 
 ##### 2018
@@ -379,6 +452,11 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 - [2018] **Rumen Fluid Microbes for Bioelectricity Production: A Novel Approach** *Microbial Fuel Cell Technology for Bioelectricity* [[paper](https://doi.org/10.1007/978-3-319-92904-0_10)]
 - [2018] **Electricigens: Role and Prominence in Microbial Fuel Cell Performance** *Microbial Fuel Cell Technology for Bioelectricity* [[paper](https://doi.org/10.1007/978-3-319-92904-0_9)]
 - [2018] **Plant Microbial Fuel Cell Technology: Developments and Limitations** *Microbial Fuel Cell Technology for Bioelectricity* [[paper](https://doi.org/10.1007/978-3-319-92904-0_3)]
+- [2018] **Heavy Metal Sensor Research Based on Microbial Fuel Cell** *International Journal of Environmental Monitoring and Analysis* [[paper](https://doi.org/10.11648/j.ijema.20180602.13)]
+
+##### 2017
+
+- [2017] **Battery-Free and Energy-Effective RFID Sensor Tag for Health Monitoring in Smart Grid** *2017 Asia Modelling Symposium (AMS)* [[paper](https://doi.org/10.1109/ams.2017.35)]
 
 ##### 2016
 
@@ -387,6 +465,18 @@ python3 scripts/fetch/fetch_new_papers.py --local # arXiv (last N months)
 ##### 2015
 
 - [2015] **Bioelectricity Generation and Treatment of Sugar Mill Effluent Using a Microbial Fuel Cell** *Journal of Clean Energy Technologies* [[paper](https://doi.org/10.7763/jocet.2016.v4.291)]
+
+##### 2012
+
+- [2012] **A Self-Powered Acetaldehyde Sensor Based on Biofuel Cell** *Analytical Chemistry* [[paper](https://doi.org/10.1021/ac302414a)]
+
+[⬆ Back to top](#paper-list)
+
+#### Degradation & Lifespan
+
+##### 2025
+
+- [2025] **3D‐Printed Macroporous Resin Anode in Microbial Fuel Cell‐Based Biosensors for Efficient Biodegradable Organic Carbon Monitoring** *Advanced Sensor Research* [[paper](https://doi.org/10.1002/adsr.202500072)]
 
 [⬆ Back to top](#paper-list)
 
