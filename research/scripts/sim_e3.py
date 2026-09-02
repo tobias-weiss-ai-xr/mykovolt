@@ -134,7 +134,14 @@ def main(n=2000):
         print(f"\nMg-air control (#47): 480 µW (surface) | 12 µW (20cm)")
         g=np.mean(p20)/12.0; gs=np.mean(p2)/480.0
         print(f"→ gain @20cm: {g:.1f}x  |  @surface: {gs:.1f}x")
-        verdict = "GO bench E3" if succ>70 else ("RISKY – buffer + E3b" if succ>20 else "NO-GO –Mg-air MVP")
+        if not _VALIDATED:
+            verdict = "❌ INVALID MODEL — bugs documented, do NOT use for Go/No-Go"
+        elif succ>70:
+            verdict = "GO bench E3"
+        elif succ>20:
+            verdict = "RISKY – buffer + E3b"
+        else:
+            verdict = "NO-GO – Mg-air MVP"
         print(f"\nVERDICT: {verdict}")
     else:
         print("\nAll runs failed — revert to E1/E2 or Mg-air MVP.")
