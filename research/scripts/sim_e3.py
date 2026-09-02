@@ -115,6 +115,9 @@ def run_once(seed=None):
             if ok else {"Mg":Mg,"pH":pH,"O2":O2}}
 
 
+# Safety: this model is documented as INVALID until the 3 debug bugs are fixed.
+_VALIDATED = False   # <-- set True only after circuit/growth/O2 bugs patched
+
 def main(n=2000):
     print("="*64)
     print("Phase-E E3 CO-CULTURE SIMULATOR v2  (Mg Coulomb-counting + emergent V)")
