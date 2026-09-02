@@ -903,6 +903,21 @@ papers:
   - Sergey Shleev
   - Marcos Pita
   - Alexander I. Yaropolov
+  abstract: Abstract Direct electron transfer reactions of high redox potential Trametes
+    hirsuta laccase on bare and 15 different thiol‐modified gold electrodes were studied
+    using cyclic voltammetry and potentiometry. Well‐pronounced Faradaic processes
+    were obtained for the enzyme adsorbed on bare gold, whereas reproducible and stable
+    electrochemistry was obtained only when 4‐aminothiophenol was used for gold modification.
+    Moreover, the laccase‐4‐aminothiophenol‐modified gold electrode showed the highest
+    value of the steady‐state potential under aerobic conditions equal to 660 mV vs.
+    NHE compared with the other 15 different thiol modified electrodes and also the
+    bare electrodes with immobilized enzyme. However, this value is still too far
+    away from the equilibrium potential of the oxygen electrode and Trametes hirsuta
+    laccase‐modified graphite electrode, for which a well‐pronounced high potential
+    process of oxygen bioelectroreduction is shown at 800 mV vs. NHE. Possible mechanisms
+    of the enzyme function on bare and thiol‐modified gold electrodes are discussed
+    in correlation with the structure and orientation of the enzyme on the surface
+    of the various electrodes.
 - title: Fungal oxidoreductases and CAZymes effectively degrade lignocellulosic component
     of switchgrass for bioethanol production
   date: 2022-11
@@ -995,6 +1010,22 @@ papers:
   - Asta Kausaite-Minkstimiene
   - Algimantas Kaminskas
   - Galina Gayda
+  abstract: This paper describes the study of an amperometric glucose biosensor based
+    on an enzymatic biofuel cell consisting of a bioanode and a biocathode modified
+    with the same enzyme—glucose oxidase (GOx). A graphite rod electrode (GRE) was
+    electrochemically modified with a layer of Prussian blue (PB) nanoparticles embedded
+    in a poly(pyrrole-2-carboxylic acid) (PPCA) shell, and an additional layer of
+    PPCA and was used as the cathode. A GRE modified with a nanocomposite composed
+    of poly(1,10-phenanthroline-5,6-dione) (PPD) and gold nanoparticles (AuNPs) entrapped
+    in a PPCA shell was used as an anode. Both electrodes were modified with GOx by
+    covalently bonding the enzyme to the carboxyl groups of PPCA. The developed biosensor
+    exhibited a wide linear range of 0.15–124.00 mM with an R2 of 0.9998 and a sensitivity
+    of 0.16 μA/mM. The limit of detection (LOD) and quantification (LOQ) were found
+    to be 0.07 and 0.23 mM, respectively. The biosensor demonstrated exceptional selectivity
+    to glucose and operational stability throughout 35 days, as well as good reproducibility,
+    repeatability, and anti-interference ability towards common interfering substances.
+    The studies on human serum demonstrate the ability of the newly designed biosensor
+    to determine glucose in complex real samples at clinically relevant concentrations.
 - title: Magnesium–Air Battery
   date: 2016-09
   url: https://doi.org/10.1201/9781315372280-12
@@ -1037,6 +1068,26 @@ papers:
   - Libin Yang
   - Daekwon Park
   - Zhao Qin
+  abstract: Mycelium-based bio-composite materials have been invented and widely applied
+    to different areas, including construction, manufacturing, agriculture, and biomedical.
+    As the vegetative part of a fungus, mycelium has the unique capability to utilize
+    agricultural crop waste (e.g., sugarcane bagasse, rice husks, cotton stalks, straw,
+    and stover) as substrates for the growth of its network, which integrates the
+    wastes from pieces to continuous composites without energy input or generating
+    extra waste. Their low-cost and environmentally friendly features attract interest
+    in their research and commercialization. For example, mycelium-based foam and
+    sandwich composites have been actively developed for construction structures.
+    It can be used as synthetic planar materials (e.g., plastic films and sheets),
+    larger low-density objects (e.g., synthetic foams and plastics), and semi-structural
+    materials (e.g., paneling, flooring, furniture, decking). It is shown that the
+    material function of these composites can be further tuned by controlling the
+    species of fungus, the growing conditions, and the post-growth processing method
+    to meet a specific mechanical requirement in applications (e.g., structural support,
+    acoustic and thermal insulation). Moreover, mycelium can be used to produce chitin
+    and chitosan, which have been applied to clinical trials for wound healing, showing
+    the potential for biomedical applications. Given the strong potential and multiple
+    advantages of such a material, we are interested in studying it in-depth and reviewing
+    the current progress of its related study in this review paper.
 - title: 'Biodegradable Transient Electronics: Sustainable Materials and Architectures
     for Circular IoT and Computing'
   date: 2026-02
@@ -1047,6 +1098,31 @@ papers:
   venue: ''
   authors:
   - Murali Krishna Pasupuleti
+  abstract: 'Abstract: This manuscript develops a research and translation framework
+    for biodegradable transient electronics as a foundational domain for circular
+    IoT and sustainable computing. Rather than treating biodegradability as a single
+    materials property, the book argues that transient devices must be analysed as
+    time-bounded socio-technical systems in which materials choice, architecture,
+    service window, exposure conditions, data infrastructure, and end-of-life strategy
+    are tightly coupled. Across five chapters, the discussion moves from conceptual
+    foundations and uncertainty-aware research design to statistical modelling for
+    degradation and causal explanation, machine learning for predictive design and
+    trustworthy control, big-data engineering and reproducible analytics lifecycles,
+    and sectoral translation through industrial strategy and governance. The manuscript
+    proposes a disciplined analytical pathway in which circular claims are supported
+    by explicit evidence standards, comparative evaluation logic, model governance,
+    and decision artefacts that can be used by researchers, manufacturers, public
+    procurers, and regulators. A central argument is that the future of circular electronics
+    depends not only on novel materials, but on verifiable architectures of experimentation,
+    data stewardship, lifecycle intelligence, and public accountability. The resulting
+    framework is intended to support globally relevant research and deployment across
+    South Asia, Europe, Africa, and the Americas, where sustainability priorities,
+    infrastructure capacity, and policy expectations differ but the need for responsible
+    transient computing is shared. Keywords biodegradable electronics, transient electronics,
+    circular IoT, sustainable computing, lifecycle design, degradation modelling,
+    reliability analysis, causal inference, foundation models, trustworthy machine
+    learning, reproducible analytics, MLOps, circular manufacturing, end-of-life governance,
+    public procurement, environmental sensing'
 - title: New biodegradable nano-composites for transient electronics devices
   date: 2018-01
   url: https://doi.org/10.1063/1.5047766
@@ -1088,6 +1164,28 @@ papers:
   authors:
   - Shohreh Ariaeenejad
   - Sedigheh Abedanzadeh
+  abstract: Abstract The extensive application of tetracycline antibiotics in agriculture
+    and medicine has led to persistent contamination of aquatic and terrestrial ecosystems,
+    disrupting microbial communities and contributing to the spread of antibiotic
+    resistance. Conventional treatment methods often suffer from poor efficiency,
+    limited stability, and high environmental costs, underscoring the need for robust
+    and sustainable alternatives. Here, we present a biocatalytic platform in which
+    a metagenome-derived laccase (PersiLac1) is covalently immobilized onto imidazole-functionalized
+    SBA-15 mesoporous silica to overcome the limitations of free laccase, including
+    low stability and high leaching. Immobilization markedly enhanced thermal stability,
+    reusability, and catalytic efficiency toward the degradation of doxycycline (DC)
+    and tetracycline (TC). The optimized system exhibited minimal enzyme leaching
+    (9.6% at 25 °C; 22.0% at 80 °C) and achieved removal efficiencies of 76.7 ± 2.8%
+    for DC and 53.7 ± 2.1% for TC within 24 h. High removal performance was maintained
+    even at elevated antibiotic concentrations (200 mg L⁻¹), with 43.9% and 42.8%
+    removal for DC and TC, respectively. The immobilized laccase retained over 83%
+    (DC) and 73% (TC) of its initial activity after 10 consecutive reuse cycles. To
+    the best of our knowledge, this is the first report of integrating a metagenomic
+    laccase with an imidazole-functionalized SBA-15 support for antibiotic degradation,
+    offering a unique combination of enhanced stability, high reusability, and environmentally
+    relevant performance. These findings highlight the potential of this immobilization
+    strategy as a sustainable and high-performance solution for the remediation of
+    antibiotic contaminants in water systems.
 - title: Sediment microbial fuel cell (SMFCs)
   date: 2023-01
   url: https://doi.org/10.1016/b978-0-323-85711-6.00004-7
@@ -1141,6 +1239,7 @@ papers:
   - Masato Tominaga
   - Kazufumi Kuwahara
   - Masayuki Tsushida
+  abstract: Cellulose nanofiber-based biofuel cell with flexible, biodegradable, eco-friendly.
 - title: Polypyrrole-Modified Saccharomyces cerevisiae Used in Microbial Fuel Cell
   date: 2025-08
   url: https://doi.org/10.3390/bios15080519
@@ -1152,6 +1251,22 @@ papers:
   - Kasparas Kižys
   - Domas Pirštelis
   - Ingrida Bružaitė
+  abstract: Microbial fuel cells (MFCs) are one of the contributors to the novel sustainable
+    energy generation from organic waste. However, the application of MFCs is limited
+    due to the slow charge transfer between cells and electrodes. This problem can
+    be solved by modifying cells with conductive polymers, such as polypyrrole (PPy).
+    We investigated the viability and electroactivity of modified cells at five different
+    pyrrole concentrations, namely 8, 25, 50, 100, and 200 mM. The 100 mM concentration
+    of PPy solution had the highest impact on yeast cells’ proliferation and growth,
+    with the CFU/mL of PPy-treated yeast cells being 0.6 × 107 ± 5 × 10−2. The power
+    density of the constructed MFC was evaluated by using an external load. The MFCs
+    were analyzed using cyclic voltammetry (CV) and differential pulse voltammetry
+    (DPV). Although CV results with different pyrrole concentrations were similar,
+    DPV indicated that yeast modification with 50 mM pyrrole resulted in the most
+    significant current density, which may be attributed to an increase in charge
+    transfer due to the conductive properties of polypyrrole. The power density achieved
+    with modified yeast in wastewater, 12 mW/m2, reached levels similar to those in
+    laboratory solutions, 45 mW/m2.
 - title: Effects of electrode size on the power generation of the microbial fuel cell
     by Saccharomyces cerevisiae
   date: 2021-07
@@ -1229,6 +1344,19 @@ papers:
   - Fabian Kubannek
   - Simone Thiel
   - Boyke Bunk
+  abstract: Abstract An effectively operating microbial electrolysis cell requires
+    an inexpensive electron donor in combination with a defined and stable electron‐transferring
+    microbial community. Here, a defined co‐culture of Raoultella electrica and Geobacter
+    sulfurreducens was established to generate current during glycerol oxidation.
+    Maximum current densities of 0.20 mA cm −2 and coulombic efficiencies of 21 %
+    were achieved. Glycerol metabolization into acetate by R. electrica and further
+    acetate utilization by the current‐producing G. sulfurreducens were detected.
+    Based on these observations, a physico‐chemical model was established and used
+    to describe quantitatively the relationships between current density, metabolite
+    concentrations and bacterial growth. The competition for acetate between G. sulfurreducens
+    and R. electrica was identified as the major limitation of the system. This detailed
+    quantitative understanding of the physiological interactions opens the door for
+    target‐oriented genetic engineering of the microbes.
 - title: Competitive advantage of oxygen-tolerant bioanodes of Geobacter sulfurreducens
     in bioelectrochemical systems
   date: 2021-12
@@ -1331,6 +1459,16 @@ papers:
   venue: Pharmaceutics and Pharmacology Research
   authors:
   - Waill Elkhateeb
+  abstract: Fungi generally and endophytic ones specifically represent future factories
+    and potent biotechnological tools for production of bioactive natural substances,
+    which could extend healthy life of humanity. Pestalotiopsis is a fungal genus
+    that belongs to family; Sporocadaceae, has been known as a promising secondary
+    metabolites producer. However the same fungus showed harmful pathogenicity against
+    different plants causing crops economical losses. This review is to demonstrate
+    secondary metabolites from the endophytic fungi Pestalotiopsis and some of its
+    reported biological activities. Moreover, describing the unique chemical diversity
+    of this fungal genus involved in medical, pharmaceutical, agricultural applications.
+    Also highlight the harmful side of this important fungus.
 - title: Industrial applications of Yarrowia lipolytica
   date: 2025-01
   url: https://doi.org/10.1016/b978-0-443-22092-0.00005-0
@@ -1397,6 +1535,23 @@ papers:
   - Luciana Peixoto
   - Pier Parpot
   - Gilberto Martins
+  abstract: The decentralized production of bioelectricity as well as the bioremediation
+    of contaminated sediments might be achieved by the incorporation of an anode into
+    anaerobic sediments and a cathode suspended in the water column. In this context,
+    a sediment microbial fuel cell microcosm was carried out using different configurations
+    of electrodes and types of materials (carbon and stainless steel). The results
+    showed a long-term continuous production of electricity (&gt;300 days), with a
+    maximum voltage of approximately 100 mV reached after ~30 days of operation. A
+    twofold increase of voltage was noticed with a twofold increase of surface area
+    (~30 mV to ~60 mV vs. 40 cm2 to 80 cm2), while a threefold increase was obtained
+    after the substitution of a carbon anode by one of stainless steel (~20 mV to
+    ~65 mV vs. 40 cm2 to 812 cm2). Cyclic voltammetry was used to evaluate sediment
+    bacteria electroactivity and to determine the kinetic parameters of redox reactions.
+    The voltammetric results showed that redox processes were limited by the diffusion
+    step and corresponded to a quasi-reversible electron charge transfer. These results
+    are encouraging and give important information for the further optimization of
+    sediment microbial fuel cell performance towards the long-term operation of sediment
+    microbial fuel cell devices.
 - title: Quantifying long-term electrode performance
   date: 2018-09
   url: https://doi.org/10.1201/b19640-9
@@ -1458,6 +1613,23 @@ papers:
   - Anna Salvian
   - Junbin Huang
   - Daniel Farkas
+  abstract: Abstract In this study, a novel 3D‐printed glassy carbon gyroid anode
+    is constructed using stereolithography, aiming to improve microbial fuel cell
+    (MFC)‐based biosensor performance through a simple method that optimizes both
+    the macroporous structure and hydrophilicity of the anode. Comparative studies
+    are conducted between MFC‐based biosensors with traditional carbon felt (CF‐MFCs)
+    and those with the 3D‐printed resin anode (RE‐MFCs). In batch mode, RE‐MFCs show
+    a linear dynamic range from 26 to 405 mg L −1 , +126% higher than CF‐MFCs (26–194
+    mg L −1 ). However, a reduction in sensitivity is observed (0.40 ± 0.08 mA m −2
+    mg −1 L −1 for RE‐MFCs and 1.02 ± 0.08 mA m −2 mg −1 L −1 ). In continuous flow
+    mode at a flow rate of 0.1 mL min −1 (HRT = 5 h), the RE‐MFCs demonstrated up
+    to 35% higher sensitivity (1.45 mA m −2 mg −1 L −1 ) than the CF‐MFCs (0.94 mA
+    m −2 mg −1 L −1 ) due to increased mass transport and better biofilm activity.
+    Despite using the same inoculum, different microbial electroactive biofilms formed
+    on the CF and RE anodes. Biofilm communities are influenced more by the operation
+    mode than by the anode material choice. This study introduces an innovative anode
+    material that can be tailored to increase dynamic range or sensitivity based on
+    MFC operation mode and calibration strategy.
 - title: Heavy Metal Sensor Research Based on Microbial Fuel Cell
   date: 2018-01
   url: https://doi.org/10.11648/j.ijema.20180602.13
@@ -1476,6 +1648,20 @@ papers:
   venue: Next-Generation Biodegradable and Bioactive Biomaterials
   authors:
   - G. Boopathi Raja
+  abstract: This chapter investigates a new field of biomedical engineering called
+    biocompatible bioelectronics, where bioelectronic devices are designed to serve
+    their therapeutic or diagnostic function and then dissolve naturally in the body
+    without causing any harm. These bioelectronics consist of biodegradable conductors,
+    such as magnesium, zinc, molybdenum, and their alloys, as well as biodegradable
+    substrates, including polylactic acid, polycaprolactone, and silk fibroin, which
+    serve as substrates for silicon nanomembrane semiconductor chips and wireless
+    communications modules that enable precise timing of electronic functionality
+    prior to the complete biological resorption of the device. Because transient implants
+    do not require secondary explanation surgery, they significantly decrease the
+    risk of infection, chronic inflammation and patient morbidity associated with
+    the retention of permanent devices. This chapter will provide an in-depth examination
+    of the materials science, fabrication methods, and clinical pathways for the implementation
+    of biocompatible bioelectronics.
 - title: PHBVTM Biodegradable Polyester
   date: 2018-01
   url: https://doi.org/10.1201/9781351071321-3

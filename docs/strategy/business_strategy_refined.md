@@ -1,7 +1,7 @@
 # MykoVolt — Refined Business Strategy
 
 > **Version:** v2.0 | **Date:** August 2026  
-> **Based on:** 90 curated research papers + market analysis  
+> **Based on:** 125 verified research papers + market analysis  
 > **Status:** Ready for investor pitch / grant applications
 
 ---
@@ -17,18 +17,26 @@
 - **EU Battery Regulation 2026** will ban **non-retrievable** batteries in agricultural/environmental applications
 
 ### The Solution
-A **fungal bio-battery** that:
-1. ✅ **Decomposes naturally** — 90% mass becomes CO₂ + H₂O in <90 days
-2. ✅ **Performs** — 50-200 µW/cm² (enough for most low-power sensors)
-3. ✅ **Scales** — Press-mold manufacturing at €0.15-0.50/unit
-4. ✅ **Complies** — Exempt from EU battery regulations (no heavy metals)
+MykoVolt batteries come in two tiers:
+
+1. **Mg-Air Core Battery** (primary): *Guaranteed* 50–500 µW, TRL 2–3,
+   €0.08/unit, O₂-independent (works at depth, in cold, in soil).
+   Based on verified magnesium-air electrochemistry — ships first.
+2. **Fungal Bio-Battery** (differentiated upgrade): *Trametes*-based
+   laccase MFC, 12.5 µW/cm² Empa baseline (TRL 2, validated in Phase E).
+   Higher science value / "living battery" narrative; optional plug-in.
+
+Both are fully biodegradable (Mg(OH)₂ + cellulose → soil-safe), both
+exempt from EU Battery Regulation (no heavy metals).
 
 ### Market Entry Strategy: Trojan Horse Model
 
 ```
 Phase 1 (0-12 mo):  NFC DevKit → €35/unit (margins: 60%)
                  ↓
-Phase 2 (6-18 mo):  Fungal Pellet Refills → €0.45/unit (margins: 75%)
+Phase 2 (6-18 mo):  Mg-Air Refill Cells → €0.08/unit (margins: 60%, high volume)
+                 ↓
+                 Fungal Pellet Refills → €0.45/unit (margins: 75%, premium)
                  ↓
 Phase 3 (18-36 mo): Biodegradable Sensor Module → €2.50/unit (margins: 50%)
                  ↓
@@ -442,4 +450,4 @@ By 2035, **every disposable IoT device** will have MykoVolt inside.
 
 ---
 
-*Document generated with insights from 90+ curated research papers on fungal bioelectrochemistry, microbial fuel cells, and biodegradable electronics.*
+*Document generated with insights from 125 verified research papers on fungal bioelectrochemistry, microbial fuel cells, and biodegradable electronics.*

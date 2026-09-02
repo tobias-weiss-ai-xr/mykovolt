@@ -55,7 +55,7 @@ Each layer is documented in the [platform architecture](platform/architecture/ov
 | `applications/` | Application-specific designs (e.g. DevKit) |
 | `protocols/` | Lab protocols (e.g. Empa replication) |
 | `papers/` | Our scientific publications (preprints, LaTeX) |
-| `research/` | Literature corpus (90 papers, auto-updated via arXiv/OpenAlex) |
+| `research/` | Literature corpus (125 papers, auto-updated via arXiv/OpenAlex) |
 | `docs/strategy/` | Business strategy, paradigm, pitch materials |
 | `docs/technical/` | Engineering specs (sensor board, biology, compliance) |
 | `docs/lab/` | SOHO Lab pipeline — 15 experiments for Pi 5 + Hailo + 3D printers |
@@ -83,7 +83,7 @@ This platform exists because of a fundamental problem: **Li-ion batteries are di
 
 MykoVolt maintains an **auto-updated MFC literature corpus** in [`research/`](research/README.md):
 
-- **75 papers** on fungal bioelectrochemistry, discovered via arXiv, CrossRef, EuropePMC, and OpenAlex
+- **125 papers** on fungal bioelectrochemistry, discovered via arXiv, CrossRef, EuropePMC, and OpenAlex
 - **Auto-validated** pipeline (`research/scripts/validate_papers.py`)
 - **Deep-dive review** for our species selection: [MFC Literature Review](research/docs/research/mfc_literature_review.md)
 - **Update anytime:** `cd research && python3 scripts/fetch/fetch_other_sources.py`

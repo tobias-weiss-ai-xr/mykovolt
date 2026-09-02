@@ -65,6 +65,22 @@
   },
   "emerging_themes_12m": [
     {
+      "keyword": "policy",
+      "papers": 1
+    },
+    {
+      "keyword": "decision",
+      "papers": 1
+    },
+    {
+      "keyword": "uncertainty",
+      "papers": 1
+    },
+    {
+      "keyword": "causal",
+      "papers": 1
+    },
+    {
       "keyword": "human",
       "papers": 2
     },
@@ -73,7 +89,15 @@
       "papers": 2
     },
     {
+      "keyword": "learning",
+      "papers": 1
+    },
+    {
       "keyword": "graph",
+      "papers": 2
+    },
+    {
+      "keyword": "imitation",
       "papers": 1
     },
     {
@@ -186,31 +210,73 @@
   },
   "keyword_bursts": [
     {
+      "keyword": "policy",
+      "recent": 1,
+      "total": 1,
+      "burst_score": 8.93,
+      "recent_share": 0.0714
+    },
+    {
+      "keyword": "decision",
+      "recent": 1,
+      "total": 1,
+      "burst_score": 8.93,
+      "recent_share": 0.0714
+    },
+    {
+      "keyword": "uncertainty",
+      "recent": 1,
+      "total": 1,
+      "burst_score": 8.93,
+      "recent_share": 0.0714
+    },
+    {
+      "keyword": "causal",
+      "recent": 1,
+      "total": 1,
+      "burst_score": 8.93,
+      "recent_share": 0.0714
+    },
+    {
       "keyword": "human",
       "recent": 2,
-      "total": 2,
-      "burst_score": 8.93,
+      "total": 4,
+      "burst_score": 4.46,
       "recent_share": 0.1429
     },
     {
       "keyword": "tool",
       "recent": 2,
-      "total": 3,
-      "burst_score": 5.95,
+      "total": 4,
+      "burst_score": 4.46,
       "recent_share": 0.1429
     },
     {
-      "keyword": "graph",
+      "keyword": "learning",
       "recent": 1,
-      "total": 5,
-      "burst_score": 1.79,
+      "total": 2,
+      "burst_score": 4.46,
+      "recent_share": 0.0714
+    },
+    {
+      "keyword": "graph",
+      "recent": 2,
+      "total": 8,
+      "burst_score": 2.23,
+      "recent_share": 0.1429
+    },
+    {
+      "keyword": "imitation",
+      "recent": 1,
+      "total": 4,
+      "burst_score": 2.23,
       "recent_share": 0.0714
     },
     {
       "keyword": "transfer",
       "recent": 1,
-      "total": 13,
-      "burst_score": 0.69,
+      "total": 15,
+      "burst_score": 0.6,
       "recent_share": 0.0714
     }
   ],

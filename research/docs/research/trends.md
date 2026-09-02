@@ -7,11 +7,17 @@
 
 | Keyword | Recent | Total | Burst |
 |---------|--------|-------|-------|
-| human | 2 | 2 | 8.9× |
-| tool | 2 | 3 | 6.0× |
-| generate | 2 | 5 | 3.6× |
-| graph | 1 | 5 | 1.8× |
-| transfer | 1 | 13 | 0.7× |
+| policy | 1 | 1 | 8.9× |
+| decision | 1 | 1 | 8.9× |
+| uncertainty | 1 | 1 | 8.9× |
+| causal | 1 | 1 | 8.9× |
+| human | 2 | 4 | 4.5× |
+| tool | 2 | 4 | 4.5× |
+| learning | 1 | 2 | 4.5× |
+| generate | 2 | 6 | 3.0× |
+| graph | 2 | 8 | 2.2× |
+| imitation | 1 | 4 | 2.2× |
+| transfer | 1 | 15 | 0.6× |
 
 ## 📈 Fastest-Growing Cells
 

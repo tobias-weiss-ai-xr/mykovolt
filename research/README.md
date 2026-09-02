@@ -24,7 +24,7 @@ config/taxonomy.yaml ──► papers.yaml ──► validate_papers.py
                   standard_stats.py ──► statistics.json, papers.json
 ```
 
-- **`papers.yaml`** is the source of truth (90 papers) — never edit README.md directly.
+- **`papers.yaml`** is the source of truth (125 papers) — never edit README.md directly.
 - The **taxonomy lives in one place** (`config/taxonomy.yaml`).
 - New papers are discovered via `scripts/fetch/*` from **arXiv, CrossRef, EuropePMC, OpenAlex**.
 
